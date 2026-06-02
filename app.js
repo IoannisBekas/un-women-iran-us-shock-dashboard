@@ -689,6 +689,15 @@ function initMap() {
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
   map.scrollZoom.disable();
   map.on("load", renderMapMarkers);
+  map.on("idle", () => {
+    if (!markers.length) renderMapMarkers();
+  });
+  setTimeout(() => {
+    if (!markers.length) renderMapMarkers();
+  }, 250);
+  setTimeout(() => {
+    if (!markers.length) renderMapMarkers();
+  }, 1200);
 }
 
 function renderMapMarkers() {

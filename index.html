@@ -29,7 +29,7 @@
         </div>
         <div class="hero-copy">
           <div class="hero-topline">
-            <p class="eyebrow">Shock model dashboard</p>
+            <p class="eyebrow">Regional risk dashboard</p>
             <ul class="hero-meta" aria-label="Dashboard metadata">
               <li id="meta-country-count">27 countries</li>
               <li id="meta-generated">Generated 2026-06-02</li>
@@ -38,14 +38,14 @@
           </div>
           <h1>Iran-USA regional escalation shock</h1>
           <p class="lede">
-            Interactive evidence summary for prioritizing countries exposed to food-price,
-            displacement, assistance, import and gender-vulnerability transmission pathways.
+            Interactive evidence summary to support prioritization across food-price,
+            displacement, assistance, import and gender-vulnerability pathways.
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
             <a class="hero-action-primary" href="#findings">Key findings</a>
             <a class="hero-action-secondary" href="#country-lens">Country lens</a>
-            <a class="hero-action-secondary" href="#method">Method boundary</a>
+            <a class="hero-action-secondary" href="#method">Method</a>
           </div>
         </div>
       </div>
@@ -59,9 +59,9 @@
           <span class="kpi-note">Expanded regional coverage</span>
         </article>
         <article class="kpi-card" data-tone="high">
-          <span class="kpi-label">Top current priority</span>
+          <span class="kpi-label">Highest exposure score</span>
           <strong id="kpi-top-country">-</strong>
-          <span class="kpi-note" id="kpi-top-score">Shock exposure score</span>
+          <span class="kpi-note" id="kpi-top-score">Current top-ranked country</span>
         </article>
         <article class="kpi-card" data-tone="moderate">
           <span class="kpi-label">High or very high</span>
@@ -69,16 +69,16 @@
           <span class="kpi-note">Countries needing close monitoring</span>
         </article>
         <article class="kpi-card">
-          <span class="kpi-label">SADD outcome coverage</span>
+          <span class="kpi-label">Sex-disaggregated outcomes</span>
           <strong id="kpi-sadd">-</strong>
-          <span class="kpi-note">Measured public food-security outcomes</span>
+          <span class="kpi-note">Public women/girls food-security outcome datasets</span>
         </article>
       </section>
 
       <section class="interpretation-panel" aria-labelledby="reading-title">
         <div>
           <p class="eyebrow">How to read this dashboard</p>
-          <h2 id="reading-title">Prioritization, not causal attribution</h2>
+          <h2 id="reading-title">Screening tool, not a causal estimate</h2>
         </div>
         <p id="method-boundary">
           The score ranks exposure to plausible escalation pathways. It does not estimate
@@ -152,7 +152,7 @@
 
         <article class="decision-card">
           <p class="eyebrow">Decision readout</p>
-          <h2>What should stand out</h2>
+          <h2>Executive readout</h2>
           <ul id="message-list"></ul>
         </article>
       </section>
@@ -275,12 +275,12 @@
       <section class="evidence-grid" aria-label="Data readiness and source coverage">
         <article class="evidence-panel">
           <p class="eyebrow">Readiness checks</p>
-          <h2>What can be estimated now?</h2>
+          <h2>What the data can support now</h2>
           <div id="readiness-list" class="readiness-list"></div>
         </article>
         <article class="evidence-panel">
           <p class="eyebrow">Additional public layers</p>
-          <h2>What was added after team feedback?</h2>
+          <h2>New public evidence layers</h2>
           <div id="coverage-list" class="coverage-list"></div>
         </article>
       </section>
@@ -315,49 +315,56 @@
       <section id="method" class="method-section" aria-labelledby="method-title">
         <div>
           <p class="eyebrow">Method boundary</p>
-          <h2 id="method-title">How the dashboard should be cited internally</h2>
+          <h2 id="method-title">Method and interpretation boundaries</h2>
           <p>
-            This dashboard communicates the official model workbook as a screening and monitoring tool.
-            The model uses expert-assigned composite-index weights, OECD/JRC-guided documentation,
-            scenario sensitivity and a causal-readiness layer. The weights are not IMF weights; IMF-style
-            shock logic is used only to define food, fuel, fertilizer and import-exposure pathways.
-            It should not be used to claim that the escalation caused a specific increase in food insecurity
-            among women or girls.
+            This dashboard summarizes the official model workbook as a screening and monitoring tool.
+            It helps identify countries that may need closer attention under regional escalation scenarios
+            by combining food-price pressure, import and fertilizer exposure, acute food insecurity,
+            displacement, assistance pressure and gender vulnerability. The index is expert-weighted,
+            documented and sensitivity-tested using OECD/JRC composite-indicator guidance. It is not a
+            causal estimate and should not be used to state that the escalation caused a specific increase
+            in food insecurity among women or girls.
           </p>
           <div class="weight-defense">
-            <h3>Why these weights are defensible</h3>
+            <h3>Rationale for the weights</h3>
             <p>
-              The weights are not presented as universal, causal or externally mandated weights. They are
-              documented expert judgment for a UN Women screening index, aligned with OECD/JRC
-              composite-indicator practice.
+              The weights translate the project theory of shock transmission into a transparent
+              prioritization score. They are documented expert judgment for this UN Women screening
+              exercise, not universal or externally mandated weights.
             </p>
             <ul>
               <li>
-                <strong>Theory first:</strong> each weight maps to a plausible shock pathway: prices,
-                import exposure, fertilizer/agriculture, acute food insecurity, displacement, assistance
-                pressure and gender vulnerability.
+                <strong>Pathway coverage:</strong> the score covers the main escalation pathways:
+                prices, import exposure, fertilizer/agriculture, acute food insecurity, displacement,
+                assistance pressure and gender vulnerability.
               </li>
               <li>
-                <strong>Outcome severity anchors the score:</strong> IPC acute food insecurity receives
-                the largest single weight, 17%, because current crisis-or-worse severity is the strongest
-                prioritization signal.
+                <strong>Severity anchor:</strong> IPC acute food insecurity receives the largest single
+                weight, 17%, because current crisis-or-worse severity is the strongest prioritization
+                signal.
               </li>
               <li>
-                <strong>UN Women mandate is visible:</strong> gender vulnerability receives 15%, equal
-                to food-price pressure, so the index does not become a generic macro or food-price model.
+                <strong>UN Women lens:</strong> gender vulnerability receives 15%, equal to
+                food-price pressure, so the index remains gender-sensitive rather than becoming a
+                generic macro or food-price model.
               </li>
               <li>
-                <strong>Data quality affects weight size:</strong> public WFP outcomes receive 5% because
+                <strong>Data quality discipline:</strong> public WFP outcomes receive 5% because
                 coverage is sparse; the older displacement proxy is kept at 7% and complemented by an 8%
                 public IDMC/IOM layer to reduce double counting.
               </li>
               <li>
-                <strong>Upstream risks are material but moderated:</strong> import exposure and
+                <strong>Balanced upstream risks:</strong> import exposure and
                 agriculture/fertilizer exposure each receive 12% because they are important transmission
                 pathways but less direct than observed food-insecurity severity.
               </li>
               <li>
-                <strong>Robustness is tested:</strong> alternative weighting schemes are included in the
+                <strong>External references are used carefully:</strong> IMF-style shock logic informs
+                pathway selection, while OECD/JRC guidance informs composite-index construction. No
+                external weight set is copied.
+              </li>
+              <li>
+                <strong>Robustness testing:</strong> alternative weighting schemes are included in the
                 Weight_Sensitivity output, so decision makers can see whether priorities change under
                 price/import-heavy, gender/humanitarian-heavy or displacement/outcome-heavy assumptions.
               </li>
@@ -365,7 +372,7 @@
           </div>
         </div>
         <div class="weights-panel">
-          <h3>Index weights (expert-assigned)</h3>
+          <h3>Index weights</h3>
           <div id="weights-list" class="weights-list"></div>
         </div>
       </section>
@@ -373,7 +380,7 @@
 
     <footer class="site-footer">
       <div>
-        <strong>UN Women analytical prototype</strong>
+        <strong>UN Women analytical dashboard</strong>
         <span id="footer-source">Source workbook: official model data package.</span>
       </div>
       <a href="#top">Back to top</a>

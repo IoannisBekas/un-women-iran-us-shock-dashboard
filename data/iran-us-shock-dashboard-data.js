@@ -3,11 +3,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "generated": "2026-06-02",
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
     "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
-    "status": "Analytical dashboard prototype - review before external publication",
+    "status": "Draft analytical dashboard - internal review version",
     "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock - refreshed rankings 2026-06-02.xlsx",
     "shockStartDate": "2026-02-28",
     "geography": "27 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, and East/Southeast Asia",
-    "methodBoundary": "The dashboard ranks exposure and scenario sensitivity using an expert-assigned composite index guided by OECD/JRC composite-indicator practice. The weights are not IMF weights; IMF-style shock logic is used only to define food, fuel, fertilizer and import-exposure pathways. The dashboard does not estimate causal impact on women and girls because public sex- and age-disaggregated food-security outcomes are not available.",
+    "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across plausible escalation pathways: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
     "weightingMethod": {
       "weightSource": "Expert-assigned project weights",
       "processGuidance": "OECD/JRC Handbook on Constructing Composite Indicators: Methodology and User Guide",
@@ -10040,11 +10040,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     ]
   },
   "keyMessages": [
-    "Sudan and South Sudan remain the two highest-ranked countries after formally weighting the public IDMC/IOM displacement and WFP outcome layers.",
-    "Palestine moves from Moderate to High risk in the refreshed score because acute food insecurity and assistance pressure remain high while the new public layers are now weighted.",
-    "The largest upward score shifts occur in Nigeria, Ukraine, Mali, Burkina Faso and Lebanon, mainly because the public displacement layer adds new measurable pressure.",
-    "Scenario tests continue to show assistance cuts and combined shocks as the strongest cross-country stressors in this model.",
-    "A causal before/after model for girls and women is not publishable with current public data because sex- and age-disaggregated outcome data are not available."
+    "Sudan and South Sudan have the highest current exposure scores in the 27-country scope.",
+    "Palestine moves into the High tier in the refreshed score because acute food insecurity and assistance pressure remain high and new public evidence layers are now included.",
+    "New public displacement evidence increases measured pressure for Nigeria, Ukraine, Mali, Burkina Faso and Lebanon.",
+    "Assistance-cut and combined-shock scenarios create the largest cross-country risk increases in the current model.",
+    "Use the dashboard for prioritization and monitoring; causal estimates for women and girls require sex- and age-disaggregated outcome data."
   ],
   "sourceNotes": {
     "usableSourceRows": 38,
@@ -10061,8 +10061,8 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "Public WFP food-security outcome datasets where available, now formally weighted with modest weight because coverage is sparse"
     ],
     "notAvailable": [
-      "ACLED event data were not pulled because account/API access was not assumed.",
-      "IPC public data are not sex-disaggregated and were not scraped from PDFs.",
+      "ACLED event data are not included because account/API access was not available in this public-data workflow.",
+      "IPC public data are not sex-disaggregated; the model does not infer women/girls IPC counts from total IPC values.",
       "Public WFP food-security outcome coverage is available for only a small subset of the 27 countries, so missing values are neutral-imputed and flagged."
     ]
   }
