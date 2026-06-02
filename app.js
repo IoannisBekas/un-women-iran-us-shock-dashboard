@@ -571,17 +571,28 @@ function renderWeights() {
   Object.entries(data.indexWeights).forEach(([key, weight]) => {
     const item = document.createElement("div");
     item.className = "weight-item";
+
+    const text = document.createElement("div");
+    text.className = "weight-copy";
     const label = document.createElement("strong");
     label.textContent = data.componentLabels[key] || key;
+    const definition = document.createElement("p");
+    definition.textContent = data.componentDefinitions?.[key] || "Documented model component used in the composite index.";
+    text.appendChild(label);
+    text.appendChild(definition);
+
     const body = document.createElement("span");
-    body.textContent = `${fmt(weight * 100, 0)}%`;
+    body.className = "weight-value";
+    const value = document.createElement("b");
+    value.textContent = `${fmt(weight * 100, 0)}%`;
     const meter = document.createElement("div");
     meter.className = "weight-meter";
     const fill = document.createElement("span");
     fill.style.width = `${weight * 100 * 4}%`;
     meter.appendChild(fill);
+    body.appendChild(value);
     body.appendChild(meter);
-    item.appendChild(label);
+    item.appendChild(text);
     item.appendChild(body);
     el.weightsList.appendChild(item);
   });

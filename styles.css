@@ -667,6 +667,11 @@ canvas {
   background: rgba(255, 255, 255, 0.62);
 }
 
+.weight-item {
+  grid-template-columns: minmax(0, 1fr) minmax(82px, 0.28fr);
+  align-items: start;
+}
+
 .readiness-item strong,
 .coverage-item strong,
 .weight-item strong {
@@ -677,6 +682,30 @@ canvas {
 .coverage-item span,
 .weight-item span {
   color: var(--muted);
+}
+
+.weight-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.weight-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.42;
+}
+
+.weight-value {
+  display: grid;
+  gap: 6px;
+  justify-items: end;
+  text-align: right;
+}
+
+.weight-value b {
+  color: var(--un-navy);
+  font-size: 0.9rem;
 }
 
 .table-wrap {
@@ -867,5 +896,10 @@ tbody tr:hover {
   .coverage-item,
   .weight-item {
     grid-template-columns: 1fr;
+  }
+
+  .weight-value {
+    justify-items: start;
+    text-align: left;
   }
 }

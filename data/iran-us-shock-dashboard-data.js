@@ -27,6 +27,17 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "assistance_pressure_score": "Assistance/funding pressure",
     "gender_vulnerability_score": "Gender vulnerability"
   },
+  "componentDefinitions": {
+    "price_pressure_score": "Observed domestic market stress from food-price momentum, recent changes, baseline deviation and volatility where public WFP/HDX price data are available.",
+    "import_exposure_score": "Structural exposure to external food, fuel and import-price pass-through, including reliance on imported essentials and vulnerability to external price or exchange-rate shocks.",
+    "agriculture_input_exposure_score": "Exposure through agriculture and fertilizer channels, especially where food production, rural livelihoods or input costs could be affected by regional price shocks.",
+    "acute_food_insecurity_score": "Total-population acute food-insecurity severity from public IPC/HDX data, especially IPC Phase 3+ and worse. This is not sex-disaggregated.",
+    "wfp_food_security_outcome_score": "Public WFP food-security outcome evidence, such as food consumption or coping indicators, where available. It receives modest weight because public coverage is sparse.",
+    "displacement_pressure_score": "Original displacement pressure proxy retained for continuity, using available displacement/refugee-related evidence from the earlier model package.",
+    "public_displacement_layer_score": "Public internal-displacement layer from IDMC and IOM DTM evidence, including conflict displacement stocks, events and selected DTM summaries.",
+    "assistance_pressure_score": "Pressure from humanitarian funding and assistance constraints, using public OCHA FTS and related need/funding proxies where complete ration or reach data are unavailable.",
+    "gender_vulnerability_score": "Structural and proxy evidence that women and girls may have less capacity to absorb food, price, income and displacement shocks. It uses gender/labour indicators such as female informal or vulnerable employment, female agricultural employment, labour-force participation and financial access where available. It is not a measured women/girls food-security outcome."
+  },
   "indexWeights": {
     "price_pressure_score": 0.15,
     "import_exposure_score": 0.12,
