@@ -778,6 +778,42 @@ tbody tr:hover {
   background: linear-gradient(180deg, var(--soft-gold), var(--paper));
 }
 
+.weight-defense {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 1px solid rgba(205, 153, 55, 0.42);
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.weight-defense h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+}
+
+.weight-defense p {
+  margin: 0;
+  color: #263440;
+}
+
+.weight-defense ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.weight-defense li {
+  color: #263440;
+  line-height: 1.48;
+}
+
+.weight-defense strong {
+  color: var(--un-navy);
+}
+
 .weights-panel h3 {
   margin: 0;
   font-family: var(--font-serif);
