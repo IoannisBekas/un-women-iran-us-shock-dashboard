@@ -468,20 +468,42 @@ main > *,
   grid-template-columns: 300px minmax(0, 1fr);
 }
 
-.safe-language-list {
+.communication-guidance {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.guidance-card {
   display: grid;
   gap: 10px;
+  padding: 16px;
+  border: 1px solid rgba(0, 107, 111, 0.24);
+  background: rgba(255, 255, 255, 0.62);
 }
 
-.safe-language-list p {
+.guidance-card[data-tone="avoid"] {
+  border-color: rgba(232, 74, 95, 0.28);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.guidance-card h3 {
   margin: 0;
-  padding: 12px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.6);
+  color: var(--un-navy);
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
 }
 
-.safe-language-list strong {
-  color: var(--un-navy);
+.guidance-card ul {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.guidance-card li {
+  color: #263440;
+  line-height: 1.45;
 }
 
 .controls-band {
@@ -1018,6 +1040,7 @@ tbody tr:hover {
   .definition-grid,
   .term-grid,
   .term-grid.compact,
+  .communication-guidance,
   .profile-grid,
   .map-fallback {
     grid-template-columns: 1fr;
