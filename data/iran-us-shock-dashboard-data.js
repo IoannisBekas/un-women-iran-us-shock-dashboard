@@ -7,7 +7,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock - refreshed rankings 2026-06-02.xlsx",
     "shockStartDate": "2026-02-28",
     "geography": "27 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, and East/Southeast Asia",
-    "methodBoundary": "The dashboard ranks exposure and scenario sensitivity. It does not estimate causal impact on women and girls because public sex- and age-disaggregated food-security outcomes are not available."
+    "methodBoundary": "The dashboard ranks exposure and scenario sensitivity using an expert-assigned composite index guided by OECD/JRC composite-indicator practice. The weights are not IMF weights; IMF-style shock logic is used only to define food, fuel, fertilizer and import-exposure pathways. The dashboard does not estimate causal impact on women and girls because public sex- and age-disaggregated food-security outcomes are not available.",
+    "weightingMethod": {
+      "weightSource": "Expert-assigned project weights",
+      "processGuidance": "OECD/JRC Handbook on Constructing Composite Indicators: Methodology and User Guide",
+      "imfUse": "Conceptual pathway framing only; no IMF numeric weights were used",
+      "aggregation": "Shock Exposure Index = 100 x sum(component_score x component_weight)",
+      "sensitivity": "Weight_Sensitivity sheet tests base, displacement/outcome-heavy, gender/humanitarian-heavy and price/import-heavy alternatives"
+    }
   },
   "componentLabels": {
     "price_pressure_score": "Domestic food-price pressure",
