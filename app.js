@@ -123,6 +123,12 @@ function fmtPct(value, digits = 1) {
   return `${fmt(value, digits)}%`;
 }
 
+function fmtShare(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
+  const number = Number(value);
+  return fmtPct(Math.abs(number) <= 1 ? number * 100 : number, digits);
+}
+
 function clamp(value, min = 0, max = 100) {
   return Math.max(min, Math.min(max, Number(value) || 0));
 }
@@ -544,7 +550,7 @@ function renderCoverage() {
     ["IDMC annual internal displacement", c.idmcAnnualAvailable ? `${fmtCompact(c.idmcConflictTotalDisplacement)} conflict IDPs, ${c.idmcLatestYear || "latest year n/a"}` : "Not available in public pull"],
     ["IDMC 2026 displacement events", c.idmcEventsAvailable ? `${fmtCompact(c.idmcPostShockFigureTotal)} post-shock figure total` : "Not available in public pull"],
     ["IOM DTM public summary", c.iomDtmAvailable ? `${fmtCompact(c.iomLatestIdpSum)} latest selected IDP sum` : "Not available in public pull"],
-    ["WFP public food-security outcomes", c.wfpFsiAvailable ? `${fmtPct(c.wfpPoorBorderlineFoodConsumptionPct)} poor/borderline food consumption` : "Not available in public pull"],
+    ["WFP public food-security outcomes", c.wfpFsiAvailable ? `${fmtShare(c.wfpPoorBorderlineFoodConsumptionPct)} poor/borderline food consumption` : "Not available in public pull"],
   ];
   el.coverageList.innerHTML = "";
   items.forEach(([label, value]) => {

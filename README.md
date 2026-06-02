@@ -4,7 +4,7 @@ Static dashboard prototype for communicating the Iran-USA/regional escalation sh
 
 ## Source
 
-- Source workbook: `outputs/models/iran_us_shock/UN Women IRAN USA war shock - additional public data 2026-06-02.xlsx`
+- Source workbook: `outputs/models/iran_us_shock/UN Women IRAN USA war shock - refreshed rankings 2026-06-02.xlsx`
 - Dashboard data bundle: `dashboard/web/iran-us-shock/data/iran-us-shock-dashboard-data.js`
 - Data builder: `analysis/scripts/build_iran_us_shock_dashboard_data.py`
 
@@ -32,4 +32,4 @@ python analysis/scripts/build_iran_us_shock_dashboard_data.py
 
 ## Method Boundary
 
-The dashboard communicates a screening and prioritization model. It should not be used to claim causal impact on women or girls unless sex- and age-disaggregated outcome data become available and the causal-readiness checks support estimation.
+The dashboard communicates a screening and prioritization model. IDMC/IOM displacement and public WFP food-security outcome layers are formally weighted in the refreshed score, but the model should not be used to claim causal impact on women or girls unless sex- and age-disaggregated outcome data become available and the causal-readiness checks support estimation.
