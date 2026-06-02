@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iran-USA Regional Escalation Shock | UN Women Evidence Dashboard</title>
+    <meta
+      name="description"
+      content="UN Women analytical dashboard for screening country exposure to Iran-USA and regional escalation shocks across food security, displacement, assistance and gender-vulnerability pathways."
+    />
+    <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+    <div class="reading-progress" aria-hidden="true">
+      <span id="reading-progress-bar"></span>
+    </div>
+    <div id="top" class="page-top-anchor" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-rail" aria-label="Dashboard identity">
+          <a class="brand-lockup" href="#top" aria-label="UN Women dashboard home">
+            <img class="brand-logo" src="assets/UN_WOMEN_Logo.png" alt="UN Women" />
+          </a>
+          <p class="brand-caption">Regional evidence dashboard</p>
+        </div>
+        <div class="hero-copy">
+          <div class="hero-topline">
+            <p class="eyebrow">Shock model dashboard</p>
+            <ul class="hero-meta" aria-label="Dashboard metadata">
+              <li id="meta-country-count">27 countries</li>
+              <li id="meta-generated">Generated 2026-06-02</li>
+              <li>Screening model</li>
+            </ul>
+          </div>
+          <h1>Iran-USA regional escalation shock</h1>
+          <p class="lede">
+            Interactive evidence summary for prioritizing countries exposed to food-price,
+            displacement, assistance, import and gender-vulnerability transmission pathways.
+          </p>
+          <div class="hero-rule" aria-hidden="true"></div>
+          <div class="hero-actions" aria-label="Primary dashboard links">
+            <a class="hero-action-primary" href="#findings">Key findings</a>
+            <a class="hero-action-secondary" href="#country-lens">Country lens</a>
+            <a class="hero-action-secondary" href="#method">Method boundary</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section id="findings" class="kpi-grid" aria-label="Key indicators">
+        <article class="kpi-card">
+          <span class="kpi-label">Countries in scope</span>
+          <strong id="kpi-countries">-</strong>
+          <span class="kpi-note">Expanded regional coverage</span>
+        </article>
+        <article class="kpi-card" data-tone="high">
+          <span class="kpi-label">Top current priority</span>
+          <strong id="kpi-top-country">-</strong>
+          <span class="kpi-note" id="kpi-top-score">Shock exposure score</span>
+        </article>
+        <article class="kpi-card" data-tone="moderate">
+          <span class="kpi-label">High or very high</span>
+          <strong id="kpi-high-count">-</strong>
+          <span class="kpi-note">Countries needing close monitoring</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">SADD outcome coverage</span>
+          <strong id="kpi-sadd">-</strong>
+          <span class="kpi-note">Measured public food-security outcomes</span>
+        </article>
+      </section>
+
+      <section class="interpretation-panel" aria-labelledby="reading-title">
+        <div>
+          <p class="eyebrow">How to read this dashboard</p>
+          <h2 id="reading-title">Prioritization, not causal attribution</h2>
+        </div>
+        <p id="method-boundary">
+          The score ranks exposure to plausible escalation pathways. It does not estimate
+          how many women or girls became food insecure after the shock, because the current
+          public data pull does not include sex- and age-disaggregated food-security outcomes.
+        </p>
+      </section>
+
+      <section class="definitions-panel" aria-labelledby="definitions-title">
+        <details class="definitions-details" open>
+          <summary id="definitions-title">Key terms and model components</summary>
+          <div class="definition-grid">
+            <article class="definition-card">
+              <h3>Shock Exposure Index</h3>
+              <p>A 0-100 screening score built from seven bounded 0-1 components and documented weights.</p>
+            </article>
+            <article class="definition-card">
+              <h3>IPC Phase 3+</h3>
+              <p>Population in crisis or worse food insecurity. IPC is total-population data in this workbook, not sex-disaggregated.</p>
+            </article>
+            <article class="definition-card">
+              <h3>Gender proxy priority</h3>
+              <p>A fallback priority score using structural and proxy gender indicators when measured women/girls outcomes are unavailable.</p>
+            </article>
+            <article class="definition-card">
+              <h3>Scenario sensitivity</h3>
+              <p>Estimated score movement under oil, fertilizer, food-price and assistance-cut stress tests.</p>
+            </article>
+            <article class="definition-card">
+              <h3>Data readiness</h3>
+              <p>A check on whether a country has enough pre/post and outcome data for more formal causal work.</p>
+            </article>
+            <article class="definition-card">
+              <h3>Additional public layers</h3>
+              <p>IDMC, IOM DTM and WFP outcome layers were added for review before changing the official score.</p>
+            </article>
+          </div>
+        </details>
+      </section>
+
+      <section class="controls-band" aria-label="Dashboard controls">
+        <div class="control-group">
+          <label class="control-label" for="region-filter">Region</label>
+          <select id="region-filter"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="country-select">Country</label>
+          <select id="country-select"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="scenario-select">Scenario</label>
+          <select id="scenario-select"></select>
+        </div>
+      </section>
+
+      <section class="headline-grid" aria-label="Main analytical readout">
+        <article class="chart-card wide">
+          <div class="card-title-row">
+            <div>
+              <p class="eyebrow">Primary ranking</p>
+              <h2>Shock exposure index across the 27-country scope</h2>
+              <p>Scores combine price pressure, import exposure, agriculture inputs, IPC severity, displacement, assistance pressure and gender vulnerability.</p>
+            </div>
+            <span class="source-pill">0-100 score</span>
+          </div>
+          <div class="chart-wrap ranking-chart-wrap">
+            <canvas id="ranking-chart"></canvas>
+          </div>
+          <p class="chart-note">Source: official model workbook. Scores are screening outputs, not measured causal impacts.</p>
+        </article>
+
+        <article class="decision-card">
+          <p class="eyebrow">Decision readout</p>
+          <h2>What should stand out</h2>
+          <ul id="message-list"></ul>
+        </article>
+      </section>
+
+      <section id="country-lens" class="country-lens" aria-labelledby="country-lens-title">
+        <div class="section-heading">
+          <p class="eyebrow">Country lens</p>
+          <h2 id="country-lens-title">Pathways, readiness and added public data</h2>
+          <p>Select a country to inspect the score drivers and what data can or cannot support.</p>
+        </div>
+        <div class="country-layout">
+          <article class="country-profile">
+            <div class="profile-heading">
+              <div>
+                <p class="eyebrow" id="country-region">Region</p>
+                <h3 id="country-name">Country</h3>
+              </div>
+              <div class="score-badge">
+                <span>Score</span>
+                <strong id="country-score">-</strong>
+              </div>
+            </div>
+            <div class="score-track" aria-hidden="true">
+              <span id="country-score-fill"></span>
+            </div>
+            <div class="profile-grid">
+              <div>
+                <span class="metric-label">Risk tier</span>
+                <strong id="country-tier">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Model rank</span>
+                <strong id="country-rank">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Gender proxy rank</span>
+                <strong id="country-proxy-rank">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Missing components</span>
+                <strong id="country-missing">-</strong>
+              </div>
+            </div>
+            <div id="pathway-list" class="pathway-list"></div>
+            <p id="country-focus" class="profile-note"></p>
+          </article>
+
+          <article class="map-card">
+            <div class="card-title-row compact">
+              <div>
+                <p class="eyebrow">Regional footprint</p>
+                <h3>Country points by exposure tier</h3>
+              </div>
+              <button id="map-reset" class="small-button" type="button">Reset map</button>
+            </div>
+            <div id="country-map" class="map"></div>
+            <p class="chart-note">Map points use country centroids for orientation only.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="analysis-grid" aria-label="Dashboard charts">
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Selected country</p>
+              <h3>Component profile</h3>
+            </div>
+            <span class="source-pill">0-1 components</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="component-chart"></canvas>
+          </div>
+          <p class="chart-note">All components are bounded before weighting. Missing source data are neutral-imputed and flagged.</p>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Scenario sensitivity</p>
+              <h3 id="scenario-title">Risk movement under stress test</h3>
+            </div>
+            <span class="source-pill">Scenario delta</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="scenario-chart"></canvas>
+          </div>
+          <p id="scenario-note" class="chart-note"></p>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Regional comparison</p>
+              <h3>Average exposure score</h3>
+            </div>
+            <span class="source-pill">By region</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="region-chart"></canvas>
+          </div>
+          <p class="chart-note">Regional groupings reflect the current 27-country analytical scope.</p>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Gender-sensitive lens</p>
+              <h3>Top proxy priorities</h3>
+            </div>
+            <span class="source-pill">Proxy score</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="gender-chart"></canvas>
+          </div>
+          <p class="chart-note">Proxy priority is not a measured before/after outcome for women or girls.</p>
+        </article>
+      </section>
+
+      <section class="evidence-grid" aria-label="Data readiness and source coverage">
+        <article class="evidence-panel">
+          <p class="eyebrow">Readiness checks</p>
+          <h2>What can be estimated now?</h2>
+          <div id="readiness-list" class="readiness-list"></div>
+        </article>
+        <article class="evidence-panel">
+          <p class="eyebrow">Additional public layers</p>
+          <h2>What was added after team feedback?</h2>
+          <div id="coverage-list" class="coverage-list"></div>
+        </article>
+      </section>
+
+      <section class="table-section" aria-labelledby="table-title">
+        <div class="section-heading">
+          <p class="eyebrow">Country table</p>
+          <h2 id="table-title">Official model data summary</h2>
+          <p>The table mirrors the report narrative: score, pathways, IPC, gender proxy, informality and data gaps.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Country</th>
+                <th>Region</th>
+                <th>Score</th>
+                <th>Tier</th>
+                <th>Top pathway</th>
+                <th>IPC 3+ %</th>
+                <th>Gender proxy</th>
+                <th>Female informal %</th>
+                <th>Main gap</th>
+              </tr>
+            </thead>
+            <tbody id="country-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="method" class="method-section" aria-labelledby="method-title">
+        <div>
+          <p class="eyebrow">Method boundary</p>
+          <h2 id="method-title">How the dashboard should be cited internally</h2>
+          <p>
+            This dashboard communicates the official model workbook as a screening and monitoring tool.
+            The model uses weighted component scoring and scenario sensitivity, plus a causal-readiness layer.
+            It should not be used to claim that the escalation caused a specific increase in food insecurity
+            among women or girls.
+          </p>
+        </div>
+        <div class="weights-panel">
+          <h3>Index weights</h3>
+          <div id="weights-list" class="weights-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>UN Women analytical prototype</strong>
+        <span id="footer-source">Source workbook: official model data package.</span>
+      </div>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <script src="data/iran-us-shock-dashboard-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
