@@ -1,10 +1,10 @@
 window.IRAN_US_SHOCK_DASHBOARD_DATA = {
   "metadata": {
-    "generated": "2026-06-02",
+    "generated": "2026-06-03",
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
     "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
-    "status": "Draft analytical dashboard - internal review version",
-    "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock - refreshed rankings 2026-06-02.xlsx",
+    "status": "Internal review dashboard - single source workbook consolidated 2026-06-03",
+    "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock.xlsx",
     "shockStartDate": "2026-02-28",
     "geography": "27 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, and East/Southeast Asia",
     "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across plausible escalation pathways: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
@@ -14,7 +14,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "imfUse": "Conceptual pathway framing only; no IMF numeric weights were used",
       "aggregation": "Shock Exposure Index = 100 x sum(component_score x component_weight)",
       "sensitivity": "Weight_Sensitivity sheet tests base, displacement/outcome-heavy, gender/humanitarian-heavy and price/import-heavy alternatives"
-    }
+    },
+    "fhhSource": "https://data.worldbank.org/indicator/SP.HOU.FEMA.ZS",
+    "fhhInterpretation": "Female-headed households are included as a structural household-vulnerability indicator, not as a measured food-security outcome."
   },
   "componentLabels": {
     "price_pressure_score": "Domestic food-price pressure",
@@ -114,7 +116,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 50.1998587582052,
         "femaleVulnerableEmploymentPct": 55.5078635209345,
         "femaleLaborForceParticipationPct": 14.452,
-        "femaleAccountOwnershipPct": null
+        "femaleAccountOwnershipPct": null,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 1,
@@ -222,7 +228,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 65.4168538126233,
         "femaleVulnerableEmploymentPct": 82.7999826966689,
         "femaleLaborForceParticipationPct": 70.393,
-        "femaleAccountOwnershipPct": null
+        "femaleAccountOwnershipPct": null,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 2,
@@ -330,7 +340,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 74.6220196601876,
         "femaleVulnerableEmploymentPct": 92.9201234544746,
         "femaleLaborForceParticipationPct": 5.086,
-        "femaleAccountOwnershipPct": null
+        "femaleAccountOwnershipPct": null,
+        "femaleHeadedHouseholdsPct": 1.7,
+        "femaleHeadedHouseholdsYear": 2015.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 4,
@@ -438,7 +452,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 43.458530996221,
         "femaleVulnerableEmploymentPct": 62.7469948540645,
         "femaleLaborForceParticipationPct": 4.663,
-        "femaleAccountOwnershipPct": 5.43631354617772
+        "femaleAccountOwnershipPct": 5.43631354617772,
+        "femaleHeadedHouseholdsPct": 7.8,
+        "femaleHeadedHouseholdsYear": 2013.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 3,
@@ -546,7 +564,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 34.2985817325411,
         "femaleVulnerableEmploymentPct": 60.1831410207611,
         "femaleLaborForceParticipationPct": 20.7,
-        "femaleAccountOwnershipPct": null
+        "femaleAccountOwnershipPct": null,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 6,
@@ -654,7 +676,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 50.0331663870713,
         "femaleVulnerableEmploymentPct": 86.5331539217543,
         "femaleLaborForceParticipationPct": 58.456,
-        "femaleAccountOwnershipPct": 41.6159713320994
+        "femaleAccountOwnershipPct": 41.6159713320994,
+        "femaleHeadedHouseholdsPct": 22.1,
+        "femaleHeadedHouseholdsYear": 2019.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 5,
@@ -762,7 +788,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 6.26343472514874,
         "femaleVulnerableEmploymentPct": 20.8772311595396,
         "femaleLaborForceParticipationPct": 18.934,
-        "femaleAccountOwnershipPct": 27.7345491731852
+        "femaleAccountOwnershipPct": 27.7345491731852,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 7,
@@ -870,7 +900,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 7.87768401819759,
         "femaleVulnerableEmploymentPct": 22.6992403863191,
         "femaleLaborForceParticipationPct": 12.727,
-        "femaleAccountOwnershipPct": null
+        "femaleAccountOwnershipPct": null,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 8,
@@ -978,7 +1012,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 68.0200186878762,
         "femaleVulnerableEmploymentPct": 73.2301616243749,
         "femaleLaborForceParticipationPct": 24.046,
-        "femaleAccountOwnershipPct": 11.9121696598431
+        "femaleAccountOwnershipPct": 11.9121696598431,
+        "femaleHeadedHouseholdsPct": 12.5,
+        "femaleHeadedHouseholdsYear": 2018.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 9,
@@ -1086,7 +1124,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 37.8429812739217,
         "femaleVulnerableEmploymentPct": 63.8659197390347,
         "femaleLaborForceParticipationPct": 40.941,
-        "femaleAccountOwnershipPct": 46.1505017519645
+        "femaleAccountOwnershipPct": 46.1505017519645,
+        "femaleHeadedHouseholdsPct": 22.5,
+        "femaleHeadedHouseholdsYear": 2016.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 11,
@@ -1194,7 +1236,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 74.6705382859257,
         "femaleVulnerableEmploymentPct": 64.6159825649734,
         "femaleLaborForceParticipationPct": 38.649,
-        "femaleAccountOwnershipPct": 33.346000280938
+        "femaleAccountOwnershipPct": 33.346000280938,
+        "femaleHeadedHouseholdsPct": 15.8,
+        "femaleHeadedHouseholdsYear": 2018.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 10,
@@ -1302,7 +1348,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 51.3207436292431,
         "femaleVulnerableEmploymentPct": 59.4117412492602,
         "femaleLaborForceParticipationPct": 72.33,
-        "femaleAccountOwnershipPct": 54.547891632053
+        "femaleAccountOwnershipPct": 54.547891632053,
+        "femaleHeadedHouseholdsPct": 33.7,
+        "femaleHeadedHouseholdsYear": 2005.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 14,
@@ -1410,7 +1460,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 59.8301878767769,
         "femaleVulnerableEmploymentPct": 78.2408543688412,
         "femaleLaborForceParticipationPct": 32.425,
-        "femaleAccountOwnershipPct": 89.2482328079147
+        "femaleAccountOwnershipPct": 89.2482328079147,
+        "femaleHeadedHouseholdsPct": 17.5,
+        "femaleHeadedHouseholdsYear": 2021.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 12,
@@ -1518,7 +1572,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 13.9261718891646,
         "femaleVulnerableEmploymentPct": 36.0528483291288,
         "femaleLaborForceParticipationPct": 10.937,
-        "femaleAccountOwnershipPct": 18.8101424848699
+        "femaleAccountOwnershipPct": 18.8101424848699,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 13,
@@ -1626,7 +1684,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 60.9389853777312,
         "femaleVulnerableEmploymentPct": 81.4203790766716,
         "femaleLaborForceParticipationPct": 52.842,
-        "femaleAccountOwnershipPct": 45.6045965708999
+        "femaleAccountOwnershipPct": 45.6045965708999,
+        "femaleHeadedHouseholdsPct": 8.2,
+        "femaleHeadedHouseholdsYear": 2021.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 15,
@@ -1734,7 +1796,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 1.51645336472733,
         "femaleVulnerableEmploymentPct": 11.3106201579827,
         "femaleLaborForceParticipationPct": 22.234,
-        "femaleAccountOwnershipPct": 15.3395918766117
+        "femaleAccountOwnershipPct": 15.3395918766117,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 18,
@@ -1842,7 +1908,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 17.4704915611854,
         "femaleVulnerableEmploymentPct": 29.2847368657897,
         "femaleLaborForceParticipationPct": 18.455,
-        "femaleAccountOwnershipPct": 40.2142182329493
+        "femaleAccountOwnershipPct": 40.2142182329493,
+        "femaleHeadedHouseholdsPct": 12.9,
+        "femaleHeadedHouseholdsYear": 2014.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 23,
@@ -1950,7 +2020,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 13.3015608838713,
         "femaleVulnerableEmploymentPct": 39.2633235534081,
         "femaleLaborForceParticipationPct": 50.489,
-        "femaleAccountOwnershipPct": 57.1016109576105
+        "femaleAccountOwnershipPct": 57.1016109576105,
+        "femaleHeadedHouseholdsPct": 25.8,
+        "femaleHeadedHouseholdsYear": 2022.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 17,
@@ -2058,7 +2132,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 31.1683772691725,
         "femaleVulnerableEmploymentPct": 34.0761708341697,
         "femaleLaborForceParticipationPct": 51.057,
-        "femaleAccountOwnershipPct": 67.9879799098157
+        "femaleAccountOwnershipPct": 67.9879799098157,
+        "femaleHeadedHouseholdsPct": 33.2,
+        "femaleHeadedHouseholdsYear": 2016.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 27,
@@ -2166,7 +2244,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 25.9679840518099,
         "femaleVulnerableEmploymentPct": 39.3783626220454,
         "femaleLaborForceParticipationPct": 30.992,
-        "femaleAccountOwnershipPct": 80.201889490679
+        "femaleAccountOwnershipPct": 80.201889490679,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 22,
@@ -2274,7 +2356,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 24.4189150595926,
         "femaleVulnerableEmploymentPct": 57.1024985154407,
         "femaleLaborForceParticipationPct": 68.551,
-        "femaleAccountOwnershipPct": 69.8844155477409
+        "femaleAccountOwnershipPct": 69.8844155477409,
+        "femaleHeadedHouseholdsPct": 27.0,
+        "femaleHeadedHouseholdsYear": 2005.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 25,
@@ -2382,7 +2468,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 24.8174803830863,
         "femaleVulnerableEmploymentPct": 48.1362902826987,
         "femaleLaborForceParticipationPct": 58.963,
-        "femaleAccountOwnershipPct": 92.7000685235119
+        "femaleAccountOwnershipPct": 92.7000685235119,
+        "femaleHeadedHouseholdsPct": null,
+        "femaleHeadedHouseholdsYear": null,
+        "femaleHeadedHouseholdsMissing": true,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 24,
@@ -2490,7 +2580,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 23.5767771715327,
         "femaleVulnerableEmploymentPct": 79.0793122483505,
         "femaleLaborForceParticipationPct": 80.7,
-        "femaleAccountOwnershipPct": 52.2155914465012
+        "femaleAccountOwnershipPct": 52.2155914465012,
+        "femaleHeadedHouseholdsPct": 14.9,
+        "femaleHeadedHouseholdsYear": 2021.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 16,
@@ -2598,7 +2692,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 25.2587381539466,
         "femaleVulnerableEmploymentPct": 58.5100621974505,
         "femaleLaborForceParticipationPct": 53.72,
-        "femaleAccountOwnershipPct": 58.0308451514518
+        "femaleAccountOwnershipPct": 58.0308451514518,
+        "femaleHeadedHouseholdsPct": 14.8,
+        "femaleHeadedHouseholdsYear": 2017.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 20,
@@ -2706,7 +2804,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 0.369969773574306,
         "femaleVulnerableEmploymentPct": 2.12486322647181,
         "femaleLaborForceParticipationPct": 16.029,
-        "femaleAccountOwnershipPct": 36.2234645848992
+        "femaleAccountOwnershipPct": 36.2234645848992,
+        "femaleHeadedHouseholdsPct": 12.2,
+        "femaleHeadedHouseholdsYear": 2018.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 26,
@@ -2814,7 +2916,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 11.6430172794025,
         "femaleVulnerableEmploymentPct": 18.2287204910633,
         "femaleLaborForceParticipationPct": 47.738,
-        "femaleAccountOwnershipPct": 83.8855969447319
+        "femaleAccountOwnershipPct": 83.8855969447319,
+        "femaleHeadedHouseholdsPct": 49.4,
+        "femaleHeadedHouseholdsYear": 2007.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 19,
@@ -2922,7 +3028,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 53.8370409282705,
         "femaleVulnerableEmploymentPct": 87.7205225540799,
         "femaleLaborForceParticipationPct": 64.074,
-        "femaleAccountOwnershipPct": 43.9890405155106
+        "femaleAccountOwnershipPct": 43.9890405155106,
+        "femaleHeadedHouseholdsPct": 13.4,
+        "femaleHeadedHouseholdsYear": 2021.0,
+        "femaleHeadedHouseholdsMissing": false,
+        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
       },
       "genderProxy": {
         "rank": 21,

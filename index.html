@@ -10,7 +10,9 @@
     />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260603-fhh" />
+    <script>document.documentElement.classList.add("auth-locked");</script>
+    <script src="auth.js?v=20260603-lock" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -128,6 +130,10 @@
         <div class="control-group">
           <label class="control-label" for="region-filter">Region</label>
           <select id="region-filter"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="geography-filter">Geography</label>
+          <select id="geography-filter"></select>
         </div>
         <div class="control-group">
           <label class="control-label" for="country-select">Country</label>
@@ -303,11 +309,13 @@
                 <th>Rank</th>
                 <th>Country</th>
                 <th>Region</th>
+                <th>Geography</th>
                 <th>Score</th>
                 <th>Tier</th>
                 <th>Top pathway</th>
                 <th>IPC 3+ %</th>
                 <th>Gender proxy</th>
+                <th>FHH %</th>
                 <th>Female informal %</th>
                 <th>Main gap</th>
               </tr>
@@ -393,7 +401,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js"></script>
-    <script src="app.js"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260603-fhh"></script>
+    <script src="app.js?v=20260603-fhh"></script>
   </body>
 </html>

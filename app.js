@@ -47,8 +47,12 @@ const SCENARIO_LABELS = {
   oil_10pct: "Oil +10%",
 };
 
+const LANDLOCKED_ISO3 = new Set(["AFG", "ARM", "BFA", "ETH", "MLI", "MDA", "SSD"]);
+const GEOGRAPHY_OPTIONS = ["All geographies", "Landlocked", "Coastal or island"];
+
 const state = {
   region: "All regions",
+  geography: "All geographies",
   selectedIso: data.summary.topCountry?.iso3 || data.countries[0]?.iso3,
   scenario: "assistance_cut_50pct",
 };
@@ -75,6 +79,7 @@ const el = {
   kpiSadd: document.getElementById("kpi-sadd"),
   methodBoundary: document.getElementById("method-boundary"),
   regionFilter: document.getElementById("region-filter"),
+  geographyFilter: document.getElementById("geography-filter"),
   countrySelect: document.getElementById("country-select"),
   scenarioSelect: document.getElementById("scenario-select"),
   messageList: document.getElementById("message-list"),
@@ -137,13 +142,27 @@ function countryByIso(iso3) {
   return data.countries.find((country) => country.iso3 === iso3) || data.countries[0];
 }
 
+function countryGeography(country) {
+  return LANDLOCKED_ISO3.has(country.iso3) ? "Landlocked" : "Coastal or island";
+}
+
+function matchesGeography(country) {
+  return state.geography === "All geographies" || countryGeography(country) === state.geography;
+}
+
+function matchesRegion(country) {
+  return state.region === "All regions" || country.region === state.region;
+}
+
 function regions() {
-  return ["All regions", ...Array.from(new Set(data.countries.map((country) => country.region))).sort()];
+  const countries = data.countries.filter(matchesGeography);
+  return ["All regions", ...Array.from(new Set(countries.map((country) => country.region))).sort()];
 }
 
 function filteredCountries() {
-  const countries = state.region === "All regions" ? data.countries : data.countries.filter((country) => country.region === state.region);
-  return [...countries].sort((a, b) => (a.rank || 999) - (b.rank || 999));
+  return data.countries
+    .filter((country) => matchesRegion(country) && matchesGeography(country))
+    .sort((a, b) => (a.rank || 999) - (b.rank || 999));
 }
 
 function tierColor(tier) {
@@ -222,8 +241,19 @@ function renderMeta() {
 }
 
 function populateControls() {
+  el.geographyFilter.innerHTML = "";
+  GEOGRAPHY_OPTIONS.forEach((geography) => {
+    const option = document.createElement("option");
+    option.value = geography;
+    option.textContent = geography;
+    el.geographyFilter.appendChild(option);
+  });
+  el.geographyFilter.value = state.geography;
+
   el.regionFilter.innerHTML = "";
-  regions().forEach((region) => {
+  const regionOptions = regions();
+  if (!regionOptions.includes(state.region)) state.region = "All regions";
+  regionOptions.forEach((region) => {
     const option = document.createElement("option");
     option.value = region;
     option.textContent = region;
@@ -316,7 +346,7 @@ function renderRankingChart() {
 
 function renderCountryProfile() {
   const country = countryByIso(state.selectedIso);
-  el.countryRegion.textContent = country.region;
+  el.countryRegion.textContent = `${country.region} | ${countryGeography(country)}`;
   el.countryName.textContent = country.country;
   el.countryScore.textContent = fmt(country.score);
   el.countryScoreFill.style.width = `${clamp(country.score)}%`;
@@ -400,7 +430,10 @@ function renderScenarioChart() {
   destroyChart("scenario");
   const scenarioRows = data.scenarios
     .filter((row) => row.scenario === state.scenario)
-    .filter((row) => state.region === "All regions" || countryByIso(row.countryiso3)?.region === state.region)
+    .filter((row) => {
+      const country = countryByIso(row.countryiso3);
+      return matchesRegion(country) && matchesGeography(country);
+    })
     .sort((a, b) => (b.risk_delta_0_100 || 0) - (a.risk_delta_0_100 || 0))
     .slice(0, 10);
 
@@ -444,7 +477,17 @@ function renderScenarioChart() {
 function renderRegionChart() {
   if (!window.Chart) return;
   destroyChart("region");
-  const rows = [...data.regionCounts].sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0));
+  const grouped = data.countries
+    .filter(matchesGeography)
+    .reduce((acc, country) => {
+      if (!acc[country.region]) acc[country.region] = { region: country.region, countryCount: 0, scoreTotal: 0 };
+      acc[country.region].countryCount += 1;
+      acc[country.region].scoreTotal += Number(country.score) || 0;
+      return acc;
+    }, {});
+  const rows = Object.values(grouped)
+    .map((row) => ({ ...row, averageScore: row.countryCount ? row.scoreTotal / row.countryCount : 0 }))
+    .sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0));
   const ctx = document.getElementById("region-chart");
   charts.region = new Chart(ctx, {
     type: "bar",
@@ -546,11 +589,14 @@ function renderReadiness() {
 function renderCoverage() {
   const country = countryByIso(state.selectedIso);
   const c = country.additionalCoverage;
+  const fhhPct = country.indicators?.femaleHeadedHouseholdsPct;
+  const fhhYear = country.indicators?.femaleHeadedHouseholdsYear;
   const items = [
     ["IDMC annual internal displacement", c.idmcAnnualAvailable ? `${fmtCompact(c.idmcConflictTotalDisplacement)} conflict IDPs, ${c.idmcLatestYear || "latest year n/a"}` : "Not available in public pull"],
     ["IDMC 2026 displacement events", c.idmcEventsAvailable ? `${fmtCompact(c.idmcPostShockFigureTotal)} post-shock figure total` : "Not available in public pull"],
     ["IOM DTM public summary", c.iomDtmAvailable ? `${fmtCompact(c.iomLatestIdpSum)} latest selected IDP sum` : "Not available in public pull"],
     ["WFP public food-security outcomes", c.wfpFsiAvailable ? `${fmtShare(c.wfpPoorBorderlineFoodConsumptionPct)} poor/borderline food consumption` : "Not available in public pull"],
+    ["Female-headed households", fhhPct !== null && fhhPct !== undefined ? `${fmtPct(fhhPct)} households, ${fhhYear || "latest year n/a"}` : "Not available in the World Bank FHH pull"],
   ];
   el.coverageList.innerHTML = "";
   items.forEach(([label, value]) => {
@@ -606,17 +652,19 @@ function renderTable() {
       country.rank ? `#${country.rank}` : "n/a",
       country.country,
       country.region,
+      countryGeography(country),
       fmt(country.score),
       country.riskTier || "n/a",
       country.pathways?.[0]?.label || "n/a",
       fmtPct(country.indicators.ipcPhase3PlusPct),
       fmt(country.genderProxy?.score),
+      fmtPct(country.indicators?.femaleHeadedHouseholdsPct),
       fmtPct(country.informality?.femaleInformalEmploymentPct),
       country.readiness?.mainGap || "n/a",
     ];
     values.forEach((value, index) => {
       const cell = document.createElement("td");
-      if (index === 4) {
+      if (index === 5) {
         const pill = document.createElement("span");
         pill.className = "risk-pill";
         pill.dataset.tier = country.riskTier || "";
@@ -755,6 +803,11 @@ function bindEvents() {
     populateCountrySelect();
     renderAll();
   });
+  el.geographyFilter.addEventListener("change", () => {
+    state.geography = el.geographyFilter.value;
+    populateControls();
+    renderAll();
+  });
   el.countrySelect.addEventListener("change", () => {
     state.selectedIso = el.countrySelect.value;
     renderAll();
@@ -765,6 +818,7 @@ function bindEvents() {
   });
   el.mapReset.addEventListener("click", () => {
     state.region = "All regions";
+    state.geography = "All geographies";
     state.selectedIso = data.summary.topCountry?.iso3 || data.countries[0]?.iso3;
     populateControls();
     renderAll();
