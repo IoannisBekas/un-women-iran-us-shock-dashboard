@@ -6,7 +6,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "status": "Draft analytical dashboard - internal review version",
     "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock.xlsx",
     "shockStartDate": "2026-02-28",
-    "geography": "27 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, and East/Southeast Asia",
+    "geography": "28 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, East/Southeast Asia, and Latin America and the Caribbean",
     "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across plausible escalation pathways: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
     "weightingMethod": {
       "weightSource": "Expert-assigned project weights",
@@ -10368,7 +10368,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     ]
   },
   "keyMessages": [
-    "Sudan and South Sudan have the highest current exposure scores in the 27-country scope.",
+    "Sudan and South Sudan have the highest current exposure scores in the 28-country scope.",
     "Palestine moves into the High tier in the refreshed score because acute food insecurity and assistance pressure remain high and new public evidence layers are now included.",
     "New public displacement evidence increases measured pressure for Nigeria, Ukraine, Mali, Burkina Faso and Lebanon.",
     "Assistance-cut and combined-shock scenarios create the largest cross-country risk increases in the current model.",
@@ -10391,7 +10391,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "notAvailable": [
       "ACLED event data are not included because account/API access was not available in this public-data workflow.",
       "IPC public data are not sex-disaggregated; the model does not infer women/girls IPC counts from total IPC values.",
-      "Public WFP food-security outcome coverage is available for only a small subset of the 27 countries, so missing values are neutral-imputed and flagged."
+      "Public WFP food-security outcome coverage is available for only a small subset of the 28 countries, so missing values are neutral-imputed and flagged."
     ]
   }
 };
