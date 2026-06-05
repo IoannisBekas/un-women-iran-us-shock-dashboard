@@ -1,9 +1,9 @@
 window.IRAN_US_SHOCK_DASHBOARD_DATA = {
   "metadata": {
-    "generated": "2026-06-03",
+    "generated": "2026-06-05",
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
     "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
-    "status": "Internal review dashboard - single source workbook consolidated 2026-06-03",
+    "status": "Draft analytical dashboard - internal review version",
     "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock.xlsx",
     "shockStartDate": "2026-02-28",
     "geography": "27 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, and East/Southeast Asia",
@@ -14,9 +14,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "imfUse": "Conceptual pathway framing only; no IMF numeric weights were used",
       "aggregation": "Shock Exposure Index = 100 x sum(component_score x component_weight)",
       "sensitivity": "Weight_Sensitivity sheet tests base, displacement/outcome-heavy, gender/humanitarian-heavy and price/import-heavy alternatives"
-    },
-    "fhhSource": "https://data.worldbank.org/indicator/SP.HOU.FEMA.ZS",
-    "fhhInterpretation": "Female-headed households are included as a structural household-vulnerability indicator, not as a measured food-security outcome."
+    }
   },
   "componentLabels": {
     "price_pressure_score": "Domestic food-price pressure",
@@ -61,7 +59,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "rank": 1,
       "score": 74.85192903524239,
       "riskTier": "Very high",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
@@ -69,11 +67,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         },
         {
           "label": "Assistance/funding pressure",
-          "score": 0.9745
+          "score": 0.9744999999999999
         },
         {
           "label": "IPC acute food insecurity",
-          "score": 0.9575
+          "score": 0.9574999999999999
         }
       ],
       "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
@@ -81,13 +79,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 1.0,
-        "import_exposure_score": 0.4251875005540672,
+        "import_exposure_score": 0.42518750055406723,
         "agriculture_input_exposure_score": 0.5798131516970462,
-        "acute_food_insecurity_score": 0.9575,
+        "acute_food_insecurity_score": 0.9574999999999999,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.4685209965356886,
         "public_displacement_layer_score": 0.903293355360445,
-        "assistance_pressure_score": 0.9745,
+        "assistance_pressure_score": 0.9744999999999999,
         "gender_vulnerability_score": 0.6491951593063765
       },
       "componentMissingCount": 1,
@@ -116,11 +114,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 50.1998587582052,
         "femaleVulnerableEmploymentPct": 55.5078635209345,
         "femaleLaborForceParticipationPct": 14.452,
-        "femaleAccountOwnershipPct": null,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": null
       },
       "genderProxy": {
         "rank": 1,
@@ -136,13 +130,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -156,10 +150,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 35242.0,
         "idmcPostShockConflictFigureTotal": 35242.0,
-        "idmcLatestEventDate": "2026-05-10",
+        "idmcLatestEventDate": "2026-05-10 00:00:00",
         "iomLatestIdpSum": 9044786.0,
-        "iomLatestReportingDate": "2026-02-28",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2026-02-28 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -173,11 +167,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "rank": 2,
       "score": 71.98417700486124,
       "riskTier": "Very high",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.9330317917397594
+          "score": 0.9330317917397591
         },
         {
           "label": "Assistance/funding pressure",
@@ -192,7 +186,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; Food/fuel import exposure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.9330317917397594,
+        "price_pressure_score": 0.9330317917397591,
         "import_exposure_score": 0.5764934738955824,
         "agriculture_input_exposure_score": 0.6376586061749657,
         "acute_food_insecurity_score": 0.8775,
@@ -228,11 +222,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 65.4168538126233,
         "femaleVulnerableEmploymentPct": 82.7999826966689,
         "femaleLaborForceParticipationPct": 70.393,
-        "femaleAccountOwnershipPct": null,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": null
       },
       "genderProxy": {
         "rank": 2,
@@ -248,13 +238,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": null
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -268,10 +258,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 57792.0,
         "idmcPostShockConflictFigureTotal": 57792.0,
-        "idmcLatestEventDate": "2026-03-21",
+        "idmcLatestEventDate": "2026-03-21 00:00:00",
         "iomLatestIdpSum": 1992513.0,
-        "iomLatestReportingDate": "2025-02-28",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2025-02-28 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -285,7 +275,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "rank": 3,
       "score": 66.37537776935072,
       "riskTier": "High",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Existing displacement proxy",
@@ -304,10 +294,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Assistance/funding pressure; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.5659461909560446,
+        "price_pressure_score": 0.5659461909560444,
         "import_exposure_score": 0.6221762126001464,
         "agriculture_input_exposure_score": 0.679055028672721,
-        "acute_food_insecurity_score": 0.41,
+        "acute_food_insecurity_score": 0.41000000000000003,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 1.0,
         "public_displacement_layer_score": 0.8628271378622986,
@@ -340,11 +330,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 74.6220196601876,
         "femaleVulnerableEmploymentPct": 92.9201234544746,
         "femaleLaborForceParticipationPct": 5.086,
-        "femaleAccountOwnershipPct": null,
-        "femaleHeadedHouseholdsPct": 1.7,
-        "femaleHeadedHouseholdsYear": 2015.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": null
       },
       "genderProxy": {
         "rank": 4,
@@ -360,13 +346,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -380,10 +366,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 183201.0,
         "idmcPostShockConflictFigureTotal": 171615.0,
-        "idmcLatestEventDate": "2026-03-26",
+        "idmcLatestEventDate": "2026-03-26 00:00:00",
         "iomLatestIdpSum": 3109221.0,
-        "iomLatestReportingDate": "2025-05-31",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2025-05-31 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -395,9 +381,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "lat": 15.5527,
       "lon": 48.5164,
       "rank": 4,
-      "score": 62.39083092622343,
+      "score": 62.390830926223416,
       "riskTier": "High",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Assistance/funding pressure",
@@ -416,7 +402,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "IDMC/IOM public displacement layer; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.2866037164319587,
+        "price_pressure_score": 0.28660371643195864,
         "import_exposure_score": 0.7637683745665097,
         "agriculture_input_exposure_score": 0.5922631997566972,
         "acute_food_insecurity_score": 0.8075000000000001,
@@ -452,11 +438,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 43.458530996221,
         "femaleVulnerableEmploymentPct": 62.7469948540645,
         "femaleLaborForceParticipationPct": 4.663,
-        "femaleAccountOwnershipPct": 5.43631354617772,
-        "femaleHeadedHouseholdsPct": 7.8,
-        "femaleHeadedHouseholdsYear": 2013.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 5.43631354617772
       },
       "genderProxy": {
         "rank": 3,
@@ -472,13 +454,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -492,12 +474,120 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2025-12-31",
+        "idmcLatestEventDate": "2025-12-31 00:00:00",
         "iomLatestIdpSum": 3066330.0,
-        "iomLatestReportingDate": "2025-02-01",
-        "wfpLatestSurveyDate": "2020-05-01",
+        "iomLatestReportingDate": "2025-02-01 00:00:00",
+        "wfpLatestSurveyDate": "2020-05-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.294661086956521,
         "wfpRcsiMean": 18.3098800923076
+      }
+    },
+    {
+      "iso3": "HTI",
+      "country": "Haiti",
+      "region": "Latin America and Caribbean",
+      "lat": 18.9712,
+      "lon": -72.2852,
+      "rank": 5,
+      "score": 61.99562334417739,
+      "riskTier": "High",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
+      "pathways": [
+        {
+          "label": "Assistance/funding pressure",
+          "score": 0.886
+        },
+        {
+          "label": "IPC acute food insecurity",
+          "score": 0.81
+        },
+        {
+          "label": "IDMC/IOM public displacement layer",
+          "score": 0.7812197157424435
+        }
+      ],
+      "highPathways": "Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
+      "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer; Existing displacement proxy",
+      "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure",
+      "components": {
+        "price_pressure_score": 0.5,
+        "import_exposure_score": 0.5181514475754303,
+        "agriculture_input_exposure_score": 0.46896263972903074,
+        "acute_food_insecurity_score": 0.81,
+        "wfp_food_security_outcome_score": 0.5,
+        "displacement_pressure_score": 0.5,
+        "public_displacement_layer_score": 0.7812197157424435,
+        "assistance_pressure_score": 0.886,
+        "gender_vulnerability_score": 0.5770997713722872
+      },
+      "componentMissingCount": 3,
+      "indicators": {
+        "medianPriceChangeSinceBaselinePct": null,
+        "comparableSeries": 0.0,
+        "preShockMonths": 12.0,
+        "postShockMonths": 0.0,
+        "ipcPhase3PlusPct": 52.0,
+        "ipcPhase3PlusNumber": 5834134.0,
+        "ipcPhase4PlusPct": 16.0,
+        "selectedDisplacementPeople": null,
+        "idmcConflictTotalDisplacement": 1430903.0,
+        "idmcPostShockConflictFigureTotal": 74730.0,
+        "iomLatestIdpSum": 1450254.0,
+        "wfpPoorBorderlineFoodConsumptionPct": null,
+        "wfpRcsiMean": null,
+        "destinationFundingUsd": 288051491.0,
+        "foodNutritionFundingPerIpc3PlusUsd": 0.0,
+        "importsGdpPct": 18.847110439748,
+        "foodImportsMerchandisePct": null,
+        "fuelImportsMerchandisePct": null,
+        "agricultureValueAddedGdpPct": 15.8601607482058,
+        "cerealImportDependencyPct": 82.9,
+        "fertilizerImportDependencyPct": 100.0,
+        "femaleAgricultureEmploymentPct": 32.2946347740263,
+        "femaleVulnerableEmploymentPct": 83.6130097592117,
+        "femaleLaborForceParticipationPct": 58.337,
+        "femaleAccountOwnershipPct": null
+      },
+      "genderProxy": {
+        "rank": 5,
+        "score": 79.93507949165564,
+        "tier": "Tier 1 - immediate gender-sensitive monitoring",
+        "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
+      },
+      "informality": {
+        "femaleInformalEmploymentPct": null,
+        "femaleInformalEmploymentYear": null,
+        "femaleInformalEmploymentMissing": true,
+        "proxyUsed": "female_vulnerable_employment_pct",
+        "source": "ILOSTAT SDG 8.3.1 direct value not available in public extract"
+      },
+      "readiness": {
+        "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
+        "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
+        "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
+      },
+      "additionalCoverage": {
+        "idmcAnnualAvailable": true,
+        "idmcEventsAvailable": true,
+        "iomDtmAvailable": true,
+        "wfpFsiAvailable": true,
+        "layersPulled": 4,
+        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "idmcConflictTotalDisplacement": 1430903.0,
+        "idmcConflictNewDisplacement": 976969.0,
+        "idmcLatestYear": 2025.0,
+        "idmcPostShockFigureTotal": 74730.0,
+        "idmcPostShockConflictFigureTotal": 74730.0,
+        "idmcLatestEventDate": "2026-05-29",
+        "iomLatestIdpSum": 1450254.0,
+        "iomLatestReportingDate": "2025-12-31",
+        "wfpLatestSurveyDate": "2016-05-01",
+        "wfpPoorBorderlineFoodConsumptionPct": null,
+        "wfpRcsiMean": null
       }
     },
     {
@@ -506,14 +596,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East Africa",
       "lat": 5.1521,
       "lon": 46.1996,
-      "rank": 5,
-      "score": 59.66109643584117,
+      "rank": 6,
+      "score": 59.661096435841166,
       "riskTier": "High",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.936682149879929
+          "score": 0.9366821498799289
         },
         {
           "label": "Food/fuel import exposure",
@@ -528,12 +618,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "IDMC/IOM public displacement layer; Gender vulnerability; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.936682149879929,
+        "price_pressure_score": 0.9366821498799289,
         "import_exposure_score": 0.7699171686746987,
-        "agriculture_input_exposure_score": 0.3869920014272568,
-        "acute_food_insecurity_score": 0.4875,
+        "agriculture_input_exposure_score": 0.38699200142725687,
+        "acute_food_insecurity_score": 0.48750000000000004,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0703657033176242,
+        "displacement_pressure_score": 0.07036570331762429,
         "public_displacement_layer_score": 0.6245999311963382,
         "assistance_pressure_score": 0.6925000000000001,
         "gender_vulnerability_score": 0.6145729849083126
@@ -564,14 +654,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 34.2985817325411,
         "femaleVulnerableEmploymentPct": 60.1831410207611,
         "femaleLaborForceParticipationPct": 20.7,
-        "femaleAccountOwnershipPct": null,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": null
       },
       "genderProxy": {
-        "rank": 6,
+        "rank": 7,
         "score": 75.97242505605853,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -584,13 +670,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -604,10 +690,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 4000.0,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-04-25",
+        "idmcLatestEventDate": "2026-04-25 00:00:00",
         "iomLatestIdpSum": 3262080.0,
-        "iomLatestReportingDate": "2024-09-30",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2024-09-30 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -618,18 +704,18 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East Africa",
       "lat": 9.145,
       "lon": 40.4897,
-      "rank": 6,
-      "score": 57.65786219253292,
+      "rank": 7,
+      "score": 57.6578621925329,
       "riskTier": "High",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Assistance/funding pressure",
-          "score": 0.7615000000000001
+          "score": 0.7615
         },
         {
           "label": "Domestic food-price pressure",
-          "score": 0.6822660755406467
+          "score": 0.6822660755406463
         },
         {
           "label": "Agriculture and fertilizer exposure",
@@ -640,14 +726,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; IPC acute food insecurity; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.6822660755406467,
+        "price_pressure_score": 0.6822660755406463,
         "import_exposure_score": 0.34160508309839,
         "agriculture_input_exposure_score": 0.6682790443851293,
-        "acute_food_insecurity_score": 0.6025,
+        "acute_food_insecurity_score": 0.6024999999999999,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.1876244499235354,
+        "displacement_pressure_score": 0.18762444992353547,
         "public_displacement_layer_score": 0.5898752506106505,
-        "assistance_pressure_score": 0.7615000000000001,
+        "assistance_pressure_score": 0.7615,
         "gender_vulnerability_score": 0.6451258916847351
       },
       "componentMissingCount": 1,
@@ -676,14 +762,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 50.0331663870713,
         "femaleVulnerableEmploymentPct": 86.5331539217543,
         "femaleLaborForceParticipationPct": 58.456,
-        "femaleAccountOwnershipPct": 41.6159713320994,
-        "femaleHeadedHouseholdsPct": 22.1,
-        "femaleHeadedHouseholdsYear": 2019.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 41.6159713320994
       },
       "genderProxy": {
-        "rank": 5,
+        "rank": 6,
         "score": 76.25671821416107,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -696,13 +778,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -716,10 +798,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 9373.0,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-03-10",
+        "idmcLatestEventDate": "2026-03-10 00:00:00",
         "iomLatestIdpSum": 1919993.0,
-        "iomLatestReportingDate": "2024-08-31",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2024-08-31 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -730,10 +812,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Middle East and North Africa",
       "lat": 31.9522,
       "lon": 35.2332,
-      "rank": 7,
-      "score": 55.83237146878744,
+      "rank": 8,
+      "score": 55.832371468787436,
       "riskTier": "High",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "IPC acute food insecurity",
@@ -752,9 +834,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Food/fuel import exposure; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
       "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure",
       "components": {
-        "price_pressure_score": 0.3091379161953421,
+        "price_pressure_score": 0.30913791619534187,
         "import_exposure_score": 0.5810333933520453,
-        "agriculture_input_exposure_score": 0.3768004197951007,
+        "agriculture_input_exposure_score": 0.37680041979510076,
         "acute_food_insecurity_score": 1.0,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.0,
@@ -788,14 +870,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 6.26343472514874,
         "femaleVulnerableEmploymentPct": 20.8772311595396,
         "femaleLaborForceParticipationPct": 18.934,
-        "femaleAccountOwnershipPct": 27.7345491731852,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 27.7345491731852
       },
       "genderProxy": {
-        "rank": 7,
+        "rank": 8,
         "score": 73.2457560738837,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -808,13 +886,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -828,10 +906,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 147.0,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-03-14",
+        "idmcLatestEventDate": "2026-03-14 00:00:00",
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -842,14 +920,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Middle East and North Africa",
       "lat": 34.8021,
       "lon": 38.9968,
-      "rank": 8,
+      "rank": 9,
       "score": 53.91453871962707,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.7357452427761263
+          "score": 0.7357452427761262
         },
         {
           "label": "IDMC/IOM public displacement layer",
@@ -864,7 +942,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "IDMC/IOM public displacement layer; Agriculture and fertilizer exposure; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
-        "price_pressure_score": 0.7357452427761263,
+        "price_pressure_score": 0.7357452427761262,
         "import_exposure_score": 0.5278967778750779,
         "agriculture_input_exposure_score": 0.536767833997722,
         "acute_food_insecurity_score": 0.5,
@@ -872,7 +950,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "displacement_pressure_score": 0.3819695858431385,
         "public_displacement_layer_score": 0.6680619231942029,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.4429540288190468
+        "gender_vulnerability_score": 0.44295402881904683
       },
       "componentMissingCount": 1,
       "indicators": {
@@ -900,14 +978,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 7.87768401819759,
         "femaleVulnerableEmploymentPct": 22.6992403863191,
         "femaleLaborForceParticipationPct": 12.727,
-        "femaleAccountOwnershipPct": null,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": null
       },
       "genderProxy": {
-        "rank": 8,
+        "rank": 9,
         "score": 67.31761253895041,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -920,13 +994,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": null
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -940,10 +1014,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 6303.0,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-03-14",
+        "idmcLatestEventDate": "2026-03-14 00:00:00",
         "iomLatestIdpSum": 5872203.0,
-        "iomLatestReportingDate": "2026-03-31",
-        "wfpLatestSurveyDate": "2020-05-01",
+        "iomLatestReportingDate": "2026-03-31 00:00:00",
+        "wfpLatestSurveyDate": "2020-05-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.248333265306122,
         "wfpRcsiMean": 15.909450375
       }
@@ -954,10 +1028,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "South Asia",
       "lat": 30.3753,
       "lon": 69.3451,
-      "rank": 9,
+      "rank": 10,
       "score": 49.72856745223893,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Gender vulnerability",
@@ -969,17 +1043,17 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         },
         {
           "label": "Domestic food-price pressure",
-          "score": 0.5239007299764151
+          "score": 0.5239007299764147
         }
       ],
       "highPathways": "Gender vulnerability",
       "mediumPathways": "Assistance/funding pressure; Domestic food-price pressure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.5239007299764151,
+        "price_pressure_score": 0.5239007299764147,
         "import_exposure_score": 0.4408884831652767,
         "agriculture_input_exposure_score": 0.4885467234743991,
-        "acute_food_insecurity_score": 0.2225,
+        "acute_food_insecurity_score": 0.22250000000000003,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.4909715286663962,
         "public_displacement_layer_score": 0.4712710786737526,
@@ -1012,15 +1086,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 68.0200186878762,
         "femaleVulnerableEmploymentPct": 73.2301616243749,
         "femaleLaborForceParticipationPct": 24.046,
-        "femaleAccountOwnershipPct": 11.9121696598431,
-        "femaleHeadedHouseholdsPct": 12.5,
-        "femaleHeadedHouseholdsYear": 2018.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 11.9121696598431
       },
       "genderProxy": {
-        "rank": 9,
-        "score": 66.21239948160355,
+        "rank": 10,
+        "score": 66.21239948160354,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -1032,13 +1102,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1052,10 +1122,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-01-19",
+        "idmcLatestEventDate": "2026-01-19 00:00:00",
         "iomLatestIdpSum": 523083.0,
-        "iomLatestReportingDate": "2025-10-31",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2025-10-31 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1066,10 +1136,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East / Southeast Asia",
       "lat": 21.9162,
       "lon": 95.956,
-      "rank": 10,
-      "score": 49.67426754211412,
+      "rank": 11,
+      "score": 49.67426754211411,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Gender vulnerability",
@@ -1088,7 +1158,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Agriculture and fertilizer exposure; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.4567300600368389,
+        "price_pressure_score": 0.45673006003683875,
         "import_exposure_score": 0.5355684029073599,
         "agriculture_input_exposure_score": 0.5285344609306689,
         "acute_food_insecurity_score": 0.5,
@@ -1124,14 +1194,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 37.8429812739217,
         "femaleVulnerableEmploymentPct": 63.8659197390347,
         "femaleLaborForceParticipationPct": 40.941,
-        "femaleAccountOwnershipPct": 46.1505017519645,
-        "femaleHeadedHouseholdsPct": 22.5,
-        "femaleHeadedHouseholdsYear": 2016.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 46.1505017519645
       },
       "genderProxy": {
-        "rank": 11,
+        "rank": 12,
         "score": 64.79858804036506,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -1144,13 +1210,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1164,10 +1230,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-01-19",
+        "idmcLatestEventDate": "2026-01-19 00:00:00",
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1178,10 +1244,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "South Asia",
       "lat": 23.685,
       "lon": 90.3563,
-      "rank": 11,
-      "score": 46.86170206591657,
+      "rank": 12,
+      "score": 46.86170206591656,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Agriculture and fertilizer exposure",
@@ -1200,12 +1266,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "IDMC/IOM public displacement layer; Assistance/funding pressure; Public WFP food-security outcome layer",
       "technicalFocus": "track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.4567300600368389,
+        "price_pressure_score": 0.45673006003683875,
         "import_exposure_score": 0.3231840003373425,
         "agriculture_input_exposure_score": 0.7008853994398716,
-        "acute_food_insecurity_score": 0.2125,
+        "acute_food_insecurity_score": 0.21250000000000002,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.2229900752161293,
+        "displacement_pressure_score": 0.22299007521612935,
         "public_displacement_layer_score": 0.6016367100231876,
         "assistance_pressure_score": 0.5275000000000001,
         "gender_vulnerability_score": 0.6991929440892671
@@ -1236,14 +1302,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 74.6705382859257,
         "femaleVulnerableEmploymentPct": 64.6159825649734,
         "femaleLaborForceParticipationPct": 38.649,
-        "femaleAccountOwnershipPct": 33.346000280938,
-        "femaleHeadedHouseholdsPct": 15.8,
-        "femaleHeadedHouseholdsYear": 2018.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 33.346000280938
       },
       "genderProxy": {
-        "rank": 10,
+        "rank": 11,
         "score": 64.87437436551245,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -1256,13 +1318,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1276,10 +1338,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2025-12-28",
+        "idmcLatestEventDate": "2025-12-28 00:00:00",
         "iomLatestIdpSum": 4955527.0,
-        "iomLatestReportingDate": "2025-10-31",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2025-10-31 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1290,10 +1352,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Eastern Europe / Caucasus",
       "lat": 47.4116,
       "lon": 28.3699,
-      "rank": 12,
+      "rank": 13,
       "score": 46.39928810997625,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Food/fuel import exposure",
@@ -1312,15 +1374,15 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Food/fuel import exposure; Agriculture and fertilizer exposure; IPC acute food insecurity; Public WFP food-security outcome layer; IDMC/IOM public displacement layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.463048769849764,
+        "price_pressure_score": 0.46304876984976373,
         "import_exposure_score": 0.560705445955556,
         "agriculture_input_exposure_score": 0.5113209952226967,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0259357151774289,
+        "displacement_pressure_score": 0.02593571517742892,
         "public_displacement_layer_score": 0.5,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.4605126174565835
+        "gender_vulnerability_score": 0.46051261745658356
       },
       "componentMissingCount": 3,
       "indicators": {
@@ -1348,14 +1410,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 51.3207436292431,
         "femaleVulnerableEmploymentPct": 59.4117412492602,
         "femaleLaborForceParticipationPct": 72.33,
-        "femaleAccountOwnershipPct": 54.547891632053,
-        "femaleHeadedHouseholdsPct": 33.7,
-        "femaleHeadedHouseholdsYear": 2005.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 54.547891632053
       },
       "genderProxy": {
-        "rank": 14,
+        "rank": 15,
         "score": 60.65986234441103,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -1368,13 +1426,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1388,10 +1446,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": null,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "NaT",
+        "idmcLatestEventDate": null,
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1402,10 +1460,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "South Asia",
       "lat": 20.5937,
       "lon": 78.9629,
-      "rank": 13,
-      "score": 45.90882378227147,
+      "rank": 14,
+      "score": 45.908823782271455,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Gender vulnerability",
@@ -1424,7 +1482,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Gender vulnerability; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.4616059610949033,
+        "price_pressure_score": 0.46160596109490293,
         "import_exposure_score": 0.3922882050093158,
         "agriculture_input_exposure_score": 0.4880705413303042,
         "acute_food_insecurity_score": 0.5,
@@ -1460,15 +1518,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 59.8301878767769,
         "femaleVulnerableEmploymentPct": 78.2408543688412,
         "femaleLaborForceParticipationPct": 32.425,
-        "femaleAccountOwnershipPct": 89.2482328079147,
-        "femaleHeadedHouseholdsPct": 17.5,
-        "femaleHeadedHouseholdsYear": 2021.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 89.2482328079147
       },
       "genderProxy": {
-        "rank": 12,
-        "score": 62.84226396180693,
+        "rank": 13,
+        "score": 62.84226396180692,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -1480,13 +1534,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1500,10 +1554,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 9.0,
         "idmcPostShockConflictFigureTotal": 9.0,
-        "idmcLatestEventDate": "2026-05-07",
+        "idmcLatestEventDate": "2026-05-07 00:00:00",
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1514,10 +1568,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Middle East and North Africa",
       "lat": 33.2232,
       "lon": 43.6793,
-      "rank": 14,
-      "score": 45.45882714187898,
+      "rank": 15,
+      "score": 45.458827141878984,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "IDMC/IOM public displacement layer",
@@ -1536,12 +1590,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "IDMC/IOM public displacement layer; Gender vulnerability; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
       "technicalFocus": "monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
-        "price_pressure_score": 0.4567300600368389,
+        "price_pressure_score": 0.45673006003683875,
         "import_exposure_score": 0.5496772115856075,
-        "agriculture_input_exposure_score": 0.233090738541407,
+        "agriculture_input_exposure_score": 0.23309073854140702,
         "acute_food_insecurity_score": 0.5,
-        "wfp_food_security_outcome_score": 0.3044147411184208,
-        "displacement_pressure_score": 0.0588445273243656,
+        "wfp_food_security_outcome_score": 0.30441474111842076,
+        "displacement_pressure_score": 0.05884452732436566,
         "public_displacement_layer_score": 0.661562621196348,
         "assistance_pressure_score": 0.5,
         "gender_vulnerability_score": 0.5992116315579189
@@ -1572,15 +1626,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 13.9261718891646,
         "femaleVulnerableEmploymentPct": 36.0528483291288,
         "femaleLaborForceParticipationPct": 10.937,
-        "femaleAccountOwnershipPct": 18.8101424848699,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 18.8101424848699
       },
       "genderProxy": {
-        "rank": 13,
-        "score": 61.45917834725763,
+        "rank": 14,
+        "score": 61.459178347257634,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -1592,13 +1642,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1612,10 +1662,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 8130.0,
         "idmcPostShockConflictFigureTotal": 595.0,
-        "idmcLatestEventDate": "2026-03-25",
+        "idmcLatestEventDate": "2026-03-25 00:00:00",
         "iomLatestIdpSum": 1031475.0,
-        "iomLatestReportingDate": "2024-12-31",
-        "wfpLatestSurveyDate": "2018-06-01",
+        "iomLatestReportingDate": "2024-12-31 00:00:00",
+        "wfpLatestSurveyDate": "2018-06-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.11369447368421,
         "wfpRcsiMean": null
       }
@@ -1626,10 +1676,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "West Africa / Sahel",
       "lat": 17.5707,
       "lon": -3.9962,
-      "rank": 15,
+      "rank": 16,
       "score": 43.21912712717401,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Agriculture and fertilizer exposure",
@@ -1648,12 +1698,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Gender vulnerability; IDMC/IOM public displacement layer; Food/fuel import exposure; Public WFP food-security outcome layer",
       "technicalFocus": "track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
-        "price_pressure_score": 0.4056570291026108,
+        "price_pressure_score": 0.40565702910261087,
         "import_exposure_score": 0.50558122441168,
         "agriculture_input_exposure_score": 0.689460870516915,
-        "acute_food_insecurity_score": 0.075,
+        "acute_food_insecurity_score": 0.07500000000000001,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0265392387878031,
+        "displacement_pressure_score": 0.026539238787803128,
         "public_displacement_layer_score": 0.6263767575236827,
         "assistance_pressure_score": 0.445,
         "gender_vulnerability_score": 0.6544651879858416
@@ -1684,14 +1734,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 60.9389853777312,
         "femaleVulnerableEmploymentPct": 81.4203790766716,
         "femaleLaborForceParticipationPct": 52.842,
-        "femaleAccountOwnershipPct": 45.6045965708999,
-        "femaleHeadedHouseholdsPct": 8.2,
-        "femaleHeadedHouseholdsYear": 2021.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 45.6045965708999
       },
       "genderProxy": {
-        "rank": 15,
+        "rank": 16,
         "score": 60.61614796254844,
         "tier": "Tier 1 - immediate gender-sensitive monitoring",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -1704,13 +1750,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1724,10 +1770,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 4008.0,
         "idmcPostShockConflictFigureTotal": 4008.0,
-        "idmcLatestEventDate": "2026-04-25",
+        "idmcLatestEventDate": "2026-04-25 00:00:00",
         "iomLatestIdpSum": 375539.0,
-        "iomLatestReportingDate": "2023-04-30",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2023-04-30 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1738,14 +1784,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Middle East and North Africa",
       "lat": 33.8547,
       "lon": 35.8623,
-      "rank": 16,
-      "score": 43.15907613615687,
+      "rank": 17,
+      "score": 43.15907613615686,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.7114738279436565
+          "score": 0.7114738279436563
         },
         {
           "label": "Food/fuel import exposure",
@@ -1760,15 +1806,15 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
-        "price_pressure_score": 0.7114738279436565,
+        "price_pressure_score": 0.7114738279436563,
         "import_exposure_score": 0.6739942598882103,
-        "agriculture_input_exposure_score": 0.1596170570072941,
-        "acute_food_insecurity_score": 0.32,
+        "agriculture_input_exposure_score": 0.1596170570072942,
+        "acute_food_insecurity_score": 0.32000000000000006,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.1407704191504634,
+        "displacement_pressure_score": 0.14077041915046345,
         "public_displacement_layer_score": 0.6320653331066269,
-        "assistance_pressure_score": 0.192,
-        "gender_vulnerability_score": 0.4515811543566473
+        "assistance_pressure_score": 0.19200000000000003,
+        "gender_vulnerability_score": 0.45158115435664736
       },
       "componentMissingCount": 1,
       "indicators": {
@@ -1796,14 +1842,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 1.51645336472733,
         "femaleVulnerableEmploymentPct": 11.3106201579827,
         "femaleLaborForceParticipationPct": 22.234,
-        "femaleAccountOwnershipPct": 15.3395918766117,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 15.3395918766117
       },
       "genderProxy": {
-        "rank": 18,
+        "rank": 19,
         "score": 55.36115803850536,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -1816,13 +1858,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1836,10 +1878,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 5129975.0,
         "idmcPostShockConflictFigureTotal": 5129975.0,
-        "idmcLatestEventDate": "2026-03-04",
+        "idmcLatestEventDate": "2026-03-04 00:00:00",
         "iomLatestIdpSum": 64417.0,
-        "iomLatestReportingDate": "2025-10-31",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2025-10-31 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1850,14 +1892,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Middle East and North Africa",
       "lat": 26.8206,
       "lon": 30.8025,
-      "rank": 17,
+      "rank": 18,
       "score": 43.01033666696495,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.5341907342620037
+          "score": 0.5341907342620034
         },
         {
           "label": "IPC acute food insecurity",
@@ -1872,7 +1914,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Domestic food-price pressure; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.5341907342620037,
+        "price_pressure_score": 0.5341907342620034,
         "import_exposure_score": 0.460877423639691,
         "agriculture_input_exposure_score": 0.3474067542642054,
         "acute_food_insecurity_score": 0.5,
@@ -1880,7 +1922,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "displacement_pressure_score": 0.1692119081801442,
         "public_displacement_layer_score": 0.15,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.4942388107284758
+        "gender_vulnerability_score": 0.49423881072847586
       },
       "componentMissingCount": 2,
       "indicators": {
@@ -1908,14 +1950,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 17.4704915611854,
         "femaleVulnerableEmploymentPct": 29.2847368657897,
         "femaleLaborForceParticipationPct": 18.455,
-        "femaleAccountOwnershipPct": 40.2142182329493,
-        "femaleHeadedHouseholdsPct": 12.9,
-        "femaleHeadedHouseholdsYear": 2014.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 40.2142182329493
       },
       "genderProxy": {
-        "rank": 23,
+        "rank": 24,
         "score": 53.97891643841368,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -1928,13 +1966,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -1948,10 +1986,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2021.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2025-10-06",
+        "idmcLatestEventDate": "2025-10-06 00:00:00",
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -1962,14 +2000,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East / Southeast Asia",
       "lat": 12.8797,
       "lon": 121.774,
-      "rank": 18,
-      "score": 42.96207308718462,
+      "rank": 19,
+      "score": 42.96207308718461,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.5301194729237656
+          "score": 0.5301194729237655
         },
         {
           "label": "IDMC/IOM public displacement layer",
@@ -1984,7 +2022,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Domestic food-price pressure; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.5301194729237656,
+        "price_pressure_score": 0.5301194729237655,
         "import_exposure_score": 0.4480338961735024,
         "agriculture_input_exposure_score": 0.375693076434069,
         "acute_food_insecurity_score": 0.5,
@@ -1992,7 +2030,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "displacement_pressure_score": 0.0,
         "public_displacement_layer_score": 0.5083493987982208,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.3705841421101006
+        "gender_vulnerability_score": 0.37058414211010066
       },
       "componentMissingCount": 2,
       "indicators": {
@@ -2020,15 +2058,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 13.3015608838713,
         "femaleVulnerableEmploymentPct": 39.2633235534081,
         "femaleLaborForceParticipationPct": 50.489,
-        "femaleAccountOwnershipPct": 57.1016109576105,
-        "femaleHeadedHouseholdsPct": 25.8,
-        "femaleHeadedHouseholdsYear": 2022.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 57.1016109576105
       },
       "genderProxy": {
-        "rank": 17,
-        "score": 56.42865778096785,
+        "rank": 18,
+        "score": 56.428657780967846,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -2040,13 +2074,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": null
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2060,10 +2094,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 32175.0,
         "idmcPostShockConflictFigureTotal": 26643.0,
-        "idmcLatestEventDate": "2026-05-23",
+        "idmcLatestEventDate": "2026-05-23 00:00:00",
         "iomLatestIdpSum": 63037.0,
-        "iomLatestReportingDate": "2021-04-30",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2021-04-30 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2074,14 +2108,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Eastern Europe / Caucasus",
       "lat": 40.0691,
       "lon": 45.0382,
-      "rank": 19,
+      "rank": 20,
       "score": 42.26437009725199,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
-          "score": 0.5771870392971182
+          "score": 0.5771870392971179
         },
         {
           "label": "IPC acute food insecurity",
@@ -2096,15 +2130,15 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Domestic food-price pressure; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.5771870392971182,
+        "price_pressure_score": 0.5771870392971179,
         "import_exposure_score": 0.4890331569046018,
         "agriculture_input_exposure_score": 0.4300202910066926,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.0,
-        "public_displacement_layer_score": 0.2217348595431566,
+        "public_displacement_layer_score": 0.22173485954315664,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.3536029504342955
+        "gender_vulnerability_score": 0.35360295043429557
       },
       "componentMissingCount": 2,
       "indicators": {
@@ -2132,14 +2166,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 31.1683772691725,
         "femaleVulnerableEmploymentPct": 34.0761708341697,
         "femaleLaborForceParticipationPct": 51.057,
-        "femaleAccountOwnershipPct": 67.9879799098157,
-        "femaleHeadedHouseholdsPct": 33.2,
-        "femaleHeadedHouseholdsYear": 2016.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 67.9879799098157
       },
       "genderProxy": {
-        "rank": 27,
+        "rank": 28,
         "score": 52.74942826587885,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -2152,13 +2182,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2172,10 +2202,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2024.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "NaT",
+        "idmcLatestEventDate": null,
         "iomLatestIdpSum": 89149.0,
-        "iomLatestReportingDate": "2020-12-15",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2020-12-15 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2186,10 +2216,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "South Asia",
       "lat": 7.8731,
       "lon": 80.7718,
-      "rank": 20,
-      "score": 41.94321136643732,
+      "rank": 21,
+      "score": 41.943211366437325,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
@@ -2209,14 +2239,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.5,
-        "import_exposure_score": 0.4311472643868806,
+        "import_exposure_score": 0.43114726438688067,
         "agriculture_input_exposure_score": 0.4379371689494464,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.0,
         "public_displacement_layer_score": 0.3245439595039935,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.3945230993579633
+        "gender_vulnerability_score": 0.39452309935796337
       },
       "componentMissingCount": 3,
       "indicators": {
@@ -2244,14 +2274,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 25.9679840518099,
         "femaleVulnerableEmploymentPct": 39.3783626220454,
         "femaleLaborForceParticipationPct": 30.992,
-        "femaleAccountOwnershipPct": 80.201889490679,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 80.201889490679
       },
       "genderProxy": {
-        "rank": 22,
+        "rank": 23,
         "score": 54.25214772954719,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -2264,13 +2290,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2284,10 +2310,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-01-14",
+        "idmcLatestEventDate": "2026-01-14 00:00:00",
         "iomLatestIdpSum": 205238.0,
-        "iomLatestReportingDate": "2025-12-31",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2025-12-31 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2298,10 +2324,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East / Southeast Asia",
       "lat": 14.0583,
       "lon": 108.2772,
-      "rank": 21,
-      "score": 41.83536781338704,
+      "rank": 22,
+      "score": 41.83536781338705,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
@@ -2321,14 +2347,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.5,
-        "import_exposure_score": 0.4856404943056803,
+        "import_exposure_score": 0.48564049430568035,
         "agriculture_input_exposure_score": 0.3934047182363569,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.0,
         "public_displacement_layer_score": 0.35,
         "assistance_pressure_score": 0.5,
-        "gender_vulnerability_score": 0.3657883508588401
+        "gender_vulnerability_score": 0.36578835085884015
       },
       "componentMissingCount": 3,
       "indicators": {
@@ -2356,15 +2382,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 24.4189150595926,
         "femaleVulnerableEmploymentPct": 57.1024985154407,
         "femaleLaborForceParticipationPct": 68.551,
-        "femaleAccountOwnershipPct": 69.8844155477409,
-        "femaleHeadedHouseholdsPct": 27.0,
-        "femaleHeadedHouseholdsYear": 2005.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 69.8844155477409
       },
       "genderProxy": {
-        "rank": 25,
-        "score": 53.71580037870973,
+        "rank": 26,
+        "score": 53.71580037870974,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -2376,13 +2398,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2396,10 +2418,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": null,
         "idmcPostShockFigureTotal": 498.0,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-05-18",
+        "idmcLatestEventDate": "2026-05-18 00:00:00",
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2410,10 +2432,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East / Southeast Asia",
       "lat": 15.87,
       "lon": 100.9925,
-      "rank": 22,
-      "score": 41.71445683453982,
+      "rank": 23,
+      "score": 41.714456834539824,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
@@ -2433,11 +2455,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.5,
-        "import_exposure_score": 0.447914520084002,
+        "import_exposure_score": 0.44791452008400207,
         "agriculture_input_exposure_score": 0.4213478232014292,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0158944789488467,
+        "displacement_pressure_score": 0.01589447894884679,
         "public_displacement_layer_score": 0.4623999083984127,
         "assistance_pressure_score": 0.5,
         "gender_vulnerability_score": 0.298189873019028
@@ -2468,15 +2490,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 24.8174803830863,
         "femaleVulnerableEmploymentPct": 48.1362902826987,
         "femaleLaborForceParticipationPct": 58.963,
-        "femaleAccountOwnershipPct": 92.7000685235119,
-        "femaleHeadedHouseholdsPct": null,
-        "femaleHeadedHouseholdsYear": null,
-        "femaleHeadedHouseholdsMissing": true,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 92.7000685235119
       },
       "genderProxy": {
-        "rank": 24,
-        "score": 53.77241049252115,
+        "rank": 25,
+        "score": 53.772410492521146,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -2488,13 +2506,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2508,10 +2526,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2025-12-07",
+        "idmcLatestEventDate": "2025-12-07 00:00:00",
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2522,10 +2540,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "West Africa / Sahel",
       "lat": 9.082,
       "lon": 8.6753,
-      "rank": 23,
-      "score": 41.48509628047756,
+      "rank": 24,
+      "score": 41.48509628047755,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "IDMC/IOM public displacement layer",
@@ -2544,10 +2562,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Public WFP food-security outcome layer; Food/fuel import exposure; Assistance/funding pressure",
       "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
-        "price_pressure_score": 0.4567300600368389,
+        "price_pressure_score": 0.45673006003683875,
         "import_exposure_score": 0.5728588503260442,
-        "agriculture_input_exposure_score": 0.273350318011534,
-        "acute_food_insecurity_score": 0.21,
+        "agriculture_input_exposure_score": 0.27335031801153403,
+        "acute_food_insecurity_score": 0.21000000000000002,
         "wfp_food_security_outcome_score": 0.6246626074999997,
         "displacement_pressure_score": 0.0,
         "public_displacement_layer_score": 0.7700158829513517,
@@ -2580,15 +2598,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 23.5767771715327,
         "femaleVulnerableEmploymentPct": 79.0793122483505,
         "femaleLaborForceParticipationPct": 80.7,
-        "femaleAccountOwnershipPct": 52.2155914465012,
-        "femaleHeadedHouseholdsPct": 14.9,
-        "femaleHeadedHouseholdsYear": 2021.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 52.2155914465012
       },
       "genderProxy": {
-        "rank": 16,
-        "score": 58.23022851944231,
+        "rank": 17,
+        "score": 58.230228519442306,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -2600,13 +2614,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2620,10 +2634,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 16215.0,
         "idmcPostShockConflictFigureTotal": 15156.0,
-        "idmcLatestEventDate": "2026-05-15",
+        "idmcLatestEventDate": "2026-05-15 00:00:00",
         "iomLatestIdpSum": 1378124.0,
-        "iomLatestReportingDate": "2025-10-31",
-        "wfpLatestSurveyDate": "2018-09-01",
+        "iomLatestReportingDate": "2025-10-31 00:00:00",
+        "wfpLatestSurveyDate": "2018-09-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.346695208333333,
         "wfpRcsiMean": 15.246966
       }
@@ -2634,10 +2648,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "East / Southeast Asia",
       "lat": -0.7893,
       "lon": 113.9213,
-      "rank": 24,
+      "rank": 25,
       "score": 41.42001006093039,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
@@ -2692,14 +2706,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 25.2587381539466,
         "femaleVulnerableEmploymentPct": 58.5100621974505,
         "femaleLaborForceParticipationPct": 53.72,
-        "femaleAccountOwnershipPct": 58.0308451514518,
-        "femaleHeadedHouseholdsPct": 14.8,
-        "femaleHeadedHouseholdsYear": 2017.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 58.0308451514518
       },
       "genderProxy": {
-        "rank": 20,
+        "rank": 21,
         "score": 54.92411274224304,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -2712,13 +2722,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2732,10 +2742,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 17164.0,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "2026-05-27",
+        "idmcLatestEventDate": "2026-05-27 00:00:00",
         "iomLatestIdpSum": 110373.0,
-        "iomLatestReportingDate": "2018-12-30",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2018-12-30 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2746,10 +2756,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Middle East and North Africa",
       "lat": 30.5852,
       "lon": 36.2384,
-      "rank": 25,
+      "rank": 26,
       "score": 40.73936140734741,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Food/fuel import exposure",
@@ -2768,12 +2778,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Food/fuel import exposure; IPC acute food insecurity; Public WFP food-security outcome layer; IDMC/IOM public displacement layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
-        "price_pressure_score": 0.4567300600368389,
+        "price_pressure_score": 0.45673006003683875,
         "import_exposure_score": 0.561733904055429,
-        "agriculture_input_exposure_score": 0.1110933574541872,
+        "agriculture_input_exposure_score": 0.11109335745418723,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0997220358290939,
+        "displacement_pressure_score": 0.09972203582909397,
         "public_displacement_layer_score": 0.5,
         "assistance_pressure_score": 0.5,
         "gender_vulnerability_score": 0.3744286078583846
@@ -2804,15 +2814,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 0.369969773574306,
         "femaleVulnerableEmploymentPct": 2.12486322647181,
         "femaleLaborForceParticipationPct": 16.029,
-        "femaleAccountOwnershipPct": 36.2234645848992,
-        "femaleHeadedHouseholdsPct": 12.2,
-        "femaleHeadedHouseholdsYear": 2018.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 36.2234645848992
       },
       "genderProxy": {
-        "rank": 26,
-        "score": 53.03245924348388,
+        "rank": 27,
+        "score": 53.03245924348387,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
       },
@@ -2824,13 +2830,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - 19th ICLS"
       },
       "readiness": {
-        "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2844,10 +2850,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": null,
         "idmcPostShockFigureTotal": null,
         "idmcPostShockConflictFigureTotal": null,
-        "idmcLatestEventDate": "NaT",
+        "idmcLatestEventDate": null,
         "iomLatestIdpSum": null,
-        "iomLatestReportingDate": "NaT",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": null,
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2858,10 +2864,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "Eastern Europe / Caucasus",
       "lat": 48.3794,
       "lon": 31.1656,
-      "rank": 26,
+      "rank": 27,
       "score": 40.60401073591466,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "IDMC/IOM public displacement layer",
@@ -2869,7 +2875,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         },
         {
           "label": "Domestic food-price pressure",
-          "score": 0.5626913904176019
+          "score": 0.5626913904176015
         },
         {
           "label": "IPC acute food insecurity",
@@ -2880,12 +2886,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "mediumPathways": "Domestic food-price pressure; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
-        "price_pressure_score": 0.5626913904176019,
-        "import_exposure_score": 0.2197577843621592,
-        "agriculture_input_exposure_score": 0.3479289534413721,
+        "price_pressure_score": 0.5626913904176015,
+        "import_exposure_score": 0.21975778436215926,
+        "agriculture_input_exposure_score": 0.34792895344137215,
         "acute_food_insecurity_score": 0.5,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0265209029056521,
+        "displacement_pressure_score": 0.026520902905652132,
         "public_displacement_layer_score": 0.7986006474788608,
         "assistance_pressure_score": 0.5,
         "gender_vulnerability_score": 0.2184631683891872
@@ -2916,14 +2922,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 11.6430172794025,
         "femaleVulnerableEmploymentPct": 18.2287204910633,
         "femaleLaborForceParticipationPct": 47.738,
-        "femaleAccountOwnershipPct": 83.8855969447319,
-        "femaleHeadedHouseholdsPct": 49.4,
-        "femaleHeadedHouseholdsYear": 2007.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 83.8855969447319
       },
       "genderProxy": {
-        "rank": 19,
+        "rank": 20,
         "score": 55.29658396629179,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -2936,13 +2938,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": null
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "No",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": false,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -2956,10 +2958,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 6089.0,
         "idmcPostShockConflictFigureTotal": 6089.0,
-        "idmcLatestEventDate": "2026-05-28",
+        "idmcLatestEventDate": "2026-05-28 00:00:00",
         "iomLatestIdpSum": 3411652.0,
-        "iomLatestReportingDate": "2026-04-30",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2026-04-30 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -2970,10 +2972,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "region": "West Africa / Sahel",
       "lat": 12.2383,
       "lon": -1.5616,
-      "rank": 27,
+      "rank": 28,
       "score": 37.5862569203798,
       "riskTier": "Moderate",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Gender vulnerability",
@@ -2997,7 +2999,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "agriculture_input_exposure_score": 0.5910884328603512,
         "acute_food_insecurity_score": 0.17,
         "wfp_food_security_outcome_score": 0.5,
-        "displacement_pressure_score": 0.0264920336443931,
+        "displacement_pressure_score": 0.02649203364439312,
         "public_displacement_layer_score": 0.5560542419273204,
         "assistance_pressure_score": 0.502,
         "gender_vulnerability_score": 0.6321125330826396
@@ -3028,14 +3030,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "femaleAgricultureEmploymentPct": 53.8370409282705,
         "femaleVulnerableEmploymentPct": 87.7205225540799,
         "femaleLaborForceParticipationPct": 64.074,
-        "femaleAccountOwnershipPct": 43.9890405155106,
-        "femaleHeadedHouseholdsPct": 13.4,
-        "femaleHeadedHouseholdsYear": 2021.0,
-        "femaleHeadedHouseholdsMissing": false,
-        "femaleHeadedHouseholdsEvidenceType": "structural/proxy"
+        "femaleAccountOwnershipPct": 43.9890405155106
       },
       "genderProxy": {
-        "rank": 21,
+        "rank": 22,
         "score": 54.71675449754371,
         "tier": "Tier 2 - close watch and partner follow-up",
         "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -3048,13 +3046,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -3068,10 +3066,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 20901.0,
         "idmcPostShockConflictFigureTotal": 20901.0,
-        "idmcLatestEventDate": "2026-04-23",
+        "idmcLatestEventDate": "2026-04-23 00:00:00",
         "iomLatestIdpSum": 20874.0,
-        "iomLatestReportingDate": "2019-08-30",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2019-08-30 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
@@ -3085,11 +3083,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 1.760223641104885,
-      "scenario_score_0_100": 76.61215267634728,
+      "risk_delta_0_100": 1.7483180066081334,
+      "scenario_score_0_100": 76.60024704185052,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.8801118205524423,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8741590033040667,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 1
     },
     {
@@ -3099,11 +3097,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 1.595108759807427,
-      "scenario_score_0_100": 73.57928576466867,
+      "risk_delta_0_100": 1.6314801356774857,
+      "scenario_score_0_100": 73.61565714053873,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7975543799037135,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8157400678387429,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 2
     },
     {
@@ -3113,11 +3111,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 1.365341852639646,
-      "scenario_score_0_100": 67.74071962199037,
+      "risk_delta_0_100": 1.1848196887281524,
+      "scenario_score_0_100": 67.56019745807887,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6826709263198231,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5924098443640762,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 3
     },
     {
@@ -3126,13 +3124,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 1.363557023437538,
-      "scenario_score_0_100": 63.75438794966097,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 1.5358374225129388,
+      "scenario_score_0_100": 63.92666834873636,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6817785117187689,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7679187112564694,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "assistance_cut_10pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.1,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 1.563605914722733,
+      "scenario_score_0_100": 63.559229258900125,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.7818029573613665,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -3140,13 +3152,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 1.068699683473823,
-      "scenario_score_0_100": 60.72979611931499,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 1.1928299793589017,
+      "scenario_score_0_100": 60.85392641520007,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5343498417369114,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 5
+      "scenario_sensitivity_score_0_1": 0.5964149896794508,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -3154,13 +3166,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 1.202687435221321,
-      "scenario_score_0_100": 58.86054962775424,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 1.297872575183195,
+      "scenario_score_0_100": 58.955734767716095,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6013437176106604,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 6
+      "scenario_sensitivity_score_0_1": 0.6489362875915975,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -3168,13 +3180,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 1.505028303968701,
-      "scenario_score_0_100": 57.33739977275614,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 1.6737712279765256,
+      "scenario_score_0_100": 57.50614269676396,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.7525141519843506,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 7
+      "scenario_sensitivity_score_0_1": 0.8368856139882628,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -3183,12 +3195,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 1.031815645030623,
-      "scenario_score_0_100": 54.94635436465769,
+      "risk_delta_0_100": 1.046083587765721,
+      "scenario_score_0_100": 54.96062230739279,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5159078225153113,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 8
+      "scenario_sensitivity_score_0_1": 0.5230417938828605,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -3196,13 +3208,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 0.9324647693670657,
-      "scenario_score_0_100": 50.60673231148118,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 1.0081236913319687,
+      "scenario_score_0_100": 50.682391233446076,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4662323846835328,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 9
+      "scenario_sensitivity_score_0_1": 0.5040618456659843,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -3211,12 +3223,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 0.8738498900694199,
-      "scenario_score_0_100": 50.60241734230835,
+      "risk_delta_0_100": 0.8807713236021257,
+      "scenario_score_0_100": 50.60933877584105,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.43692494503471,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 10
+      "scenario_sensitivity_score_0_1": 0.44038566180106287,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -3224,13 +3236,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 0.8358017065741139,
-      "scenario_score_0_100": 47.69750377249069,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 0.9098410130069562,
+      "scenario_score_0_100": 47.771543078923514,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.417900853287057,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 11
+      "scenario_sensitivity_score_0_1": 0.4549205065034781,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -3239,12 +3251,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 0.8577807145532288,
-      "scenario_score_0_100": 47.25706882452948,
+      "risk_delta_0_100": 0.9999999999999999,
+      "scenario_score_0_100": 47.39928810997625,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4288903572766144,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 12
+      "scenario_sensitivity_score_0_1": 0.49999999999999994,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -3252,13 +3264,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 0.8594727081567115,
-      "scenario_score_0_100": 46.76829649042818,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 1.0071045311175335,
+      "scenario_score_0_100": 46.91592831338899,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4297363540783558,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 13
+      "scenario_sensitivity_score_0_1": 0.5035522655587668,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -3266,13 +3278,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 0.9322784066758489,
-      "scenario_score_0_100": 46.39110554855483,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 0.9780580931615358,
+      "scenario_score_0_100": 46.43688523504052,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4661392033379245,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 14
+      "scenario_sensitivity_score_0_1": 0.4890290465807679,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 15
     },
     {
       "countryiso3": "MLI",
@@ -3281,12 +3293,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 0.652012474645814,
-      "scenario_score_0_100": 43.87113960181983,
+      "risk_delta_0_100": 0.7792130272571047,
+      "scenario_score_0_100": 43.99834015443112,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.326006237322907,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 15
+      "scenario_sensitivity_score_0_1": 0.38960651362855236,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 16
     },
     {
       "countryiso3": "PHL",
@@ -3294,13 +3306,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 0.8533397595192884,
-      "scenario_score_0_100": 43.81541284670391,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 1.0025048196394661,
+      "scenario_score_0_100": 43.96457790682408,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4266698797596442,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 16
+      "scenario_sensitivity_score_0_1": 0.5012524098197331,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 17
     },
     {
       "countryiso3": "EGY",
@@ -3309,12 +3321,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 0.7607635724540432,
-      "scenario_score_0_100": 43.771100239419,
+      "risk_delta_0_100": 0.8949999999999999,
+      "scenario_score_0_100": 43.905336666964956,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3803817862270216,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 17
+      "scenario_sensitivity_score_0_1": 0.44749999999999995,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 18
     },
     {
       "countryiso3": "LBN",
@@ -3322,13 +3334,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 0.6086572589877898,
-      "scenario_score_0_100": 43.76773339514466,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 0.6908995999319881,
+      "scenario_score_0_100": 43.84997573608885,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3043286294938949,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 18
+      "scenario_sensitivity_score_0_1": 0.34544979996599406,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -3337,12 +3349,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 0.7386939438172627,
-      "scenario_score_0_100": 43.00306404106925,
+      "risk_delta_0_100": 0.9165204578629469,
+      "scenario_score_0_100": 43.180890555114935,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3693469719086314,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 19
+      "scenario_sensitivity_score_0_1": 0.45826022893147345,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -3350,13 +3362,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 0.7798175838015975,
-      "scenario_score_0_100": 42.72302895023892,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 0.9473631878511979,
+      "scenario_score_0_100": 42.89057455428852,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3899087919007987,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 20
+      "scenario_sensitivity_score_0_1": 0.47368159392559894,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -3364,13 +3376,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 0.79,
-      "scenario_score_0_100": 42.62536781338704,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 0.9549999999999998,
+      "scenario_score_0_100": 42.79036781338705,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.395,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 21
+      "scenario_sensitivity_score_0_1": 0.4774999999999999,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -3378,13 +3390,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 0.8397283070440192,
-      "scenario_score_0_100": 42.55418514158384,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 0.9887199725195237,
+      "scenario_score_0_100": 42.70317680705935,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4198641535220096,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 22
+      "scenario_sensitivity_score_0_1": 0.49435998625976185,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -3392,13 +3404,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 0.8338063531805407,
-      "scenario_score_0_100": 42.3189026336581,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 1.0027233035854053,
+      "scenario_score_0_100": 42.487819584062954,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4169031765902704,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 23
+      "scenario_sensitivity_score_0_1": 0.5013616517927026,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -3407,12 +3419,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 0.7875685922542275,
-      "scenario_score_0_100": 42.20757865318461,
+      "risk_delta_0_100": 0.9531764441906704,
+      "scenario_score_0_100": 42.373186505121055,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3937842961271137,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 24
+      "scenario_sensitivity_score_0_1": 0.4765882220953352,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -3421,12 +3433,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 0.8799166107487283,
-      "scenario_score_0_100": 41.61927801809614,
+      "risk_delta_0_100": 0.9999999999999999,
+      "scenario_score_0_100": 41.73936140734741,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4399583053743641,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 25
+      "scenario_sensitivity_score_0_1": 0.49999999999999994,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -3435,12 +3447,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 0.97739652986324,
-      "scenario_score_0_100": 41.58140726577791,
+      "risk_delta_0_100": 1.089580194243658,
+      "scenario_score_0_100": 41.69359093015832,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.48869826493162,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 26
+      "scenario_sensitivity_score_0_1": 0.544790097121829,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -3449,12 +3461,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 0.7169693068642461,
-      "scenario_score_0_100": 38.30322622724405,
+      "risk_delta_0_100": 0.853496272578196,
+      "scenario_score_0_100": 38.439753192958,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.358484653432123,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 27
+      "scenario_sensitivity_score_0_1": 0.426748136289098,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -3463,11 +3475,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 4.400559102762212,
-      "scenario_score_0_100": 79.25248813800461,
+      "risk_delta_0_100": 4.370795016520334,
+      "scenario_score_0_100": 79.22272405176273,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.8801118205524423,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8741590033040667,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 1
     },
     {
@@ -3477,11 +3489,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 3.987771899518568,
-      "scenario_score_0_100": 75.9719489043798,
+      "risk_delta_0_100": 4.078700339193714,
+      "scenario_score_0_100": 76.06287734405495,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7975543799037135,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8157400678387429,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 2
     },
     {
@@ -3491,11 +3503,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 3.413354631599115,
-      "scenario_score_0_100": 69.78873240094984,
+      "risk_delta_0_100": 2.962049221820381,
+      "scenario_score_0_100": 69.3374269911711,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6826709263198231,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5924098443640762,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 3
     },
     {
@@ -3504,13 +3516,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 3.408892558593845,
-      "scenario_score_0_100": 65.79972348481728,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 3.839593556282347,
+      "scenario_score_0_100": 66.23042448250577,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6817785117187689,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7679187112564694,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "assistance_cut_25pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.25,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 3.9090147868068326,
+      "scenario_score_0_100": 65.90463813098422,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.7818029573613665,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -3518,13 +3544,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 2.671749208684557,
-      "scenario_score_0_100": 62.33284564452573,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 2.982074948397254,
+      "scenario_score_0_100": 62.64317138423842,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5343498417369114,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 5
+      "scenario_sensitivity_score_0_1": 0.5964149896794508,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -3532,13 +3558,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 3.006718588053302,
-      "scenario_score_0_100": 60.66458078058622,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 3.2446814379579876,
+      "scenario_score_0_100": 60.90254363049089,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6013437176106604,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 6
+      "scenario_sensitivity_score_0_1": 0.6489362875915975,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -3546,13 +3572,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 3.762570759921753,
-      "scenario_score_0_100": 59.59494222870919,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 4.184428069941314,
+      "scenario_score_0_100": 60.01679953872875,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.7525141519843506,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 7
+      "scenario_sensitivity_score_0_1": 0.8368856139882628,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -3561,12 +3587,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 2.579539112576557,
-      "scenario_score_0_100": 56.49407783220362,
+      "risk_delta_0_100": 2.6152089694143026,
+      "scenario_score_0_100": 56.52974768904137,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5159078225153113,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 8
+      "scenario_sensitivity_score_0_1": 0.5230417938828605,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -3574,13 +3600,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 2.331161923417664,
-      "scenario_score_0_100": 52.00542946553178,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 2.5203092283299218,
+      "scenario_score_0_100": 52.19457677044403,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4662323846835328,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 9
+      "scenario_sensitivity_score_0_1": 0.5040618456659843,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -3589,12 +3615,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 2.18462472517355,
-      "scenario_score_0_100": 51.91319217741248,
+      "risk_delta_0_100": 2.2019283090053143,
+      "scenario_score_0_100": 51.930495761244245,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.43692494503471,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 10
+      "scenario_sensitivity_score_0_1": 0.44038566180106287,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -3602,13 +3628,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 2.089504266435285,
-      "scenario_score_0_100": 48.95120633235186,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 2.2746025325173904,
+      "scenario_score_0_100": 49.13630459843395,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.417900853287057,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 11
+      "scenario_sensitivity_score_0_1": 0.4549205065034781,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -3617,12 +3643,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 2.144451786383072,
-      "scenario_score_0_100": 48.54373989635932,
+      "risk_delta_0_100": 2.4999999999999996,
+      "scenario_score_0_100": 48.89928810997625,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4288903572766144,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 12
+      "scenario_sensitivity_score_0_1": 0.49999999999999994,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -3630,13 +3656,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 2.148681770391779,
-      "scenario_score_0_100": 48.05750555266324,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 2.517761327793834,
+      "scenario_score_0_100": 48.42658511006529,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4297363540783558,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 13
+      "scenario_sensitivity_score_0_1": 0.5035522655587668,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -3644,13 +3670,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 2.330696016689622,
-      "scenario_score_0_100": 47.78952315856861,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 2.4451452329038394,
+      "scenario_score_0_100": 47.903972374782825,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4661392033379245,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 14
+      "scenario_sensitivity_score_0_1": 0.4890290465807679,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 15
     },
     {
       "countryiso3": "PHL",
@@ -3658,13 +3684,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 2.133349398798221,
-      "scenario_score_0_100": 45.09542248598284,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 2.506262049098665,
+      "scenario_score_0_100": 45.46833513628328,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4266698797596442,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 15
+      "scenario_sensitivity_score_0_1": 0.5012524098197331,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 16
     },
     {
       "countryiso3": "EGY",
@@ -3673,12 +3699,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 1.901908931135108,
-      "scenario_score_0_100": 44.91224559810006,
+      "risk_delta_0_100": 2.2375,
+      "scenario_score_0_100": 45.24783666696495,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3803817862270216,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 16
+      "scenario_sensitivity_score_0_1": 0.44749999999999995,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 17
     },
     {
       "countryiso3": "MLI",
@@ -3687,12 +3713,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 1.630031186614535,
-      "scenario_score_0_100": 44.84915831378855,
+      "risk_delta_0_100": 1.9480325681427617,
+      "scenario_score_0_100": 45.167159695316776,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.326006237322907,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 17
+      "scenario_sensitivity_score_0_1": 0.38960651362855236,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 18
     },
     {
       "countryiso3": "LBN",
@@ -3700,13 +3726,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 1.521643147469474,
-      "scenario_score_0_100": 44.68071928362635,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 1.7272489998299703,
+      "scenario_score_0_100": 44.88632513598683,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3043286294938949,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 18
+      "scenario_sensitivity_score_0_1": 0.34544979996599406,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -3715,12 +3741,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 1.846734859543157,
-      "scenario_score_0_100": 44.11110495679515,
+      "risk_delta_0_100": 2.2913011446573672,
+      "scenario_score_0_100": 44.55567124190936,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3693469719086314,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 19
+      "scenario_sensitivity_score_0_1": 0.45826022893147345,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -3728,26 +3754,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 1.949543959503994,
-      "scenario_score_0_100": 43.89275532594132,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 2.3684079696279947,
+      "scenario_score_0_100": 44.31161933606532,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3899087919007987,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 20
-    },
-    {
-      "countryiso3": "THA",
-      "country": "Thailand",
-      "scenario": "assistance_cut_25pct",
-      "scenario_type": "assistance_cut",
-      "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 2.099320767610048,
-      "scenario_score_0_100": 43.81377760214987,
-      "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4198641535220096,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.47368159392559894,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 21
     },
     {
@@ -3756,13 +3768,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 1.975,
-      "scenario_score_0_100": 43.81036781338705,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 2.3874999999999997,
+      "scenario_score_0_100": 44.222867813387055,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.395,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.4774999999999999,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 22
+    },
+    {
+      "countryiso3": "THA",
+      "country": "Thailand",
+      "scenario": "assistance_cut_25pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.25,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 2.4717999312988095,
+      "scenario_score_0_100": 44.186256765838635,
+      "scenario_risk_tier": "Moderate",
+      "scenario_sensitivity_score_0_1": 0.49435998625976185,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -3770,13 +3796,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 2.084515882951352,
-      "scenario_score_0_100": 43.56961216342891,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 2.5068082589635132,
+      "scenario_score_0_100": 43.991904539441066,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4169031765902704,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 23
+      "scenario_sensitivity_score_0_1": 0.5013616517927026,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -3785,12 +3811,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 1.968921480635569,
-      "scenario_score_0_100": 43.38893154156595,
+      "risk_delta_0_100": 2.382941110476676,
+      "scenario_score_0_100": 43.80295117140707,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3937842961271137,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 24
+      "scenario_sensitivity_score_0_1": 0.4765882220953352,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 25
     },
     {
       "countryiso3": "UKR",
@@ -3799,12 +3825,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 2.4434913246581,
-      "scenario_score_0_100": 43.04750206057276,
+      "risk_delta_0_100": 2.723950485609145,
+      "scenario_score_0_100": 43.32796122152381,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.48869826493162,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 25
+      "scenario_sensitivity_score_0_1": 0.544790097121829,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 26
     },
     {
       "countryiso3": "JOR",
@@ -3813,12 +3839,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 2.199791526871821,
-      "scenario_score_0_100": 42.93915293421923,
+      "risk_delta_0_100": 2.4999999999999996,
+      "scenario_score_0_100": 43.23936140734741,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4399583053743641,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 26
+      "scenario_sensitivity_score_0_1": 0.49999999999999994,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -3827,12 +3853,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 1.792423267160615,
-      "scenario_score_0_100": 39.37868018754042,
+      "risk_delta_0_100": 2.1337406814454902,
+      "scenario_score_0_100": 39.71999760182529,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.358484653432123,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 27
+      "scenario_sensitivity_score_0_1": 0.426748136289098,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -3841,11 +3867,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 8.801118205524423,
-      "scenario_score_0_100": 83.65304724076681,
+      "risk_delta_0_100": 8.741590033040668,
+      "scenario_score_0_100": 83.59351906828306,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.8801118205524423,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8741590033040667,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 1
     },
     {
@@ -3855,11 +3881,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 7.975543799037135,
-      "scenario_score_0_100": 79.95972080389838,
+      "risk_delta_0_100": 8.157400678387429,
+      "scenario_score_0_100": 80.14157768324867,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7975543799037135,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8157400678387429,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 2
     },
     {
@@ -3869,11 +3895,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 6.82670926319823,
-      "scenario_score_0_100": 73.20208703254895,
+      "risk_delta_0_100": 5.924098443640762,
+      "scenario_score_0_100": 72.29947621299148,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6826709263198231,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5924098443640762,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 3
     },
     {
@@ -3882,13 +3908,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 6.81778511718769,
-      "scenario_score_0_100": 69.20861604341113,
-      "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6817785117187689,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 7.679187112564694,
+      "scenario_score_0_100": 70.0700180387881,
+      "scenario_risk_tier": "Very high",
+      "scenario_sensitivity_score_0_1": 0.7679187112564694,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "assistance_cut_50pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 7.818029573613665,
+      "scenario_score_0_100": 69.81365291779106,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.7818029573613665,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -3896,26 +3936,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 5.343498417369114,
-      "scenario_score_0_100": 65.00459485321028,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 5.964149896794508,
+      "scenario_score_0_100": 65.62524633263567,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5343498417369114,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 5
-    },
-    {
-      "countryiso3": "ETH",
-      "country": "Ethiopia",
-      "scenario": "assistance_cut_50pct",
-      "scenario_type": "assistance_cut",
-      "shock_level_pct": 0.5,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 6.013437176106605,
-      "scenario_score_0_100": 63.67129936863952,
-      "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6013437176106604,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5964149896794508,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 6
     },
     {
@@ -3924,13 +3950,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 7.525141519843506,
-      "scenario_score_0_100": 63.35751298863095,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 8.368856139882627,
+      "scenario_score_0_100": 64.20122760867007,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.7525141519843506,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.8368856139882628,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 7
+    },
+    {
+      "countryiso3": "ETH",
+      "country": "Ethiopia",
+      "scenario": "assistance_cut_50pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 6.489362875915975,
+      "scenario_score_0_100": 64.14722506844888,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.6489362875915975,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -3939,12 +3979,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 5.159078225153113,
-      "scenario_score_0_100": 59.07361694478018,
+      "risk_delta_0_100": 5.230417938828605,
+      "scenario_score_0_100": 59.14495665845567,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5159078225153113,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 8
+      "scenario_sensitivity_score_0_1": 0.5230417938828605,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -3952,13 +3992,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 4.662323846835329,
-      "scenario_score_0_100": 54.33659138894944,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 5.0406184566598435,
+      "scenario_score_0_100": 54.71488599877395,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4662323846835328,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 9
+      "scenario_sensitivity_score_0_1": 0.5040618456659843,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -3967,12 +4007,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 4.3692494503471,
-      "scenario_score_0_100": 54.09781690258603,
+      "risk_delta_0_100": 4.403856618010629,
+      "scenario_score_0_100": 54.132424070249556,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.43692494503471,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 10
+      "scenario_sensitivity_score_0_1": 0.44038566180106287,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -3980,13 +4020,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 4.17900853287057,
-      "scenario_score_0_100": 51.04071059878714,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 4.549205065034781,
+      "scenario_score_0_100": 51.410907130951344,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.417900853287057,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 11
+      "scenario_sensitivity_score_0_1": 0.4549205065034781,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -3995,12 +4035,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 4.288903572766144,
-      "scenario_score_0_100": 50.68819168274239,
+      "risk_delta_0_100": 4.999999999999999,
+      "scenario_score_0_100": 51.39928810997625,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4288903572766144,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 12
+      "scenario_sensitivity_score_0_1": 0.49999999999999994,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -4008,13 +4048,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 4.297363540783557,
-      "scenario_score_0_100": 50.20618732305503,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 5.035522655587668,
+      "scenario_score_0_100": 50.944346437859124,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4297363540783558,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 13
+      "scenario_sensitivity_score_0_1": 0.5035522655587668,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -4022,13 +4062,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 4.661392033379244,
-      "scenario_score_0_100": 50.12021917525823,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 4.890290465807679,
+      "scenario_score_0_100": 50.349117607686665,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4661392033379245,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 14
+      "scenario_sensitivity_score_0_1": 0.4890290465807679,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 15
     },
     {
       "countryiso3": "PHL",
@@ -4036,13 +4076,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 4.266698797596442,
-      "scenario_score_0_100": 47.22877188478106,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 5.01252409819733,
+      "scenario_score_0_100": 47.974597185381946,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4266698797596442,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 15
+      "scenario_sensitivity_score_0_1": 0.5012524098197331,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 16
     },
     {
       "countryiso3": "EGY",
@@ -4051,12 +4091,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 3.803817862270216,
-      "scenario_score_0_100": 46.81415452923517,
+      "risk_delta_0_100": 4.475,
+      "scenario_score_0_100": 47.485336666964955,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3803817862270216,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 16
+      "scenario_sensitivity_score_0_1": 0.44749999999999995,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 17
     },
     {
       "countryiso3": "MLI",
@@ -4065,25 +4105,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 3.26006237322907,
-      "scenario_score_0_100": 46.47918950040308,
+      "risk_delta_0_100": 3.8960651362855234,
+      "scenario_score_0_100": 47.115192263459534,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.326006237322907,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 17
-    },
-    {
-      "countryiso3": "LBN",
-      "country": "Lebanon",
-      "scenario": "assistance_cut_50pct",
-      "scenario_type": "assistance_cut",
-      "shock_level_pct": 0.5,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 3.043286294938949,
-      "scenario_score_0_100": 46.20236243109582,
-      "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3043286294938949,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.38960651362855236,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 18
     },
     {
@@ -4093,26 +4119,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 3.693469719086313,
-      "scenario_score_0_100": 45.95783981633831,
+      "risk_delta_0_100": 4.5826022893147345,
+      "scenario_score_0_100": 46.846972386566726,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3693469719086314,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.45826022893147345,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 19
-    },
-    {
-      "countryiso3": "THA",
-      "country": "Thailand",
-      "scenario": "assistance_cut_50pct",
-      "scenario_type": "assistance_cut",
-      "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 4.198641535220096,
-      "scenario_score_0_100": 45.91309836975992,
-      "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4198641535220096,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -4120,13 +4132,41 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 3.899087919007988,
-      "scenario_score_0_100": 45.84229928544531,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 4.736815939255989,
+      "scenario_score_0_100": 46.680027305693315,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3899087919007987,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.47368159392559894,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 20
+    },
+    {
+      "countryiso3": "THA",
+      "country": "Thailand",
+      "scenario": "assistance_cut_50pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 4.943599862597619,
+      "scenario_score_0_100": 46.65805669713744,
+      "scenario_risk_tier": "Moderate",
+      "scenario_sensitivity_score_0_1": 0.49435998625976185,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 21
+    },
+    {
+      "countryiso3": "LBN",
+      "country": "Lebanon",
+      "scenario": "assistance_cut_50pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 3.4544979996599405,
+      "scenario_score_0_100": 46.613574135816805,
+      "scenario_risk_tier": "Moderate",
+      "scenario_sensitivity_score_0_1": 0.34544979996599406,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 22
     },
     {
       "countryiso3": "VNM",
@@ -4134,13 +4174,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 3.95,
-      "scenario_score_0_100": 45.78536781338705,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 4.7749999999999995,
+      "scenario_score_0_100": 46.61036781338705,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.395,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 22
+      "scenario_sensitivity_score_0_1": 0.4774999999999999,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -4148,26 +4188,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 4.169031765902703,
-      "scenario_score_0_100": 45.65412804638026,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 5.0136165179270265,
+      "scenario_score_0_100": 46.498712798404576,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4169031765902704,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 23
-    },
-    {
-      "countryiso3": "UKR",
-      "country": "Ukraine",
-      "scenario": "assistance_cut_50pct",
-      "scenario_type": "assistance_cut",
-      "shock_level_pct": 0.5,
-      "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 4.8869826493162,
-      "scenario_score_0_100": 45.49099338523087,
-      "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.48869826493162,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5013616517927026,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 24
     },
     {
@@ -4177,12 +4203,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 3.937842961271137,
-      "scenario_score_0_100": 45.35785302220152,
+      "risk_delta_0_100": 4.765882220953352,
+      "scenario_score_0_100": 46.18589228188374,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3937842961271137,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.4765882220953352,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
       "scenario_rank": 25
+    },
+    {
+      "countryiso3": "UKR",
+      "country": "Ukraine",
+      "scenario": "assistance_cut_50pct",
+      "scenario_type": "assistance_cut",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 40.60401073591466,
+      "risk_delta_0_100": 5.44790097121829,
+      "scenario_score_0_100": 46.05191170713295,
+      "scenario_risk_tier": "Moderate",
+      "scenario_sensitivity_score_0_1": 0.544790097121829,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 26
     },
     {
       "countryiso3": "JOR",
@@ -4191,12 +4231,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 4.399583053743641,
-      "scenario_score_0_100": 45.13894446109105,
+      "risk_delta_0_100": 4.999999999999999,
+      "scenario_score_0_100": 45.73936140734741,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4399583053743641,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 26
+      "scenario_sensitivity_score_0_1": 0.49999999999999994,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -4205,12 +4245,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "assistance_cut",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 3.584846534321231,
-      "scenario_score_0_100": 41.17110345470103,
+      "risk_delta_0_100": 4.2674813628909805,
+      "scenario_score_0_100": 41.853738283270786,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.358484653432123,
-      "pathway_note": "Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 27
+      "scenario_sensitivity_score_0_1": 0.426748136289098,
+      "pathway_note": "Funding, ration or coverage reduction pressure",
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -4219,11 +4259,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 11.927387714856,
-      "scenario_score_0_100": 86.77931675009839,
+      "risk_delta_0_100": 11.988407161090423,
+      "scenario_score_0_100": 86.84033619633281,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7593324755480925,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7681605817446688,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 1
     },
     {
@@ -4233,11 +4273,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 11.7087787125405,
-      "scenario_score_0_100": 83.69295571740173,
+      "risk_delta_0_100": 11.880177583983059,
+      "scenario_score_0_100": 83.8643545888443,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7441724922921831,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7578632815222377,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 2
     },
     {
@@ -4247,11 +4287,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 9.94913936318551,
-      "scenario_score_0_100": 76.32451713253623,
+      "risk_delta_0_100": 9.460963426123849,
+      "scenario_score_0_100": 75.83634119547457,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6241561302216556,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5974010270869317,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 3
     },
     {
@@ -4260,13 +4300,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 10.07032847170199,
-      "scenario_score_0_100": 72.46115939792543,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 10.447090571190422,
+      "scenario_score_0_100": 72.83792149741384,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6326460329885857,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.6480516626230025,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "combined_base",
+      "scenario_type": "combined_base",
+      "shock_level_pct": null,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 10.03496444176713,
+      "scenario_score_0_100": 72.03058778594452,
+      "scenario_risk_tier": "Very high",
+      "scenario_sensitivity_score_0_1": 0.627087227056145,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -4274,13 +4328,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 9.751922646006404,
-      "scenario_score_0_100": 69.41301908184757,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 10.116069408460696,
+      "scenario_score_0_100": 69.77716584430186,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6268063235343218,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 5
+      "scenario_sensitivity_score_0_1": 0.6484386358315015,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -4288,13 +4342,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 9.071346039341082,
-      "scenario_score_0_100": 66.729208231874,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 9.328179016793705,
+      "scenario_score_0_100": 66.9860412093266,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5820176898676332,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 6
+      "scenario_sensitivity_score_0_1": 0.5960601650387696,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -4302,13 +4356,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 9.560070417469143,
-      "scenario_score_0_100": 65.39244188625659,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 9.988462940065524,
+      "scenario_score_0_100": 65.82083440885296,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5955673367028018,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 7
+      "scenario_sensitivity_score_0_1": 0.6174028399966005,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -4317,12 +4371,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 8.656424338916132,
-      "scenario_score_0_100": 62.5709630585432,
+      "risk_delta_0_100": 8.73599860000236,
+      "scenario_score_0_100": 62.65053731962943,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5538128184975349,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 8
+      "scenario_sensitivity_score_0_1": 0.5605854481858407,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -4330,13 +4384,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 7.789275585511024,
-      "scenario_score_0_100": 57.46354312762514,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 7.963208582467239,
+      "scenario_score_0_100": 57.63747612458135,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4982552247762952,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 9
+      "scenario_sensitivity_score_0_1": 0.5059836913905397,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -4345,12 +4399,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 7.233646210185345,
-      "scenario_score_0_100": 56.96221366242428,
+      "risk_delta_0_100": 7.200192498685824,
+      "scenario_score_0_100": 56.92875995092475,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4664073888637472,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 10
+      "scenario_sensitivity_score_0_1": 0.46150469358587115,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 11
     },
     {
       "countryiso3": "MDA",
@@ -4359,12 +4413,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 7.587882287273509,
-      "scenario_score_0_100": 53.98717039724976,
+      "risk_delta_0_100": 7.942083623527075,
+      "scenario_score_0_100": 54.34137173350332,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4853028754131711,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 11
+      "scenario_sensitivity_score_0_1": 0.502927231848181,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 12
     },
     {
       "countryiso3": "BGD",
@@ -4372,13 +4426,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 7.084238138510934,
-      "scenario_score_0_100": 53.94594020442751,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 7.221786609988893,
+      "scenario_score_0_100": 54.08348867590546,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4542836404650714,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 12
+      "scenario_sensitivity_score_0_1": 0.45813516801870546,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -4386,13 +4440,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 7.131385198615019,
-      "scenario_score_0_100": 53.04020898088649,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 7.4855249222170075,
+      "scenario_score_0_100": 53.394348704488465,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4615484006745978,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 13
+      "scenario_sensitivity_score_0_1": 0.47830467015832945,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -4400,13 +4454,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 7.119608682757692,
-      "scenario_score_0_100": 52.57843582463668,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 7.237995427223185,
+      "scenario_score_0_100": 52.69682256910217,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4518840066254741,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 14
+      "scenario_sensitivity_score_0_1": 0.45805391382837535,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 15
     },
     {
       "countryiso3": "PHL",
@@ -4414,13 +4468,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 7.093499909459362,
-      "scenario_score_0_100": 50.05557299664398,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 7.485286702957954,
+      "scenario_score_0_100": 50.44735979014257,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4559213304770349,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 15
+      "scenario_sensitivity_score_0_1": 0.47671175199184673,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 16
     },
     {
       "countryiso3": "MLI",
@@ -4429,12 +4483,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 6.776008862112354,
-      "scenario_score_0_100": 49.99513598928637,
+      "risk_delta_0_100": 7.034440255443941,
+      "scenario_score_0_100": 50.25356738261795,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4323202947496517,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 16
+      "scenario_sensitivity_score_0_1": 0.4414510469855357,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 17
     },
     {
       "countryiso3": "LBN",
@@ -4442,13 +4496,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 6.75266908615837,
-      "scenario_score_0_100": 49.91174522231524,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 6.984287981042957,
+      "scenario_score_0_100": 50.14336411719982,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4423876838121758,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 17
+      "scenario_sensitivity_score_0_1": 0.45562400398975644,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 18
     },
     {
       "countryiso3": "EGY",
@@ -4457,12 +4511,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 6.741645722913534,
-      "scenario_score_0_100": 49.75198238987848,
+      "risk_delta_0_100": 7.0831358956746415,
+      "scenario_score_0_100": 50.0934725626396,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4406752713135163,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 18
+      "scenario_sensitivity_score_0_1": 0.45812517747223996,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -4471,12 +4525,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 7.004782994339521,
-      "scenario_score_0_100": 49.26915309159151,
+      "risk_delta_0_100": 7.477339758957714,
+      "scenario_score_0_100": 49.7417098562097,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4553025844958294,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 19
+      "scenario_sensitivity_score_0_1": 0.4807116350588108,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -4484,13 +4538,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 6.851612029340278,
-      "scenario_score_0_100": 48.79482339577761,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 7.2820784985349025,
+      "scenario_score_0_100": 49.225289864972225,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4435602143569938,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 20
+      "scenario_sensitivity_score_0_1": 0.46582187612121934,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -4498,13 +4552,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 6.936378477308474,
-      "scenario_score_0_100": 48.77174629069552,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 7.363641758714001,
+      "scenario_score_0_100": 49.199009572101055,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4470986112383414,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 21
+      "scenario_sensitivity_score_0_1": 0.4694012568526059,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -4512,13 +4566,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 7.033647544212725,
-      "scenario_score_0_100": 48.74810437875255,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 7.428325821869393,
+      "scenario_score_0_100": 49.14278265640922,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4502468562712503,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 22
+      "scenario_sensitivity_score_0_1": 0.47139344104295045,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -4526,13 +4580,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 6.962688997766427,
-      "scenario_score_0_100": 48.44778527824398,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 7.3499221509683315,
+      "scenario_score_0_100": 48.83501843144588,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4402940857054729,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 23
+      "scenario_sensitivity_score_0_1": 0.45742470191400636,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -4541,12 +4595,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 6.584395918488372,
-      "scenario_score_0_100": 48.00440597941876,
+      "risk_delta_0_100": 7.003296116475239,
+      "scenario_score_0_100": 48.42330617740563,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4287541349829715,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 24
+      "scenario_sensitivity_score_0_1": 0.4500097264915905,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -4555,12 +4609,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 6.761512853613047,
-      "scenario_score_0_100": 47.50087426096046,
+      "risk_delta_0_100": 7.0688706091224764,
+      "scenario_score_0_100": 47.80823201646989,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4308290128208244,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 25
+      "scenario_sensitivity_score_0_1": 0.44665185492964826,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -4569,12 +4623,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 6.841566092722243,
-      "scenario_score_0_100": 47.44557682863691,
+      "risk_delta_0_100": 7.162648779274788,
+      "scenario_score_0_100": 47.76665951518945,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4359116811165574,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 26
+      "scenario_sensitivity_score_0_1": 0.45455094889155284,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -4583,12 +4637,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_base",
       "shock_level_pct": null,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 6.019562719306433,
-      "scenario_score_0_100": 43.60581963968624,
+      "risk_delta_0_100": 6.247567754952217,
+      "scenario_score_0_100": 43.83382467533202,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3729042092754486,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 27
+      "scenario_sensitivity_score_0_1": 0.37709367332615934,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -4597,11 +4651,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 23.854775429712,
-      "scenario_score_0_100": 98.7067044649544,
+      "risk_delta_0_100": 23.976814322180847,
+      "scenario_score_0_100": 98.82874335742324,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7593324755480925,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7681605817446688,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 1
     },
     {
@@ -4611,11 +4665,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 23.417557425081,
-      "scenario_score_0_100": 95.40173442994224,
+      "risk_delta_0_100": 23.760355167966118,
+      "scenario_score_0_100": 95.74453217282735,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7441724922921831,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7578632815222377,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 2
     },
     {
@@ -4625,11 +4679,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 19.89827872637102,
-      "scenario_score_0_100": 86.27365649572174,
+      "risk_delta_0_100": 18.921926852247697,
+      "scenario_score_0_100": 85.29730462159841,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6241561302216556,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5974010270869317,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 3
     },
     {
@@ -4638,13 +4692,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 20.14065694340399,
-      "scenario_score_0_100": 82.53148786962741,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 20.894181142380845,
+      "scenario_score_0_100": 83.28501206860426,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6326460329885857,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.6480516626230025,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "combined_high",
+      "scenario_type": "combined_high",
+      "shock_level_pct": null,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 20.06992888353426,
+      "scenario_score_0_100": 82.06555222771165,
+      "scenario_risk_tier": "Very high",
+      "scenario_sensitivity_score_0_1": 0.627087227056145,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -4652,13 +4720,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 19.50384529201281,
-      "scenario_score_0_100": 79.16494172785397,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 20.232138816921392,
+      "scenario_score_0_100": 79.89323525276257,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6268063235343218,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 5
+      "scenario_sensitivity_score_0_1": 0.6484386358315015,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -4666,13 +4734,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 18.14269207868216,
-      "scenario_score_0_100": 75.80055427121508,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 18.65635803358741,
+      "scenario_score_0_100": 76.31422022612031,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.5820176898676332,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 6
+      "scenario_sensitivity_score_0_1": 0.5960601650387696,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -4680,13 +4748,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 19.12014083493829,
-      "scenario_score_0_100": 74.95251230372573,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 19.97692588013105,
+      "scenario_score_0_100": 75.80929734891848,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.5955673367028018,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 7
+      "scenario_sensitivity_score_0_1": 0.6174028399966005,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -4695,12 +4763,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 17.31284867783226,
-      "scenario_score_0_100": 71.22738739745932,
+      "risk_delta_0_100": 17.47199720000472,
+      "scenario_score_0_100": 71.38653591963178,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.5538128184975349,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 8
+      "scenario_sensitivity_score_0_1": 0.5605854481858407,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -4708,13 +4776,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 15.57855117102205,
-      "scenario_score_0_100": 65.25281871313616,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 15.926417164934477,
+      "scenario_score_0_100": 65.60068470704859,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4982552247762952,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 9
+      "scenario_sensitivity_score_0_1": 0.5059836913905397,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -4723,12 +4791,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 14.46729242037069,
-      "scenario_score_0_100": 64.19585987260962,
+      "risk_delta_0_100": 14.400384997371647,
+      "scenario_score_0_100": 64.12895244961058,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4664073888637472,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 10
+      "scenario_sensitivity_score_0_1": 0.46150469358587115,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 11
     },
     {
       "countryiso3": "MDA",
@@ -4737,12 +4805,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 15.17576457454702,
-      "scenario_score_0_100": 61.57505268452326,
+      "risk_delta_0_100": 15.88416724705415,
+      "scenario_score_0_100": 62.2834553570304,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4853028754131711,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 11
+      "scenario_sensitivity_score_0_1": 0.502927231848181,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 12
     },
     {
       "countryiso3": "BGD",
@@ -4750,13 +4818,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 14.16847627702187,
-      "scenario_score_0_100": 61.03017834293844,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 14.443573219977786,
+      "scenario_score_0_100": 61.305275285894346,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4542836404650714,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 12
+      "scenario_sensitivity_score_0_1": 0.45813516801870546,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -4764,13 +4832,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 14.26277039723004,
-      "scenario_score_0_100": 60.1715941795015,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 14.971049844434015,
+      "scenario_score_0_100": 60.87987362670547,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4615484006745978,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 13
+      "scenario_sensitivity_score_0_1": 0.47830467015832945,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -4778,13 +4846,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 14.23921736551538,
-      "scenario_score_0_100": 59.69804450739437,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 14.47599085444637,
+      "scenario_score_0_100": 59.93481799632535,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4518840066254741,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 14
+      "scenario_sensitivity_score_0_1": 0.45805391382837535,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 15
     },
     {
       "countryiso3": "PHL",
@@ -4792,13 +4860,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 14.18699981891872,
-      "scenario_score_0_100": 57.14907290610334,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 14.970573405915909,
+      "scenario_score_0_100": 57.93264649310052,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4559213304770349,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 15
+      "scenario_sensitivity_score_0_1": 0.47671175199184673,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 16
     },
     {
       "countryiso3": "MLI",
@@ -4807,40 +4875,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 13.55201772422471,
-      "scenario_score_0_100": 56.77114485139872,
+      "risk_delta_0_100": 14.068880510887881,
+      "scenario_score_0_100": 57.28800763806189,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4323202947496517,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 16
-    },
-    {
-      "countryiso3": "LBN",
-      "country": "Lebanon",
-      "scenario": "combined_high",
-      "scenario_type": "combined_high",
-      "shock_level_pct": null,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 13.50533817231674,
-      "scenario_score_0_100": 56.66441430847361,
-      "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4423876838121758,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.4414510469855357,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 17
-    },
-    {
-      "countryiso3": "EGY",
-      "country": "Egypt",
-      "scenario": "combined_high",
-      "scenario_type": "combined_high",
-      "shock_level_pct": null,
-      "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 13.48329144582707,
-      "scenario_score_0_100": 56.49362811279202,
-      "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4406752713135163,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 18
     },
     {
       "countryiso3": "ARM",
@@ -4849,12 +4889,40 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 14.00956598867904,
-      "scenario_score_0_100": 56.27393608593103,
+      "risk_delta_0_100": 14.954679517915428,
+      "scenario_score_0_100": 57.21904961516742,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4553025844958294,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.4807116350588108,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 18
+    },
+    {
+      "countryiso3": "EGY",
+      "country": "Egypt",
+      "scenario": "combined_high",
+      "scenario_type": "combined_high",
+      "shock_level_pct": null,
+      "baseline_score_0_100": 43.01033666696495,
+      "risk_delta_0_100": 14.166271791349283,
+      "scenario_score_0_100": 57.176608458314234,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.45812517747223996,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 19
+    },
+    {
+      "countryiso3": "LBN",
+      "country": "Lebanon",
+      "scenario": "combined_high",
+      "scenario_type": "combined_high",
+      "shock_level_pct": null,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 13.968575962085914,
+      "scenario_score_0_100": 57.12765209824278,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.45562400398975644,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 20
     },
     {
       "countryiso3": "THA",
@@ -4862,13 +4930,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 14.06729508842545,
-      "scenario_score_0_100": 55.78175192296527,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 14.856651643738786,
+      "scenario_score_0_100": 56.57110847827861,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4502468562712503,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 20
+      "scenario_sensitivity_score_0_1": 0.47139344104295045,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -4876,13 +4944,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 13.87275695461695,
-      "scenario_score_0_100": 55.70812476800399,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 14.727283517428003,
+      "scenario_score_0_100": 56.56265133081506,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4470986112383414,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 21
+      "scenario_sensitivity_score_0_1": 0.4694012568526059,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 22
     },
     {
       "countryiso3": "LKA",
@@ -4890,13 +4958,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 13.70322405868056,
-      "scenario_score_0_100": 55.64643542511788,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 14.564156997069805,
+      "scenario_score_0_100": 56.507368363507126,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4435602143569938,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 22
+      "scenario_sensitivity_score_0_1": 0.46582187612121934,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -4904,13 +4972,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 13.92537799553285,
-      "scenario_score_0_100": 55.41047427601041,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 14.699844301936663,
+      "scenario_score_0_100": 56.184940582414214,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.4402940857054729,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 23
+      "scenario_sensitivity_score_0_1": 0.45742470191400636,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -4919,12 +4987,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 13.16879183697674,
-      "scenario_score_0_100": 54.58880189790713,
-      "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4287541349829715,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 24
+      "risk_delta_0_100": 14.006592232950478,
+      "scenario_score_0_100": 55.42660229388086,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.4500097264915905,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 25
     },
     {
       "countryiso3": "UKR",
@@ -4933,12 +5001,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 13.68313218544449,
-      "scenario_score_0_100": 54.28714292135915,
+      "risk_delta_0_100": 14.325297558549575,
+      "scenario_score_0_100": 54.929308294464235,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4359116811165574,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 25
+      "scenario_sensitivity_score_0_1": 0.45455094889155284,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 26
     },
     {
       "countryiso3": "JOR",
@@ -4947,12 +5015,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 13.52302570722609,
-      "scenario_score_0_100": 54.2623871145735,
+      "risk_delta_0_100": 14.137741218244953,
+      "scenario_score_0_100": 54.877102625592364,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4308290128208244,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 26
+      "scenario_sensitivity_score_0_1": 0.44665185492964826,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -4961,12 +5029,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_high",
       "shock_level_pct": null,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 12.03912543861287,
-      "scenario_score_0_100": 49.62538235899267,
+      "risk_delta_0_100": 12.495135509904435,
+      "scenario_score_0_100": 50.08139243028424,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3729042092754486,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 27
+      "scenario_sensitivity_score_0_1": 0.37709367332615934,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -4975,11 +5043,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 4.951182172951881,
-      "scenario_score_0_100": 79.80311120819428,
+      "risk_delta_0_100": 4.98466830469328,
+      "scenario_score_0_100": 79.83659733993568,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7593324755480925,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7681605817446688,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 1
     },
     {
@@ -4989,11 +5057,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 4.852070018644364,
-      "scenario_score_0_100": 76.8362470235056,
+      "risk_delta_0_100": 4.92867661039813,
+      "scenario_score_0_100": 76.91285361525937,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7441724922921831,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.7578632815222377,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 2
     },
     {
@@ -5003,11 +5071,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 4.106218098253883,
-      "scenario_score_0_100": 70.4815958676046,
+      "risk_delta_0_100": 3.907260670700925,
+      "scenario_score_0_100": 70.28263844005164,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6241561302216556,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.5974010270869317,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 3
     },
     {
@@ -5016,13 +5084,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 4.155160723058295,
-      "scenario_score_0_100": 66.54599164928173,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 4.30047167303366,
+      "scenario_score_0_100": 66.69130259925707,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6326460329885857,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
+      "scenario_sensitivity_score_0_1": 0.6480516626230025,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "combined_low",
+      "scenario_type": "combined_low",
+      "shock_level_pct": null,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 4.145626069162137,
+      "scenario_score_0_100": 66.14124941333952,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.627087227056145,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -5030,13 +5112,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 4.048747295279282,
-      "scenario_score_0_100": 63.70984373112045,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 4.199788102535159,
+      "scenario_score_0_100": 63.860884538376325,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6268063235343218,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 5
+      "scenario_sensitivity_score_0_1": 0.6484386358315015,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -5044,13 +5126,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 3.764595942787191,
-      "scenario_score_0_100": 61.42245813532011,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 3.8692161465230344,
+      "scenario_score_0_100": 61.52707833905594,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5820176898676332,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 6
+      "scenario_sensitivity_score_0_1": 0.5960601650387696,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -5058,13 +5140,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 3.945660597141603,
-      "scenario_score_0_100": 59.77803206592905,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 4.117671127437838,
+      "scenario_score_0_100": 59.95004259622527,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5955673367028018,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 7
+      "scenario_sensitivity_score_0_1": 0.6174028399966005,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -5073,12 +5155,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 3.587682264515831,
-      "scenario_score_0_100": 57.5022209841429,
+      "risk_delta_0_100": 3.6239024093751704,
+      "scenario_score_0_100": 57.53844112900224,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5538128184975349,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 8
+      "scenario_sensitivity_score_0_1": 0.5605854481858407,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -5086,13 +5168,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 3.225798743707932,
-      "scenario_score_0_100": 52.90006628582205,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 3.293850511694814,
+      "scenario_score_0_100": 52.96811805380892,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4982552247762952,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 9
+      "scenario_sensitivity_score_0_1": 0.5059836913905397,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -5101,12 +5183,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 3.004485543381383,
-      "scenario_score_0_100": 52.73305299562031,
+      "risk_delta_0_100": 2.9860283292484464,
+      "scenario_score_0_100": 52.714595781487375,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4664073888637472,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 10
+      "scenario_sensitivity_score_0_1": 0.46150469358587115,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -5114,13 +5196,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 2.933315459567138,
-      "scenario_score_0_100": 49.79501752548371,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 2.983579868697907,
+      "scenario_score_0_100": 49.84528193461447,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4542836404650714,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 11
+      "scenario_sensitivity_score_0_1": 0.45813516801870546,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -5129,12 +5211,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 3.140570225355925,
-      "scenario_score_0_100": 49.53985833533217,
+      "risk_delta_0_100": 3.282116072121015,
+      "scenario_score_0_100": 49.68140418209726,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4853028754131711,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 12
+      "scenario_sensitivity_score_0_1": 0.502927231848181,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -5142,13 +5224,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 2.963208599173787,
-      "scenario_score_0_100": 48.87203238144526,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 3.1033705052345764,
+      "scenario_score_0_100": 49.012194287506034,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4615484006745978,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 13
+      "scenario_sensitivity_score_0_1": 0.47830467015832945,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -5156,13 +5238,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 2.950271248123673,
-      "scenario_score_0_100": 48.40909839000265,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 2.998019698734997,
+      "scenario_score_0_100": 48.456846840613984,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4518840066254741,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 14
+      "scenario_sensitivity_score_0_1": 0.45805391382837535,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 15
     },
     {
       "countryiso3": "MLI",
@@ -5171,12 +5253,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 2.79656060435722,
-      "scenario_score_0_100": 46.01568773153123,
+      "risk_delta_0_100": 2.89397616287019,
+      "scenario_score_0_100": 46.1131032900442,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4323202947496517,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 15
+      "scenario_sensitivity_score_0_1": 0.4414510469855357,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 16
     },
     {
       "countryiso3": "LBN",
@@ -5184,13 +5266,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 2.815320690006702,
-      "scenario_score_0_100": 45.97439682616357,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 2.910569552212946,
+      "scenario_score_0_100": 46.06964568836981,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4423876838121758,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 16
+      "scenario_sensitivity_score_0_1": 0.45562400398975644,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 17
     },
     {
       "countryiso3": "PHL",
@@ -5198,13 +5280,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 2.944024865451719,
-      "scenario_score_0_100": 45.90609795263634,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 3.102626997170971,
+      "scenario_score_0_100": 46.064700084355586,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4559213304770349,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 17
+      "scenario_sensitivity_score_0_1": 0.47671175199184673,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 18
     },
     {
       "countryiso3": "EGY",
@@ -5213,12 +5295,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 2.809037483375641,
-      "scenario_score_0_100": 45.81937415034059,
+      "risk_delta_0_100": 2.946223462869706,
+      "scenario_score_0_100": 45.956560129834656,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4406752713135163,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 18
+      "scenario_sensitivity_score_0_1": 0.45812517747223996,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -5227,12 +5309,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 2.911415129580795,
-      "scenario_score_0_100": 45.17578522683279,
+      "risk_delta_0_100": 3.103236883378471,
+      "scenario_score_0_100": 45.36760698063046,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4553025844958294,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 19
+      "scenario_sensitivity_score_0_1": 0.4807116350588108,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -5240,13 +5322,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 2.846003828107862,
-      "scenario_score_0_100": 44.78921519454519,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 3.019350661692774,
+      "scenario_score_0_100": 44.9625620281301,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4435602143569938,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 20
+      "scenario_sensitivity_score_0_1": 0.46582187612121934,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -5254,13 +5336,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 2.878646078361179,
-      "scenario_score_0_100": 44.71401389174822,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 3.051027719063942,
+      "scenario_score_0_100": 44.88639553245099,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4470986112383414,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 21
+      "scenario_sensitivity_score_0_1": 0.4694012568526059,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -5268,13 +5350,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 2.914579372097927,
-      "scenario_score_0_100": 44.62903620663775,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 3.074670594557385,
+      "scenario_score_0_100": 44.789127429097206,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4502468562712503,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 22
+      "scenario_sensitivity_score_0_1": 0.47139344104295045,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -5282,13 +5364,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
       "shock_level_pct": null,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 2.879496074551779,
-      "scenario_score_0_100": 44.36459235502934,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 3.030883413551516,
+      "scenario_score_0_100": 44.51597969402906,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4402940857054729,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 23
+      "scenario_sensitivity_score_0_1": 0.45742470191400636,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -5297,12 +5379,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 2.741806140137045,
-      "scenario_score_0_100": 44.16181620106743,
+      "risk_delta_0_100": 2.9098542761463677,
+      "scenario_score_0_100": 44.329864337076756,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4287541349829715,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 24
+      "scenario_sensitivity_score_0_1": 0.4500097264915905,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -5311,12 +5393,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 2.805748214813824,
-      "scenario_score_0_100": 43.54510962216123,
+      "risk_delta_0_100": 2.9294062452557212,
+      "scenario_score_0_100": 43.66876765260313,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4308290128208244,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 25
+      "scenario_sensitivity_score_0_1": 0.44665185492964826,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -5325,12 +5407,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 2.839066053560177,
-      "scenario_score_0_100": 43.44307678947484,
+      "risk_delta_0_100": 2.971561480741345,
+      "scenario_score_0_100": 43.575572216656006,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4359116811165574,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 26
+      "scenario_sensitivity_score_0_1": 0.45455094889155284,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -5339,12 +5421,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "combined_low",
       "shock_level_pct": null,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 2.466988039178209,
-      "scenario_score_0_100": 40.05324495955801,
+      "risk_delta_0_100": 2.546858815572614,
+      "scenario_score_0_100": 40.133115735952416,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3729042092754486,
-      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration, coverage and displacement pressure",
-      "scenario_rank": 27
+      "scenario_sensitivity_score_0_1": 0.37709367332615934,
+      "pathway_note": "Combined: Fuel, transport and import-cost pressure | Agricultural input-cost and future harvest pressure | Consumer basket affordability and acute food-security pressure | Funding, ration or coverage reduction pressure",
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -5394,13 +5476,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 62.39083092622343,
+      "baseline_score_0_100": 62.390830926223416,
       "risk_delta_0_100": 1.056497368453508,
-      "scenario_score_0_100": 63.44732829467694,
+      "scenario_score_0_100": 63.44732829467692,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6603108552834425,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "fertilizer_10pct",
+      "scenario_type": "fertilizer",
+      "shock_level_pct": 0.1,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 0.855256648962312,
+      "scenario_score_0_100": 62.8508799931397,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.534535405601445,
+      "pathway_note": "Agricultural input-cost and future harvest pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -5408,13 +5504,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 59.66109643584117,
+      "baseline_score_0_100": 59.661096435841166,
       "risk_delta_0_100": 0.802306863259767,
       "scenario_score_0_100": 60.46340329910093,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.5014417895373543,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -5422,13 +5518,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 57.65786219253292,
+      "baseline_score_0_100": 57.6578621925329,
       "risk_delta_0_100": 0.9063188355086352,
-      "scenario_score_0_100": 58.56418102804155,
+      "scenario_score_0_100": 58.56418102804154,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.566449272192897,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -5436,13 +5532,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 55.83237146878744,
+      "baseline_score_0_100": 55.832371468787436,
       "risk_delta_0_100": 0.8473182380230766,
-      "scenario_score_0_100": 56.67968970681052,
+      "scenario_score_0_100": 56.679689706810514,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.5295738987644228,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -5456,7 +5552,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.524331368925489,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -5464,13 +5560,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 49.67426754211412,
+      "baseline_score_0_100": 49.67426754211411,
       "risk_delta_0_100": 0.8368298437642251,
       "scenario_score_0_100": 50.51109738587834,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5230186523526407,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -5484,7 +5580,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4388236473347012,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -5492,13 +5588,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 46.86170206591657,
+      "baseline_score_0_100": 46.86170206591656,
       "risk_delta_0_100": 0.8330683644581152,
-      "scenario_score_0_100": 47.69477043037469,
+      "scenario_score_0_100": 47.694770430374675,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.520667727786322,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -5508,11 +5604,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 46.39928810997625,
       "risk_delta_0_100": 0.8317586721369283,
-      "scenario_score_0_100": 47.23104678211318,
+      "scenario_score_0_100": 47.231046782113175,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5198491700855802,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -5520,13 +5616,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.90882378227147,
+      "baseline_score_0_100": 45.908823782271455,
       "risk_delta_0_100": 0.7504367498302414,
-      "scenario_score_0_100": 46.65926053210171,
+      "scenario_score_0_100": 46.6592605321017,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4690229686439009,
+      "scenario_sensitivity_score_0_1": 0.46902296864390086,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -5534,13 +5630,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 0.5649190669089015,
-      "scenario_score_0_100": 46.02374620878788,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 0.5649190669089016,
+      "scenario_score_0_100": 46.023746208787884,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3530744168180634,
+      "scenario_sensitivity_score_0_1": 0.35307441681806345,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "MLI",
@@ -5554,7 +5650,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5360533342834822,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "LBN",
@@ -5562,13 +5658,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 0.53763127906893,
-      "scenario_score_0_100": 43.6967074152258,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 0.5376312790689302,
+      "scenario_score_0_100": 43.696707415225795,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3360195494180813,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "EGY",
@@ -5580,9 +5676,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "risk_delta_0_100": 0.6586453114472253,
       "scenario_score_0_100": 43.66898197841218,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4116533196545157,
+      "scenario_sensitivity_score_0_1": 0.41165331965451574,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "PHL",
@@ -5590,13 +5686,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 42.96207308718462,
+      "baseline_score_0_100": 42.96207308718461,
       "risk_delta_0_100": 0.6774531133849944,
-      "scenario_score_0_100": 43.63952620056961,
+      "scenario_score_0_100": 43.639526200569605,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4234081958656215,
+      "scenario_sensitivity_score_0_1": 0.42340819586562145,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -5608,9 +5704,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "risk_delta_0_100": 0.7377410838584617,
       "scenario_score_0_100": 43.00211118111045,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4610881774115386,
+      "scenario_sensitivity_score_0_1": 0.46108817741153857,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -5618,13 +5714,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.94321136643732,
+      "baseline_score_0_100": 41.943211366437325,
       "risk_delta_0_100": 0.7230259178603116,
       "scenario_score_0_100": 42.66623728429764,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4518911986626947,
+      "scenario_sensitivity_score_0_1": 0.45189119866269467,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -5632,13 +5728,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.83536781338704,
+      "baseline_score_0_100": 41.83536781338705,
       "risk_delta_0_100": 0.7060284274771393,
-      "scenario_score_0_100": 42.54139624086418,
+      "scenario_score_0_100": 42.54139624086419,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4412677671732121,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -5646,13 +5742,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.71445683453982,
+      "baseline_score_0_100": 41.714456834539824,
       "risk_delta_0_100": 0.7153939322945019,
       "scenario_score_0_100": 42.42985076683433,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4471212076840637,
+      "scenario_sensitivity_score_0_1": 0.44712120768406366,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -5660,13 +5756,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 0.5885855387055804,
-      "scenario_score_0_100": 42.07368181918314,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 0.5885855387055806,
+      "scenario_score_0_100": 42.07368181918313,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3678659616909877,
+      "scenario_sensitivity_score_0_1": 0.36786596169098784,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -5678,9 +5774,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "risk_delta_0_100": 0.6415369852102819,
       "scenario_score_0_100": 42.06154704614067,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4009606157564262,
+      "scenario_sensitivity_score_0_1": 0.40096061575642616,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -5692,9 +5788,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "risk_delta_0_100": 0.4991477500942817,
       "scenario_score_0_100": 41.23850915744169,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.311967343808926,
+      "scenario_sensitivity_score_0_1": 0.31196734380892605,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -5703,12 +5799,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 0.5703477539084961,
-      "scenario_score_0_100": 41.17435848982316,
+      "risk_delta_0_100": 0.5703477539084962,
+      "scenario_score_0_100": 41.174358489823156,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3564673461928101,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -5722,7 +5818,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5068672182993774,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -5731,7 +5827,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 2.371683856039598,
+      "risk_delta_0_100": 2.3716838560395983,
       "scenario_score_0_100": 77.22361289128199,
       "scenario_risk_tier": "Very high",
       "scenario_sensitivity_score_0_1": 0.5929209640098996,
@@ -5745,7 +5841,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 2.583203896827865,
+      "risk_delta_0_100": 2.5832038968278646,
       "scenario_score_0_100": 74.5673809016891,
       "scenario_risk_tier": "Very high",
       "scenario_sensitivity_score_0_1": 0.6458009742069661,
@@ -5759,7 +5855,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 2.430836575231395,
+      "risk_delta_0_100": 2.4308365752313947,
       "scenario_score_0_100": 68.80621434458212,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6077091438078487,
@@ -5772,13 +5868,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 62.39083092622343,
+      "baseline_score_0_100": 62.390830926223416,
       "risk_delta_0_100": 2.64124342113377,
-      "scenario_score_0_100": 65.0320743473572,
+      "scenario_score_0_100": 65.03207434735718,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6603108552834425,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "fertilizer_25pct",
+      "scenario_type": "fertilizer",
+      "shock_level_pct": 0.25,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 2.13814162240578,
+      "scenario_score_0_100": 64.13376496658317,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.534535405601445,
+      "pathway_note": "Agricultural input-cost and future harvest pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -5786,13 +5896,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 59.66109643584117,
+      "baseline_score_0_100": 59.661096435841166,
       "risk_delta_0_100": 2.005767158149417,
-      "scenario_score_0_100": 61.66686359399058,
+      "scenario_score_0_100": 61.666863593990584,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.5014417895373543,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -5800,13 +5910,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 57.65786219253292,
+      "baseline_score_0_100": 57.6578621925329,
       "risk_delta_0_100": 2.265797088771588,
-      "scenario_score_0_100": 59.9236592813045,
+      "scenario_score_0_100": 59.92365928130449,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.566449272192897,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -5814,13 +5924,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 2.118295595057691,
-      "scenario_score_0_100": 57.95066706384513,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 2.1182955950576914,
+      "scenario_score_0_100": 57.950667063845124,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.5295738987644228,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -5830,11 +5940,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 53.91453871962707,
       "risk_delta_0_100": 2.097325475701956,
-      "scenario_score_0_100": 56.01186419532903,
+      "scenario_score_0_100": 56.011864195329025,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.524331368925489,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -5842,13 +5952,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 2.092074609410563,
-      "scenario_score_0_100": 51.76634215152468,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 2.0920746094105627,
+      "scenario_score_0_100": 51.76634215152467,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5230186523526407,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -5857,12 +5967,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 1.755294589338805,
+      "risk_delta_0_100": 1.7552945893388048,
       "scenario_score_0_100": 51.48386204157773,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4388236473347012,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -5870,13 +5980,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 46.86170206591657,
+      "baseline_score_0_100": 46.86170206591656,
       "risk_delta_0_100": 2.082670911145288,
-      "scenario_score_0_100": 48.94437297706186,
+      "scenario_score_0_100": 48.944372977061846,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.520667727786322,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -5885,12 +5995,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 2.079396680342321,
+      "risk_delta_0_100": 2.0793966803423207,
       "scenario_score_0_100": 48.47868479031857,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5198491700855802,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -5898,13 +6008,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 1.876091874575603,
-      "scenario_score_0_100": 47.78491565684707,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 1.8760918745756034,
+      "scenario_score_0_100": 47.784915656847055,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4690229686439009,
+      "scenario_sensitivity_score_0_1": 0.46902296864390086,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -5912,13 +6022,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 1.412297667272254,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 1.4122976672722538,
       "scenario_score_0_100": 46.87112480915124,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3530744168180634,
+      "scenario_sensitivity_score_0_1": 0.35307441681806345,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "MLI",
@@ -5932,7 +6042,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5360533342834822,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "EGY",
@@ -5942,11 +6052,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 43.01033666696495,
       "risk_delta_0_100": 1.646613278618063,
-      "scenario_score_0_100": 44.65694994558302,
+      "scenario_score_0_100": 44.656949945583015,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4116533196545157,
+      "scenario_sensitivity_score_0_1": 0.41165331965451574,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "PHL",
@@ -5954,13 +6064,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 1.693632783462486,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 1.6936327834624858,
       "scenario_score_0_100": 44.6557058706471,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4234081958656215,
+      "scenario_sensitivity_score_0_1": 0.42340819586562145,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "LBN",
@@ -5968,13 +6078,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 1.344078197672325,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 1.3440781976723253,
       "scenario_score_0_100": 44.50315433382919,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3360195494180813,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -5983,12 +6093,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 1.844352709646154,
+      "risk_delta_0_100": 1.8443527096461543,
       "scenario_score_0_100": 44.10872280689814,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4610881774115386,
+      "scenario_sensitivity_score_0_1": 0.46108817741153857,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -5996,13 +6106,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 1.807564794650779,
-      "scenario_score_0_100": 43.7507761610881,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 1.8075647946507787,
+      "scenario_score_0_100": 43.750776161088105,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4518911986626947,
+      "scenario_sensitivity_score_0_1": 0.45189119866269467,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -6010,13 +6120,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 1.765071068692848,
-      "scenario_score_0_100": 43.60043888207989,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 1.7650710686928484,
+      "scenario_score_0_100": 43.6004388820799,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4412677671732121,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -6024,13 +6134,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 1.788484830736255,
-      "scenario_score_0_100": 43.50294166527608,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 1.7884848307362546,
+      "scenario_score_0_100": 43.502941665276076,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4471212076840637,
+      "scenario_sensitivity_score_0_1": 0.44712120768406366,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "IDN",
@@ -6039,12 +6149,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 1.603842463025705,
-      "scenario_score_0_100": 43.02385252395609,
+      "risk_delta_0_100": 1.6038424630257047,
+      "scenario_score_0_100": 43.023852523956094,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4009606157564262,
+      "scenario_sensitivity_score_0_1": 0.40096061575642616,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "NGA",
@@ -6052,13 +6162,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 1.471463846763951,
-      "scenario_score_0_100": 42.95656012724151,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 1.4714638467639514,
+      "scenario_score_0_100": 42.9565601272415,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3678659616909877,
+      "scenario_sensitivity_score_0_1": 0.36786596169098784,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "UKR",
@@ -6067,12 +6177,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 1.42586938477124,
+      "risk_delta_0_100": 1.4258693847712405,
       "scenario_score_0_100": 42.0298801206859,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3564673461928101,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "JOR",
@@ -6081,12 +6191,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 1.247869375235704,
+      "risk_delta_0_100": 1.2478693752357042,
       "scenario_score_0_100": 41.98723078258311,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.311967343808926,
+      "scenario_sensitivity_score_0_1": 0.31196734380892605,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -6095,12 +6205,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 2.02746887319751,
-      "scenario_score_0_100": 39.61372579357732,
+      "risk_delta_0_100": 2.0274688731975097,
+      "scenario_score_0_100": 39.613725793577316,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5068672182993774,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -6137,7 +6247,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 4.861673150462789,
+      "risk_delta_0_100": 4.8616731504627895,
       "scenario_score_0_100": 71.23705091981351,
       "scenario_risk_tier": "Very high",
       "scenario_sensitivity_score_0_1": 0.6077091438078487,
@@ -6150,13 +6260,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 62.39083092622343,
+      "baseline_score_0_100": 62.390830926223416,
       "risk_delta_0_100": 5.28248684226754,
-      "scenario_score_0_100": 67.67331776849097,
+      "scenario_score_0_100": 67.67331776849096,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6603108552834425,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "fertilizer_50pct",
+      "scenario_type": "fertilizer",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 4.27628324481156,
+      "scenario_score_0_100": 66.27190658898895,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.534535405601445,
+      "pathway_note": "Agricultural input-cost and future harvest pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -6164,13 +6288,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 59.66109643584117,
+      "baseline_score_0_100": 59.661096435841166,
       "risk_delta_0_100": 4.011534316298834,
       "scenario_score_0_100": 63.67263075214,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.5014417895373543,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -6178,13 +6302,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 57.65786219253292,
+      "baseline_score_0_100": 57.6578621925329,
       "risk_delta_0_100": 4.531594177543176,
-      "scenario_score_0_100": 62.18945637007609,
+      "scenario_score_0_100": 62.18945637007608,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.566449272192897,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -6192,13 +6316,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 55.83237146878744,
+      "baseline_score_0_100": 55.832371468787436,
       "risk_delta_0_100": 4.236591190115383,
-      "scenario_score_0_100": 60.06896265890283,
+      "scenario_score_0_100": 60.06896265890282,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.5295738987644228,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -6212,7 +6336,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.524331368925489,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -6220,13 +6344,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 49.67426754211412,
+      "baseline_score_0_100": 49.67426754211411,
       "risk_delta_0_100": 4.184149218821125,
-      "scenario_score_0_100": 53.85841676093524,
+      "scenario_score_0_100": 53.858416760935235,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5230186523526407,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -6235,12 +6359,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 3.51058917867761,
+      "risk_delta_0_100": 3.5105891786776096,
       "scenario_score_0_100": 53.23915663091654,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4388236473347012,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -6248,13 +6372,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 46.86170206591657,
+      "baseline_score_0_100": 46.86170206591656,
       "risk_delta_0_100": 4.165341822290576,
-      "scenario_score_0_100": 51.02704388820715,
+      "scenario_score_0_100": 51.02704388820714,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.520667727786322,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -6263,12 +6387,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 4.158793360684641,
+      "risk_delta_0_100": 4.1587933606846414,
       "scenario_score_0_100": 50.55808147066089,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5198491700855802,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -6276,13 +6400,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 45.90882378227147,
+      "baseline_score_0_100": 45.908823782271455,
       "risk_delta_0_100": 3.752183749151207,
-      "scenario_score_0_100": 49.66100753142268,
+      "scenario_score_0_100": 49.66100753142266,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4690229686439009,
+      "scenario_sensitivity_score_0_1": 0.46902296864390086,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -6290,13 +6414,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 2.824595334544507,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 2.8245953345445076,
       "scenario_score_0_100": 48.28342247642349,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3530744168180634,
+      "scenario_sensitivity_score_0_1": 0.35307441681806345,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "MLI",
@@ -6310,7 +6434,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5360533342834822,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "PHL",
@@ -6318,13 +6442,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 3.387265566924972,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 3.3872655669249716,
       "scenario_score_0_100": 46.34933865410959,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4234081958656215,
+      "scenario_sensitivity_score_0_1": 0.42340819586562145,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "EGY",
@@ -6336,9 +6460,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "risk_delta_0_100": 3.293226557236126,
       "scenario_score_0_100": 46.30356322420108,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4116533196545157,
+      "scenario_sensitivity_score_0_1": 0.41165331965451574,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "ARM",
@@ -6347,12 +6471,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 3.688705419292309,
+      "risk_delta_0_100": 3.6887054192923086,
       "scenario_score_0_100": 45.9530755165443,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4610881774115386,
+      "scenario_sensitivity_score_0_1": 0.46108817741153857,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "LBN",
@@ -6360,13 +6484,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 2.68815639534465,
-      "scenario_score_0_100": 45.84723253150152,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 2.6881563953446506,
+      "scenario_score_0_100": 45.84723253150151,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3360195494180813,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -6374,13 +6498,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 3.615129589301557,
-      "scenario_score_0_100": 45.55834095573888,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 3.6151295893015574,
+      "scenario_score_0_100": 45.558340955738885,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4518911986626947,
+      "scenario_sensitivity_score_0_1": 0.45189119866269467,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -6388,13 +6512,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 3.530142137385697,
-      "scenario_score_0_100": 45.36550995077274,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 3.5301421373856967,
+      "scenario_score_0_100": 45.36550995077275,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4412677671732121,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -6402,13 +6526,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 3.576969661472509,
-      "scenario_score_0_100": 45.29142649601233,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 3.5769696614725093,
+      "scenario_score_0_100": 45.291426496012335,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4471212076840637,
+      "scenario_sensitivity_score_0_1": 0.44712120768406366,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "IDN",
@@ -6417,12 +6541,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 3.207684926051409,
-      "scenario_score_0_100": 44.62769498698179,
+      "risk_delta_0_100": 3.2076849260514093,
+      "scenario_score_0_100": 44.627694986981794,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4009606157564262,
+      "scenario_sensitivity_score_0_1": 0.40096061575642616,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "NGA",
@@ -6430,13 +6554,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 2.942927693527902,
-      "scenario_score_0_100": 44.42802397400546,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 2.9429276935279027,
+      "scenario_score_0_100": 44.428023974005455,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3678659616909877,
+      "scenario_sensitivity_score_0_1": 0.36786596169098784,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "UKR",
@@ -6450,7 +6574,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3564673461928101,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "JOR",
@@ -6459,12 +6583,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "fertilizer",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 2.495738750471408,
+      "risk_delta_0_100": 2.4957387504714084,
       "scenario_score_0_100": 43.23510015781882,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.311967343808926,
+      "scenario_sensitivity_score_0_1": 0.31196734380892605,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -6478,7 +6602,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5068672182993774,
       "pathway_note": "Agricultural input-cost and future harvest pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -6487,10 +6611,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 1.802270870094806,
-      "scenario_score_0_100": 76.6541999053372,
+      "risk_delta_0_100": 1.893054402571104,
+      "scenario_score_0_100": 76.7449834378135,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.8192140318612753,
+      "scenario_sensitivity_score_0_1": 0.8604792738959564,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 1
     },
@@ -6501,10 +6625,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 1.685585336281643,
-      "scenario_score_0_100": 73.66976234114289,
+      "risk_delta_0_100": 1.766055768049059,
+      "scenario_score_0_100": 73.7502327729103,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7661751528552924,
+      "scenario_sensitivity_score_0_1": 0.8027526218404812,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 2
     },
@@ -6515,10 +6639,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 1.265623529796787,
-      "scenario_score_0_100": 67.6410012991475,
+      "risk_delta_0_100": 1.2287530025138598,
+      "scenario_score_0_100": 67.60413077186458,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5752834226349033,
+      "scenario_sensitivity_score_0_1": 0.5585240920517544,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 3
     },
@@ -6528,13 +6652,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 1.270293343774987,
-      "scenario_score_0_100": 63.66112426999842,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 1.2163544455749136,
+      "scenario_score_0_100": 63.60718537179833,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5774060653522666,
+      "scenario_sensitivity_score_0_1": 0.5528883843522334,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "food_price_10pct",
+      "scenario_type": "food_price",
+      "shock_level_pct": 0.1,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 1.3164029245528548,
+      "scenario_score_0_100": 63.31202626873024,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.5983649657058431,
+      "pathway_note": "Consumer basket affordability and acute food-security pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -6542,13 +6680,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 1.479782368767203,
-      "scenario_score_0_100": 61.14087880460837,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 1.5336033915087977,
+      "scenario_score_0_100": 61.194699827349964,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6726283494396377,
+      "scenario_sensitivity_score_0_1": 0.697092450685817,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -6556,13 +6694,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 1.360575270507582,
-      "scenario_score_0_100": 59.0184374630405,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 1.37944539805552,
+      "scenario_score_0_100": 59.037307590588426,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6184433047761734,
+      "scenario_sensitivity_score_0_1": 0.6270206354797817,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -6570,13 +6708,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 1.216324301539461,
-      "scenario_score_0_100": 57.0486957703269,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 1.222859514116282,
+      "scenario_score_0_100": 57.055230982903716,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5528746825179368,
+      "scenario_sensitivity_score_0_1": 0.555845233689219,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -6585,12 +6723,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 1.251125289493783,
-      "scenario_score_0_100": 55.16566400912085,
+      "risk_delta_0_100": 1.2950296937422647,
+      "scenario_score_0_100": 55.20956841336933,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5686933134062648,
+      "scenario_sensitivity_score_0_1": 0.5886498607919385,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "PAK",
@@ -6599,12 +6737,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 1.110270593072453,
-      "scenario_score_0_100": 50.83883804531138,
+      "risk_delta_0_100": 1.059513297741167,
+      "scenario_score_0_100": 50.7880807499801,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5046684513965694,
+      "scenario_sensitivity_score_0_1": 0.48159695351871223,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "MMR",
@@ -6612,13 +6750,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 1.100885095035227,
-      "scenario_score_0_100": 50.77515263714934,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 1.0856707870791853,
+      "scenario_score_0_100": 50.7599383291933,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5004023159251033,
+      "scenario_sensitivity_score_0_1": 0.4934867213996296,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -6626,13 +6764,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 0.9962020416276437,
-      "scenario_score_0_100": 47.85790410754421,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 0.9486522470234973,
+      "scenario_score_0_100": 47.810354312940056,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4528191098307471,
+      "scenario_sensitivity_score_0_1": 0.43120556682886235,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -6641,12 +6779,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 1.054173104465215,
-      "scenario_score_0_100": 47.45346121444146,
+      "risk_delta_0_100": 1.0528262271018545,
+      "scenario_score_0_100": 47.4521143370781,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4791695929387341,
+      "scenario_sensitivity_score_0_1": 0.47855737595538833,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -6654,13 +6792,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 1.106545197277797,
-      "scenario_score_0_100": 47.01536897954927,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 1.0916053634777318,
+      "scenario_score_0_100": 47.00042914574919,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.502975089671726,
+      "scenario_sensitivity_score_0_1": 0.49618425612624173,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -6668,13 +6806,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 1.024277750205955,
-      "scenario_score_0_100": 46.48310489208494,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 1.0282152784572312,
+      "scenario_score_0_100": 46.487042420336216,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4655807955481616,
+      "scenario_sensitivity_score_0_1": 0.4673705811169232,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "LBN",
@@ -6682,13 +6820,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 1.142530555433541,
-      "scenario_score_0_100": 44.30160669159041,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 1.1685435979576322,
+      "scenario_score_0_100": 44.32761973411449,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5193320706516092,
+      "scenario_sensitivity_score_0_1": 0.5311561808898327,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "EGY",
@@ -6697,24 +6835,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 1.123791942102272,
-      "scenario_score_0_100": 44.13412860906723,
+      "risk_delta_0_100": 1.1296910459984884,
+      "scenario_score_0_100": 44.140027712963445,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5108145191373964,
-      "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 16
-    },
-    {
-      "countryiso3": "MLI",
-      "country": "Mali",
-      "scenario": "food_price_10pct",
-      "scenario_type": "food_price",
-      "shock_level_pct": 0.1,
-      "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 0.8615705951227807,
-      "scenario_score_0_100": 44.08069772229679,
-      "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3916229977830821,
+      "scenario_sensitivity_score_0_1": 0.5134959299993128,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 17
     },
@@ -6724,13 +6848,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 1.066249016679744,
-      "scenario_score_0_100": 44.02832210386436,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 1.0851231598778928,
+      "scenario_score_0_100": 44.04719624706251,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.484658643945338,
+      "scenario_sensitivity_score_0_1": 0.4932377999444967,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 18
+    },
+    {
+      "countryiso3": "MLI",
+      "country": "Mali",
+      "scenario": "food_price_10pct",
+      "scenario_type": "food_price",
+      "shock_level_pct": 0.1,
+      "baseline_score_0_100": 43.21912712717401,
+      "risk_delta_0_100": 0.8020006069261403,
+      "scenario_score_0_100": 44.021127734100155,
+      "scenario_risk_tier": "Moderate",
+      "scenario_sensitivity_score_0_1": 0.3645457304209728,
+      "pathway_note": "Consumer basket affordability and acute food-security pressure",
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -6739,12 +6877,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 1.095019318449871,
-      "scenario_score_0_100": 43.35938941570186,
+      "risk_delta_0_100": 1.1230097979538547,
+      "scenario_score_0_100": 43.38737989520585,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4977360538408505,
+      "scenario_sensitivity_score_0_1": 0.5104589990699339,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -6752,13 +6890,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 1.053590163717504,
-      "scenario_score_0_100": 42.99680153015483,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 1.0651926227881279,
+      "scenario_score_0_100": 43.00840398922545,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4789046198715927,
+      "scenario_sensitivity_score_0_1": 0.4841784649036945,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -6766,13 +6904,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 1.04094687437789,
-      "scenario_score_0_100": 42.87631468776493,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 1.0557101557834172,
+      "scenario_score_0_100": 42.89107796917047,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.473157670171768,
+      "scenario_sensitivity_score_0_1": 0.479868252628826,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -6780,13 +6918,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 1.011203544128372,
-      "scenario_score_0_100": 42.72566037866819,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 1.0334026580962794,
+      "scenario_score_0_100": 42.7478594926361,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4596379746038056,
+      "scenario_sensitivity_score_0_1": 0.4697284809528542,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "IDN",
@@ -6795,12 +6933,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 1.080477727416962,
-      "scenario_score_0_100": 42.50048778834735,
+      "risk_delta_0_100": 1.0853582955627215,
+      "scenario_score_0_100": 42.50536835649311,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4911262397349827,
+      "scenario_sensitivity_score_0_1": 0.493344679801237,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "NGA",
@@ -6808,13 +6946,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 0.944204754452087,
-      "scenario_score_0_100": 42.42930103492964,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 0.9091455316418298,
+      "scenario_score_0_100": 42.394241812119375,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4291839792964031,
+      "scenario_sensitivity_score_0_1": 0.4132479689281044,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -6823,12 +6961,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 1.011430733686055,
-      "scenario_score_0_100": 41.75079214103346,
+      "risk_delta_0_100": 1.0185800160673062,
+      "scenario_score_0_100": 41.757941423414714,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4597412425845705,
+      "scenario_sensitivity_score_0_1": 0.46299091639423,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -6837,12 +6975,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 1.024396164712796,
-      "scenario_score_0_100": 41.62840690062746,
+      "risk_delta_0_100": 1.0650196903142957,
+      "scenario_score_0_100": 41.66903042622896,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4656346203239981,
+      "scenario_sensitivity_score_0_1": 0.48409985923377075,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -6851,12 +6989,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 0.5916295145563615,
-      "scenario_score_0_100": 38.17788643493616,
+      "risk_delta_0_100": 0.4783171359172711,
+      "scenario_score_0_100": 38.064574056297076,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.2689225066165279,
+      "scenario_sensitivity_score_0_1": 0.21741687996239595,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -6865,10 +7003,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 3.604541740189612,
-      "scenario_score_0_100": 78.45647077543201,
+      "risk_delta_0_100": 3.786108805142208,
+      "scenario_score_0_100": 78.6380378403846,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.8192140318612753,
+      "scenario_sensitivity_score_0_1": 0.8604792738959564,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 1
     },
@@ -6879,10 +7017,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 3.371170672563287,
-      "scenario_score_0_100": 75.35534767742452,
+      "risk_delta_0_100": 3.532111536098118,
+      "scenario_score_0_100": 75.51628854095935,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7661751528552924,
+      "scenario_sensitivity_score_0_1": 0.8027526218404812,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 2
     },
@@ -6893,10 +7031,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 2.531247059593575,
-      "scenario_score_0_100": 68.90662482894429,
+      "risk_delta_0_100": 2.4575060050277195,
+      "scenario_score_0_100": 68.83288377437844,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5752834226349033,
+      "scenario_sensitivity_score_0_1": 0.5585240920517544,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 3
     },
@@ -6906,13 +7044,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 2.540586687549973,
-      "scenario_score_0_100": 64.9314176137734,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 2.432708891149827,
+      "scenario_score_0_100": 64.82353981737324,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5774060653522666,
+      "scenario_sensitivity_score_0_1": 0.5528883843522334,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "food_price_20pct",
+      "scenario_type": "food_price",
+      "shock_level_pct": 0.2,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 2.6328058491057096,
+      "scenario_score_0_100": 64.6284291932831,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.5983649657058431,
+      "pathway_note": "Consumer basket affordability and acute food-security pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -6920,13 +7072,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 2.959564737534406,
-      "scenario_score_0_100": 62.62066117337557,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 3.0672067830175953,
+      "scenario_score_0_100": 62.72830321885876,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6726283494396377,
+      "scenario_sensitivity_score_0_1": 0.697092450685817,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -6934,13 +7086,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 2.721150541015163,
-      "scenario_score_0_100": 60.37901273354808,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 2.75889079611104,
+      "scenario_score_0_100": 60.41675298864394,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6184433047761734,
+      "scenario_sensitivity_score_0_1": 0.6270206354797817,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -6948,13 +7100,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 2.432648603078922,
-      "scenario_score_0_100": 58.26502007186637,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 2.445719028232564,
+      "scenario_score_0_100": 58.27809049702,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5528746825179368,
+      "scenario_sensitivity_score_0_1": 0.555845233689219,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -6963,12 +7115,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 2.502250578987566,
-      "scenario_score_0_100": 56.41678929861463,
+      "risk_delta_0_100": 2.5900593874845295,
+      "scenario_score_0_100": 56.5045981071116,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5686933134062648,
+      "scenario_sensitivity_score_0_1": 0.5886498607919385,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "PAK",
@@ -6977,12 +7129,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 2.220541186144905,
-      "scenario_score_0_100": 51.94910863838383,
+      "risk_delta_0_100": 2.119026595482334,
+      "scenario_score_0_100": 51.84759404772126,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5046684513965694,
+      "scenario_sensitivity_score_0_1": 0.48159695351871223,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "MMR",
@@ -6990,13 +7142,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 2.201770190070455,
-      "scenario_score_0_100": 51.87603773218457,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 2.1713415741583706,
+      "scenario_score_0_100": 51.84560911627248,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5004023159251033,
+      "scenario_sensitivity_score_0_1": 0.4934867213996296,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -7004,13 +7156,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 1.992404083255287,
-      "scenario_score_0_100": 48.85410614917186,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 1.8973044940469945,
+      "scenario_score_0_100": 48.75900655996355,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4528191098307471,
+      "scenario_sensitivity_score_0_1": 0.43120556682886235,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -7019,12 +7171,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 2.10834620893043,
-      "scenario_score_0_100": 48.50763431890667,
+      "risk_delta_0_100": 2.105652454203709,
+      "scenario_score_0_100": 48.504940564179954,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4791695929387341,
+      "scenario_sensitivity_score_0_1": 0.47855737595538833,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -7032,13 +7184,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 2.213090394555595,
-      "scenario_score_0_100": 48.12191417682706,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 2.1832107269554637,
+      "scenario_score_0_100": 48.09203450922692,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.502975089671726,
+      "scenario_sensitivity_score_0_1": 0.49618425612624173,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -7046,13 +7198,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 2.048555500411911,
-      "scenario_score_0_100": 47.50738264229089,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 2.0564305569144623,
+      "scenario_score_0_100": 47.51525769879345,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4655807955481616,
+      "scenario_sensitivity_score_0_1": 0.4673705811169232,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "LBN",
@@ -7060,13 +7212,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 2.285061110867081,
-      "scenario_score_0_100": 45.44413724702395,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 2.3370871959152644,
+      "scenario_score_0_100": 45.49616333207213,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5193320706516092,
+      "scenario_sensitivity_score_0_1": 0.5311561808898327,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "EGY",
@@ -7075,12 +7227,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 2.247583884204544,
-      "scenario_score_0_100": 45.2579205511695,
+      "risk_delta_0_100": 2.2593820919969767,
+      "scenario_score_0_100": 45.26971875896193,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5108145191373964,
+      "scenario_sensitivity_score_0_1": 0.5134959299993128,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "PHL",
@@ -7088,13 +7240,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 2.132498033359488,
-      "scenario_score_0_100": 45.09457112054411,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 2.1702463197557855,
+      "scenario_score_0_100": 45.1323194069404,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.484658643945338,
+      "scenario_sensitivity_score_0_1": 0.4932377999444967,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "MLI",
@@ -7103,12 +7255,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 1.723141190245561,
-      "scenario_score_0_100": 44.94226831741958,
+      "risk_delta_0_100": 1.6040012138522806,
+      "scenario_score_0_100": 44.82312834102629,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3916229977830821,
+      "scenario_sensitivity_score_0_1": 0.3645457304209728,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -7117,12 +7269,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 2.190038636899742,
-      "scenario_score_0_100": 44.45440873415173,
+      "risk_delta_0_100": 2.2460195959077094,
+      "scenario_score_0_100": 44.5103896931597,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4977360538408505,
+      "scenario_sensitivity_score_0_1": 0.5104589990699339,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -7130,13 +7282,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 2.107180327435008,
-      "scenario_score_0_100": 44.05039169387233,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 2.1303852455762557,
+      "scenario_score_0_100": 44.07359661201358,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4789046198715927,
+      "scenario_sensitivity_score_0_1": 0.4841784649036945,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -7144,13 +7296,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 2.08189374875578,
-      "scenario_score_0_100": 43.91726156214283,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 2.1114203115668344,
+      "scenario_score_0_100": 43.94678812495388,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.473157670171768,
+      "scenario_sensitivity_score_0_1": 0.479868252628826,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -7158,13 +7310,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 2.022407088256745,
-      "scenario_score_0_100": 43.73686392279657,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 2.066805316192559,
+      "scenario_score_0_100": 43.78126215073238,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4596379746038056,
+      "scenario_sensitivity_score_0_1": 0.4697284809528542,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "IDN",
@@ -7173,12 +7325,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 2.160955454833924,
-      "scenario_score_0_100": 43.58096551576431,
+      "risk_delta_0_100": 2.170716591125443,
+      "scenario_score_0_100": 43.59072665205583,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4911262397349827,
+      "scenario_sensitivity_score_0_1": 0.493344679801237,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "NGA",
@@ -7186,13 +7338,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 1.888409508904174,
-      "scenario_score_0_100": 43.37350578938173,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 1.8182910632836595,
+      "scenario_score_0_100": 43.30338734376121,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4291839792964031,
+      "scenario_sensitivity_score_0_1": 0.4132479689281044,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -7201,12 +7353,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 2.02286146737211,
-      "scenario_score_0_100": 42.76222287471952,
+      "risk_delta_0_100": 2.0371600321346124,
+      "scenario_score_0_100": 42.776521439482025,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4597412425845705,
+      "scenario_sensitivity_score_0_1": 0.46299091639423,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -7215,12 +7367,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 2.048792329425592,
-      "scenario_score_0_100": 42.65280306534026,
+      "risk_delta_0_100": 2.1300393806285913,
+      "scenario_score_0_100": 42.73405011654325,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4656346203239981,
+      "scenario_sensitivity_score_0_1": 0.48409985923377075,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -7229,12 +7381,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.2,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 1.183259029112723,
-      "scenario_score_0_100": 38.76951594949253,
+      "risk_delta_0_100": 0.9566342718345422,
+      "scenario_score_0_100": 38.54289119221435,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.2689225066165279,
+      "scenario_sensitivity_score_0_1": 0.21741687996239595,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -7243,10 +7395,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 0.9011354350474029,
-      "scenario_score_0_100": 75.7530644702898,
+      "risk_delta_0_100": 0.946527201285552,
+      "scenario_score_0_100": 75.79845623652794,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.8192140318612753,
+      "scenario_sensitivity_score_0_1": 0.8604792738959564,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 1
     },
@@ -7257,10 +7409,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 0.8427926681408217,
-      "scenario_score_0_100": 72.82696967300205,
+      "risk_delta_0_100": 0.8830278840245295,
+      "scenario_score_0_100": 72.86720488888577,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7661751528552924,
+      "scenario_sensitivity_score_0_1": 0.8027526218404812,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 2
     },
@@ -7271,10 +7423,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 0.6328117648983936,
-      "scenario_score_0_100": 67.00818953424911,
+      "risk_delta_0_100": 0.6143765012569299,
+      "scenario_score_0_100": 66.98975427060765,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5752834226349033,
+      "scenario_sensitivity_score_0_1": 0.5585240920517544,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 3
     },
@@ -7284,13 +7436,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 0.6351466718874933,
-      "scenario_score_0_100": 63.02597759811092,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 0.6081772227874568,
+      "scenario_score_0_100": 62.99900814901087,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5774060653522666,
+      "scenario_sensitivity_score_0_1": 0.5528883843522334,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "food_price_5pct",
+      "scenario_type": "food_price",
+      "shock_level_pct": 0.05,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 0.6582014622764274,
+      "scenario_score_0_100": 62.65382480645382,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.5983649657058431,
+      "pathway_note": "Consumer basket affordability and acute food-security pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -7298,13 +7464,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 0.7398911843836015,
-      "scenario_score_0_100": 60.40098762022477,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 0.7668016957543988,
+      "scenario_score_0_100": 60.42789813159556,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6726283494396377,
+      "scenario_sensitivity_score_0_1": 0.697092450685817,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -7312,13 +7478,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 0.6802876352537908,
-      "scenario_score_0_100": 58.33814982778671,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 0.68972269902776,
+      "scenario_score_0_100": 58.347584891560665,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6184433047761734,
+      "scenario_sensitivity_score_0_1": 0.6270206354797817,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -7326,13 +7492,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 0.6081621507697306,
-      "scenario_score_0_100": 56.44053361955717,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 0.611429757058141,
+      "scenario_score_0_100": 56.443801225845576,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5528746825179368,
+      "scenario_sensitivity_score_0_1": 0.555845233689219,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -7341,12 +7507,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 0.6255626447468914,
-      "scenario_score_0_100": 54.54010136437396,
+      "risk_delta_0_100": 0.6475148468711324,
+      "scenario_score_0_100": 54.5620535664982,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5686933134062648,
+      "scenario_sensitivity_score_0_1": 0.5886498607919385,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "PAK",
@@ -7355,12 +7521,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 0.5551352965362263,
-      "scenario_score_0_100": 50.28370274877516,
+      "risk_delta_0_100": 0.5297566488705835,
+      "scenario_score_0_100": 50.25832410110951,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5046684513965694,
+      "scenario_sensitivity_score_0_1": 0.48159695351871223,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "MMR",
@@ -7368,13 +7534,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 49.67426754211412,
-      "risk_delta_0_100": 0.5504425475176137,
-      "scenario_score_0_100": 50.22471008963173,
+      "baseline_score_0_100": 49.67426754211411,
+      "risk_delta_0_100": 0.5428353935395926,
+      "scenario_score_0_100": 50.2171029356537,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5004023159251033,
+      "scenario_sensitivity_score_0_1": 0.4934867213996296,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -7382,13 +7548,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 0.4981010208138218,
-      "scenario_score_0_100": 47.35980308673039,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 0.47432612351174863,
+      "scenario_score_0_100": 47.33602818942831,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4528191098307471,
+      "scenario_sensitivity_score_0_1": 0.43120556682886235,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -7397,12 +7563,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 0.5270865522326076,
-      "scenario_score_0_100": 46.92637466220886,
+      "risk_delta_0_100": 0.5264131135509272,
+      "scenario_score_0_100": 46.92570122352718,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4791695929387341,
+      "scenario_sensitivity_score_0_1": 0.47855737595538833,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -7410,13 +7576,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 0.5532725986388987,
-      "scenario_score_0_100": 46.46209638091037,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 0.5458026817388659,
+      "scenario_score_0_100": 46.45462646401032,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.502975089671726,
+      "scenario_sensitivity_score_0_1": 0.49618425612624173,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -7424,13 +7590,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 0.5121388751029777,
-      "scenario_score_0_100": 45.97096601698196,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 0.5141076392286156,
+      "scenario_score_0_100": 45.9729347811076,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4655807955481616,
+      "scenario_sensitivity_score_0_1": 0.4673705811169232,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "LBN",
@@ -7438,13 +7604,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 0.5712652777167703,
-      "scenario_score_0_100": 43.73034141387364,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 0.5842717989788161,
+      "scenario_score_0_100": 43.74334793513568,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5193320706516092,
+      "scenario_sensitivity_score_0_1": 0.5311561808898327,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "MLI",
@@ -7453,12 +7619,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 0.4307852975613903,
-      "scenario_score_0_100": 43.6499124247354,
+      "risk_delta_0_100": 0.40100030346307014,
+      "scenario_score_0_100": 43.62012743063708,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.3916229977830821,
+      "scenario_sensitivity_score_0_1": 0.3645457304209728,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "EGY",
@@ -7467,12 +7633,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 0.5618959710511361,
-      "scenario_score_0_100": 43.57223263801609,
+      "risk_delta_0_100": 0.5648455229992442,
+      "scenario_score_0_100": 43.575182189964195,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5108145191373964,
+      "scenario_sensitivity_score_0_1": 0.5134959299993128,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "PHL",
@@ -7480,13 +7646,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 0.5331245083398719,
-      "scenario_score_0_100": 43.49519759552449,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 0.5425615799389464,
+      "scenario_score_0_100": 43.50463466712356,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.484658643945338,
+      "scenario_sensitivity_score_0_1": 0.4932377999444967,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -7495,12 +7661,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 0.5475096592249356,
-      "scenario_score_0_100": 42.81187975647693,
+      "risk_delta_0_100": 0.5615048989769273,
+      "scenario_score_0_100": 42.82587499622892,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4977360538408505,
+      "scenario_sensitivity_score_0_1": 0.5104589990699339,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -7508,13 +7674,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 0.526795081858752,
-      "scenario_score_0_100": 42.47000644829608,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 0.5325963113940639,
+      "scenario_score_0_100": 42.47580767783139,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4789046198715927,
+      "scenario_sensitivity_score_0_1": 0.4841784649036945,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -7522,13 +7688,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 0.5204734371889449,
-      "scenario_score_0_100": 42.35584125057599,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 0.5278550778917086,
+      "scenario_score_0_100": 42.36322289127876,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.473157670171768,
+      "scenario_sensitivity_score_0_1": 0.479868252628826,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -7536,13 +7702,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 0.5056017720641862,
-      "scenario_score_0_100": 42.22005860660401,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 0.5167013290481397,
+      "scenario_score_0_100": 42.23115816358796,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4596379746038056,
+      "scenario_sensitivity_score_0_1": 0.4697284809528542,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "IDN",
@@ -7551,12 +7717,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 0.5402388637084811,
-      "scenario_score_0_100": 41.96024892463887,
+      "risk_delta_0_100": 0.5426791477813607,
+      "scenario_score_0_100": 41.96268920871175,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4911262397349827,
+      "scenario_sensitivity_score_0_1": 0.493344679801237,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "NGA",
@@ -7564,13 +7730,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
-      "baseline_score_0_100": 41.48509628047756,
-      "risk_delta_0_100": 0.4721023772260435,
-      "scenario_score_0_100": 41.9571986577036,
+      "baseline_score_0_100": 41.48509628047755,
+      "risk_delta_0_100": 0.4545727658209149,
+      "scenario_score_0_100": 41.93966904629846,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4291839792964031,
+      "scenario_sensitivity_score_0_1": 0.4132479689281044,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -7579,12 +7745,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 0.5057153668430275,
-      "scenario_score_0_100": 41.24507677419044,
+      "risk_delta_0_100": 0.5092900080336531,
+      "scenario_score_0_100": 41.24865141538106,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4597412425845705,
+      "scenario_sensitivity_score_0_1": 0.46299091639423,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -7593,12 +7759,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 0.512198082356398,
-      "scenario_score_0_100": 41.11620881827106,
+      "risk_delta_0_100": 0.5325098451571478,
+      "scenario_score_0_100": 41.136520581071814,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4656346203239981,
+      "scenario_sensitivity_score_0_1": 0.48409985923377075,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -7607,12 +7773,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "food_price",
       "shock_level_pct": 0.05,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 0.2958147572781807,
-      "scenario_score_0_100": 37.88207167765798,
+      "risk_delta_0_100": 0.23915856795863555,
+      "scenario_score_0_100": 37.825415488338436,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.2689225066165279,
+      "scenario_sensitivity_score_0_1": 0.21741687996239595,
       "pathway_note": "Consumer basket affordability and acute food-security pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -7621,10 +7787,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 1.341149554383755,
-      "scenario_score_0_100": 76.19307858962614,
+      "risk_delta_0_100": 1.3411495543837548,
+      "scenario_score_0_100": 76.19307858962615,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7450830857687526,
+      "scenario_sensitivity_score_0_1": 0.7450830857687527,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 1
     },
@@ -7635,10 +7801,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 1.380887031964969,
+      "risk_delta_0_100": 1.3808870319649686,
       "scenario_score_0_100": 73.36506403682621,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7671594622027604,
+      "scenario_sensitivity_score_0_1": 0.7671594622027603,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 2
     },
@@ -7650,9 +7816,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 66.37537776935072,
       "risk_delta_0_100": 1.135729850623285,
-      "scenario_score_0_100": 67.51110761997401,
+      "scenario_score_0_100": 67.511107619974,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6309610281240473,
+      "scenario_sensitivity_score_0_1": 0.6309610281240472,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 3
     },
@@ -7662,13 +7828,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 1.099959659279757,
-      "scenario_score_0_100": 63.49079058550318,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 1.0999596592797567,
+      "scenario_score_0_100": 63.49079058550317,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6110886995998648,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "oil_10pct",
+      "scenario_type": "oil",
+      "shock_level_pct": 0.1,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 1.0685620432006653,
+      "scenario_score_0_100": 63.06418538737805,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.5936455795559251,
+      "pathway_note": "Fuel, transport and import-cost pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -7676,13 +7856,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 59.66109643584117,
+      "baseline_score_0_100": 59.661096435841166,
       "risk_delta_0_100": 1.437849564162091,
       "scenario_score_0_100": 61.09894600000326,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.7988053134233839,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -7690,13 +7870,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 0.9753020368034442,
-      "scenario_score_0_100": 58.63316422933636,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 0.9753020368034441,
+      "scenario_score_0_100": 58.633164229336344,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5418344648908023,
+      "scenario_sensitivity_score_0_1": 0.5418344648908022,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -7704,13 +7884,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 0.9851519043800951,
-      "scenario_score_0_100": 56.81752337316754,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 0.9851519043800949,
+      "scenario_score_0_100": 56.81752337316753,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5473066135444973,
+      "scenario_sensitivity_score_0_1": 0.5473066135444972,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -7719,12 +7899,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 53.91453871962707,
-      "risk_delta_0_100": 1.091373784457534,
-      "scenario_score_0_100": 55.00591250408461,
+      "risk_delta_0_100": 1.0913737844575344,
+      "scenario_score_0_100": 55.005912504084606,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6063187691430747,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "PAK",
@@ -7733,12 +7913,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 0.8733825210402153,
+      "risk_delta_0_100": 0.8733825210402151,
       "scenario_score_0_100": 50.60194997327914,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4852125116890085,
+      "scenario_sensitivity_score_0_1": 0.48521251168900836,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "MMR",
@@ -7746,13 +7926,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 49.67426754211412,
+      "baseline_score_0_100": 49.67426754211411,
       "risk_delta_0_100": 0.9060615830590276,
       "scenario_score_0_100": 50.58032912517314,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5033675461439042,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -7760,13 +7940,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 0.766344367721087,
-      "scenario_score_0_100": 47.62804643363766,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 0.7663443677210869,
+      "scenario_score_0_100": 47.62804643363765,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4257468709561595,
+      "scenario_sensitivity_score_0_1": 0.42574687095615943,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -7775,12 +7955,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 0.9239442864331602,
+      "risk_delta_0_100": 0.92394428643316,
       "scenario_score_0_100": 47.32323239640941,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5133023813517557,
+      "scenario_sensitivity_score_0_1": 0.5133023813517555,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -7788,13 +7968,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 0.8000265425479355,
-      "scenario_score_0_100": 46.7088503248194,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 0.8000265425479354,
+      "scenario_score_0_100": 46.70885032481939,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4444591903044086,
+      "scenario_sensitivity_score_0_1": 0.4444591903044085,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -7802,13 +7982,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 0.9409348994359443,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 0.9409348994359441,
       "scenario_score_0_100": 46.39976204131493,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5227416107977468,
+      "scenario_sensitivity_score_0_1": 0.5227416107977467,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "LBN",
@@ -7816,13 +7996,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 1.097766874233212,
-      "scenario_score_0_100": 44.25684301039009,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 1.0977668742332118,
+      "scenario_score_0_100": 44.25684301039007,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.6098704856851178,
+      "scenario_sensitivity_score_0_1": 0.6098704856851177,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "MLI",
@@ -7836,7 +8016,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4755986096091354,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "PHL",
@@ -7844,13 +8024,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 0.8801074842075645,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 0.8801074842075642,
       "scenario_score_0_100": 43.84218057139218,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4889486023375358,
+      "scenario_sensitivity_score_0_1": 0.4889486023375357,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "EGY",
@@ -7859,12 +8039,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 0.8277326284232366,
+      "risk_delta_0_100": 0.8277326284232364,
       "scenario_score_0_100": 43.83806929538819,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4598514602351314,
+      "scenario_sensitivity_score_0_1": 0.4598514602351313,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -7873,12 +8053,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 0.8874704426801354,
-      "scenario_score_0_100": 43.15184053993212,
+      "risk_delta_0_100": 0.8874704426801353,
+      "scenario_score_0_100": 43.151840539932124,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4930391348222974,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "LKA",
@@ -7886,13 +8066,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.94321136643732,
+      "baseline_score_0_100": 41.943211366437325,
       "risk_delta_0_100": 0.8163652445872006,
       "scenario_score_0_100": 42.75957661102453,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4535362469928892,
+      "scenario_sensitivity_score_0_1": 0.45353624699288925,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -7900,13 +8080,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 0.8621442136950942,
-      "scenario_score_0_100": 42.69751202708214,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 0.8621442136950943,
+      "scenario_score_0_100": 42.69751202708215,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4789690076083857,
+      "scenario_sensitivity_score_0_1": 0.47896900760838573,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "THA",
@@ -7914,13 +8094,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 0.8538553606952197,
-      "scenario_score_0_100": 42.56831219523504,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 0.8538553606952198,
+      "scenario_score_0_100": 42.568312195235045,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4743640892751221,
+      "scenario_sensitivity_score_0_1": 0.47436408927512214,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "NGA",
@@ -7928,13 +8108,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
-      "baseline_score_0_100": 41.48509628047756,
+      "baseline_score_0_100": 41.48509628047755,
       "risk_delta_0_100": 0.9850018054396149,
-      "scenario_score_0_100": 42.47009808591717,
+      "scenario_score_0_100": 42.470098085917165,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5472232252442305,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -7944,11 +8124,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 41.42001006093039,
       "risk_delta_0_100": 0.7724616989640546,
-      "scenario_score_0_100": 42.19247175989445,
+      "scenario_score_0_100": 42.192471759894445,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4291453883133636,
+      "scenario_sensitivity_score_0_1": 0.42914538831336363,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -7962,7 +8142,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.511649159515437,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -7971,12 +8151,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.1,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 0.7791236874320429,
-      "scenario_score_0_100": 41.3831344233467,
+      "risk_delta_0_100": 0.7791236874320426,
+      "scenario_score_0_100": 41.383134423346704,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4328464930178016,
+      "scenario_sensitivity_score_0_1": 0.4328464930178015,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -7990,7 +8170,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3573424587537659,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -7999,10 +8179,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 3.352873885959387,
+      "risk_delta_0_100": 3.3528738859593874,
       "scenario_score_0_100": 78.20480292120178,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7450830857687526,
+      "scenario_sensitivity_score_0_1": 0.7450830857687527,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 1
     },
@@ -8013,10 +8193,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 3.452217579912422,
+      "risk_delta_0_100": 3.4522175799124213,
       "scenario_score_0_100": 75.43639458477367,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7671594622027604,
+      "scenario_sensitivity_score_0_1": 0.7671594622027603,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 2
     },
@@ -8027,10 +8207,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 2.839324626558213,
+      "risk_delta_0_100": 2.8393246265582124,
       "scenario_score_0_100": 69.21470239590893,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.6309610281240473,
+      "scenario_sensitivity_score_0_1": 0.6309610281240472,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 3
     },
@@ -8040,13 +8220,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 62.39083092622343,
-      "risk_delta_0_100": 2.749899148199392,
-      "scenario_score_0_100": 65.14073007442282,
+      "baseline_score_0_100": 62.390830926223416,
+      "risk_delta_0_100": 2.7498991481993915,
+      "scenario_score_0_100": 65.1407300744228,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6110886995998648,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "oil_25pct",
+      "scenario_type": "oil",
+      "shock_level_pct": 0.25,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 2.671405108001663,
+      "scenario_score_0_100": 64.66702845217905,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.5936455795559251,
+      "pathway_note": "Fuel, transport and import-cost pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -8054,13 +8248,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 59.66109643584117,
-      "risk_delta_0_100": 3.594623910405228,
+      "baseline_score_0_100": 59.661096435841166,
+      "risk_delta_0_100": 3.5946239104052276,
       "scenario_score_0_100": 63.25572034624639,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.7988053134233839,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -8068,13 +8262,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 57.65786219253292,
+      "baseline_score_0_100": 57.6578621925329,
       "risk_delta_0_100": 2.43825509200861,
-      "scenario_score_0_100": 60.09611728454153,
+      "scenario_score_0_100": 60.09611728454151,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5418344648908023,
+      "scenario_sensitivity_score_0_1": 0.5418344648908022,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -8082,13 +8276,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 2.462879760950238,
-      "scenario_score_0_100": 58.29525122973768,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 2.462879760950237,
+      "scenario_score_0_100": 58.29525122973767,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5473066135444973,
+      "scenario_sensitivity_score_0_1": 0.5473066135444972,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -8102,7 +8296,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6063187691430747,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -8110,13 +8304,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 49.67426754211412,
+      "baseline_score_0_100": 49.67426754211411,
       "risk_delta_0_100": 2.265153957647569,
-      "scenario_score_0_100": 51.93942149976169,
+      "scenario_score_0_100": 51.93942149976168,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5033675461439042,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -8125,12 +8319,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 2.183456302600538,
+      "risk_delta_0_100": 2.1834563026005376,
       "scenario_score_0_100": 51.91202375483947,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4852125116890085,
+      "scenario_sensitivity_score_0_1": 0.48521251168900836,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "BGD",
@@ -8138,13 +8332,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 46.86170206591657,
-      "risk_delta_0_100": 1.915860919302718,
-      "scenario_score_0_100": 48.77756298521929,
+      "baseline_score_0_100": 46.86170206591656,
+      "risk_delta_0_100": 1.9158609193027174,
+      "scenario_score_0_100": 48.77756298521928,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4257468709561595,
+      "scenario_sensitivity_score_0_1": 0.42574687095615943,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "MDA",
@@ -8153,12 +8347,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 2.309860716082901,
+      "risk_delta_0_100": 2.3098607160829,
       "scenario_score_0_100": 48.70914882605915,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5133023813517557,
+      "scenario_sensitivity_score_0_1": 0.5133023813517555,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IND",
@@ -8166,13 +8360,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 2.000066356369839,
-      "scenario_score_0_100": 47.90889013864131,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 2.0000663563698384,
+      "scenario_score_0_100": 47.90889013864129,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4444591903044086,
+      "scenario_sensitivity_score_0_1": 0.4444591903044085,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IRQ",
@@ -8180,13 +8374,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 2.352337248589861,
-      "scenario_score_0_100": 47.81116439046885,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 2.35233724858986,
+      "scenario_score_0_100": 47.811164390468846,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5227416107977468,
+      "scenario_sensitivity_score_0_1": 0.5227416107977467,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "LBN",
@@ -8194,13 +8388,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 2.74441718558303,
-      "scenario_score_0_100": 45.9034933217399,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 2.7444171855830297,
+      "scenario_score_0_100": 45.903493321739894,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.6098704856851178,
+      "scenario_sensitivity_score_0_1": 0.6098704856851177,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "MLI",
@@ -8209,12 +8403,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 43.21912712717401,
-      "risk_delta_0_100": 2.14019374324111,
+      "risk_delta_0_100": 2.1401937432411096,
       "scenario_score_0_100": 45.35932087041512,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4755986096091354,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "PHL",
@@ -8222,13 +8416,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 2.200268710518911,
-      "scenario_score_0_100": 45.16234179770353,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 2.2002687105189107,
+      "scenario_score_0_100": 45.162341797703526,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4889486023375358,
+      "scenario_sensitivity_score_0_1": 0.4889486023375357,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "EGY",
@@ -8237,12 +8431,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 2.069331571058092,
+      "risk_delta_0_100": 2.0693315710580906,
       "scenario_score_0_100": 45.07966823802305,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4598514602351314,
+      "scenario_sensitivity_score_0_1": 0.4598514602351313,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -8251,12 +8445,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 2.218676106700339,
+      "risk_delta_0_100": 2.218676106700338,
       "scenario_score_0_100": 44.48304620395233,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4930391348222974,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "VNM",
@@ -8264,13 +8458,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 2.155360534237736,
-      "scenario_score_0_100": 43.99072834762478,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 2.1553605342377358,
+      "scenario_score_0_100": 43.99072834762479,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4789690076083857,
+      "scenario_sensitivity_score_0_1": 0.47896900760838573,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "LKA",
@@ -8278,13 +8472,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.94321136643732,
-      "risk_delta_0_100": 2.040913111468002,
-      "scenario_score_0_100": 43.98412447790533,
+      "baseline_score_0_100": 41.943211366437325,
+      "risk_delta_0_100": 2.0409131114680017,
+      "scenario_score_0_100": 43.984124477905326,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4535362469928892,
+      "scenario_sensitivity_score_0_1": 0.45353624699288925,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "NGA",
@@ -8292,13 +8486,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.48509628047756,
+      "baseline_score_0_100": 41.48509628047755,
       "risk_delta_0_100": 2.462504513599037,
-      "scenario_score_0_100": 43.94760079407659,
+      "scenario_score_0_100": 43.947600794076585,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5472232252442305,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "THA",
@@ -8306,13 +8500,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 2.134638401738049,
-      "scenario_score_0_100": 43.84909523627788,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 2.1346384017380498,
+      "scenario_score_0_100": 43.849095236277876,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4743640892751221,
+      "scenario_sensitivity_score_0_1": 0.47436408927512214,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "IDN",
@@ -8321,12 +8515,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 41.42001006093039,
-      "risk_delta_0_100": 1.931154247410136,
+      "risk_delta_0_100": 1.9311542474101364,
       "scenario_score_0_100": 43.35116430834052,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4291453883133636,
+      "scenario_sensitivity_score_0_1": 0.42914538831336363,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "JOR",
@@ -8335,12 +8529,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 40.73936140734741,
-      "risk_delta_0_100": 2.302421217819466,
-      "scenario_score_0_100": 43.04178262516687,
+      "risk_delta_0_100": 2.3024212178194663,
+      "scenario_score_0_100": 43.041782625166874,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.511649159515437,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -8349,12 +8543,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 1.947809218580107,
+      "risk_delta_0_100": 1.9478092185801066,
       "scenario_score_0_100": 42.55181995449477,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4328464930178016,
+      "scenario_sensitivity_score_0_1": 0.4328464930178015,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -8363,12 +8557,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.25,
       "baseline_score_0_100": 37.5862569203798,
-      "risk_delta_0_100": 1.608041064391946,
+      "risk_delta_0_100": 1.6080410643919465,
       "scenario_score_0_100": 39.19429798477175,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3573424587537659,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     },
     {
       "countryiso3": "SDN",
@@ -8377,10 +8571,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 74.85192903524239,
-      "risk_delta_0_100": 6.705747771918773,
-      "scenario_score_0_100": 81.55767680716116,
+      "risk_delta_0_100": 6.705747771918775,
+      "scenario_score_0_100": 81.55767680716117,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7450830857687526,
+      "scenario_sensitivity_score_0_1": 0.7450830857687527,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 1
     },
@@ -8391,10 +8585,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 71.98417700486124,
-      "risk_delta_0_100": 6.904435159824844,
+      "risk_delta_0_100": 6.904435159824843,
       "scenario_score_0_100": 78.88861216468608,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.7671594622027604,
+      "scenario_sensitivity_score_0_1": 0.7671594622027603,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 2
     },
@@ -8405,10 +8599,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 66.37537776935072,
-      "risk_delta_0_100": 5.678649253116426,
-      "scenario_score_0_100": 72.05402702246715,
+      "risk_delta_0_100": 5.678649253116425,
+      "scenario_score_0_100": 72.05402702246714,
       "scenario_risk_tier": "Very high",
-      "scenario_sensitivity_score_0_1": 0.6309610281240473,
+      "scenario_sensitivity_score_0_1": 0.6309610281240472,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 3
     },
@@ -8418,13 +8612,27 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 62.39083092622343,
+      "baseline_score_0_100": 62.390830926223416,
       "risk_delta_0_100": 5.499798296398783,
-      "scenario_score_0_100": 67.89062922262221,
+      "scenario_score_0_100": 67.8906292226222,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6110886995998648,
       "pathway_note": "Fuel, transport and import-cost pressure",
       "scenario_rank": 4
+    },
+    {
+      "countryiso3": "HTI",
+      "country": "Haiti",
+      "scenario": "oil_50pct",
+      "scenario_type": "oil",
+      "shock_level_pct": 0.5,
+      "baseline_score_0_100": 61.99562334417739,
+      "risk_delta_0_100": 5.342810216003326,
+      "scenario_score_0_100": 67.33843356018072,
+      "scenario_risk_tier": "High",
+      "scenario_sensitivity_score_0_1": 0.5936455795559251,
+      "pathway_note": "Fuel, transport and import-cost pressure",
+      "scenario_rank": 5
     },
     {
       "countryiso3": "SOM",
@@ -8432,13 +8640,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 59.66109643584117,
+      "baseline_score_0_100": 59.661096435841166,
       "risk_delta_0_100": 7.189247820810455,
       "scenario_score_0_100": 66.85034425665162,
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.7988053134233839,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 5
+      "scenario_rank": 6
     },
     {
       "countryiso3": "ETH",
@@ -8446,13 +8654,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 57.65786219253292,
-      "risk_delta_0_100": 4.876510184017221,
-      "scenario_score_0_100": 62.53437237655014,
+      "baseline_score_0_100": 57.6578621925329,
+      "risk_delta_0_100": 4.87651018401722,
+      "scenario_score_0_100": 62.534372376550124,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5418344648908023,
+      "scenario_sensitivity_score_0_1": 0.5418344648908022,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 6
+      "scenario_rank": 7
     },
     {
       "countryiso3": "PSE",
@@ -8460,13 +8668,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 55.83237146878744,
-      "risk_delta_0_100": 4.925759521900476,
-      "scenario_score_0_100": 60.75813099068792,
+      "baseline_score_0_100": 55.832371468787436,
+      "risk_delta_0_100": 4.925759521900474,
+      "scenario_score_0_100": 60.75813099068791,
       "scenario_risk_tier": "High",
-      "scenario_sensitivity_score_0_1": 0.5473066135444973,
+      "scenario_sensitivity_score_0_1": 0.5473066135444972,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 7
+      "scenario_rank": 8
     },
     {
       "countryiso3": "SYR",
@@ -8480,7 +8688,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "High",
       "scenario_sensitivity_score_0_1": 0.6063187691430747,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 8
+      "scenario_rank": 9
     },
     {
       "countryiso3": "MMR",
@@ -8488,13 +8696,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 49.67426754211412,
+      "baseline_score_0_100": 49.67426754211411,
       "risk_delta_0_100": 4.530307915295138,
-      "scenario_score_0_100": 54.20457545740926,
+      "scenario_score_0_100": 54.20457545740925,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5033675461439042,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 9
+      "scenario_rank": 10
     },
     {
       "countryiso3": "PAK",
@@ -8503,12 +8711,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 49.72856745223893,
-      "risk_delta_0_100": 4.366912605201076,
+      "risk_delta_0_100": 4.366912605201075,
       "scenario_score_0_100": 54.09548005744,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4852125116890085,
+      "scenario_sensitivity_score_0_1": 0.48521251168900836,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 10
+      "scenario_rank": 11
     },
     {
       "countryiso3": "MDA",
@@ -8517,12 +8725,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 46.39928810997625,
-      "risk_delta_0_100": 4.619721432165801,
-      "scenario_score_0_100": 51.01900954214205,
+      "risk_delta_0_100": 4.6197214321658,
+      "scenario_score_0_100": 51.019009542142044,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5133023813517557,
+      "scenario_sensitivity_score_0_1": 0.5133023813517555,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 11
+      "scenario_rank": 12
     },
     {
       "countryiso3": "BGD",
@@ -8530,13 +8738,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 46.86170206591657,
+      "baseline_score_0_100": 46.86170206591656,
       "risk_delta_0_100": 3.831721838605435,
-      "scenario_score_0_100": 50.69342390452201,
+      "scenario_score_0_100": 50.69342390452199,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4257468709561595,
+      "scenario_sensitivity_score_0_1": 0.42574687095615943,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 12
+      "scenario_rank": 13
     },
     {
       "countryiso3": "IRQ",
@@ -8544,13 +8752,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 45.45882714187898,
-      "risk_delta_0_100": 4.704674497179721,
+      "baseline_score_0_100": 45.458827141878984,
+      "risk_delta_0_100": 4.70467449717972,
       "scenario_score_0_100": 50.16350163905871,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.5227416107977468,
+      "scenario_sensitivity_score_0_1": 0.5227416107977467,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 13
+      "scenario_rank": 14
     },
     {
       "countryiso3": "IND",
@@ -8558,13 +8766,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 45.90882378227147,
-      "risk_delta_0_100": 4.000132712739678,
-      "scenario_score_0_100": 49.90895649501115,
+      "baseline_score_0_100": 45.908823782271455,
+      "risk_delta_0_100": 4.000132712739677,
+      "scenario_score_0_100": 49.90895649501113,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4444591903044086,
+      "scenario_sensitivity_score_0_1": 0.4444591903044085,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 14
+      "scenario_rank": 15
     },
     {
       "countryiso3": "LBN",
@@ -8572,13 +8780,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 43.15907613615687,
-      "risk_delta_0_100": 5.48883437116606,
-      "scenario_score_0_100": 48.64791050732293,
+      "baseline_score_0_100": 43.15907613615686,
+      "risk_delta_0_100": 5.488834371166059,
+      "scenario_score_0_100": 48.64791050732292,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.6098704856851178,
+      "scenario_sensitivity_score_0_1": 0.6098704856851177,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 15
+      "scenario_rank": 16
     },
     {
       "countryiso3": "MLI",
@@ -8592,7 +8800,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4755986096091354,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 16
+      "scenario_rank": 17
     },
     {
       "countryiso3": "PHL",
@@ -8600,13 +8808,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 42.96207308718462,
-      "risk_delta_0_100": 4.400537421037822,
-      "scenario_score_0_100": 47.36261050822245,
+      "baseline_score_0_100": 42.96207308718461,
+      "risk_delta_0_100": 4.400537421037821,
+      "scenario_score_0_100": 47.36261050822243,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4889486023375358,
+      "scenario_sensitivity_score_0_1": 0.4889486023375357,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 17
+      "scenario_rank": 18
     },
     {
       "countryiso3": "EGY",
@@ -8615,12 +8823,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 43.01033666696495,
-      "risk_delta_0_100": 4.138663142116183,
+      "risk_delta_0_100": 4.138663142116181,
       "scenario_score_0_100": 47.14899980908113,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4598514602351314,
+      "scenario_sensitivity_score_0_1": 0.4598514602351313,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 18
+      "scenario_rank": 19
     },
     {
       "countryiso3": "ARM",
@@ -8629,12 +8837,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 42.26437009725199,
-      "risk_delta_0_100": 4.437352213400677,
+      "risk_delta_0_100": 4.437352213400676,
       "scenario_score_0_100": 46.70172231065267,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.4930391348222974,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 19
+      "scenario_rank": 20
     },
     {
       "countryiso3": "NGA",
@@ -8642,13 +8850,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.48509628047756,
+      "baseline_score_0_100": 41.48509628047755,
       "risk_delta_0_100": 4.925009027198074,
-      "scenario_score_0_100": 46.41010530767563,
+      "scenario_score_0_100": 46.41010530767562,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.5472232252442305,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 20
+      "scenario_rank": 21
     },
     {
       "countryiso3": "VNM",
@@ -8656,13 +8864,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.83536781338704,
-      "risk_delta_0_100": 4.310721068475472,
-      "scenario_score_0_100": 46.14608888186252,
+      "baseline_score_0_100": 41.83536781338705,
+      "risk_delta_0_100": 4.3107210684754715,
+      "scenario_score_0_100": 46.146088881862525,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4789690076083857,
+      "scenario_sensitivity_score_0_1": 0.47896900760838573,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 21
+      "scenario_rank": 22
     },
     {
       "countryiso3": "LKA",
@@ -8670,13 +8878,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.94321136643732,
+      "baseline_score_0_100": 41.943211366437325,
       "risk_delta_0_100": 4.081826222936003,
-      "scenario_score_0_100": 46.02503758937333,
+      "scenario_score_0_100": 46.025037589373326,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4535362469928892,
+      "scenario_sensitivity_score_0_1": 0.45353624699288925,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 22
+      "scenario_rank": 23
     },
     {
       "countryiso3": "THA",
@@ -8684,13 +8892,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
-      "baseline_score_0_100": 41.71445683453982,
-      "risk_delta_0_100": 4.269276803476099,
+      "baseline_score_0_100": 41.714456834539824,
+      "risk_delta_0_100": 4.2692768034760995,
       "scenario_score_0_100": 45.98373363801592,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4743640892751221,
+      "scenario_sensitivity_score_0_1": 0.47436408927512214,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 23
+      "scenario_rank": 24
     },
     {
       "countryiso3": "JOR",
@@ -8700,11 +8908,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 40.73936140734741,
       "risk_delta_0_100": 4.604842435638933,
-      "scenario_score_0_100": 45.34420384298635,
+      "scenario_score_0_100": 45.344203842986346,
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.511649159515437,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 24
+      "scenario_rank": 25
     },
     {
       "countryiso3": "IDN",
@@ -8716,9 +8924,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "risk_delta_0_100": 3.862308494820273,
       "scenario_score_0_100": 45.28231855575066,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4291453883133636,
+      "scenario_sensitivity_score_0_1": 0.42914538831336363,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 25
+      "scenario_rank": 26
     },
     {
       "countryiso3": "UKR",
@@ -8727,12 +8935,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_type": "oil",
       "shock_level_pct": 0.5,
       "baseline_score_0_100": 40.60401073591466,
-      "risk_delta_0_100": 3.895618437160214,
+      "risk_delta_0_100": 3.895618437160213,
       "scenario_score_0_100": 44.49962917307488,
       "scenario_risk_tier": "Moderate",
-      "scenario_sensitivity_score_0_1": 0.4328464930178016,
+      "scenario_sensitivity_score_0_1": 0.4328464930178015,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 26
+      "scenario_rank": 27
     },
     {
       "countryiso3": "BFA",
@@ -8746,38 +8954,38 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "scenario_risk_tier": "Moderate",
       "scenario_sensitivity_score_0_1": 0.3573424587537659,
       "pathway_note": "Fuel, transport and import-cost pressure",
-      "scenario_rank": 27
+      "scenario_rank": 28
     }
   ],
   "scenarioSummary": [
     {
       "scenario": "combined_high",
       "scenario_type": "combined_high",
-      "mean_delta": 15.77788185293418,
-      "max_delta": 23.854775429712,
+      "mean_delta": 16.428710492683926,
+      "max_delta": 23.976814322180847,
       "top_country": "Sudan",
       "shock_level_pct": null
     },
     {
       "scenario": "combined_base",
       "scenario_type": "combined_base",
-      "mean_delta": 7.88894092646709,
-      "max_delta": 11.927387714856,
+      "mean_delta": 8.214355246341963,
+      "max_delta": 11.988407161090423,
       "top_country": "Sudan",
       "shock_level_pct": null
     },
     {
       "scenario": "assistance_cut_50pct",
       "scenario_type": "assistance_cut",
-      "mean_delta": 4.889403858011324,
-      "max_delta": 8.801118205524423,
+      "mean_delta": 5.487984726859653,
+      "max_delta": 8.741590033040668,
       "top_country": "Sudan",
       "shock_level_pct": 0.5
     },
     {
       "scenario": "oil_50pct",
       "scenario_type": "oil",
-      "mean_delta": 4.7852573031167935,
+      "mean_delta": 4.805169907148454,
       "max_delta": 7.189247820810455,
       "top_country": "Sudan",
       "shock_level_pct": 0.5
@@ -8785,7 +8993,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "scenario": "fertilizer_50pct",
       "scenario_type": "fertilizer",
-      "mean_delta": 3.8238892105633377,
+      "mean_delta": 3.8400461403579174,
       "max_delta": 5.28248684226754,
       "top_country": "Sudan",
       "shock_level_pct": 0.5
@@ -8793,39 +9001,39 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "scenario": "combined_low",
       "scenario_type": "combined_low",
-      "mean_delta": 3.2695429446489723,
-      "max_delta": 4.951182172951881,
+      "mean_delta": 3.40051758445268,
+      "max_delta": 4.98466830469328,
       "top_country": "Sudan",
       "shock_level_pct": null
     },
     {
       "scenario": "assistance_cut_25pct",
       "scenario_type": "assistance_cut",
-      "mean_delta": 2.4447019290056624,
-      "max_delta": 4.400559102762212,
+      "mean_delta": 2.7439923634298267,
+      "max_delta": 4.370795016520334,
       "top_country": "Sudan",
       "shock_level_pct": 0.25
     },
     {
       "scenario": "oil_25pct",
       "scenario_type": "oil",
-      "mean_delta": 2.3926286515583968,
-      "max_delta": 3.594623910405228,
+      "mean_delta": 2.402584953574227,
+      "max_delta": 3.5946239104052276,
       "top_country": "Sudan",
       "shock_level_pct": 0.25
     },
     {
       "scenario": "food_price_20pct",
       "scenario_type": "food_price",
-      "mean_delta": 2.2793314812427243,
-      "max_delta": 3.604541740189612,
+      "mean_delta": 2.2955097183178985,
+      "max_delta": 3.786108805142208,
       "top_country": "Sudan",
       "shock_level_pct": 0.2
     },
     {
       "scenario": "fertilizer_25pct",
       "scenario_type": "fertilizer",
-      "mean_delta": 1.9119446052816689,
+      "mean_delta": 1.9200230701789587,
       "max_delta": 2.64124342113377,
       "top_country": "Sudan",
       "shock_level_pct": 0.25
@@ -8833,23 +9041,23 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "scenario": "food_price_10pct",
       "scenario_type": "food_price",
-      "mean_delta": 1.1396657406213622,
-      "max_delta": 1.802270870094806,
+      "mean_delta": 1.1477548591589493,
+      "max_delta": 1.893054402571104,
       "top_country": "Sudan",
       "shock_level_pct": 0.1
     },
     {
       "scenario": "assistance_cut_10pct",
       "scenario_type": "assistance_cut",
-      "mean_delta": 0.9778807716022648,
-      "max_delta": 1.760223641104885,
+      "mean_delta": 1.0975969453719308,
+      "max_delta": 1.7483180066081334,
       "top_country": "Sudan",
       "shock_level_pct": 0.1
     },
     {
       "scenario": "oil_10pct",
       "scenario_type": "oil",
-      "mean_delta": 0.9570514606233587,
+      "mean_delta": 0.961033981429691,
       "max_delta": 1.437849564162091,
       "top_country": "Sudan",
       "shock_level_pct": 0.1
@@ -8857,7 +9065,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "scenario": "fertilizer_10pct",
       "scenario_type": "fertilizer",
-      "mean_delta": 0.7647778421126675,
+      "mean_delta": 0.7680092280715834,
       "max_delta": 1.056497368453508,
       "top_country": "Sudan",
       "shock_level_pct": 0.1
@@ -8865,8 +9073,8 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "scenario": "food_price_5pct",
       "scenario_type": "food_price",
-      "mean_delta": 0.5698328703106811,
-      "max_delta": 0.9011354350474029,
+      "mean_delta": 0.5738774295794746,
+      "max_delta": 0.946527201285552,
       "top_country": "Sudan",
       "shock_level_pct": 0.05
     }
@@ -8878,7 +9086,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     },
     {
       "tier": "High",
-      "count": 5
+      "count": 6
     },
     {
       "tier": "Moderate",
@@ -8893,7 +9101,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "region": "East Africa",
       "countries": 4,
-      "averageScore": 66.03876616711943,
+      "averageScore": 66.03876616711942,
       "topCountry": {
         "iso3": "SDN",
         "country": "Sudan",
@@ -8901,9 +9109,19 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       }
     },
     {
+      "region": "Latin America and Caribbean",
+      "countries": 1,
+      "averageScore": 61.99562334417739,
+      "topCountry": {
+        "iso3": "HTI",
+        "country": "Haiti",
+        "score": 61.99562334417739
+      }
+    },
+    {
       "region": "South Asia",
       "countries": 5,
-      "averageScore": 50.163536487243,
+      "averageScore": 50.16353648724299,
       "topCountry": {
         "iso3": "AFG",
         "country": "Afghanistan",
@@ -8913,11 +9131,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     {
       "region": "Middle East and North Africa",
       "countries": 7,
-      "averageScore": 49.21504892385517,
+      "averageScore": 49.21504892385516,
       "topCountry": {
         "iso3": "YEM",
         "country": "Yemen",
-        "score": 62.39083092622343
+        "score": 62.390830926223416
       }
     },
     {
@@ -8927,7 +9145,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "topCountry": {
         "iso3": "MMR",
         "country": "Myanmar",
-        "score": 49.67426754211412
+        "score": 49.67426754211411
       }
     },
     {
@@ -8952,7 +9170,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     }
   ],
   "summary": {
-    "countryCount": 27,
+    "countryCount": 28,
     "topCountry": {
       "iso3": "SDN",
       "country": "Sudan",
@@ -8962,7 +9180,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "rank": 1,
       "score": 74.85192903524239,
       "riskTier": "Very high",
-      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+      "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
           "label": "Domestic food-price pressure",
@@ -8970,11 +9188,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         },
         {
           "label": "Assistance/funding pressure",
-          "score": 0.9745
+          "score": 0.9744999999999999
         },
         {
           "label": "IPC acute food insecurity",
-          "score": 0.9575
+          "score": 0.9574999999999999
         }
       ],
       "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
@@ -8982,13 +9200,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 1.0,
-        "import_exposure_score": 0.4251875005540672,
+        "import_exposure_score": 0.42518750055406723,
         "agriculture_input_exposure_score": 0.5798131516970462,
-        "acute_food_insecurity_score": 0.9575,
+        "acute_food_insecurity_score": 0.9574999999999999,
         "wfp_food_security_outcome_score": 0.5,
         "displacement_pressure_score": 0.4685209965356886,
         "public_displacement_layer_score": 0.903293355360445,
-        "assistance_pressure_score": 0.9745,
+        "assistance_pressure_score": 0.9744999999999999,
         "gender_vulnerability_score": 0.6491951593063765
       },
       "componentMissingCount": 1,
@@ -9033,13 +9251,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "source": "SDG 8.3.1 - current ILOSTAT"
       },
       "readiness": {
-        "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-        "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+        "priceEventStudy": "Ready",
+        "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
         "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
         "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-        "ipcLatestAvailable": "Yes",
-        "ipcIsSexDisaggregated": "No",
-        "sexDisaggregatedOutcomeAvailable": "No"
+        "ipcLatestAvailable": true,
+        "ipcIsSexDisaggregated": false,
+        "sexDisaggregatedOutcomeAvailable": false
       },
       "additionalCoverage": {
         "idmcAnnualAvailable": true,
@@ -9053,19 +9271,19 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "idmcLatestYear": 2025.0,
         "idmcPostShockFigureTotal": 35242.0,
         "idmcPostShockConflictFigureTotal": 35242.0,
-        "idmcLatestEventDate": "2026-05-10",
+        "idmcLatestEventDate": "2026-05-10 00:00:00",
         "iomLatestIdpSum": 9044786.0,
-        "iomLatestReportingDate": "2026-02-28",
-        "wfpLatestSurveyDate": "NaT",
+        "iomLatestReportingDate": "2026-02-28 00:00:00",
+        "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
       }
     },
-    "veryHighOrHighCount": 7,
-    "publicWfpFoodSecurityOutcomeCountries": 4,
+    "veryHighOrHighCount": 8,
+    "publicWfpFoodSecurityOutcomeCountries": 5,
     "sexDisaggregatedOutcomeCountries": 0,
-    "idmcAnnualCoverage": 27,
-    "iomDtmCoverage": 19,
+    "idmcAnnualCoverage": 28,
+    "iomDtmCoverage": 20,
     "top10": [
       {
         "iso3": "SDN",
@@ -9076,7 +9294,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rank": 1,
         "score": 74.85192903524239,
         "riskTier": "Very high",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Domestic food-price pressure",
@@ -9084,11 +9302,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           },
           {
             "label": "Assistance/funding pressure",
-            "score": 0.9745
+            "score": 0.9744999999999999
           },
           {
             "label": "IPC acute food insecurity",
-            "score": 0.9575
+            "score": 0.9574999999999999
           }
         ],
         "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
@@ -9096,13 +9314,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
           "price_pressure_score": 1.0,
-          "import_exposure_score": 0.4251875005540672,
+          "import_exposure_score": 0.42518750055406723,
           "agriculture_input_exposure_score": 0.5798131516970462,
-          "acute_food_insecurity_score": 0.9575,
+          "acute_food_insecurity_score": 0.9574999999999999,
           "wfp_food_security_outcome_score": 0.5,
           "displacement_pressure_score": 0.4685209965356886,
           "public_displacement_layer_score": 0.903293355360445,
-          "assistance_pressure_score": 0.9745,
+          "assistance_pressure_score": 0.9744999999999999,
           "gender_vulnerability_score": 0.6491951593063765
         },
         "componentMissingCount": 1,
@@ -9147,13 +9365,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - current ILOSTAT"
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9167,10 +9385,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 35242.0,
           "idmcPostShockConflictFigureTotal": 35242.0,
-          "idmcLatestEventDate": "2026-05-10",
+          "idmcLatestEventDate": "2026-05-10 00:00:00",
           "iomLatestIdpSum": 9044786.0,
-          "iomLatestReportingDate": "2026-02-28",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": "2026-02-28 00:00:00",
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -9184,11 +9402,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rank": 2,
         "score": 71.98417700486124,
         "riskTier": "Very high",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Domestic food-price pressure",
-            "score": 0.9330317917397594
+            "score": 0.9330317917397591
           },
           {
             "label": "Assistance/funding pressure",
@@ -9203,7 +9421,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; Food/fuel import exposure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
-          "price_pressure_score": 0.9330317917397594,
+          "price_pressure_score": 0.9330317917397591,
           "import_exposure_score": 0.5764934738955824,
           "agriculture_input_exposure_score": 0.6376586061749657,
           "acute_food_insecurity_score": 0.8775,
@@ -9255,13 +9473,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": null
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9275,10 +9493,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 57792.0,
           "idmcPostShockConflictFigureTotal": 57792.0,
-          "idmcLatestEventDate": "2026-03-21",
+          "idmcLatestEventDate": "2026-03-21 00:00:00",
           "iomLatestIdpSum": 1992513.0,
-          "iomLatestReportingDate": "2025-02-28",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": "2025-02-28 00:00:00",
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -9292,7 +9510,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rank": 3,
         "score": 66.37537776935072,
         "riskTier": "High",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Existing displacement proxy",
@@ -9311,10 +9529,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "Assistance/funding pressure; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
-          "price_pressure_score": 0.5659461909560446,
+          "price_pressure_score": 0.5659461909560444,
           "import_exposure_score": 0.6221762126001464,
           "agriculture_input_exposure_score": 0.679055028672721,
-          "acute_food_insecurity_score": 0.41,
+          "acute_food_insecurity_score": 0.41000000000000003,
           "wfp_food_security_outcome_score": 0.5,
           "displacement_pressure_score": 1.0,
           "public_displacement_layer_score": 0.8628271378622986,
@@ -9363,13 +9581,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - 19th ICLS"
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9383,10 +9601,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 183201.0,
           "idmcPostShockConflictFigureTotal": 171615.0,
-          "idmcLatestEventDate": "2026-03-26",
+          "idmcLatestEventDate": "2026-03-26 00:00:00",
           "iomLatestIdpSum": 3109221.0,
-          "iomLatestReportingDate": "2025-05-31",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": "2025-05-31 00:00:00",
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -9398,9 +9616,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "lat": 15.5527,
         "lon": 48.5164,
         "rank": 4,
-        "score": 62.39083092622343,
+        "score": 62.390830926223416,
         "riskTier": "High",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Assistance/funding pressure",
@@ -9419,7 +9637,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "IDMC/IOM public displacement layer; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
-          "price_pressure_score": 0.2866037164319587,
+          "price_pressure_score": 0.28660371643195864,
           "import_exposure_score": 0.7637683745665097,
           "agriculture_input_exposure_score": 0.5922631997566972,
           "acute_food_insecurity_score": 0.8075000000000001,
@@ -9471,13 +9689,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - current ILOSTAT"
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9491,12 +9709,120 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": null,
           "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2025-12-31",
+          "idmcLatestEventDate": "2025-12-31 00:00:00",
           "iomLatestIdpSum": 3066330.0,
-          "iomLatestReportingDate": "2025-02-01",
-          "wfpLatestSurveyDate": "2020-05-01",
+          "iomLatestReportingDate": "2025-02-01 00:00:00",
+          "wfpLatestSurveyDate": "2020-05-01 00:00:00",
           "wfpPoorBorderlineFoodConsumptionPct": 0.294661086956521,
           "wfpRcsiMean": 18.3098800923076
+        }
+      },
+      {
+        "iso3": "HTI",
+        "country": "Haiti",
+        "region": "Latin America and Caribbean",
+        "lat": 18.9712,
+        "lon": -72.2852,
+        "rank": 5,
+        "score": 61.99562334417739,
+        "riskTier": "High",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
+        "pathways": [
+          {
+            "label": "Assistance/funding pressure",
+            "score": 0.886
+          },
+          {
+            "label": "IPC acute food insecurity",
+            "score": 0.81
+          },
+          {
+            "label": "IDMC/IOM public displacement layer",
+            "score": 0.7812197157424435
+          }
+        ],
+        "highPathways": "Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
+        "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer; Existing displacement proxy",
+        "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure",
+        "components": {
+          "price_pressure_score": 0.5,
+          "import_exposure_score": 0.5181514475754303,
+          "agriculture_input_exposure_score": 0.46896263972903074,
+          "acute_food_insecurity_score": 0.81,
+          "wfp_food_security_outcome_score": 0.5,
+          "displacement_pressure_score": 0.5,
+          "public_displacement_layer_score": 0.7812197157424435,
+          "assistance_pressure_score": 0.886,
+          "gender_vulnerability_score": 0.5770997713722872
+        },
+        "componentMissingCount": 3,
+        "indicators": {
+          "medianPriceChangeSinceBaselinePct": null,
+          "comparableSeries": 0.0,
+          "preShockMonths": 12.0,
+          "postShockMonths": 0.0,
+          "ipcPhase3PlusPct": 52.0,
+          "ipcPhase3PlusNumber": 5834134.0,
+          "ipcPhase4PlusPct": 16.0,
+          "selectedDisplacementPeople": null,
+          "idmcConflictTotalDisplacement": 1430903.0,
+          "idmcPostShockConflictFigureTotal": 74730.0,
+          "iomLatestIdpSum": 1450254.0,
+          "wfpPoorBorderlineFoodConsumptionPct": null,
+          "wfpRcsiMean": null,
+          "destinationFundingUsd": 288051491.0,
+          "foodNutritionFundingPerIpc3PlusUsd": 0.0,
+          "importsGdpPct": 18.847110439748,
+          "foodImportsMerchandisePct": null,
+          "fuelImportsMerchandisePct": null,
+          "agricultureValueAddedGdpPct": 15.8601607482058,
+          "cerealImportDependencyPct": 82.9,
+          "fertilizerImportDependencyPct": 100.0,
+          "femaleAgricultureEmploymentPct": 32.2946347740263,
+          "femaleVulnerableEmploymentPct": 83.6130097592117,
+          "femaleLaborForceParticipationPct": 58.337,
+          "femaleAccountOwnershipPct": null
+        },
+        "genderProxy": {
+          "rank": 5,
+          "score": 79.93507949165564,
+          "tier": "Tier 1 - immediate gender-sensitive monitoring",
+          "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
+        },
+        "informality": {
+          "femaleInformalEmploymentPct": null,
+          "femaleInformalEmploymentYear": null,
+          "femaleInformalEmploymentMissing": true,
+          "proxyUsed": "female_vulnerable_employment_pct",
+          "source": "ILOSTAT SDG 8.3.1 direct value not available in public extract"
+        },
+        "readiness": {
+          "priceEventStudy": "Not ready - insufficient pre/post WFP price panel",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
+          "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
+          "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
+        },
+        "additionalCoverage": {
+          "idmcAnnualAvailable": true,
+          "idmcEventsAvailable": true,
+          "iomDtmAvailable": true,
+          "wfpFsiAvailable": true,
+          "layersPulled": 4,
+          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "idmcConflictTotalDisplacement": 1430903.0,
+          "idmcConflictNewDisplacement": 976969.0,
+          "idmcLatestYear": 2025.0,
+          "idmcPostShockFigureTotal": 74730.0,
+          "idmcPostShockConflictFigureTotal": 74730.0,
+          "idmcLatestEventDate": "2026-05-29",
+          "iomLatestIdpSum": 1450254.0,
+          "iomLatestReportingDate": "2025-12-31",
+          "wfpLatestSurveyDate": "2016-05-01",
+          "wfpPoorBorderlineFoodConsumptionPct": null,
+          "wfpRcsiMean": null
         }
       },
       {
@@ -9505,14 +9831,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "region": "East Africa",
         "lat": 5.1521,
         "lon": 46.1996,
-        "rank": 5,
-        "score": 59.66109643584117,
+        "rank": 6,
+        "score": 59.661096435841166,
         "riskTier": "High",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Domestic food-price pressure",
-            "score": 0.936682149879929
+            "score": 0.9366821498799289
           },
           {
             "label": "Food/fuel import exposure",
@@ -9527,12 +9853,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "IDMC/IOM public displacement layer; Gender vulnerability; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
-          "price_pressure_score": 0.936682149879929,
+          "price_pressure_score": 0.9366821498799289,
           "import_exposure_score": 0.7699171686746987,
-          "agriculture_input_exposure_score": 0.3869920014272568,
-          "acute_food_insecurity_score": 0.4875,
+          "agriculture_input_exposure_score": 0.38699200142725687,
+          "acute_food_insecurity_score": 0.48750000000000004,
           "wfp_food_security_outcome_score": 0.5,
-          "displacement_pressure_score": 0.0703657033176242,
+          "displacement_pressure_score": 0.07036570331762429,
           "public_displacement_layer_score": 0.6245999311963382,
           "assistance_pressure_score": 0.6925000000000001,
           "gender_vulnerability_score": 0.6145729849083126
@@ -9566,7 +9892,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "femaleAccountOwnershipPct": null
         },
         "genderProxy": {
-          "rank": 6,
+          "rank": 7,
           "score": 75.97242505605853,
           "tier": "Tier 1 - immediate gender-sensitive monitoring",
           "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -9579,13 +9905,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - 19th ICLS"
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9599,10 +9925,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 4000.0,
           "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2026-04-25",
+          "idmcLatestEventDate": "2026-04-25 00:00:00",
           "iomLatestIdpSum": 3262080.0,
-          "iomLatestReportingDate": "2024-09-30",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": "2024-09-30 00:00:00",
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -9613,18 +9939,18 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "region": "East Africa",
         "lat": 9.145,
         "lon": 40.4897,
-        "rank": 6,
-        "score": 57.65786219253292,
+        "rank": 7,
+        "score": 57.6578621925329,
         "riskTier": "High",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Assistance/funding pressure",
-            "score": 0.7615000000000001
+            "score": 0.7615
           },
           {
             "label": "Domestic food-price pressure",
-            "score": 0.6822660755406467
+            "score": 0.6822660755406463
           },
           {
             "label": "Agriculture and fertilizer exposure",
@@ -9635,14 +9961,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; IPC acute food insecurity; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
-          "price_pressure_score": 0.6822660755406467,
+          "price_pressure_score": 0.6822660755406463,
           "import_exposure_score": 0.34160508309839,
           "agriculture_input_exposure_score": 0.6682790443851293,
-          "acute_food_insecurity_score": 0.6025,
+          "acute_food_insecurity_score": 0.6024999999999999,
           "wfp_food_security_outcome_score": 0.5,
-          "displacement_pressure_score": 0.1876244499235354,
+          "displacement_pressure_score": 0.18762444992353547,
           "public_displacement_layer_score": 0.5898752506106505,
-          "assistance_pressure_score": 0.7615000000000001,
+          "assistance_pressure_score": 0.7615,
           "gender_vulnerability_score": 0.6451258916847351
         },
         "componentMissingCount": 1,
@@ -9674,7 +10000,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "femaleAccountOwnershipPct": 41.6159713320994
         },
         "genderProxy": {
-          "rank": 5,
+          "rank": 6,
           "score": 76.25671821416107,
           "tier": "Tier 1 - immediate gender-sensitive monitoring",
           "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -9687,13 +10013,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - current ILOSTAT"
         },
         "readiness": {
-          "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-          "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9707,10 +10033,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 9373.0,
           "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2026-03-10",
+          "idmcLatestEventDate": "2026-03-10 00:00:00",
           "iomLatestIdpSum": 1919993.0,
-          "iomLatestReportingDate": "2024-08-31",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": "2024-08-31 00:00:00",
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -9721,10 +10047,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "region": "Middle East and North Africa",
         "lat": 31.9522,
         "lon": 35.2332,
-        "rank": 7,
-        "score": 55.83237146878744,
+        "rank": 8,
+        "score": 55.832371468787436,
         "riskTier": "High",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "IPC acute food insecurity",
@@ -9743,9 +10069,9 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "Food/fuel import exposure; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
         "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure",
         "components": {
-          "price_pressure_score": 0.3091379161953421,
+          "price_pressure_score": 0.30913791619534187,
           "import_exposure_score": 0.5810333933520453,
-          "agriculture_input_exposure_score": 0.3768004197951007,
+          "agriculture_input_exposure_score": 0.37680041979510076,
           "acute_food_insecurity_score": 1.0,
           "wfp_food_security_outcome_score": 0.5,
           "displacement_pressure_score": 0.0,
@@ -9782,7 +10108,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "femaleAccountOwnershipPct": 27.7345491731852
         },
         "genderProxy": {
-          "rank": 7,
+          "rank": 8,
           "score": 73.2457560738837,
           "tier": "Tier 1 - immediate gender-sensitive monitoring",
           "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -9795,13 +10121,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - current ILOSTAT"
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9815,10 +10141,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 147.0,
           "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2026-03-14",
+          "idmcLatestEventDate": "2026-03-14 00:00:00",
           "iomLatestIdpSum": null,
-          "iomLatestReportingDate": "NaT",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": null,
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -9829,14 +10155,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "region": "Middle East and North Africa",
         "lat": 34.8021,
         "lon": 38.9968,
-        "rank": 8,
+        "rank": 9,
         "score": 53.91453871962707,
         "riskTier": "Moderate",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Domestic food-price pressure",
-            "score": 0.7357452427761263
+            "score": 0.7357452427761262
           },
           {
             "label": "IDMC/IOM public displacement layer",
@@ -9851,7 +10177,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "mediumPathways": "IDMC/IOM public displacement layer; Agriculture and fertilizer exposure; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints",
         "components": {
-          "price_pressure_score": 0.7357452427761263,
+          "price_pressure_score": 0.7357452427761262,
           "import_exposure_score": 0.5278967778750779,
           "agriculture_input_exposure_score": 0.536767833997722,
           "acute_food_insecurity_score": 0.5,
@@ -9859,7 +10185,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "displacement_pressure_score": 0.3819695858431385,
           "public_displacement_layer_score": 0.6680619231942029,
           "assistance_pressure_score": 0.5,
-          "gender_vulnerability_score": 0.4429540288190468
+          "gender_vulnerability_score": 0.44295402881904683
         },
         "componentMissingCount": 1,
         "indicators": {
@@ -9890,7 +10216,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "femaleAccountOwnershipPct": null
         },
         "genderProxy": {
-          "rank": 8,
+          "rank": 9,
           "score": 67.31761253895041,
           "tier": "Tier 1 - immediate gender-sensitive monitoring",
           "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
@@ -9903,13 +10229,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": null
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "No",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": false,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -9923,10 +10249,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": 6303.0,
           "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2026-03-14",
+          "idmcLatestEventDate": "2026-03-14 00:00:00",
           "iomLatestIdpSum": 5872203.0,
-          "iomLatestReportingDate": "2026-03-31",
-          "wfpLatestSurveyDate": "2020-05-01",
+          "iomLatestReportingDate": "2026-03-31 00:00:00",
+          "wfpLatestSurveyDate": "2020-05-01 00:00:00",
           "wfpPoorBorderlineFoodConsumptionPct": 0.248333265306122,
           "wfpRcsiMean": 15.909450375
         }
@@ -9937,10 +10263,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "region": "South Asia",
         "lat": 30.3753,
         "lon": 69.3451,
-        "rank": 9,
+        "rank": 10,
         "score": 49.72856745223893,
         "riskTier": "Moderate",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
+        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
             "label": "Gender vulnerability",
@@ -9952,17 +10278,17 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           },
           {
             "label": "Domestic food-price pressure",
-            "score": 0.5239007299764151
+            "score": 0.5239007299764147
           }
         ],
         "highPathways": "Gender vulnerability",
         "mediumPathways": "Assistance/funding pressure; Domestic food-price pressure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
-          "price_pressure_score": 0.5239007299764151,
+          "price_pressure_score": 0.5239007299764147,
           "import_exposure_score": 0.4408884831652767,
           "agriculture_input_exposure_score": 0.4885467234743991,
-          "acute_food_insecurity_score": 0.2225,
+          "acute_food_insecurity_score": 0.22250000000000003,
           "wfp_food_security_outcome_score": 0.5,
           "displacement_pressure_score": 0.4909715286663962,
           "public_displacement_layer_score": 0.4712710786737526,
@@ -9998,8 +10324,8 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "femaleAccountOwnershipPct": 11.9121696598431
         },
         "genderProxy": {
-          "rank": 9,
-          "score": 66.21239948160355,
+          "rank": 10,
+          "score": 66.21239948160354,
           "tier": "Tier 1 - immediate gender-sensitive monitoring",
           "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
         },
@@ -10011,13 +10337,13 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "source": "SDG 8.3.1 - 19th ICLS"
         },
         "readiness": {
-          "priceEventStudy": "Partial - enough price panel coverage for screening/event setup",
-          "foodSecurityOutcome": "Partial - repeated IPC records exist, but outcome timing still needs review",
+          "priceEventStudy": "Ready",
+          "foodSecurityOutcome": "Not ready - repeated sex-/age-disaggregated food-security outcomes unavailable",
           "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
           "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "Yes",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
+          "ipcLatestAvailable": true,
+          "ipcIsSexDisaggregated": false,
+          "sexDisaggregatedOutcomeAvailable": false
         },
         "additionalCoverage": {
           "idmcAnnualAvailable": true,
@@ -10031,118 +10357,10 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "idmcLatestYear": 2025.0,
           "idmcPostShockFigureTotal": null,
           "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2026-01-19",
+          "idmcLatestEventDate": "2026-01-19 00:00:00",
           "iomLatestIdpSum": 523083.0,
-          "iomLatestReportingDate": "2025-10-31",
-          "wfpLatestSurveyDate": "NaT",
-          "wfpPoorBorderlineFoodConsumptionPct": null,
-          "wfpRcsiMean": null
-        }
-      },
-      {
-        "iso3": "MMR",
-        "country": "Myanmar",
-        "region": "East / Southeast Asia",
-        "lat": 21.9162,
-        "lon": 95.956,
-        "rank": 10,
-        "score": 49.67426754211412,
-        "riskTier": "Moderate",
-        "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are now formally weighted. Not a causal impact estimate.",
-        "pathways": [
-          {
-            "label": "Gender vulnerability",
-            "score": 0.5777339745610489
-          },
-          {
-            "label": "Food/fuel import exposure",
-            "score": 0.5355684029073599
-          },
-          {
-            "label": "Agriculture and fertilizer exposure",
-            "score": 0.5285344609306689
-          }
-        ],
-        "highPathways": null,
-        "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Agriculture and fertilizer exposure; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
-        "technicalFocus": "maintain screening watch and fill missing component data",
-        "components": {
-          "price_pressure_score": 0.4567300600368389,
-          "import_exposure_score": 0.5355684029073599,
-          "agriculture_input_exposure_score": 0.5285344609306689,
-          "acute_food_insecurity_score": 0.5,
-          "wfp_food_security_outcome_score": 0.5,
-          "displacement_pressure_score": 0.2387772697481352,
-          "public_displacement_layer_score": 0.5270789711065627,
-          "assistance_pressure_score": 0.5,
-          "gender_vulnerability_score": 0.5777339745610489
-        },
-        "componentMissingCount": 2,
-        "indicators": {
-          "medianPriceChangeSinceBaselinePct": 0.0,
-          "comparableSeries": 550.0,
-          "preShockMonths": 24.0,
-          "postShockMonths": 2.0,
-          "ipcPhase3PlusPct": null,
-          "ipcPhase3PlusNumber": null,
-          "ipcPhase4PlusPct": null,
-          "selectedDisplacementPeople": 1224106.0,
-          "idmcConflictTotalDisplacement": 3639400.0,
-          "idmcPostShockConflictFigureTotal": null,
-          "iomLatestIdpSum": null,
-          "wfpPoorBorderlineFoodConsumptionPct": null,
-          "wfpRcsiMean": null,
-          "destinationFundingUsd": 506160952.0,
-          "foodNutritionFundingPerIpc3PlusUsd": null,
-          "importsGdpPct": null,
-          "foodImportsMerchandisePct": 9.73812772908674,
-          "fuelImportsMerchandisePct": 36.2388104824028,
-          "agricultureValueAddedGdpPct": 20.8341766680744,
-          "cerealImportDependencyPct": -12.4,
-          "fertilizerImportDependencyPct": 100.0,
-          "femaleAgricultureEmploymentPct": 37.8429812739217,
-          "femaleVulnerableEmploymentPct": 63.8659197390347,
-          "femaleLaborForceParticipationPct": 40.941,
-          "femaleAccountOwnershipPct": 46.1505017519645
-        },
-        "genderProxy": {
-          "rank": 11,
-          "score": 64.79858804036506,
-          "tier": "Tier 1 - immediate gender-sensitive monitoring",
-          "boundary": "Proxy exposure priority only - not a measured before/after impact on girls or women."
-        },
-        "informality": {
-          "femaleInformalEmploymentPct": 83.772,
-          "femaleInformalEmploymentYear": 2020.0,
-          "femaleInformalEmploymentMissing": false,
-          "proxyUsed": "direct_ilostat_female_informal_employment",
-          "source": "SDG 8.3.1 - 19th ICLS"
-        },
-        "readiness": {
-          "priceEventStudy": "Not ready - need stronger pre/post monthly domestic price coverage",
-          "foodSecurityOutcome": "Not ready - need repeated IPC/WFP outcome observations",
-          "genderCausal": "Not ready - no current sex- and age-disaggregated food-security outcomes in public pull",
-          "mainGap": "Need current sex- and age-disaggregated FCS/rCSI/LCS, female-headed household outcomes, assistance reach and access data. IPC remains total population only.",
-          "ipcLatestAvailable": "No",
-          "ipcIsSexDisaggregated": "No",
-          "sexDisaggregatedOutcomeAvailable": "No"
-        },
-        "additionalCoverage": {
-          "idmcAnnualAvailable": true,
-          "idmcEventsAvailable": true,
-          "iomDtmAvailable": false,
-          "wfpFsiAvailable": false,
-          "layersPulled": 2,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
-          "idmcConflictTotalDisplacement": 3639400.0,
-          "idmcConflictNewDisplacement": 572538.0,
-          "idmcLatestYear": 2025.0,
-          "idmcPostShockFigureTotal": null,
-          "idmcPostShockConflictFigureTotal": null,
-          "idmcLatestEventDate": "2026-01-19",
-          "iomLatestIdpSum": null,
-          "iomLatestReportingDate": "NaT",
-          "wfpLatestSurveyDate": "NaT",
+          "iomLatestReportingDate": "2025-10-31 00:00:00",
+          "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
         }
@@ -10157,7 +10375,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "Use the dashboard for prioritization and monitoring; causal estimates for women and girls require sex- and age-disaggregated outcome data."
   ],
   "sourceNotes": {
-    "usableSourceRows": 38,
+    "usableSourceRows": 46,
     "additionalDownloadedRows": 98,
     "coreSources": [
       "WFP/HDX food prices",
