@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-store" />
     <title>Dictionary | UN Women Iran-USA Regional Escalation Shock Dashboard</title>
     <meta
       name="description"
       content="Dictionary of terms, acronyms, data sources and model concepts used in the UN Women Iran-USA regional escalation shock dashboard."
     />
-    <link rel="stylesheet" href="styles.css?v=20260605-haiti" />
+    <link rel="stylesheet" href="styles.css?v=20260606-methodology-wide" />
     <script>document.documentElement.classList.add("auth-locked");</script>
     <script src="auth.js?v=20260603-lock" defer></script>
   </head>
-  <body>
+  <body data-page="dictionary">
     <a class="skip-link" href="#main-content">Skip to dictionary content</a>
     <div class="reading-progress" aria-hidden="true">
       <span id="reading-progress-bar"></span>
@@ -22,7 +23,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260606-ux#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png" alt="UN Women" />
           </a>
           <p class="brand-caption">Regional evidence dashboard</p>
@@ -33,7 +34,7 @@
             <ul class="hero-meta" aria-label="Dictionary metadata">
               <li>Model terms</li>
               <li>Data sources</li>
-              <li>Interpretation guidance</li>
+              <li>Model boundaries</li>
             </ul>
           </div>
           <h1>Dashboard dictionary</h1>
@@ -42,12 +43,11 @@
             boundaries used in the regional escalation shock dashboard.
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
-          <div class="hero-actions" aria-label="Dictionary navigation links">
-            <a class="hero-action-primary" href="index.html">Back to dashboard</a>
-            <a class="hero-action-secondary" href="#food-security">Food security</a>
-            <a class="hero-action-secondary" href="#gender">Gender terms</a>
-            <a class="hero-action-secondary" href="#sources">Sources</a>
-            <a class="hero-action-secondary" href="#model">Model terms</a>
+          <div class="hero-actions" aria-label="Primary dashboard links">
+            <a class="hero-action-secondary" href="index.html?v=20260606-ux#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260606-ux#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260606-ux">Methodology</a>
+            <a class="hero-action-primary" href="#main-content" aria-current="page">Dictionary</a>
           </div>
         </div>
       </div>
@@ -57,10 +57,10 @@
       <section class="interpretation-panel dictionary-intro" aria-labelledby="dictionary-intro-title">
         <div>
           <p class="eyebrow">How to use</p>
-          <h2 id="dictionary-intro-title">Reference language for presentations</h2>
+          <h2 id="dictionary-intro-title">Reference definitions for dashboard users</h2>
         </div>
         <p>
-          Use these definitions when explaining the dashboard to colleagues or senior managers. The
+          Use these definitions when interpreting the dashboard in analytical and briefing settings. The
           wording keeps a clear line between measured evidence, proxy indicators and model-based
           prioritization.
         </p>
@@ -71,7 +71,6 @@
         <a href="#gender">Gender and labour terms</a>
         <a href="#sources">Data-source acronyms</a>
         <a href="#model">Model and dashboard terms</a>
-        <a href="#safe-language">Interpretation guidance</a>
       </section>
 
       <section id="food-security" class="dictionary-section" aria-labelledby="food-security-title">
@@ -204,7 +203,7 @@
         <div class="section-heading">
           <p class="eyebrow">Sources</p>
           <h2 id="sources-title">Data-source acronyms</h2>
-          <p>Public data platforms and institutional sources referenced in the workbook and dashboard.</p>
+          <p>Public data platforms and institutional sources referenced in the dashboard analysis.</p>
         </div>
         <div class="term-grid compact">
           <article class="term-card">
@@ -302,6 +301,24 @@
             <p class="term-use">Components are weighted and summed to create the final index.</p>
           </article>
           <article class="term-card">
+            <span class="term-meta">Before/after</span>
+            <h3>Peak increase</h3>
+            <p>The highest positive median same-month food-price increase found in the available post-shock months.</p>
+            <p class="term-use">This is the table's main price movement field; if no positive comparable rise exists, the row says so directly.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Before/after</span>
+            <h3>Price records compared</h3>
+            <p>The number of like-for-like WFP/HDX market, commodity and unit records behind the peak comparison.</p>
+            <p class="term-use">A higher count means the price signal is based on more records; it is not a severity measure.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Context</span>
+            <h3>Supplemental coverage</h3>
+            <p>A count of five additional public-data context layers: ACLED, CPI, food incidents, PortWatch and Findex.</p>
+            <p class="term-use">Shows what contextual data is available; it is not a proof score and does not replace the official index.</p>
+          </article>
+          <article class="term-card">
             <span class="term-meta">Method</span>
             <h3>Index weight</h3>
             <p>The percentage importance assigned to each component in the composite index.</p>
@@ -346,41 +363,17 @@
         </div>
       </section>
 
-      <section id="safe-language" class="method-section dictionary-boundary" aria-labelledby="safe-language-title">
-        <div>
-          <p class="eyebrow">Interpretation guidance</p>
-          <h2 id="safe-language-title">Formal communication guidance</h2>
-        </div>
-        <div class="communication-guidance">
-          <article class="guidance-card">
-            <h3>Appropriate wording</h3>
-            <ul>
-              <li>The dashboard ranks country exposure and prioritization needs across plausible escalation pathways.</li>
-              <li>IPC indicates total-population acute food-insecurity severity.</li>
-              <li>Gender vulnerability is a structural and proxy lens for prioritization and monitoring.</li>
-              <li>The model supports screening, scenario discussion and data-readiness assessment.</li>
-            </ul>
-          </article>
-          <article class="guidance-card" data-tone="avoid">
-            <h3>Wording to avoid</h3>
-            <ul>
-              <li>The dashboard estimates the number of women or girls who became food insecure because of the escalation.</li>
-              <li>IPC Phase 3+ is sex-disaggregated in the public workbook.</li>
-              <li>Gender vulnerability is a measured food-security outcome.</li>
-              <li>The scenario results are forecasts or causal impact estimates.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div>
         <strong>UN Women analytical dashboard</strong>
-        <span>Dictionary page for model terms, data sources and formal interpretation guidance.</span>
+        <span>Dictionary page for model terms, data sources and interpretation boundaries.</span>
       </div>
       <a href="#top">Back to top</a>
     </footer>
+
+    <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
     <script>
       window.addEventListener("scroll", () => {

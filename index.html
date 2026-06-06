@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Iran-USA Regional Escalation Shock | UN Women Evidence Dashboard</title>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>Iran-USA Regional Escalation Shock | Overview</title>
     <meta
       name="description"
-      content="UN Women analytical dashboard for screening country exposure to Iran-USA and regional escalation shocks across food security, displacement, assistance and gender-vulnerability pathways."
+      content="UN Women analytical overview for the Iran-USA regional escalation shock model across food security, displacement, assistance and gender-vulnerability pathways."
     />
-    <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260605-haiti" />
+    <link rel="stylesheet" href="styles.css?v=20260606-methodology-wide" />
     <script>document.documentElement.classList.add("auth-locked");</script>
     <script src="auth.js?v=20260603-lock" defer></script>
   </head>
-  <body>
+  <body data-page="overview">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
     <div class="reading-progress" aria-hidden="true">
       <span id="reading-progress-bar"></span>
@@ -31,53 +31,30 @@
         </div>
         <div class="hero-copy">
           <div class="hero-topline">
-            <p class="eyebrow">Regional risk dashboard</p>
+            <p class="eyebrow">Overview</p>
             <ul class="hero-meta" aria-label="Dashboard metadata">
               <li id="meta-country-count">28 countries</li>
-              <li id="meta-generated">Generated 2026-06-02</li>
+              <li id="meta-generated">Generated 2026-06-06</li>
               <li>Screening model</li>
             </ul>
           </div>
           <h1>Iran-USA regional escalation shock</h1>
           <p class="lede">
-            Interactive evidence summary to support prioritization across food-price,
-            displacement, assistance, import and gender-vulnerability pathways.
+            Food-price evidence is most visible in East Africa and the Horn, while the wider exposure
+            ranking reflects current food insecurity, assistance pressure and gender vulnerability.
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-primary" href="#findings">Key findings</a>
-            <a class="hero-action-secondary" href="#country-lens">Country lens</a>
-            <a class="hero-action-secondary" href="#method">Method</a>
-            <a class="hero-action-secondary" href="dictionary.html">Dictionary</a>
+            <a class="hero-action-primary" href="#findings" aria-current="page">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260606-ux#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260606-ux">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260606-ux">Dictionary</a>
           </div>
         </div>
       </div>
     </header>
 
     <main id="main-content" tabindex="-1">
-      <section id="findings" class="kpi-grid" aria-label="Key indicators">
-        <article class="kpi-card">
-          <span class="kpi-label">Countries in scope</span>
-          <strong id="kpi-countries">-</strong>
-          <span class="kpi-note">Expanded regional coverage</span>
-        </article>
-        <article class="kpi-card" data-tone="high">
-          <span class="kpi-label">Highest exposure score</span>
-          <strong id="kpi-top-country">-</strong>
-          <span class="kpi-note" id="kpi-top-score">Current top-ranked country</span>
-        </article>
-        <article class="kpi-card" data-tone="moderate">
-          <span class="kpi-label">High or very high</span>
-          <strong id="kpi-high-count">-</strong>
-          <span class="kpi-note">Countries needing close monitoring</span>
-        </article>
-        <article class="kpi-card">
-          <span class="kpi-label">Sex-disaggregated outcomes</span>
-          <strong id="kpi-sadd">-</strong>
-          <span class="kpi-note">Public women/girls food-security outcome datasets</span>
-        </article>
-      </section>
-
       <section class="interpretation-panel" aria-labelledby="reading-title">
         <div>
           <p class="eyebrow">How to read this dashboard</p>
@@ -92,65 +69,87 @@
 
       <section class="definitions-panel" aria-labelledby="definitions-title">
         <details class="definitions-details" open>
-          <summary id="definitions-title">Key terms and model components</summary>
-          <div class="definition-grid">
+          <summary id="definitions-title">Three-point read</summary>
+          <div class="definition-grid editorial-readout">
             <article class="definition-card">
-              <h3>Shock Exposure Index</h3>
-              <p>A 0-100 screening score built from nine bounded 0-1 components and documented weights.</p>
+              <h3>Prices rose most in the Horn and East Africa</h3>
+              <p>Matched same-month food-price increases peak in Sudan, Ethiopia, South Sudan and Somalia.</p>
             </article>
             <article class="definition-card">
-              <h3>IPC Phase 3+</h3>
-              <p>Population in crisis or worse food insecurity. IPC is total-population data in this workbook, not sex-disaggregated.</p>
+              <h3>The ranking is broader than prices</h3>
+              <p>The exposure score combines prices with IPC severity, displacement, assistance, import and gender-vulnerability pathways.</p>
             </article>
             <article class="definition-card">
-              <h3>Gender proxy priority</h3>
-              <p>A fallback priority score using structural and proxy gender indicators when measured women/girls outcomes are unavailable.</p>
-            </article>
-            <article class="definition-card">
-              <h3>Scenario sensitivity</h3>
-              <p>Estimated score movement under oil, fertilizer, food-price and assistance-cut stress tests.</p>
-            </article>
-            <article class="definition-card">
-              <h3>Data readiness</h3>
-              <p>A check on whether a country has enough pre/post and outcome data for more formal causal work.</p>
-            </article>
-            <article class="definition-card">
-              <h3>Additional public layers</h3>
-              <p>IDMC, IOM DTM and WFP outcome layers are now formally weighted in the refreshed score, with missing values flagged.</p>
+              <h3>The evidence supports prioritization, not attribution</h3>
+              <p>The analytical model can flag pressure and readiness. It cannot estimate a causal women/girls food-security impact.</p>
             </article>
           </div>
           <p class="definition-note dictionary-link-note">
-            For full definitions of acronyms, data sources and interpretation rules, open the
-            <a href="dictionary.html">dashboard dictionary</a>.
+            For country-level filters and scenario exploration, open the
+            <a href="country.html?v=20260606-ux">country lens</a>. For the full calculation logic and caveats, open the
+            <a href="methodology.html?v=20260606-ux">methodology page</a>. For definitions, open the
+            <a href="dictionary.html?v=20260606-ux">dashboard dictionary</a>.
           </p>
         </details>
       </section>
 
-      <section class="controls-band" aria-label="Dashboard controls">
-        <div class="control-group">
-          <label class="control-label" for="region-filter">Region</label>
-          <select id="region-filter"></select>
+      <section id="before-after" class="before-after-section" aria-labelledby="before-after-title">
+        <div class="section-heading">
+          <p class="eyebrow">Before vs after</p>
+          <h2 id="before-after-title">Food prices rose most sharply in Sudan, Ethiopia, South Sudan and Somalia</h2>
+          <p>
+            The source price panel compares like-for-like WFP/HDX market and commodity price records in post-shock 2026 months
+            with the same calendar month in 2025, then keeps the highest positive observed increase per country.
+            Flat, negative and unavailable countries remain visible so readers can distinguish a price rise
+            from a flat comparison or a missing price comparison.
+          </p>
         </div>
-        <div class="control-group">
-          <label class="control-label" for="geography-filter">Geography</label>
-          <select id="geography-filter"></select>
+        <div class="before-after-layout">
+          <article class="before-after-panel">
+            <div class="card-title-row compact">
+              <div>
+                <p class="eyebrow">Main readout</p>
+                <h3>The largest like-for-like price increases are concentrated in four countries</h3>
+              </div>
+              <span class="source-pill">2026 vs 2025</span>
+            </div>
+            <div class="chart-wrap before-after-chart-wrap">
+              <canvas id="before-after-chart"></canvas>
+            </div>
+            <p id="before-after-chart-note" class="chart-note"></p>
+          </article>
+
+          <article class="before-after-panel before-after-story">
+            <p class="eyebrow">Cross-country read</p>
+            <h3>Highest positive post-shock price increases</h3>
+            <ul id="before-after-message-list"></ul>
+          </article>
         </div>
-        <div class="control-group">
-          <label class="control-label" for="country-select">Country</label>
-          <select id="country-select"></select>
+
+        <div class="table-wrap before-after-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Peak increase</th>
+                <th>Peak comparison</th>
+                <th>Price records compared</th>
+                <th>IPC latest timing</th>
+                <th>Supplemental coverage</th>
+              </tr>
+            </thead>
+            <tbody id="before-after-table-body"></tbody>
+          </table>
         </div>
-        <div class="control-group">
-          <label class="control-label" for="scenario-select">Scenario</label>
-          <select id="scenario-select"></select>
-        </div>
+        <p id="before-after-table-note" class="chart-note table-footnote"></p>
       </section>
 
-      <section class="headline-grid" aria-label="Main analytical readout">
+      <section id="ranking-overview" class="headline-grid" aria-label="Main analytical readout">
         <article class="chart-card wide">
           <div class="card-title-row">
             <div>
               <p class="eyebrow">Primary ranking</p>
-              <h2>Shock exposure index across the 28-country scope</h2>
+              <h2>Sudan and South Sudan sit furthest above the regional risk pack</h2>
               <p>Scores combine price pressure, import exposure, agriculture inputs, IPC severity, displacement, assistance pressure and gender vulnerability.</p>
             </div>
             <span class="source-pill">0-100 score</span>
@@ -158,250 +157,61 @@
           <div class="chart-wrap ranking-chart-wrap">
             <canvas id="ranking-chart"></canvas>
           </div>
-          <p class="chart-note">Source: official model workbook. Scores are screening outputs, not measured causal impacts.</p>
+          <p class="chart-note">Higher bars mean higher relative exposure across the weighted model pathways. The 0-100 score supports prioritization; it is not a probability or measured causal impact.</p>
+          <div id="ranking-confidence-list" class="confidence-strip" aria-label="Data-confidence flags"></div>
         </article>
 
         <article class="decision-card">
           <p class="eyebrow">Decision readout</p>
-          <h2>Executive readout</h2>
+          <h2>What this means</h2>
           <ul id="message-list"></ul>
         </article>
       </section>
 
-      <section id="country-lens" class="country-lens" aria-labelledby="country-lens-title">
-        <div class="section-heading">
-          <p class="eyebrow">Country lens</p>
-          <h2 id="country-lens-title">Pathways, readiness and added public data</h2>
-          <p>Select a country to inspect the score drivers and what data can or cannot support.</p>
-        </div>
-        <div class="country-layout">
-          <article class="country-profile">
-            <div class="profile-heading">
-              <div>
-                <p class="eyebrow" id="country-region">Region</p>
-                <h3 id="country-name">Country</h3>
-              </div>
-              <div class="score-badge">
-                <span>Score</span>
-                <strong id="country-score">-</strong>
-              </div>
-            </div>
-            <div class="score-track" aria-hidden="true">
-              <span id="country-score-fill"></span>
-            </div>
-            <div class="profile-grid">
-              <div>
-                <span class="metric-label">Risk tier</span>
-                <strong id="country-tier">-</strong>
-              </div>
-              <div>
-                <span class="metric-label">Model rank</span>
-                <strong id="country-rank">-</strong>
-              </div>
-              <div>
-                <span class="metric-label">Gender proxy rank</span>
-                <strong id="country-proxy-rank">-</strong>
-              </div>
-              <div>
-                <span class="metric-label">Missing components</span>
-                <strong id="country-missing">-</strong>
-              </div>
-            </div>
-            <div id="pathway-list" class="pathway-list"></div>
-            <p id="country-focus" class="profile-note"></p>
-          </article>
-
-          <article class="map-card">
-            <div class="card-title-row compact">
-              <div>
-                <p class="eyebrow">Regional footprint</p>
-                <h3>Country points by exposure tier</h3>
-              </div>
-              <button id="map-reset" class="small-button" type="button">Reset map</button>
-            </div>
-            <div id="country-map" class="map"></div>
-            <p class="chart-note">Map points use country centroids for orientation only.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="analysis-grid" aria-label="Dashboard charts">
-        <article class="chart-card">
-          <div class="card-title-row compact">
-            <div>
-              <p class="eyebrow">Selected country</p>
-              <h3>Component profile</h3>
-            </div>
-            <span class="source-pill">0-1 components</span>
-          </div>
-          <div class="chart-wrap">
-            <canvas id="component-chart"></canvas>
-          </div>
-          <p class="chart-note">All components are bounded before weighting. Missing source data are neutral-imputed and flagged.</p>
-        </article>
-
-        <article class="chart-card">
-          <div class="card-title-row compact">
-            <div>
-              <p class="eyebrow">Scenario sensitivity</p>
-              <h3 id="scenario-title">Risk movement under stress test</h3>
-            </div>
-            <span class="source-pill">Scenario delta</span>
-          </div>
-          <div class="chart-wrap">
-            <canvas id="scenario-chart"></canvas>
-          </div>
-          <p id="scenario-note" class="chart-note"></p>
-        </article>
-
+      <section class="analysis-grid" aria-label="Regional overview charts">
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
               <p class="eyebrow">Regional comparison</p>
-              <h3>Average exposure score</h3>
+              <h3>East Africa has the highest average exposure score</h3>
             </div>
             <span class="source-pill">By region</span>
           </div>
           <div class="chart-wrap">
             <canvas id="region-chart"></canvas>
           </div>
-          <p class="chart-note">Regional groupings reflect the current 28-country analytical scope.</p>
+          <p class="chart-note">Bars show the average Shock Exposure Index score for countries in each region. Click a region bar to filter the dashboard to that region.</p>
         </article>
 
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
               <p class="eyebrow">Gender-sensitive lens</p>
-              <h3>Top proxy priorities</h3>
+              <h3>Sudan and South Sudan top the gender-proxy priority list</h3>
             </div>
             <span class="source-pill">Proxy score</span>
           </div>
           <div class="chart-wrap">
             <canvas id="gender-chart"></canvas>
           </div>
-          <p class="chart-note">Proxy priority is not a measured before/after outcome for women or girls.</p>
+          <p class="chart-note">Higher bars indicate stronger structural gender-vulnerability signals in the proxy inputs. This is a prioritization lens, not a measured before/after outcome for women or girls.</p>
         </article>
       </section>
 
-      <section class="evidence-grid" aria-label="Data readiness and source coverage">
-        <article class="evidence-panel">
-          <p class="eyebrow">Readiness checks</p>
-          <h2>What the data can support now</h2>
-          <div id="readiness-list" class="readiness-list"></div>
-        </article>
-        <article class="evidence-panel">
-          <p class="eyebrow">Additional public layers</p>
-          <h2>New public evidence layers</h2>
-          <div id="coverage-list" class="coverage-list"></div>
-        </article>
-      </section>
-
-      <section class="table-section" aria-labelledby="table-title">
-        <div class="section-heading">
-          <p class="eyebrow">Country table</p>
-          <h2 id="table-title">Official model data summary</h2>
-          <p>The table mirrors the report narrative: score, pathways, IPC, gender proxy, informality and data gaps.</p>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Country</th>
-                <th>Region</th>
-                <th>Geography</th>
-                <th>Score</th>
-                <th>Tier</th>
-                <th>Top pathway</th>
-                <th>IPC 3+ %</th>
-                <th>Gender proxy</th>
-                <th>FHH %</th>
-                <th>Female informal %</th>
-                <th>Main gap</th>
-              </tr>
-            </thead>
-            <tbody id="country-table-body"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="method" class="method-section" aria-labelledby="method-title">
-        <div>
-          <p class="eyebrow">Method boundary</p>
-          <h2 id="method-title">Method and interpretation boundaries</h2>
-          <p>
-            This dashboard summarizes the official model workbook as a screening and monitoring tool.
-            It helps identify countries that may need closer attention under regional escalation scenarios
-            by combining food-price pressure, import and fertilizer exposure, acute food insecurity,
-            displacement, assistance pressure and gender vulnerability. The index is expert-weighted,
-            documented and sensitivity-tested using OECD/JRC composite-indicator guidance. It is not a
-            causal estimate and should not be used to state that the escalation caused a specific increase
-            in food insecurity among women or girls.
-          </p>
-          <div class="weight-defense">
-            <h3>Rationale for the weights</h3>
-            <p>
-              The weights translate the project theory of shock transmission into a transparent
-              prioritization score. They are documented expert judgment for this UN Women screening
-              exercise, not universal or externally mandated weights.
-            </p>
-            <ul>
-              <li>
-                <strong>Pathway coverage:</strong> the score covers the main escalation pathways:
-                prices, import exposure, fertilizer/agriculture, acute food insecurity, displacement,
-                assistance pressure and gender vulnerability.
-              </li>
-              <li>
-                <strong>Severity anchor:</strong> IPC acute food insecurity receives the largest single
-                weight, 17%, because current crisis-or-worse severity is the strongest prioritization
-                signal.
-              </li>
-              <li>
-                <strong>UN Women lens:</strong> gender vulnerability receives 15%, equal to
-                food-price pressure, so the index remains gender-sensitive rather than becoming a
-                generic macro or food-price model.
-              </li>
-              <li>
-                <strong>Data quality discipline:</strong> public WFP outcomes receive 5% because
-                coverage is sparse; the older displacement proxy is kept at 7% and complemented by an 8%
-                public IDMC/IOM layer to reduce double counting.
-              </li>
-              <li>
-                <strong>Balanced upstream risks:</strong> import exposure and
-                agriculture/fertilizer exposure each receive 12% because they are important transmission
-                pathways but less direct than observed food-insecurity severity.
-              </li>
-              <li>
-                <strong>External references are used carefully:</strong> IMF-style shock logic informs
-                pathway selection, while OECD/JRC guidance informs composite-index construction. No
-                external weight set is copied.
-              </li>
-              <li>
-                <strong>Robustness testing:</strong> alternative weighting schemes are included in the
-                Weight_Sensitivity output, so decision makers can see whether priorities change under
-                price/import-heavy, gender/humanitarian-heavy or displacement/outcome-heavy assumptions.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="weights-panel">
-          <h3>Index weights</h3>
-          <div id="weights-list" class="weights-list"></div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div>
         <strong>UN Women analytical dashboard</strong>
-        <span id="footer-source">Source workbook: official model data package.</span>
+        <span id="footer-source">Source: UN Women analytical data package.</span>
       </div>
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
+    <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260605-haiti"></script>
-    <script src="app.js?v=20260605-haiti"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260606-ux"></script>
+    <script src="app.js?v=20260606-overview-method-cleanup"></script>
   </body>
 </html>

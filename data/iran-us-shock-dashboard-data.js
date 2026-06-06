@@ -1,10 +1,10 @@
 window.IRAN_US_SHOCK_DASHBOARD_DATA = {
   "metadata": {
-    "generated": "2026-06-05",
+    "generated": "2026-06-06",
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
     "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
     "status": "Draft analytical dashboard - internal review version",
-    "sourceWorkbook": "outputs/models/iran_us_shock/UN Women IRAN USA war shock.xlsx",
+    "sourcePackage": "UN Women analytical data package",
     "shockStartDate": "2026-02-28",
     "geography": "28 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, East/Southeast Asia, and Latin America and the Caribbean",
     "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across plausible escalation pathways: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
@@ -89,6 +89,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6491951593063765
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 214.0,
+        "medianPriceChangeSinceBaselinePct": 19.22284448239221,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 35.39823008849559,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 195.0,
+          "bestAvailableYoYPct": 35.39823008849559,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 222.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": -2.3917525773195836,
+          "marchMatchedSeries": 27.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": -2.3917525773195836,
+              "matchedSeries": 27
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 35.39823008849559,
+              "matchedSeries": 195
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Jan 2026",
+          "periodType": "Current",
+          "periodFrom": "2026-02-01",
+          "periodTo": "2026-05-31",
+          "phase3PlusPct": 41.0,
+          "phase3PlusNumber": 19466529.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 19.22284448239221,
         "comparableSeries": 214.0,
@@ -161,6 +218,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 69.09237927311344,
+        "augmentedRank": 1,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -5.759549762128955,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -202,6 +274,69 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6011951287318829
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 4.0,
+        "comparablePriceSeries": 553.0,
+        "medianPriceChangeSinceBaselinePct": 16.66665,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 30.66869386886615,
+          "peakMonth": "2026-05",
+          "peakComparisonLabel": "May 2026 vs May 2025",
+          "matchedSeriesAtPeak": 248.0,
+          "bestAvailableYoYPct": 30.66869386886615,
+          "bestAvailableComparisonLabel": "May 2026 vs May 2025",
+          "matchedYoySeriesMonths": 646.0,
+          "matchedYoyMonthsAvailable": 3.0,
+          "marchYoYPct": 19.16881443298969,
+          "marchMatchedSeries": 212.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 19.16881443298969,
+              "matchedSeries": 212
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 24.72223333333333,
+              "matchedSeries": 186
+            },
+            {
+              "month": "2026-05",
+              "comparisonLabel": "May 2026 vs May 2025",
+              "medianYoYPct": 30.66869386886615,
+              "matchedSeries": 248
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Mar 2026",
+          "periodType": "First projection",
+          "periodFrom": "2026-04-01",
+          "periodTo": "2026-07-31",
+          "phase3PlusPct": 55.00000000000001,
+          "phase3PlusNumber": 7938971.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 16.66665,
         "comparableSeries": 553.0,
@@ -274,6 +409,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 2.0,
+        "missingLayerCount": 3.0,
+        "augmentedScore": 65.01758818621022,
+        "augmentedRank": 2,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -6.966588818651019,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -315,6 +465,69 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.8735112790014381
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 4.0,
+        "comparablePriceSeries": 472.0,
+        "medianPriceChangeSinceBaselinePct": 3.597892120765833,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 8.744830844830842,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 472.0,
+          "bestAvailableYoYPct": 8.744830844830842,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 1416.0,
+          "matchedYoyMonthsAvailable": 3.0,
+          "marchYoYPct": 5.727475383106373,
+          "marchMatchedSeries": 472.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 5.727475383106373,
+              "matchedSeries": 472
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 8.744830844830842,
+              "matchedSeries": 472
+            },
+            {
+              "month": "2026-05",
+              "comparisonLabel": "May 2026 vs May 2025",
+              "medianYoYPct": 8.73530123224906,
+              "matchedSeries": 472
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Oct 2025",
+          "periodType": "Current",
+          "periodFrom": "2025-09-01",
+          "periodTo": "2025-10-31",
+          "phase3PlusPct": 28.000000000000004,
+          "phase3PlusNumber": 13775635.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 3.597892120765833,
         "comparableSeries": 472.0,
@@ -387,6 +600,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 1.0,
+        "missingLayerCount": 4.0,
+        "augmentedScore": 59.38531267756049,
+        "augmentedRank": 4,
+        "rankChangeVsOfficial": -1.0,
+        "scoreDeltaVsOfficial": -6.990065091790228,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -428,6 +656,60 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.8206761704087784
       },
       "componentMissingCount": 0,
+      "dataConfidence": {
+        "level": "Stronger",
+        "note": "Core public model inputs are comparatively stronger for this country.",
+        "warningCount": 0,
+        "warnings": []
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 24.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 255.0,
+        "medianPriceChangeSinceBaselinePct": -5.35714285714286,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": -21.566472165618734,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 472.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": -21.566472165618734,
+          "marchMatchedSeries": 236.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": -21.566472165618734,
+              "matchedSeries": 236
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": -22.057902890055754,
+              "matchedSeries": 236
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Apr 2026",
+          "periodType": "Current",
+          "periodFrom": "2026-03-01",
+          "periodTo": "2026-05-31",
+          "phase3PlusPct": 47.0,
+          "phase3PlusNumber": 4980505.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": -5.35714285714286,
         "comparableSeries": 255.0,
@@ -500,6 +782,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": "2020-05-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.294661086956521,
         "wfpRcsiMean": 18.3098800923076
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 3.0,
+        "missingLayerCount": 2.0,
+        "augmentedScore": 56.11240399735645,
+        "augmentedRank": 6,
+        "rankChangeVsOfficial": -2.0,
+        "scoreDeltaVsOfficial": -6.278426928866963,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -541,6 +838,50 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5770997713722872
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; price event-study setup is not ready.",
+        "warningCount": 2,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "price event-study setup is not ready"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 12.0,
+        "postShockMonths": 0.0,
+        "comparablePriceSeries": 0.0,
+        "medianPriceChangeSinceBaselinePct": null,
+        "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+        "eventStudyReady": false,
+        "sameMonthYoY": {
+          "status": "no_matched_yoy_series",
+          "interpretation": "No matched post-shock same-month WFP price series are available.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": null,
+          "bestAvailableComparisonLabel": null,
+          "matchedYoySeriesMonths": 0.0,
+          "matchedYoyMonthsAvailable": 0.0,
+          "marchYoYPct": null,
+          "marchMatchedSeries": 0.0,
+          "monthly": [],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Mar 2026",
+          "periodType": "First projection",
+          "periodFrom": "2026-03-01",
+          "periodTo": "2026-06-30",
+          "phase3PlusPct": 52.0,
+          "phase3PlusNumber": 5834134.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": null,
         "comparableSeries": 0.0,
@@ -613,6 +954,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": "2016-05-01",
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 60.33052514938916,
+        "augmentedRank": 3,
+        "rankChangeVsOfficial": 2.0,
+        "scoreDeltaVsOfficial": -1.6650981947882286,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -654,6 +1010,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6145729849083126
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 596.0,
+        "medianPriceChangeSinceBaselinePct": 16.80458971517172,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 24.76964094317877,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 495.0,
+          "bestAvailableYoYPct": 24.76964094317877,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 886.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 0.6692890059249557,
+          "marchMatchedSeries": 391.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 0.6692890059249557,
+              "matchedSeries": 391
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 24.76964094317877,
+              "matchedSeries": 495
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Apr 2026",
+          "periodType": "Current",
+          "periodFrom": "2026-04-01",
+          "periodTo": "2026-06-30",
+          "phase3PlusPct": 31.0,
+          "phase3PlusNumber": 6030278.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 16.80458971517172,
         "comparableSeries": 596.0,
@@ -726,6 +1139,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 51.286016796195206,
+        "augmentedRank": 8,
+        "rankChangeVsOfficial": -2.0,
+        "scoreDeltaVsOfficial": -8.37507963964596,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -767,6 +1195,57 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6451258916847351
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 870.0,
+        "medianPriceChangeSinceBaselinePct": 7.572323690174643,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 31.009615384615387,
+          "peakMonth": "2026-03",
+          "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedSeriesAtPeak": 478.0,
+          "bestAvailableYoYPct": 31.009615384615387,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 478.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": 31.009615384615387,
+          "marchMatchedSeries": 478.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 31.009615384615387,
+              "matchedSeries": 478
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "May 2021",
+          "periodType": "Current",
+          "periodFrom": "2021-05-01",
+          "periodTo": "2021-06-30",
+          "phase3PlusPct": 30.0,
+          "phase3PlusNumber": 16756345.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 7.572323690174643,
         "comparableSeries": 870.0,
@@ -839,6 +1318,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 2.0,
+        "missingLayerCount": 3.0,
+        "augmentedScore": 54.52020489155185,
+        "augmentedRank": 7,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -3.137657300981054,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -880,6 +1374,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.4733820592478355
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 61.0,
+        "medianPriceChangeSinceBaselinePct": -4.664391353811126,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": 0.0,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 88.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 0.0,
+          "marchMatchedSeries": 59.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 59
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": -48.4460601095694,
+              "matchedSeries": 29
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Nov 2025",
+          "periodType": "Current",
+          "periodFrom": "2025-10-01",
+          "periodTo": "2025-11-30",
+          "phase3PlusPct": 77.0,
+          "phase3PlusNumber": 1600655.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": -4.664391353811126,
         "comparableSeries": 61.0,
@@ -952,6 +1503,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 2.0,
+        "missingLayerCount": 3.0,
+        "augmentedScore": 56.7598205755037,
+        "augmentedRank": 5,
+        "rankChangeVsOfficial": 3.0,
+        "scoreDeltaVsOfficial": 0.9274491067162671,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -993,6 +1559,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.44295402881904683
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; latest IPC country value is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 3088.0,
+        "medianPriceChangeSinceBaselinePct": 9.450326093133976,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 12.603949358976863,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 1850.0,
+          "bestAvailableYoYPct": 12.603949358976863,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 3818.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 9.013699674866793,
+          "marchMatchedSeries": 1968.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 9.013699674866793,
+              "matchedSeries": 1968
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 12.603949358976863,
+              "matchedSeries": 1850
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 9.450326093133976,
         "comparableSeries": 3088.0,
@@ -1065,6 +1688,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": "2020-05-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.248333265306122,
         "wfpRcsiMean": 15.909450375
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 3.0,
+        "missingLayerCount": 2.0,
+        "augmentedScore": 47.89436460612642,
+        "augmentedRank": 9,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -6.020174113500644,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1106,6 +1744,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.8283909795241201
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 80.0,
+        "medianPriceChangeSinceBaselinePct": 2.198292122500778,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 2.5503018641176656,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 80.0,
+          "bestAvailableYoYPct": 2.5503018641176656,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 160.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 1.5989082580833869,
+          "marchMatchedSeries": 80.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 1.5989082580833869,
+              "matchedSeries": 80
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 2.5503018641176656,
+              "matchedSeries": 80
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Mar 2026",
+          "periodType": "Current",
+          "periodFrom": "2026-03-01",
+          "periodTo": "2026-03-31",
+          "phase3PlusPct": 20.0,
+          "phase3PlusNumber": 10553872.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 2.198292122500778,
         "comparableSeries": 80.0,
@@ -1178,6 +1873,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 42.85612581054785,
+        "augmentedRank": 19,
+        "rankChangeVsOfficial": -9.0,
+        "scoreDeltaVsOfficial": -6.872441641691076,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1219,6 +1929,58 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5777339745610489
       },
       "componentMissingCount": 2,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "2 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 24.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 550.0,
+        "medianPriceChangeSinceBaselinePct": 0.0,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 11.093415238584736,
+          "peakMonth": "2026-03",
+          "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedSeriesAtPeak": 184.0,
+          "bestAvailableYoYPct": 11.093415238584736,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 184.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": 11.093415238584736,
+          "marchMatchedSeries": 184.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 11.093415238584736,
+              "matchedSeries": 184
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.0,
         "comparableSeries": 550.0,
@@ -1291,6 +2053,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 42.60538984044792,
+        "augmentedRank": 20,
+        "rankChangeVsOfficial": -9.0,
+        "scoreDeltaVsOfficial": -7.068877701666189,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1332,6 +2109,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6991929440892671
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 569.0,
+        "medianPriceChangeSinceBaselinePct": 0.0,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": 0.0,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 1007.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 0.0,
+          "marchMatchedSeries": 496.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 496
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 511
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Apr 2025",
+          "periodType": "Current",
+          "periodFrom": "2025-04-01",
+          "periodTo": "2025-04-30",
+          "phase3PlusPct": 16.0,
+          "phase3PlusNumber": 15463347.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.0,
         "comparableSeries": 569.0,
@@ -1404,6 +2238,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 41.6203162181156,
+        "augmentedRank": 23,
+        "rankChangeVsOfficial": -11.0,
+        "scoreDeltaVsOfficial": -5.241385847800963,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1445,6 +2294,58 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.46051261745658356
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 69.0,
+        "medianPriceChangeSinceBaselinePct": 0.2047082906857733,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 0.8116603652314036,
+          "peakMonth": "2026-03",
+          "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedSeriesAtPeak": 24.0,
+          "bestAvailableYoYPct": 0.8116603652314036,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 24.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": 0.8116603652314036,
+          "marchMatchedSeries": 24.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 0.8116603652314036,
+              "matchedSeries": 24
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.2047082906857733,
         "comparableSeries": 69.0,
@@ -1517,6 +2418,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 3.0,
+        "missingLayerCount": 2.0,
+        "augmentedScore": 43.79714915523439,
+        "augmentedRank": 18,
+        "rankChangeVsOfficial": -5.0,
+        "scoreDeltaVsOfficial": -2.6021389547418536,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1558,6 +2474,52 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5820650164425495
       },
       "componentMissingCount": 2,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "2 score component(s) use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 4,
+        "warnings": [
+          "2 score component(s) use missing or neutral inputs",
+          "price event-study setup is not ready",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 1.0,
+        "comparablePriceSeries": 190.0,
+        "medianPriceChangeSinceBaselinePct": 0.1579284912618273,
+        "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+        "eventStudyReady": false,
+        "sameMonthYoY": {
+          "status": "no_matched_yoy_series",
+          "interpretation": "No matched post-shock same-month WFP price series are available.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": null,
+          "bestAvailableComparisonLabel": null,
+          "matchedYoySeriesMonths": 0.0,
+          "matchedYoyMonthsAvailable": 0.0,
+          "marchYoYPct": null,
+          "marchMatchedSeries": 0.0,
+          "monthly": [],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.1579284912618273,
         "comparableSeries": 190.0,
@@ -1630,6 +2592,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 47.43699334869367,
+        "augmentedRank": 10,
+        "rankChangeVsOfficial": 4.0,
+        "scoreDeltaVsOfficial": 1.5281695664222141,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1671,6 +2648,69 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5992116315579189
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; latest IPC country value is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 4.0,
+        "comparablePriceSeries": 603.0,
+        "medianPriceChangeSinceBaselinePct": 0.0,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": 0.0,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 1057.0,
+          "matchedYoyMonthsAvailable": 3.0,
+          "marchYoYPct": 0.0,
+          "marchMatchedSeries": 561.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 561
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 413
+            },
+            {
+              "month": "2026-05",
+              "comparisonLabel": "May 2026 vs May 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 83
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.0,
         "comparableSeries": 603.0,
@@ -1743,6 +2783,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": "2018-06-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.11369447368421,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 5.0,
+        "missingLayerCount": 0.0,
+        "augmentedScore": 41.95948990672599,
+        "augmentedRank": 22,
+        "rankChangeVsOfficial": -7.0,
+        "scoreDeltaVsOfficial": -3.4993372351529928,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1784,6 +2839,57 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6544651879858416
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 24.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 1315.0,
+        "medianPriceChangeSinceBaselinePct": -1.639344262295084,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": -9.999999999999998,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 518.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": -9.999999999999998,
+          "marchMatchedSeries": 518.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": -9.999999999999998,
+              "matchedSeries": 518
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Nov 2025",
+          "periodType": "Current",
+          "periodFrom": "2025-10-01",
+          "periodTo": "2025-12-31",
+          "phase3PlusPct": 3.0,
+          "phase3PlusNumber": 855640.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": -1.639344262295084,
         "comparableSeries": 1315.0,
@@ -1856,6 +2962,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 40.56103458190075,
+        "augmentedRank": 25,
+        "rankChangeVsOfficial": -9.0,
+        "scoreDeltaVsOfficial": -2.658092545273263,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -1897,6 +3018,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.45158115435664736
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 153.0,
+        "medianPriceChangeSinceBaselinePct": 8.593938368355513,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 11.146935478536847,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 148.0,
+          "bestAvailableYoYPct": 11.146935478536847,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 295.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 9.297047285250738,
+          "marchMatchedSeries": 147.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 9.297047285250738,
+              "matchedSeries": 147
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 11.146935478536847,
+              "matchedSeries": 148
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Mar 2026",
+          "periodType": "First projection",
+          "periodFrom": "2026-04-01",
+          "periodTo": "2026-08-31",
+          "phase3PlusPct": 24.0,
+          "phase3PlusNumber": 1241712.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 8.593938368355513,
         "comparableSeries": 153.0,
@@ -1969,6 +3147,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 5.0,
+        "missingLayerCount": 0.0,
+        "augmentedScore": 44.93412425861011,
+        "augmentedRank": 12,
+        "rankChangeVsOfficial": 5.0,
+        "scoreDeltaVsOfficial": 1.7750481224532493,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2010,6 +3203,58 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.49423881072847586
       },
       "componentMissingCount": 2,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "2 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 14.0,
+        "medianPriceChangeSinceBaselinePct": 2.538690326158188,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 4.571714875025701,
+          "peakMonth": "2026-03",
+          "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedSeriesAtPeak": 14.0,
+          "bestAvailableYoYPct": 4.571714875025701,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 14.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": 4.571714875025701,
+          "marchMatchedSeries": 14.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 4.571714875025701,
+              "matchedSeries": 14
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 2.538690326158188,
         "comparableSeries": 14.0,
@@ -2082,6 +3327,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 2.0,
+        "missingLayerCount": 3.0,
+        "augmentedScore": 40.32666505086433,
+        "augmentedRank": 26,
+        "rankChangeVsOfficial": -8.0,
+        "scoreDeltaVsOfficial": -2.683671616100625,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2123,6 +3383,58 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.37058414211010066
       },
       "componentMissingCount": 2,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "2 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 2618.0,
+        "medianPriceChangeSinceBaselinePct": 2.403610917775622,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 4.209429374427631,
+          "peakMonth": "2026-03",
+          "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedSeriesAtPeak": 2505.0,
+          "bestAvailableYoYPct": 4.209429374427631,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 2505.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": 4.209429374427631,
+          "marchMatchedSeries": 2505.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 4.209429374427631,
+              "matchedSeries": 2505
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 2.403610917775622,
         "comparableSeries": 2618.0,
@@ -2195,6 +3507,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 45.41495671767595,
+        "augmentedRank": 11,
+        "rankChangeVsOfficial": 8.0,
+        "scoreDeltaVsOfficial": 2.4528836304913355,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2236,6 +3563,64 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.35360295043429557
       },
       "componentMissingCount": 2,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "2 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 352.0,
+        "medianPriceChangeSinceBaselinePct": 3.97546417913206,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 4.15984303756507,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 352.0,
+          "bestAvailableYoYPct": 4.15984303756507,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 704.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 3.2636919155482724,
+          "marchMatchedSeries": 352.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 3.2636919155482724,
+              "matchedSeries": 352
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 4.15984303756507,
+              "matchedSeries": 352
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 3.97546417913206,
         "comparableSeries": 352.0,
@@ -2308,6 +3693,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 2.0,
+        "missingLayerCount": 3.0,
+        "augmentedScore": 42.27090022179717,
+        "augmentedRank": 21,
+        "rankChangeVsOfficial": -1.0,
+        "scoreDeltaVsOfficial": 0.006530124545179206,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2349,6 +3749,52 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.39452309935796337
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 4,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "price event-study setup is not ready",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 21.0,
+        "postShockMonths": 0.0,
+        "comparablePriceSeries": 0.0,
+        "medianPriceChangeSinceBaselinePct": null,
+        "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+        "eventStudyReady": false,
+        "sameMonthYoY": {
+          "status": "no_matched_yoy_series",
+          "interpretation": "No matched post-shock same-month WFP price series are available.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": null,
+          "bestAvailableComparisonLabel": null,
+          "matchedYoySeriesMonths": 0.0,
+          "matchedYoyMonthsAvailable": 0.0,
+          "marchYoYPct": null,
+          "marchMatchedSeries": 0.0,
+          "monthly": [],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": null,
         "comparableSeries": 0.0,
@@ -2421,6 +3867,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 44.47673577908398,
+        "augmentedRank": 14,
+        "rankChangeVsOfficial": 7.0,
+        "scoreDeltaVsOfficial": 2.5335244126466563,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2462,6 +3923,52 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.36578835085884015
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 4,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "price event-study setup is not ready",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 0.0,
+        "postShockMonths": 0.0,
+        "comparablePriceSeries": 0.0,
+        "medianPriceChangeSinceBaselinePct": null,
+        "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+        "eventStudyReady": false,
+        "sameMonthYoY": {
+          "status": "no_matched_yoy_series",
+          "interpretation": "No matched post-shock same-month WFP price series are available.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": null,
+          "bestAvailableYoYPct": null,
+          "bestAvailableComparisonLabel": null,
+          "matchedYoySeriesMonths": null,
+          "matchedYoyMonthsAvailable": null,
+          "marchYoYPct": null,
+          "marchMatchedSeries": null,
+          "monthly": [],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": null,
         "comparableSeries": 0.0,
@@ -2534,6 +4041,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 44.41269513970309,
+        "augmentedRank": 15,
+        "rankChangeVsOfficial": 7.0,
+        "scoreDeltaVsOfficial": 2.5773273263160377,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2575,6 +4097,52 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.298189873019028
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 4,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "price event-study setup is not ready",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 0.0,
+        "postShockMonths": 0.0,
+        "comparablePriceSeries": 0.0,
+        "medianPriceChangeSinceBaselinePct": null,
+        "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+        "eventStudyReady": false,
+        "sameMonthYoY": {
+          "status": "no_matched_yoy_series",
+          "interpretation": "No matched post-shock same-month WFP price series are available.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": null,
+          "bestAvailableYoYPct": null,
+          "bestAvailableComparisonLabel": null,
+          "matchedYoySeriesMonths": null,
+          "matchedYoyMonthsAvailable": null,
+          "marchYoYPct": null,
+          "marchMatchedSeries": null,
+          "monthly": [],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": null,
         "comparableSeries": 0.0,
@@ -2647,6 +4215,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 44.526984917544866,
+        "augmentedRank": 13,
+        "rankChangeVsOfficial": 10.0,
+        "scoreDeltaVsOfficial": 2.8125280830050414,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2688,6 +4271,60 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.4594796839175478
       },
       "componentMissingCount": 0,
+      "dataConfidence": {
+        "level": "Stronger",
+        "note": "Core public model inputs are comparatively stronger for this country.",
+        "warningCount": 0,
+        "warnings": []
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 738.0,
+        "medianPriceChangeSinceBaselinePct": 0.0,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": -2.814717756457963,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 699.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": -3.9052155959789117,
+          "marchMatchedSeries": 406.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": -3.9052155959789117,
+              "matchedSeries": 406
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": -2.814717756457963,
+              "matchedSeries": 293
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Sep 2025",
+          "periodType": "Current",
+          "periodFrom": "2025-10-01",
+          "periodTo": "2025-12-31",
+          "phase3PlusPct": 12.0,
+          "phase3PlusNumber": 27212933.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.0,
         "comparableSeries": 738.0,
@@ -2760,6 +4397,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": "2018-09-01 00:00:00",
         "wfpPoorBorderlineFoodConsumptionPct": 0.346695208333333,
         "wfpRcsiMean": 15.246966
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 40.795285179754984,
+        "augmentedRank": 24,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -0.6898111007225651,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2801,6 +4453,52 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.4556311986749134
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 4,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "price event-study setup is not ready",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 0.0,
+        "comparablePriceSeries": 0.0,
+        "medianPriceChangeSinceBaselinePct": null,
+        "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+        "eventStudyReady": false,
+        "sameMonthYoY": {
+          "status": "no_matched_yoy_series",
+          "interpretation": "No matched post-shock same-month WFP price series are available.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": null,
+          "bestAvailableComparisonLabel": null,
+          "matchedYoySeriesMonths": 0.0,
+          "matchedYoyMonthsAvailable": 0.0,
+          "marchYoYPct": null,
+          "marchMatchedSeries": 0.0,
+          "monthly": [],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": null,
         "comparableSeries": 0.0,
@@ -2873,6 +4571,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "missing",
+        "cpiCoverageStatus": "missing",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 0.0,
+        "missingLayerCount": 5.0,
+        "augmentedScore": 43.95711078513369,
+        "augmentedRank": 17,
+        "rankChangeVsOfficial": 8.0,
+        "scoreDeltaVsOfficial": 2.537100724203306,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -2914,6 +4627,58 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.3744286078583846
       },
       "componentMissingCount": 3,
+      "dataConfidence": {
+        "level": "Limited",
+        "note": "3 score components use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "3 score components use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 2.0,
+        "comparablePriceSeries": 406.0,
+        "medianPriceChangeSinceBaselinePct": 0.0,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": 0.0,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 390.0,
+          "matchedYoyMonthsAvailable": 1.0,
+          "marchYoYPct": 0.0,
+          "marchMatchedSeries": 390.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 0.0,
+              "matchedSeries": 390
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 0.0,
         "comparableSeries": 406.0,
@@ -2986,6 +4751,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "missing",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 37.13295407047708,
+        "augmentedRank": 27,
+        "rankChangeVsOfficial": -1.0,
+        "scoreDeltaVsOfficial": -3.606407336870326,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -3027,6 +4807,64 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.2184631683891872
       },
       "componentMissingCount": 2,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 3,
+        "warnings": [
+          "2 score component(s) use missing or neutral inputs",
+          "latest IPC country value is unavailable",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 844.0,
+        "medianPriceChangeSinceBaselinePct": 3.488831204324528,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 10.016959038616303,
+          "peakMonth": "2026-03",
+          "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedSeriesAtPeak": 756.0,
+          "bestAvailableYoYPct": 10.016959038616303,
+          "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+          "matchedYoySeriesMonths": 1505.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": 10.016959038616303,
+          "marchMatchedSeries": 756.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": 10.016959038616303,
+              "matchedSeries": 756
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 9.512485136741988,
+              "matchedSeries": 749
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": false,
+          "dateOfAnalysis": null,
+          "periodType": null,
+          "periodFrom": null,
+          "periodTo": null,
+          "phase3PlusPct": null,
+          "phase3PlusNumber": null,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 3.488831204324528,
         "comparableSeries": 844.0,
@@ -3099,6 +4937,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 5.0,
+        "missingLayerCount": 0.0,
+        "augmentedScore": 44.328188280479814,
+        "augmentedRank": 16,
+        "rankChangeVsOfficial": 11.0,
+        "scoreDeltaVsOfficial": 3.7241775445651513,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     {
@@ -3140,6 +4993,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6321125330826396
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 392.0,
+        "medianPriceChangeSinceBaselinePct": -13.74104830344776,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "no_positive_increase",
+          "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+          "peakPositiveYoYPct": null,
+          "peakMonth": null,
+          "peakComparisonLabel": null,
+          "matchedSeriesAtPeak": 0.0,
+          "bestAvailableYoYPct": -25.0,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 736.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": -25.178002587752818,
+          "marchMatchedSeries": 370.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": -25.178002587752818,
+              "matchedSeries": 370
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": -25.0,
+              "matchedSeries": 366
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Mar 2024",
+          "periodType": "Current",
+          "periodFrom": "2024-03-01",
+          "periodTo": "2024-05-31",
+          "phase3PlusPct": 7.000000000000001,
+          "phase3PlusNumber": 1749437.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": -13.74104830344776,
         "comparableSeries": 392.0,
@@ -3212,6 +5122,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "missing",
+        "findexCoverageStatus": "covered",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 37.01735670782506,
+        "augmentedRank": 28,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -0.5689002125547447,
+        "riskTier": "Moderate",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     }
   ],
@@ -9350,6 +11275,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6491951593063765
       },
       "componentMissingCount": 1,
+      "dataConfidence": {
+        "level": "Partial",
+        "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+        "warningCount": 2,
+        "warnings": [
+          "1 score component(s) use missing or neutral inputs",
+          "public WFP food-security outcome layer is unavailable"
+        ]
+      },
+      "beforeAfter": {
+        "shockStartDate": "2026-02-28",
+        "baselineMonths": 25.0,
+        "postShockMonths": 3.0,
+        "comparablePriceSeries": 214.0,
+        "medianPriceChangeSinceBaselinePct": 19.22284448239221,
+        "eventStudyReadiness": "Ready",
+        "eventStudyReady": true,
+        "sameMonthYoY": {
+          "status": "positive_peak",
+          "interpretation": "Positive same-month food-price increase observed after the shock.",
+          "peakPositiveYoYPct": 35.39823008849559,
+          "peakMonth": "2026-04",
+          "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedSeriesAtPeak": 195.0,
+          "bestAvailableYoYPct": 35.39823008849559,
+          "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+          "matchedYoySeriesMonths": 222.0,
+          "matchedYoyMonthsAvailable": 2.0,
+          "marchYoYPct": -2.3917525773195836,
+          "marchMatchedSeries": 27.0,
+          "monthly": [
+            {
+              "month": "2026-03",
+              "comparisonLabel": "Mar 2026 vs Mar 2025",
+              "medianYoYPct": -2.3917525773195836,
+              "matchedSeries": 27
+            },
+            {
+              "month": "2026-04",
+              "comparisonLabel": "Apr 2026 vs Apr 2025",
+              "medianYoYPct": 35.39823008849559,
+              "matchedSeries": 195
+            }
+          ],
+          "sourceSheet": "Model_Price_Panel"
+        },
+        "ipcLatest": {
+          "available": true,
+          "dateOfAnalysis": "Jan 2026",
+          "periodType": "Current",
+          "periodFrom": "2026-02-01",
+          "periodTo": "2026-05-31",
+          "phase3PlusPct": 41.0,
+          "phase3PlusNumber": 19466529.0,
+          "sourceSheet": "Raw_IPC_Natl_Latest"
+        }
+      },
       "indicators": {
         "medianPriceChangeSinceBaselinePct": 19.22284448239221,
         "comparableSeries": 214.0,
@@ -9422,6 +11404,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "wfpLatestSurveyDate": null,
         "wfpPoorBorderlineFoodConsumptionPct": null,
         "wfpRcsiMean": null
+      },
+      "supplementalEvidence": {
+        "acledCoverageStatus": "covered",
+        "cpiCoverageStatus": "covered",
+        "foodIncidentCoverageStatus": "covered",
+        "portwatchCoverageStatus": "covered",
+        "findexCoverageStatus": "missing",
+        "availableLayerCount": 4.0,
+        "missingLayerCount": 1.0,
+        "augmentedScore": 69.09237927311344,
+        "augmentedRank": 1,
+        "rankChangeVsOfficial": 0.0,
+        "scoreDeltaVsOfficial": -5.759549762128955,
+        "riskTier": "High",
+        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
       }
     },
     "veryHighOrHighCount": 8,
@@ -9469,6 +11466,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6491951593063765
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 3.0,
+          "comparablePriceSeries": 214.0,
+          "medianPriceChangeSinceBaselinePct": 19.22284448239221,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 35.39823008849559,
+            "peakMonth": "2026-04",
+            "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedSeriesAtPeak": 195.0,
+            "bestAvailableYoYPct": 35.39823008849559,
+            "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedYoySeriesMonths": 222.0,
+            "matchedYoyMonthsAvailable": 2.0,
+            "marchYoYPct": -2.3917525773195836,
+            "marchMatchedSeries": 27.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": -2.3917525773195836,
+                "matchedSeries": 27
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": 35.39823008849559,
+                "matchedSeries": 195
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Jan 2026",
+            "periodType": "Current",
+            "periodFrom": "2026-02-01",
+            "periodTo": "2026-05-31",
+            "phase3PlusPct": 41.0,
+            "phase3PlusNumber": 19466529.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 19.22284448239221,
           "comparableSeries": 214.0,
@@ -9541,6 +11595,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "covered",
+          "foodIncidentCoverageStatus": "covered",
+          "portwatchCoverageStatus": "covered",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 4.0,
+          "missingLayerCount": 1.0,
+          "augmentedScore": 69.09237927311344,
+          "augmentedRank": 1,
+          "rankChangeVsOfficial": 0.0,
+          "scoreDeltaVsOfficial": -5.759549762128955,
+          "riskTier": "High",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -9582,6 +11651,69 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6011951287318829
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 4.0,
+          "comparablePriceSeries": 553.0,
+          "medianPriceChangeSinceBaselinePct": 16.66665,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 30.66869386886615,
+            "peakMonth": "2026-05",
+            "peakComparisonLabel": "May 2026 vs May 2025",
+            "matchedSeriesAtPeak": 248.0,
+            "bestAvailableYoYPct": 30.66869386886615,
+            "bestAvailableComparisonLabel": "May 2026 vs May 2025",
+            "matchedYoySeriesMonths": 646.0,
+            "matchedYoyMonthsAvailable": 3.0,
+            "marchYoYPct": 19.16881443298969,
+            "marchMatchedSeries": 212.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 19.16881443298969,
+                "matchedSeries": 212
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": 24.72223333333333,
+                "matchedSeries": 186
+              },
+              {
+                "month": "2026-05",
+                "comparisonLabel": "May 2026 vs May 2025",
+                "medianYoYPct": 30.66869386886615,
+                "matchedSeries": 248
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Mar 2026",
+            "periodType": "First projection",
+            "periodFrom": "2026-04-01",
+            "periodTo": "2026-07-31",
+            "phase3PlusPct": 55.00000000000001,
+            "phase3PlusNumber": 7938971.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 16.66665,
           "comparableSeries": 553.0,
@@ -9654,6 +11786,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "covered",
+          "portwatchCoverageStatus": "missing",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 2.0,
+          "missingLayerCount": 3.0,
+          "augmentedScore": 65.01758818621022,
+          "augmentedRank": 2,
+          "rankChangeVsOfficial": 0.0,
+          "scoreDeltaVsOfficial": -6.966588818651019,
+          "riskTier": "High",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -9695,6 +11842,69 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.8735112790014381
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 4.0,
+          "comparablePriceSeries": 472.0,
+          "medianPriceChangeSinceBaselinePct": 3.597892120765833,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 8.744830844830842,
+            "peakMonth": "2026-04",
+            "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedSeriesAtPeak": 472.0,
+            "bestAvailableYoYPct": 8.744830844830842,
+            "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedYoySeriesMonths": 1416.0,
+            "matchedYoyMonthsAvailable": 3.0,
+            "marchYoYPct": 5.727475383106373,
+            "marchMatchedSeries": 472.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 5.727475383106373,
+                "matchedSeries": 472
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": 8.744830844830842,
+                "matchedSeries": 472
+              },
+              {
+                "month": "2026-05",
+                "comparisonLabel": "May 2026 vs May 2025",
+                "medianYoYPct": 8.73530123224906,
+                "matchedSeries": 472
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Oct 2025",
+            "periodType": "Current",
+            "periodFrom": "2025-09-01",
+            "periodTo": "2025-10-31",
+            "phase3PlusPct": 28.000000000000004,
+            "phase3PlusNumber": 13775635.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 3.597892120765833,
           "comparableSeries": 472.0,
@@ -9767,6 +11977,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "missing",
+          "portwatchCoverageStatus": "missing",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 1.0,
+          "missingLayerCount": 4.0,
+          "augmentedScore": 59.38531267756049,
+          "augmentedRank": 4,
+          "rankChangeVsOfficial": -1.0,
+          "scoreDeltaVsOfficial": -6.990065091790228,
+          "riskTier": "High",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -9808,6 +12033,60 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.8206761704087784
         },
         "componentMissingCount": 0,
+        "dataConfidence": {
+          "level": "Stronger",
+          "note": "Core public model inputs are comparatively stronger for this country.",
+          "warningCount": 0,
+          "warnings": []
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 24.0,
+          "postShockMonths": 3.0,
+          "comparablePriceSeries": 255.0,
+          "medianPriceChangeSinceBaselinePct": -5.35714285714286,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "no_positive_increase",
+            "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+            "peakPositiveYoYPct": null,
+            "peakMonth": null,
+            "peakComparisonLabel": null,
+            "matchedSeriesAtPeak": 0.0,
+            "bestAvailableYoYPct": -21.566472165618734,
+            "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+            "matchedYoySeriesMonths": 472.0,
+            "matchedYoyMonthsAvailable": 2.0,
+            "marchYoYPct": -21.566472165618734,
+            "marchMatchedSeries": 236.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": -21.566472165618734,
+                "matchedSeries": 236
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": -22.057902890055754,
+                "matchedSeries": 236
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Apr 2026",
+            "periodType": "Current",
+            "periodFrom": "2026-03-01",
+            "periodTo": "2026-05-31",
+            "phase3PlusPct": 47.0,
+            "phase3PlusNumber": 4980505.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": -5.35714285714286,
           "comparableSeries": 255.0,
@@ -9880,6 +12159,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": "2020-05-01 00:00:00",
           "wfpPoorBorderlineFoodConsumptionPct": 0.294661086956521,
           "wfpRcsiMean": 18.3098800923076
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "covered",
+          "portwatchCoverageStatus": "covered",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 3.0,
+          "missingLayerCount": 2.0,
+          "augmentedScore": 56.11240399735645,
+          "augmentedRank": 6,
+          "rankChangeVsOfficial": -2.0,
+          "scoreDeltaVsOfficial": -6.278426928866963,
+          "riskTier": "High",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -9921,6 +12215,50 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.5770997713722872
         },
         "componentMissingCount": 3,
+        "dataConfidence": {
+          "level": "Limited",
+          "note": "3 score components use missing or neutral inputs; price event-study setup is not ready.",
+          "warningCount": 2,
+          "warnings": [
+            "3 score components use missing or neutral inputs",
+            "price event-study setup is not ready"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 12.0,
+          "postShockMonths": 0.0,
+          "comparablePriceSeries": 0.0,
+          "medianPriceChangeSinceBaselinePct": null,
+          "eventStudyReadiness": "Not ready - insufficient pre/post WFP price panel",
+          "eventStudyReady": false,
+          "sameMonthYoY": {
+            "status": "no_matched_yoy_series",
+            "interpretation": "No matched post-shock same-month WFP price series are available.",
+            "peakPositiveYoYPct": null,
+            "peakMonth": null,
+            "peakComparisonLabel": null,
+            "matchedSeriesAtPeak": 0.0,
+            "bestAvailableYoYPct": null,
+            "bestAvailableComparisonLabel": null,
+            "matchedYoySeriesMonths": 0.0,
+            "matchedYoyMonthsAvailable": 0.0,
+            "marchYoYPct": null,
+            "marchMatchedSeries": 0.0,
+            "monthly": [],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Mar 2026",
+            "periodType": "First projection",
+            "periodFrom": "2026-03-01",
+            "periodTo": "2026-06-30",
+            "phase3PlusPct": 52.0,
+            "phase3PlusNumber": 5834134.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": null,
           "comparableSeries": 0.0,
@@ -9993,6 +12331,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": "2016-05-01",
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "missing",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "missing",
+          "portwatchCoverageStatus": "missing",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 0.0,
+          "missingLayerCount": 5.0,
+          "augmentedScore": 60.33052514938916,
+          "augmentedRank": 3,
+          "rankChangeVsOfficial": 2.0,
+          "scoreDeltaVsOfficial": -1.6650981947882286,
+          "riskTier": "High",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -10034,6 +12387,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6145729849083126
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 3.0,
+          "comparablePriceSeries": 596.0,
+          "medianPriceChangeSinceBaselinePct": 16.80458971517172,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 24.76964094317877,
+            "peakMonth": "2026-04",
+            "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedSeriesAtPeak": 495.0,
+            "bestAvailableYoYPct": 24.76964094317877,
+            "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedYoySeriesMonths": 886.0,
+            "matchedYoyMonthsAvailable": 2.0,
+            "marchYoYPct": 0.6692890059249557,
+            "marchMatchedSeries": 391.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 0.6692890059249557,
+                "matchedSeries": 391
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": 24.76964094317877,
+                "matchedSeries": 495
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Apr 2026",
+            "periodType": "Current",
+            "periodFrom": "2026-04-01",
+            "periodTo": "2026-06-30",
+            "phase3PlusPct": 31.0,
+            "phase3PlusNumber": 6030278.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 16.80458971517172,
           "comparableSeries": 596.0,
@@ -10106,6 +12516,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "covered",
+          "foodIncidentCoverageStatus": "covered",
+          "portwatchCoverageStatus": "covered",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 4.0,
+          "missingLayerCount": 1.0,
+          "augmentedScore": 51.286016796195206,
+          "augmentedRank": 8,
+          "rankChangeVsOfficial": -2.0,
+          "scoreDeltaVsOfficial": -8.37507963964596,
+          "riskTier": "Moderate",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -10147,6 +12572,57 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6451258916847351
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 2.0,
+          "comparablePriceSeries": 870.0,
+          "medianPriceChangeSinceBaselinePct": 7.572323690174643,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 31.009615384615387,
+            "peakMonth": "2026-03",
+            "peakComparisonLabel": "Mar 2026 vs Mar 2025",
+            "matchedSeriesAtPeak": 478.0,
+            "bestAvailableYoYPct": 31.009615384615387,
+            "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+            "matchedYoySeriesMonths": 478.0,
+            "matchedYoyMonthsAvailable": 1.0,
+            "marchYoYPct": 31.009615384615387,
+            "marchMatchedSeries": 478.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 31.009615384615387,
+                "matchedSeries": 478
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "May 2021",
+            "periodType": "Current",
+            "periodFrom": "2021-05-01",
+            "periodTo": "2021-06-30",
+            "phase3PlusPct": 30.0,
+            "phase3PlusNumber": 16756345.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 7.572323690174643,
           "comparableSeries": 870.0,
@@ -10219,6 +12695,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "missing",
+          "portwatchCoverageStatus": "missing",
+          "findexCoverageStatus": "covered",
+          "availableLayerCount": 2.0,
+          "missingLayerCount": 3.0,
+          "augmentedScore": 54.52020489155185,
+          "augmentedRank": 7,
+          "rankChangeVsOfficial": 0.0,
+          "scoreDeltaVsOfficial": -3.137657300981054,
+          "riskTier": "Moderate",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -10260,6 +12751,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.4733820592478355
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 3.0,
+          "comparablePriceSeries": 61.0,
+          "medianPriceChangeSinceBaselinePct": -4.664391353811126,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "no_positive_increase",
+            "interpretation": "Matched same-month data exist, but the median change is flat or negative.",
+            "peakPositiveYoYPct": null,
+            "peakMonth": null,
+            "peakComparisonLabel": null,
+            "matchedSeriesAtPeak": 0.0,
+            "bestAvailableYoYPct": 0.0,
+            "bestAvailableComparisonLabel": "Mar 2026 vs Mar 2025",
+            "matchedYoySeriesMonths": 88.0,
+            "matchedYoyMonthsAvailable": 2.0,
+            "marchYoYPct": 0.0,
+            "marchMatchedSeries": 59.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 0.0,
+                "matchedSeries": 59
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": -48.4460601095694,
+                "matchedSeries": 29
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Nov 2025",
+            "periodType": "Current",
+            "periodFrom": "2025-10-01",
+            "periodTo": "2025-11-30",
+            "phase3PlusPct": 77.0,
+            "phase3PlusNumber": 1600655.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": -4.664391353811126,
           "comparableSeries": 61.0,
@@ -10332,6 +12880,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "covered",
+          "portwatchCoverageStatus": "missing",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 2.0,
+          "missingLayerCount": 3.0,
+          "augmentedScore": 56.7598205755037,
+          "augmentedRank": 5,
+          "rankChangeVsOfficial": 3.0,
+          "scoreDeltaVsOfficial": 0.9274491067162671,
+          "riskTier": "High",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -10373,6 +12936,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.44295402881904683
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; latest IPC country value is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "latest IPC country value is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 3.0,
+          "comparablePriceSeries": 3088.0,
+          "medianPriceChangeSinceBaselinePct": 9.450326093133976,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 12.603949358976863,
+            "peakMonth": "2026-04",
+            "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedSeriesAtPeak": 1850.0,
+            "bestAvailableYoYPct": 12.603949358976863,
+            "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedYoySeriesMonths": 3818.0,
+            "matchedYoyMonthsAvailable": 2.0,
+            "marchYoYPct": 9.013699674866793,
+            "marchMatchedSeries": 1968.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 9.013699674866793,
+                "matchedSeries": 1968
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": 12.603949358976863,
+                "matchedSeries": 1850
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": false,
+            "dateOfAnalysis": null,
+            "periodType": null,
+            "periodFrom": null,
+            "periodTo": null,
+            "phase3PlusPct": null,
+            "phase3PlusNumber": null,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 9.450326093133976,
           "comparableSeries": 3088.0,
@@ -10445,6 +13065,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": "2020-05-01 00:00:00",
           "wfpPoorBorderlineFoodConsumptionPct": 0.248333265306122,
           "wfpRcsiMean": 15.909450375
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "missing",
+          "foodIncidentCoverageStatus": "covered",
+          "portwatchCoverageStatus": "covered",
+          "findexCoverageStatus": "missing",
+          "availableLayerCount": 3.0,
+          "missingLayerCount": 2.0,
+          "augmentedScore": 47.89436460612642,
+          "augmentedRank": 9,
+          "rankChangeVsOfficial": 0.0,
+          "scoreDeltaVsOfficial": -6.020174113500644,
+          "riskTier": "Moderate",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       },
       {
@@ -10486,6 +13121,63 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.8283909795241201
         },
         "componentMissingCount": 1,
+        "dataConfidence": {
+          "level": "Partial",
+          "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
+          "warningCount": 2,
+          "warnings": [
+            "1 score component(s) use missing or neutral inputs",
+            "public WFP food-security outcome layer is unavailable"
+          ]
+        },
+        "beforeAfter": {
+          "shockStartDate": "2026-02-28",
+          "baselineMonths": 25.0,
+          "postShockMonths": 3.0,
+          "comparablePriceSeries": 80.0,
+          "medianPriceChangeSinceBaselinePct": 2.198292122500778,
+          "eventStudyReadiness": "Ready",
+          "eventStudyReady": true,
+          "sameMonthYoY": {
+            "status": "positive_peak",
+            "interpretation": "Positive same-month food-price increase observed after the shock.",
+            "peakPositiveYoYPct": 2.5503018641176656,
+            "peakMonth": "2026-04",
+            "peakComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedSeriesAtPeak": 80.0,
+            "bestAvailableYoYPct": 2.5503018641176656,
+            "bestAvailableComparisonLabel": "Apr 2026 vs Apr 2025",
+            "matchedYoySeriesMonths": 160.0,
+            "matchedYoyMonthsAvailable": 2.0,
+            "marchYoYPct": 1.5989082580833869,
+            "marchMatchedSeries": 80.0,
+            "monthly": [
+              {
+                "month": "2026-03",
+                "comparisonLabel": "Mar 2026 vs Mar 2025",
+                "medianYoYPct": 1.5989082580833869,
+                "matchedSeries": 80
+              },
+              {
+                "month": "2026-04",
+                "comparisonLabel": "Apr 2026 vs Apr 2025",
+                "medianYoYPct": 2.5503018641176656,
+                "matchedSeries": 80
+              }
+            ],
+            "sourceSheet": "Model_Price_Panel"
+          },
+          "ipcLatest": {
+            "available": true,
+            "dateOfAnalysis": "Mar 2026",
+            "periodType": "Current",
+            "periodFrom": "2026-03-01",
+            "periodTo": "2026-03-31",
+            "phase3PlusPct": 20.0,
+            "phase3PlusNumber": 10553872.0,
+            "sourceSheet": "Raw_IPC_Natl_Latest"
+          }
+        },
         "indicators": {
           "medianPriceChangeSinceBaselinePct": 2.198292122500778,
           "comparableSeries": 80.0,
@@ -10558,6 +13250,21 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "wfpLatestSurveyDate": null,
           "wfpPoorBorderlineFoodConsumptionPct": null,
           "wfpRcsiMean": null
+        },
+        "supplementalEvidence": {
+          "acledCoverageStatus": "covered",
+          "cpiCoverageStatus": "covered",
+          "foodIncidentCoverageStatus": "missing",
+          "portwatchCoverageStatus": "covered",
+          "findexCoverageStatus": "covered",
+          "availableLayerCount": 4.0,
+          "missingLayerCount": 1.0,
+          "augmentedScore": 42.85612581054785,
+          "augmentedRank": 19,
+          "rankChangeVsOfficial": -9.0,
+          "scoreDeltaVsOfficial": -6.872441641691076,
+          "riskTier": "Moderate",
+          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
         }
       }
     ]
@@ -10566,6 +13273,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "Sudan and South Sudan have the highest current exposure scores in the 28-country scope.",
     "Palestine moves into the High tier in the refreshed score because acute food insecurity and assistance pressure remain high and new public evidence layers are now included.",
     "New public displacement evidence increases measured pressure for Nigeria, Ukraine, Mali, Burkina Faso and Lebanon.",
+    "Data-confidence flags now identify countries where missing or neutral-imputed inputs make the ranking less certain.",
     "Assistance-cut and combined-shock scenarios create the largest cross-country risk increases in the current model.",
     "Use the dashboard for prioritization and monitoring; causal estimates for women and girls require sex- and age-disaggregated outcome data."
   ],

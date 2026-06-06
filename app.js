@@ -9,6 +9,8 @@ const COLORS = {
   grid: "#ddd8cf",
   muted: "#5d6770",
   softBlue: "#e8f1ef",
+  neutral: "#9aa6a0",
+  neutralLight: "#cbd2ce",
 };
 
 const SCENARIO_ORDER = [
@@ -47,6 +49,32 @@ const SCENARIO_LABELS = {
   oil_10pct: "Oil +10%",
 };
 
+const SCENARIO_GROUPS = [
+  { id: "combined", label: "Combined pathway", scenarios: ["combined_high", "combined_base", "combined_low"] },
+  { id: "assistance", label: "Assistance financing", scenarios: ["assistance_cut_50pct", "assistance_cut_25pct", "assistance_cut_10pct"] },
+  { id: "food", label: "Food prices", scenarios: ["food_price_20pct", "food_price_10pct", "food_price_5pct"] },
+  { id: "fertilizer", label: "Fertilizer prices", scenarios: ["fertilizer_50pct", "fertilizer_25pct", "fertilizer_10pct"] },
+  { id: "oil", label: "Oil prices", scenarios: ["oil_50pct", "oil_25pct", "oil_10pct"] },
+];
+
+const SCENARIO_LEVEL_LABELS = {
+  combined_high: "High shock",
+  combined_base: "Base shock",
+  combined_low: "Low shock",
+  assistance_cut_50pct: "50% cut",
+  assistance_cut_25pct: "25% cut",
+  assistance_cut_10pct: "10% cut",
+  food_price_20pct: "+20%",
+  food_price_10pct: "+10%",
+  food_price_5pct: "+5%",
+  fertilizer_50pct: "+50%",
+  fertilizer_25pct: "+25%",
+  fertilizer_10pct: "+10%",
+  oil_50pct: "+50%",
+  oil_25pct: "+25%",
+  oil_10pct: "+10%",
+};
+
 const LANDLOCKED_ISO3 = new Set(["AFG", "ARM", "BFA", "ETH", "MLI", "MDA", "SSD"]);
 const GEOGRAPHY_OPTIONS = ["All geographies", "Landlocked", "Coastal or island"];
 
@@ -54,10 +82,16 @@ const state = {
   region: "All regions",
   geography: "All geographies",
   selectedIso: data.summary.topCountry?.iso3 || data.countries[0]?.iso3,
+  scenarioGroup: "assistance",
   scenario: "assistance_cut_50pct",
 };
 
+function hasElement(...items) {
+  return items.every(Boolean);
+}
+
 const charts = {
+  beforeAfter: null,
   ranking: null,
   component: null,
   scenario: null,
@@ -72,17 +106,28 @@ const el = {
   progressBar: document.getElementById("reading-progress-bar"),
   metaCountryCount: document.getElementById("meta-country-count"),
   metaGenerated: document.getElementById("meta-generated"),
-  kpiCountries: document.getElementById("kpi-countries"),
-  kpiTopCountry: document.getElementById("kpi-top-country"),
-  kpiTopScore: document.getElementById("kpi-top-score"),
-  kpiHighCount: document.getElementById("kpi-high-count"),
-  kpiSadd: document.getElementById("kpi-sadd"),
   methodBoundary: document.getElementById("method-boundary"),
+  beforeAfterCountry: document.getElementById("before-after-country"),
+  beforeAfterReadiness: document.getElementById("before-after-readiness"),
+  beforeAfterPeakIncrease: document.getElementById("before-after-peak-increase"),
+  beforeAfterPeakComparison: document.getElementById("before-after-peak-comparison"),
+  beforeAfterMatchedSeries: document.getElementById("before-after-matched-series"),
+  beforeAfterIpc: document.getElementById("before-after-ipc"),
+  beforeAfterEventStudy: document.getElementById("before-after-event-study"),
+  beforeAfterNote: document.getElementById("before-after-note"),
+  beforeAfterChartNote: document.getElementById("before-after-chart-note"),
+  beforeAfterMessageList: document.getElementById("before-after-message-list"),
+  beforeAfterSupplementalList: document.getElementById("before-after-supplemental-list"),
+  beforeAfterTableBody: document.getElementById("before-after-table-body"),
+  beforeAfterTableNote: document.getElementById("before-after-table-note"),
   regionFilter: document.getElementById("region-filter"),
   geographyFilter: document.getElementById("geography-filter"),
   countrySelect: document.getElementById("country-select"),
+  scenarioGroupSelect: document.getElementById("scenario-group-select"),
   scenarioSelect: document.getElementById("scenario-select"),
+  filterSummary: document.getElementById("filter-summary"),
   messageList: document.getElementById("message-list"),
+  rankingConfidenceList: document.getElementById("ranking-confidence-list"),
   countryRegion: document.getElementById("country-region"),
   countryName: document.getElementById("country-name"),
   countryScore: document.getElementById("country-score"),
@@ -91,16 +136,20 @@ const el = {
   countryRank: document.getElementById("country-rank"),
   countryProxyRank: document.getElementById("country-proxy-rank"),
   countryMissing: document.getElementById("country-missing"),
+  countryConfidence: document.getElementById("country-confidence"),
   pathwayList: document.getElementById("pathway-list"),
   countryFocus: document.getElementById("country-focus"),
   map: document.getElementById("country-map"),
   mapReset: document.getElementById("map-reset"),
   scenarioTitle: document.getElementById("scenario-title"),
+  scenarioSelectedDelta: document.getElementById("scenario-selected-delta"),
+  scenarioSelectedScore: document.getElementById("scenario-selected-score"),
+  scenarioSelectedRank: document.getElementById("scenario-selected-rank"),
   scenarioNote: document.getElementById("scenario-note"),
   readinessList: document.getElementById("readiness-list"),
   coverageList: document.getElementById("coverage-list"),
-  weightsList: document.getElementById("weights-list"),
   countryTableBody: document.getElementById("country-table-body"),
+  countryTableSummary: document.getElementById("country-table-summary"),
   footerSource: document.getElementById("footer-source"),
 };
 
@@ -128,10 +177,95 @@ function fmtPct(value, digits = 1) {
   return `${fmt(value, digits)}%`;
 }
 
+function fmtSignedPct(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
+  const number = Number(value);
+  const sign = number > 0 ? "+" : "";
+  return `${sign}${fmt(number, digits)}%`;
+}
+
 function fmtShare(value, digits = 1) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
   const number = Number(value);
   return fmtPct(Math.abs(number) <= 1 ? number * 100 : number, digits);
+}
+
+function fmtDate(value) {
+  if (!value) return "n/a";
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(date);
+}
+
+function fmtIpcTiming(ipc) {
+  if (!ipc?.available) return "No latest national IPC row";
+  const period = ipc.periodFrom || ipc.periodTo ? `${fmtDate(ipc.periodFrom)} to ${fmtDate(ipc.periodTo)}` : "period n/a";
+  const analysis = ipc.dateOfAnalysis ? `analysis ${ipc.dateOfAnalysis}` : "analysis date n/a";
+  const type = ipc.periodType || "period";
+  return `${type}: ${period}; ${analysis}`;
+}
+
+function eventStudyLabel(country) {
+  return country.beforeAfter?.eventStudyReady ? "Ready" : "Not ready";
+}
+
+function sameMonthYoY(country) {
+  return country.beforeAfter?.sameMonthYoY || {};
+}
+
+function eventStudyPillLabel(country) {
+  return country.beforeAfter?.eventStudyReady ? "Event-study ready" : "Not event-study ready";
+}
+
+function eventStudyUseText(country) {
+  const yoy = sameMonthYoY(country);
+  if (country.beforeAfter?.eventStudyReady && yoy.status === "positive_peak") return "Ready for formal price event study";
+  if (country.beforeAfter?.eventStudyReady && yoy.status === "no_positive_increase") return "Ready, but no positive price peak";
+  if (country.beforeAfter?.eventStudyReady) return "Ready for descriptive price study";
+  if (yoy.status === "no_matched_yoy_series") return "Not ready: no comparable price record";
+  return "Not ready for formal price event study";
+}
+
+function numericValue(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return null;
+  return Number(value);
+}
+
+function hasPositiveYoyPeak(country) {
+  const value = numericValue(sameMonthYoY(country).peakPositiveYoYPct);
+  return value !== null && value > 0;
+}
+
+function positivePeakLabel(yoy) {
+  const peak = numericValue(yoy.peakPositiveYoYPct);
+  return peak !== null && peak > 0 ? fmtSignedPct(peak) : "No positive rise";
+}
+
+function matchedSeriesLabel(yoy) {
+  const peakSeries = numericValue(yoy.matchedSeriesAtPeak);
+  const totalSeries = numericValue(yoy.matchedYoySeriesMonths);
+  if (peakSeries && peakSeries > 0) return fmtInt(peakSeries);
+  if (totalSeries && totalSeries > 0) return `${fmtInt(totalSeries)} total`;
+  return "n/a";
+}
+
+function supplementalLayerLabel(country) {
+  const available = numericValue(country.supplementalEvidence?.availableLayerCount);
+  if (available === null) return "n/a";
+  return `${fmtInt(available)}/5 available`;
+}
+
+function coverageStatusLabel(value) {
+  if (!value) return "n/a";
+  return String(value)
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function compactCountryList(rows, limit = 5) {
+  const names = rows.map((row) => row.country);
+  if (names.length <= limit) return names.join(", ");
+  return `${names.slice(0, limit).join(", ")} and ${names.length - limit} more`;
 }
 
 function clamp(value, min = 0, max = 100) {
@@ -176,11 +310,36 @@ function scenarioLabel(scenario) {
   return SCENARIO_LABELS[scenario] || scenario.replaceAll("_", " ");
 }
 
+function scenarioLevelLabel(scenario) {
+  return SCENARIO_LEVEL_LABELS[scenario] || scenarioLabel(scenario);
+}
+
 function availableScenarios() {
   const present = new Set(data.scenarios.map((row) => row.scenario));
   const ordered = SCENARIO_ORDER.filter((scenario) => present.has(scenario));
   const extras = Array.from(present).filter((scenario) => !ordered.includes(scenario)).sort();
   return [...ordered, ...extras];
+}
+
+function scenarioGroupFor(scenario) {
+  return SCENARIO_GROUPS.find((group) => group.scenarios.includes(scenario));
+}
+
+function availableScenarioGroups() {
+  const present = new Set(data.scenarios.map((row) => row.scenario));
+  const grouped = SCENARIO_GROUPS
+    .map((group) => ({
+      ...group,
+      scenarios: group.scenarios.filter((scenario) => present.has(scenario)),
+    }))
+    .filter((group) => group.scenarios.length);
+  const groupedScenarios = new Set(grouped.flatMap((group) => group.scenarios));
+  const ungrouped = availableScenarios().filter((scenario) => !groupedScenarios.has(scenario));
+  return ungrouped.length ? [...grouped, { id: "other", label: "Other scenarios", scenarios: ungrouped }] : grouped;
+}
+
+function scenariosForGroup(groupId) {
+  return availableScenarioGroups().find((group) => group.id === groupId)?.scenarios || [];
 }
 
 function chartFont() {
@@ -191,8 +350,46 @@ function chartFont() {
   };
 }
 
+const barValueLabelPlugin = {
+  id: "barValueLabel",
+  afterDatasetsDraw(chart, _args, options) {
+    const dataset = chart.data.datasets?.[0];
+    const meta = chart.getDatasetMeta(0);
+    if (!dataset || !meta?.data?.length) return;
+    const maxLabels = options?.maxLabels ?? 0;
+    if (!maxLabels) return;
+
+    const ctx = chart.ctx;
+    const chartArea = chart.chartArea;
+    ctx.save();
+    ctx.font = '800 11px "Source Sans 3", "Segoe UI", Arial, sans-serif';
+    ctx.textBaseline = "middle";
+
+    meta.data.forEach((bar, index) => {
+      if (index >= maxLabels) return;
+      const value = numericValue(dataset.data[index]);
+      if (value === null) return;
+      const label = options?.formatter ? options.formatter(value, index, chart) : fmt(value);
+      const props = bar.getProps(["x", "y", "base"], true);
+      const textWidth = ctx.measureText(label).width;
+      let x = props.x + 7;
+      let align = "left";
+      let color = options?.color || COLORS.navy;
+      if (x + textWidth > chartArea.right) {
+        x = props.x - 7;
+        align = "right";
+        color = options?.insideColor || COLORS.navy;
+      }
+      ctx.textAlign = align;
+      ctx.fillStyle = color;
+      ctx.fillText(label, x, props.y);
+    });
+    ctx.restore();
+  },
+};
+
 function baseChartOptions(extra = {}) {
-  return {
+  const base = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -217,7 +414,14 @@ function baseChartOptions(extra = {}) {
         ticks: { color: COLORS.navy, font: chartFont() },
       },
     },
+  };
+  return {
+    ...base,
     ...extra,
+    plugins: {
+      ...base.plugins,
+      ...(extra.plugins || {}),
+    },
   };
 }
 
@@ -229,18 +433,14 @@ function destroyChart(name) {
 }
 
 function renderMeta() {
-  el.metaCountryCount.textContent = `${data.summary.countryCount} countries`;
-  el.metaGenerated.textContent = `Generated ${data.metadata.generated}`;
-  el.kpiCountries.textContent = data.summary.countryCount;
-  el.kpiTopCountry.textContent = data.summary.topCountry?.country || "n/a";
-  el.kpiTopScore.textContent = `Score ${fmt(data.summary.topCountry?.score)} / 100`;
-  el.kpiHighCount.textContent = data.summary.veryHighOrHighCount;
-  el.kpiSadd.textContent = data.summary.sexDisaggregatedOutcomeCountries;
-  el.methodBoundary.textContent = data.metadata.methodBoundary;
-  el.footerSource.textContent = `Source workbook: ${data.metadata.sourceWorkbook}`;
+  if (el.metaCountryCount) el.metaCountryCount.textContent = `${data.summary.countryCount} countries`;
+  if (el.metaGenerated) el.metaGenerated.textContent = `Generated ${data.metadata.generated}`;
+  if (el.methodBoundary) el.methodBoundary.textContent = data.metadata.methodBoundary;
+  if (el.footerSource) el.footerSource.textContent = "Source: UN Women analytical data package generated from public-source inputs.";
 }
 
 function populateControls() {
+  if (!hasElement(el.geographyFilter, el.regionFilter, el.countrySelect, el.scenarioGroupSelect, el.scenarioSelect)) return;
   el.geographyFilter.innerHTML = "";
   GEOGRAPHY_OPTIONS.forEach((geography) => {
     const option = document.createElement("option");
@@ -261,20 +461,12 @@ function populateControls() {
   });
   el.regionFilter.value = state.region;
 
-  el.scenarioSelect.innerHTML = "";
-  availableScenarios().forEach((scenario) => {
-    const option = document.createElement("option");
-    option.value = scenario;
-    option.textContent = scenarioLabel(scenario);
-    el.scenarioSelect.appendChild(option);
-  });
-  if (!availableScenarios().includes(state.scenario)) state.scenario = availableScenarios()[0];
-  el.scenarioSelect.value = state.scenario;
-
   populateCountrySelect();
+  populateScenarioControls();
 }
 
 function populateCountrySelect() {
+  if (!el.countrySelect) return;
   const countries = filteredCountries();
   if (!countries.some((country) => country.iso3 === state.selectedIso)) {
     state.selectedIso = countries[0]?.iso3 || data.countries[0]?.iso3;
@@ -289,12 +481,224 @@ function populateCountrySelect() {
   el.countrySelect.value = state.selectedIso;
 }
 
+function populateScenarioControls() {
+  if (!hasElement(el.scenarioGroupSelect, el.scenarioSelect)) return;
+  const groupOptions = availableScenarioGroups();
+  const currentScenarioGroup = scenarioGroupFor(state.scenario);
+  if (!groupOptions.some((group) => group.id === state.scenarioGroup)) {
+    state.scenarioGroup = currentScenarioGroup?.id || groupOptions[0]?.id || "other";
+  }
+
+  el.scenarioGroupSelect.innerHTML = "";
+  groupOptions.forEach((group) => {
+    const option = document.createElement("option");
+    option.value = group.id;
+    option.textContent = group.label;
+    el.scenarioGroupSelect.appendChild(option);
+  });
+  el.scenarioGroupSelect.value = state.scenarioGroup;
+
+  populateScenarioSelect();
+}
+
+function populateScenarioSelect() {
+  if (!el.scenarioSelect) return;
+  const options = scenariosForGroup(state.scenarioGroup);
+  if (!options.includes(state.scenario)) {
+    state.scenario = options[0] || availableScenarios()[0];
+  }
+
+  el.scenarioSelect.innerHTML = "";
+  options.forEach((scenario) => {
+    const option = document.createElement("option");
+    option.value = scenario;
+    option.textContent = scenarioLevelLabel(scenario);
+    option.title = scenarioLabel(scenario);
+    el.scenarioSelect.appendChild(option);
+  });
+  el.scenarioSelect.value = state.scenario;
+}
+
 function renderMessages() {
+  if (!el.messageList) return;
   el.messageList.innerHTML = "";
   data.keyMessages.forEach((message) => {
     const item = document.createElement("li");
     item.textContent = message;
     el.messageList.appendChild(item);
+  });
+}
+
+function renderFilterSummary() {
+  if (!el.filterSummary) return;
+  const countries = filteredCountries();
+  const parts = [];
+  if (state.region !== "All regions") parts.push(state.region);
+  if (state.geography !== "All geographies") parts.push(state.geography.toLowerCase());
+  const scope = parts.length ? ` for ${parts.join(", ")}` : "";
+  const availableRegions = regions().length - 1;
+  const geographyNote = state.geography === "All geographies"
+    ? ""
+    : ` Region options are limited to the ${availableRegions} region${availableRegions === 1 ? "" : "s"} with ${state.geography.toLowerCase()} countries.`;
+  el.filterSummary.textContent = `Showing ${countries.length} of ${data.summary.countryCount} countries${scope}. Selected country: ${countryByIso(state.selectedIso).country}.${geographyNote}`;
+}
+
+function renderBeforeAfter() {
+  const country = countryByIso(state.selectedIso);
+  const beforeAfter = country.beforeAfter || {};
+  const yoy = sameMonthYoY(country);
+  const countries = filteredCountries();
+  const positiveRows = countries
+    .filter(hasPositiveYoyPeak)
+    .sort((a, b) => numericValue(sameMonthYoY(b).peakPositiveYoYPct) - numericValue(sameMonthYoY(a).peakPositiveYoYPct));
+  const noMatchedRows = countries.filter((row) => sameMonthYoY(row).status === "no_matched_yoy_series");
+  const noPositiveRows = countries.filter((row) => sameMonthYoY(row).status === "no_positive_increase");
+  const largestIncrease = positiveRows[0];
+
+  if (el.beforeAfterCountry) el.beforeAfterCountry.textContent = country.country;
+  if (el.beforeAfterReadiness) {
+    el.beforeAfterReadiness.textContent = eventStudyPillLabel(country);
+    delete el.beforeAfterReadiness.dataset.readiness;
+  }
+  if (el.beforeAfterPeakIncrease) el.beforeAfterPeakIncrease.textContent = positivePeakLabel(yoy);
+  if (el.beforeAfterPeakComparison) el.beforeAfterPeakComparison.textContent = yoy.peakComparisonLabel || yoy.bestAvailableComparisonLabel || "No comparable price record";
+  if (el.beforeAfterMatchedSeries) el.beforeAfterMatchedSeries.textContent = matchedSeriesLabel(yoy);
+  if (el.beforeAfterIpc) el.beforeAfterIpc.textContent = fmtIpcTiming(beforeAfter.ipcLatest);
+  if (el.beforeAfterEventStudy) el.beforeAfterEventStudy.textContent = eventStudyUseText(country);
+  if (el.beforeAfterNote) el.beforeAfterNote.textContent = `${country.country}: ${yoy.interpretation || "No same-month price interpretation is available."} The price-record count shows how many like-for-like WFP/HDX market, commodity and unit records sit behind the peak comparison.`;
+
+  renderBeforeAfterChart(positiveRows);
+  if (el.beforeAfterChartNote) {
+    el.beforeAfterChartNote.textContent = positiveRows.length
+      ? "Bars show each country's highest positive median food-price change against the same month in 2025. This is a headline price-rise view; flat, negative and unavailable comparisons stay in the table."
+      : "No country in the current filtered view has a positive price increase against the same month in 2025.";
+  }
+
+  if (el.beforeAfterMessageList) {
+    el.beforeAfterMessageList.innerHTML = "";
+    [
+      largestIncrease ? `${largestIncrease.country} is the strongest price story: ${fmtSignedPct(sameMonthYoY(largestIncrease).peakPositiveYoYPct)} in ${sameMonthYoY(largestIncrease).peakComparisonLabel}.` : "No positive price increase against the same month in 2025 is available in this filtered view.",
+      `${positiveRows.length} of ${countries.length} countries show at least one positive post-shock price increase against the same month in 2025.`,
+      noPositiveRows.length ? `${noPositiveRows.length} countries have comparable price data but no positive median increase, so they are treated as caution context rather than headline evidence.` : "No country with comparable price data is negative or flat across all available post-shock comparisons.",
+      noMatchedRows.length ? `No comparable price record is available for ${compactCountryList(noMatchedRows)}.` : "All countries in this view have at least one comparable same-month price record.",
+    ].forEach((message) => {
+      const item = document.createElement("li");
+      item.textContent = message;
+      el.beforeAfterMessageList.appendChild(item);
+    });
+  }
+
+  const supp = country.supplementalEvidence || {};
+  const rankChange = numericValue(supp.rankChangeVsOfficial);
+  if (el.beforeAfterSupplementalList) {
+    el.beforeAfterSupplementalList.innerHTML = "";
+    [
+      ["Coverage count", `${supplementalLayerLabel(country)} across ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
+      ["Layer detail", `ACLED ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
+      ["Supplemental score check", supp.augmentedScore !== null && supp.augmentedScore !== undefined ? `Context-only score ${fmt(supp.augmentedScore)} / 100, rank ${supp.augmentedRank || "n/a"}${rankChange !== null ? `, rank change ${fmt(rankChange, 0)}` : ""}.` : "No context-only supplemental score is available."],
+      ["How to use it", supp.interpretation || "Use supplemental coverage to explain context and data gaps. The official Shock Exposure Index remains the main ranking."],
+    ].forEach(([label, value]) => {
+      const item = document.createElement("li");
+      item.textContent = `${label}: ${value}`;
+      el.beforeAfterSupplementalList.appendChild(item);
+    });
+  }
+
+  if (!el.beforeAfterTableBody) return;
+  el.beforeAfterTableBody.innerHTML = "";
+  const sortedBeforeAfterRows = [...countries].sort((a, b) => {
+    const aYoy = sameMonthYoY(a);
+    const bYoy = sameMonthYoY(b);
+    const statusOrder = { positive_peak: 0, no_positive_increase: 1, no_matched_yoy_series: 2 };
+    const aOrder = statusOrder[aYoy.status] ?? 3;
+    const bOrder = statusOrder[bYoy.status] ?? 3;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    if (aOrder === 0) return numericValue(bYoy.peakPositiveYoYPct) - numericValue(aYoy.peakPositiveYoYPct);
+    return a.country.localeCompare(b.country);
+  });
+  const tableRows = document.body.dataset.page === "overview"
+    ? sortedBeforeAfterRows.filter((row) => sameMonthYoY(row).status === "positive_peak").slice(0, 10)
+    : sortedBeforeAfterRows;
+  if (el.beforeAfterTableNote) {
+    el.beforeAfterTableNote.textContent = document.body.dataset.page === "overview"
+      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Supplemental coverage means five public context layers: ACLED conflict events, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
+      : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; supplemental coverage means ACLED conflict events, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
+  }
+  tableRows.forEach((row) => {
+    const ba = row.beforeAfter || {};
+    const rowYoy = sameMonthYoY(row);
+    const tr = document.createElement("tr");
+    [
+      row.country,
+      positivePeakLabel(rowYoy),
+      rowYoy.peakComparisonLabel || rowYoy.bestAvailableComparisonLabel || "No comparable price record",
+      matchedSeriesLabel(rowYoy),
+      fmtIpcTiming(ba.ipcLatest),
+      supplementalLayerLabel(row),
+    ].forEach((value, index) => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      tr.appendChild(cell);
+    });
+    el.beforeAfterTableBody.appendChild(tr);
+  });
+}
+
+function renderBeforeAfterChart(rows) {
+  if (!window.Chart) return;
+  destroyChart("beforeAfter");
+  const ctx = document.getElementById("before-after-chart");
+  if (!ctx) return;
+  const chartRows = rows.slice(0, 10);
+  if (!chartRows.length) return;
+  const maxValue = Math.max(...chartRows.map((row) => numericValue(sameMonthYoY(row).peakPositiveYoYPct) || 0));
+  charts.beforeAfter = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: chartRows.map((row) => row.country),
+      datasets: [
+        {
+          label: "Peak price increase vs 2025",
+          data: chartRows.map((row) => sameMonthYoY(row).peakPositiveYoYPct),
+          backgroundColor: chartRows.map((row, index) => {
+            if (row.iso3 === state.selectedIso) return COLORS.navy;
+            return index < 4 ? COLORS.gold : COLORS.neutralLight;
+          }),
+          borderRadius: 2,
+        },
+      ],
+    },
+    plugins: [barValueLabelPlugin],
+    options: baseChartOptions({
+      indexAxis: "y",
+      layout: { padding: { right: 48 } },
+      plugins: {
+        barValueLabel: {
+          maxLabels: 4,
+          formatter: (value) => fmtSignedPct(value),
+        },
+      },
+      scales: {
+        x: {
+          min: 0,
+          suggestedMax: Math.max(40, Math.ceil(maxValue / 10) * 10),
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont(), callback: (value) => `${value}%` },
+          title: { display: true, text: "Median price change vs same month in 2025", color: COLORS.muted, font: chartFont() },
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont(), autoSkip: false },
+        },
+      },
+      onClick: (_event, elements) => {
+        const element = elements?.[0];
+        if (!element) return;
+        state.selectedIso = chartRows[element.index].iso3;
+        populateCountrySelect();
+        renderAll();
+      },
+    }),
   });
 }
 
@@ -304,6 +708,7 @@ function renderRankingChart() {
   const countries = filteredCountries();
   const selected = state.selectedIso;
   const ctx = document.getElementById("ranking-chart");
+  if (!ctx) return;
   charts.ranking = new Chart(ctx, {
     type: "bar",
     data: {
@@ -312,14 +717,27 @@ function renderRankingChart() {
         {
           label: "Shock Exposure Index",
           data: countries.map((country) => country.score),
-          backgroundColor: countries.map((country) => (country.iso3 === selected ? COLORS.navy : tierColor(country.riskTier))),
+          backgroundColor: countries.map((country, index) => {
+            if (country.iso3 === selected) return COLORS.navy;
+            if (index < 2) return COLORS.red;
+            if (country.riskTier === "High") return COLORS.gold;
+            return COLORS.neutralLight;
+          }),
           borderWidth: 0,
           borderRadius: 2,
         },
       ],
     },
+    plugins: [barValueLabelPlugin],
     options: baseChartOptions({
       indexAxis: "y",
+      layout: { padding: { right: 44 } },
+      plugins: {
+        barValueLabel: {
+          maxLabels: 3,
+          formatter: (value) => fmt(value, 1),
+        },
+      },
       scales: {
         x: {
           min: 0,
@@ -344,7 +762,42 @@ function renderRankingChart() {
   });
 }
 
+function renderRankingConfidence() {
+  if (!el.rankingConfidenceList) return;
+  const limited = filteredCountries()
+    .filter((country) => country.dataConfidence?.level === "Limited")
+    .slice(0, 8);
+  el.rankingConfidenceList.innerHTML = "";
+  if (!limited.length) {
+    const item = document.createElement("span");
+    item.className = "confidence-pill";
+    item.dataset.confidence = "Stronger";
+    item.textContent = "No limited-data flags in this filtered view";
+    el.rankingConfidenceList.appendChild(item);
+    return;
+  }
+  const intro = document.createElement("span");
+  intro.className = "confidence-label";
+  intro.textContent = "Limited-data flags";
+  el.rankingConfidenceList.appendChild(intro);
+  limited.forEach((country) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "confidence-pill";
+    item.dataset.confidence = country.dataConfidence.level;
+    item.title = country.dataConfidence.note || "";
+    item.textContent = country.country;
+    item.addEventListener("click", () => {
+      state.selectedIso = country.iso3;
+      populateCountrySelect();
+      renderAll();
+    });
+    el.rankingConfidenceList.appendChild(item);
+  });
+}
+
 function renderCountryProfile() {
+  if (!hasElement(el.countryRegion, el.countryName, el.countryScore, el.countryScoreFill, el.countryTier, el.countryRank, el.countryProxyRank, el.countryMissing, el.countryConfidence, el.pathwayList, el.countryFocus)) return;
   const country = countryByIso(state.selectedIso);
   el.countryRegion.textContent = `${country.region} | ${countryGeography(country)}`;
   el.countryName.textContent = country.country;
@@ -354,6 +807,9 @@ function renderCountryProfile() {
   el.countryRank.textContent = country.rank ? `#${country.rank}` : "n/a";
   el.countryProxyRank.textContent = country.genderProxy?.rank ? `#${country.genderProxy.rank}` : "n/a";
   el.countryMissing.textContent = fmtInt(country.componentMissingCount);
+  el.countryConfidence.textContent = country.dataConfidence?.level || "n/a";
+  el.countryConfidence.parentElement.dataset.confidence = country.dataConfidence?.level || "";
+  el.countryConfidence.parentElement.title = country.dataConfidence?.note || "";
   el.countryFocus.textContent = country.technicalFocus || "No technical focus note available.";
 
   el.pathwayList.innerHTML = "";
@@ -387,13 +843,14 @@ function renderCountryProfile() {
 function renderComponentChart() {
   if (!window.Chart) return;
   destroyChart("component");
+  const ctx = document.getElementById("component-chart");
+  if (!ctx) return;
   const country = countryByIso(state.selectedIso);
   const entries = Object.entries(data.componentLabels).map(([key, label]) => ({
     key,
     label,
     value: country.components[key],
   }));
-  const ctx = document.getElementById("component-chart");
   charts.component = new Chart(ctx, {
     type: "bar",
     data: {
@@ -428,6 +885,8 @@ function renderComponentChart() {
 function renderScenarioChart() {
   if (!window.Chart) return;
   destroyChart("scenario");
+  const ctx = document.getElementById("scenario-chart");
+  if (!ctx) return;
   const scenarioRows = data.scenarios
     .filter((row) => row.scenario === state.scenario)
     .filter((row) => {
@@ -437,13 +896,17 @@ function renderScenarioChart() {
     .sort((a, b) => (b.risk_delta_0_100 || 0) - (a.risk_delta_0_100 || 0))
     .slice(0, 10);
 
-  el.scenarioTitle.textContent = `${scenarioLabel(state.scenario)}: largest risk deltas`;
   const selectedRow = data.scenarios.find((row) => row.scenario === state.scenario && row.countryiso3 === state.selectedIso);
-  el.scenarioNote.textContent = selectedRow
-    ? `${countryByIso(state.selectedIso).country}: delta ${fmt(selectedRow.risk_delta_0_100)} points; scenario score ${fmt(selectedRow.scenario_score_0_100)}.`
-    : "No scenario row available for the selected country.";
+  if (el.scenarioTitle) el.scenarioTitle.textContent = `${scenarioLabel(state.scenario)}: countries most sensitive`;
+  if (el.scenarioSelectedDelta) el.scenarioSelectedDelta.textContent = selectedRow ? `${fmt(selectedRow.risk_delta_0_100)} points` : "n/a";
+  if (el.scenarioSelectedScore) el.scenarioSelectedScore.textContent = selectedRow ? `${fmt(selectedRow.scenario_score_0_100)} (${selectedRow.scenario_risk_tier || "tier n/a"})` : "n/a";
+  if (el.scenarioSelectedRank) el.scenarioSelectedRank.textContent = selectedRow?.scenario_rank ? `#${selectedRow.scenario_rank}` : "n/a";
+  if (el.scenarioNote) {
+    el.scenarioNote.textContent = selectedRow
+      ? `${countryByIso(state.selectedIso).country} is summarized above. The bars show point movement from the official baseline score under the selected stress test; larger deltas mean higher scenario sensitivity, not a forecast.`
+      : "No scenario row available for the selected country.";
+  }
 
-  const ctx = document.getElementById("scenario-chart");
   charts.scenario = new Chart(ctx, {
     type: "bar",
     data: {
@@ -452,18 +915,29 @@ function renderScenarioChart() {
         {
           label: "Risk delta",
           data: scenarioRows.map((row) => row.risk_delta_0_100),
-          backgroundColor: scenarioRows.map((row) => (row.countryiso3 === state.selectedIso ? COLORS.navy : COLORS.gold)),
+          backgroundColor: scenarioRows.map((row, index) => {
+            if (row.countryiso3 === state.selectedIso) return COLORS.navy;
+            return index < 3 ? COLORS.gold : COLORS.neutralLight;
+          }),
           borderRadius: 2,
         },
       ],
     },
+    plugins: [barValueLabelPlugin],
     options: baseChartOptions({
       indexAxis: "y",
+      layout: { padding: { right: 44 } },
+      plugins: {
+        barValueLabel: {
+          maxLabels: 3,
+          formatter: (value) => fmt(value, 1),
+        },
+      },
       scales: {
         x: {
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
-          title: { display: true, text: "Score movement, points", color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Score movement from baseline, points", color: COLORS.muted, font: chartFont() },
         },
         y: {
           grid: { display: false },
@@ -477,6 +951,8 @@ function renderScenarioChart() {
 function renderRegionChart() {
   if (!window.Chart) return;
   destroyChart("region");
+  const ctx = document.getElementById("region-chart");
+  if (!ctx) return;
   const grouped = data.countries
     .filter(matchesGeography)
     .reduce((acc, country) => {
@@ -488,7 +964,6 @@ function renderRegionChart() {
   const rows = Object.values(grouped)
     .map((row) => ({ ...row, averageScore: row.countryCount ? row.scoreTotal / row.countryCount : 0 }))
     .sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0));
-  const ctx = document.getElementById("region-chart");
   charts.region = new Chart(ctx, {
     type: "bar",
     data: {
@@ -496,7 +971,7 @@ function renderRegionChart() {
       datasets: [
         {
           data: rows.map((row) => row.averageScore),
-          backgroundColor: rows.map((row) => (row.region === state.region ? COLORS.navy : COLORS.teal)),
+          backgroundColor: rows.map((row, index) => (row.region === state.region || index === 0 ? COLORS.teal : COLORS.neutralLight)),
           borderRadius: 2,
         },
       ],
@@ -529,11 +1004,12 @@ function renderRegionChart() {
 function renderGenderChart() {
   if (!window.Chart) return;
   destroyChart("gender");
+  const ctx = document.getElementById("gender-chart");
+  if (!ctx) return;
   const rows = filteredCountries()
     .filter((country) => country.genderProxy?.score !== null && country.genderProxy?.score !== undefined)
     .sort((a, b) => (b.genderProxy.score || 0) - (a.genderProxy.score || 0))
     .slice(0, 10);
-  const ctx = document.getElementById("gender-chart");
   charts.gender = new Chart(ctx, {
     type: "bar",
     data: {
@@ -541,7 +1017,10 @@ function renderGenderChart() {
       datasets: [
         {
           data: rows.map((row) => row.genderProxy.score),
-          backgroundColor: rows.map((row) => (row.iso3 === state.selectedIso ? COLORS.navy : COLORS.red)),
+          backgroundColor: rows.map((row, index) => {
+            if (row.iso3 === state.selectedIso) return COLORS.navy;
+            return index < 3 ? COLORS.red : COLORS.neutralLight;
+          }),
           borderRadius: 2,
         },
       ],
@@ -565,6 +1044,7 @@ function renderGenderChart() {
 }
 
 function renderReadiness() {
+  if (!el.readinessList) return;
   const country = countryByIso(state.selectedIso);
   const items = [
     ["Price event-study setup", country.readiness.priceEventStudy],
@@ -587,6 +1067,7 @@ function renderReadiness() {
 }
 
 function renderCoverage() {
+  if (!el.coverageList) return;
   const country = countryByIso(state.selectedIso);
   const c = country.additionalCoverage;
   const fhhPct = country.indicators?.femaleHeadedHouseholdsPct;
@@ -612,41 +1093,16 @@ function renderCoverage() {
   });
 }
 
-function renderWeights() {
-  el.weightsList.innerHTML = "";
-  Object.entries(data.indexWeights).forEach(([key, weight]) => {
-    const item = document.createElement("div");
-    item.className = "weight-item";
-
-    const text = document.createElement("div");
-    text.className = "weight-copy";
-    const label = document.createElement("strong");
-    label.textContent = data.componentLabels[key] || key;
-    const definition = document.createElement("p");
-    definition.textContent = data.componentDefinitions?.[key] || "Documented model component used in the composite index.";
-    text.appendChild(label);
-    text.appendChild(definition);
-
-    const body = document.createElement("span");
-    body.className = "weight-value";
-    const value = document.createElement("b");
-    value.textContent = `${fmt(weight * 100, 0)}%`;
-    const meter = document.createElement("div");
-    meter.className = "weight-meter";
-    const fill = document.createElement("span");
-    fill.style.width = `${weight * 100 * 4}%`;
-    meter.appendChild(fill);
-    body.appendChild(value);
-    body.appendChild(meter);
-    item.appendChild(text);
-    item.appendChild(body);
-    el.weightsList.appendChild(item);
-  });
-}
-
 function renderTable() {
+  if (!el.countryTableBody) return;
   el.countryTableBody.innerHTML = "";
-  filteredCountries().forEach((country) => {
+  const countries = filteredCountries();
+  if (el.countryTableSummary) {
+    const geography = state.geography === "All geographies" ? "all geographies" : state.geography.toLowerCase();
+    const region = state.region === "All regions" ? "all regions" : state.region;
+    el.countryTableSummary.textContent = `${countries.length} countries shown for ${region}, ${geography}; table mirrors source ranking fields. Use data confidence and main gap to see where interpretation is weaker.`;
+  }
+  countries.forEach((country) => {
     const row = document.createElement("tr");
     const values = [
       country.rank ? `#${country.rank}` : "n/a",
@@ -655,6 +1111,7 @@ function renderTable() {
       countryGeography(country),
       fmt(country.score),
       country.riskTier || "n/a",
+      country.dataConfidence?.level || "n/a",
       country.pathways?.[0]?.label || "n/a",
       fmtPct(country.indicators.ipcPhase3PlusPct),
       fmt(country.genderProxy?.score),
@@ -668,6 +1125,13 @@ function renderTable() {
         const pill = document.createElement("span");
         pill.className = "risk-pill";
         pill.dataset.tier = country.riskTier || "";
+        pill.textContent = value;
+        cell.appendChild(pill);
+      } else if (index === 6) {
+        const pill = document.createElement("span");
+        pill.className = "confidence-pill";
+        pill.dataset.confidence = country.dataConfidence?.level || "";
+        pill.title = country.dataConfidence?.note || "";
         pill.textContent = value;
         cell.appendChild(pill);
       } else {
@@ -684,6 +1148,7 @@ function markerSize(score) {
 }
 
 function renderMapFallback() {
+  if (!el.map) return;
   el.map.innerHTML = "";
   const fallback = document.createElement("div");
   fallback.className = "map-fallback";
@@ -702,6 +1167,7 @@ function renderMapFallback() {
 }
 
 function initMap() {
+  if (!el.map) return;
   if (!window.maplibregl || !el.map) {
     renderMapFallback();
     return;
@@ -783,40 +1249,48 @@ function renderMapMarkers() {
 
 function renderAll() {
   renderMeta();
+  renderFilterSummary();
   renderMessages();
+  renderBeforeAfter();
   renderCountryProfile();
   renderRankingChart();
+  renderRankingConfidence();
   renderComponentChart();
   renderScenarioChart();
   renderRegionChart();
   renderGenderChart();
   renderReadiness();
   renderCoverage();
-  renderWeights();
   renderTable();
   if (map) renderMapMarkers();
 }
 
 function bindEvents() {
-  el.regionFilter.addEventListener("change", () => {
+  if (el.regionFilter) el.regionFilter.addEventListener("change", () => {
     state.region = el.regionFilter.value;
     populateCountrySelect();
     renderAll();
   });
-  el.geographyFilter.addEventListener("change", () => {
+  if (el.geographyFilter) el.geographyFilter.addEventListener("change", () => {
     state.geography = el.geographyFilter.value;
     populateControls();
     renderAll();
   });
-  el.countrySelect.addEventListener("change", () => {
+  if (el.countrySelect) el.countrySelect.addEventListener("change", () => {
     state.selectedIso = el.countrySelect.value;
     renderAll();
   });
-  el.scenarioSelect.addEventListener("change", () => {
-    state.scenario = el.scenarioSelect.value;
+  if (el.scenarioGroupSelect) el.scenarioGroupSelect.addEventListener("change", () => {
+    state.scenarioGroup = el.scenarioGroupSelect.value;
+    populateScenarioSelect();
     renderAll();
   });
-  el.mapReset.addEventListener("click", () => {
+  if (el.scenarioSelect) el.scenarioSelect.addEventListener("change", () => {
+    state.scenario = el.scenarioSelect.value;
+    state.scenarioGroup = scenarioGroupFor(state.scenario)?.id || state.scenarioGroup;
+    renderAll();
+  });
+  if (el.mapReset) el.mapReset.addEventListener("click", () => {
     state.region = "All regions";
     state.geography = "All geographies";
     state.selectedIso = data.summary.topCountry?.iso3 || data.countries[0]?.iso3;

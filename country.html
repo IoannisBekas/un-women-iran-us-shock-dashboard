@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>Iran-USA Regional Escalation Shock | Country Lens</title>
+    <meta
+      name="description"
+      content="Country-specific UN Women explorer for the Iran-USA regional escalation shock model with country, geography and scenario filters."
+    />
+    <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="styles.css?v=20260606-methodology-wide" />
+    <script>document.documentElement.classList.add("auth-locked");</script>
+    <script src="auth.js?v=20260603-lock" defer></script>
+  </head>
+  <body data-page="country">
+    <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+    <div class="reading-progress" aria-hidden="true">
+      <span id="reading-progress-bar"></span>
+    </div>
+    <div id="top" class="page-top-anchor" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-rail" aria-label="Dashboard identity">
+          <a class="brand-lockup" href="index.html?v=20260606-ux#findings" aria-label="UN Women dashboard overview">
+            <img class="brand-logo" src="assets/UN_WOMEN_Logo.png" alt="UN Women" />
+          </a>
+          <p class="brand-caption">Country evidence explorer</p>
+        </div>
+        <div class="hero-copy">
+          <div class="hero-topline">
+            <p class="eyebrow">Country lens</p>
+            <ul class="hero-meta" aria-label="Dashboard metadata">
+              <li id="meta-country-count">28 countries</li>
+              <li id="meta-generated">Generated 2026-06-06</li>
+              <li>Scenario explorer</li>
+            </ul>
+          </div>
+          <h1>Country and scenario explorer</h1>
+          <p class="lede">
+            Filter by country, geography and scenario to inspect score drivers, before/after price evidence,
+            data readiness and supplemental public-data coverage.
+          </p>
+          <div class="hero-rule" aria-hidden="true"></div>
+          <div class="hero-actions" aria-label="Primary dashboard links">
+            <a class="hero-action-secondary" href="index.html?v=20260606-ux#findings">Overview</a>
+            <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260606-ux">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260606-ux">Dictionary</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="controls-band" aria-label="Dashboard controls">
+        <div class="control-group">
+          <label class="control-label" for="region-filter">Region</label>
+          <select id="region-filter"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="geography-filter">Geography</label>
+          <select id="geography-filter"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="country-select">Country</label>
+          <select id="country-select"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="scenario-group-select">Stress lens</label>
+          <select id="scenario-group-select"></select>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="scenario-select">Shock level</label>
+          <select id="scenario-select"></select>
+        </div>
+        <p id="filter-summary" class="filter-summary" aria-live="polite"></p>
+      </section>
+
+      <section id="country-lens" class="country-lens" aria-labelledby="country-lens-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected country</p>
+          <h2 id="country-lens-title">Country filters expose why scores move</h2>
+          <p>Select a country or geography group to inspect score drivers and where the country sits in the regional model.</p>
+        </div>
+        <div class="country-layout">
+          <article class="country-profile">
+            <div class="profile-heading">
+              <div>
+                <p class="eyebrow" id="country-region">Region</p>
+                <h3 id="country-name">Country</h3>
+              </div>
+              <div class="score-badge">
+                <span>Score</span>
+                <strong id="country-score">-</strong>
+              </div>
+            </div>
+            <div class="score-track" aria-hidden="true">
+              <span id="country-score-fill"></span>
+            </div>
+            <div class="profile-grid">
+              <div>
+                <span class="metric-label">Risk tier</span>
+                <strong id="country-tier">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Model rank</span>
+                <strong id="country-rank">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Gender proxy rank</span>
+                <strong id="country-proxy-rank">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Missing components</span>
+                <strong id="country-missing">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Data confidence</span>
+                <strong id="country-confidence">-</strong>
+              </div>
+            </div>
+            <div id="pathway-list" class="pathway-list"></div>
+            <p id="country-focus" class="profile-note"></p>
+          </article>
+
+          <article class="map-card">
+            <div class="card-title-row compact">
+              <div>
+                <p class="eyebrow">Regional footprint</p>
+                <h3>Country points by exposure tier</h3>
+              </div>
+              <button id="map-reset" class="small-button" type="button">Reset map</button>
+            </div>
+            <div id="country-map" class="map"></div>
+            <p class="chart-note">Map points use country centroids for orientation only. Colour follows exposure tier, size follows the 0-100 score and clicking a point selects that country.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="country-before-after" class="before-after-section" aria-labelledby="country-before-after-title">
+        <div class="section-heading">
+          <p class="eyebrow">Before vs after</p>
+          <h2 id="country-before-after-title">Selected-country evidence separates price movement from missing data</h2>
+          <p>
+            The selected country view uses like-for-like WFP/HDX same-month comparisons from the source price panel and separates
+            positive price movements from flat, negative or unavailable evidence.
+          </p>
+        </div>
+        <div class="before-after-layout">
+          <article class="before-after-panel">
+            <div class="card-title-row compact">
+              <div>
+                <p class="eyebrow">Selected country</p>
+                <h3 id="before-after-country">Country</h3>
+              </div>
+              <span id="before-after-readiness" class="source-pill">Readiness</span>
+            </div>
+            <div class="before-after-metrics" aria-label="Selected country before and after metrics">
+              <div>
+                <span class="metric-label">Peak increase</span>
+                <strong id="before-after-peak-increase">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Peak comparison</span>
+                <strong id="before-after-peak-comparison">-</strong>
+              </div>
+              <div>
+                <span class="metric-label">Price records compared</span>
+                <strong id="before-after-matched-series">-</strong>
+              </div>
+              <div class="wide">
+                <span class="metric-label">IPC latest timing</span>
+                <strong id="before-after-ipc">-</strong>
+              </div>
+              <div class="wide">
+                <span class="metric-label">Event-study interpretation</span>
+                <strong id="before-after-event-study">-</strong>
+              </div>
+            </div>
+            <p id="before-after-note" class="profile-note"></p>
+          </article>
+
+          <article class="before-after-panel before-after-story">
+            <p class="eyebrow">Supporting evidence</p>
+            <h3>What supplemental coverage adds</h3>
+            <p class="chart-note">
+              Supplemental coverage counts five context checks from the analytical data package: ACLED conflict events,
+              CPI, food incidents, PortWatch port activity and Findex gender-finance data. These layers
+              explain data availability and context; they do not replace the official exposure score.
+            </p>
+            <ul id="before-after-supplemental-list"></ul>
+          </article>
+        </div>
+        <details class="disclosure-panel before-after-table-wrap">
+          <summary>
+            <span>
+              <span class="eyebrow">Filtered evidence table</span>
+              <strong>View all countries in the current before/after filter</strong>
+            </span>
+            <small id="before-after-table-note">Table follows the active region and geography filters.</small>
+          </summary>
+          <div class="table-wrap disclosure-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Country</th>
+                  <th>Peak increase</th>
+                  <th>Peak comparison</th>
+                  <th>Price records compared</th>
+                  <th>IPC latest timing</th>
+                  <th>Supplemental coverage</th>
+                </tr>
+              </thead>
+              <tbody id="before-after-table-body"></tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <section id="scenario-detail" class="analysis-grid" aria-label="Country charts">
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Selected country</p>
+              <h3>Which pathway drives the selected country score</h3>
+            </div>
+            <span class="source-pill">0-1 components</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="component-chart"></canvas>
+          </div>
+          <p class="chart-note">Bars are normalized 0-1 inputs before weights are applied. A longer bar means the selected country is high on that pressure pathway; missing source data are neutral-imputed and flagged.</p>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Scenario sensitivity</p>
+              <h3 id="scenario-title">Countries most sensitive under selected stress test</h3>
+            </div>
+            <span class="source-pill">Scenario delta</span>
+          </div>
+          <div class="scenario-country-card" aria-label="Selected country scenario result">
+            <div>
+              <span class="metric-label">Selected country delta</span>
+              <strong id="scenario-selected-delta">-</strong>
+            </div>
+            <div>
+              <span class="metric-label">Scenario score</span>
+              <strong id="scenario-selected-score">-</strong>
+            </div>
+            <div>
+              <span class="metric-label">Scenario rank</span>
+              <strong id="scenario-selected-rank">-</strong>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="scenario-chart"></canvas>
+          </div>
+          <p id="scenario-note" class="chart-note"></p>
+        </article>
+      </section>
+
+      <section id="country-data" class="evidence-grid" aria-label="Data readiness and source coverage">
+        <article class="evidence-panel">
+          <p class="eyebrow">Readiness checks</p>
+          <h2>What the data can support now</h2>
+          <p class="chart-note">These are interpretation gates. They say whether the available public-source data can support a price event-study, food-security outcome model or gender-causal claim.</p>
+          <div id="readiness-list" class="readiness-list"></div>
+        </article>
+        <article class="evidence-panel">
+          <p class="eyebrow">Supplemental coverage</p>
+          <h2>Public-data context available for this country</h2>
+          <p class="chart-note">These rows show whether useful public context exists for displacement, food-security outcomes and female-headed households. Missing coverage is a data gap, not evidence that the issue is absent.</p>
+          <div id="coverage-list" class="coverage-list"></div>
+        </article>
+      </section>
+
+      <section class="table-section" aria-labelledby="table-title">
+        <details class="disclosure-panel">
+          <summary>
+            <span>
+              <span class="eyebrow">Filtered country table</span>
+              <strong id="table-title">View official model data summary</strong>
+            </span>
+            <small id="country-table-summary">Table follows the active filters and mirrors source ranking fields.</small>
+          </summary>
+          <div class="table-wrap disclosure-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Country</th>
+                  <th>Region</th>
+                  <th>Geography</th>
+                  <th>Score</th>
+                  <th>Tier</th>
+                  <th>Data confidence</th>
+                  <th>Top pathway</th>
+                  <th>IPC 3+ %</th>
+                  <th>Gender proxy</th>
+                  <th>FHH %</th>
+                  <th>Female informal %</th>
+                  <th>Main gap</th>
+                </tr>
+              </thead>
+              <tbody id="country-table-body"></tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <section id="method" class="interpretation-panel country-method-callout" aria-labelledby="method-title">
+        <div>
+          <p class="eyebrow">Method boundary</p>
+          <h2 id="method-title">Interpretation boundary</h2>
+        </div>
+        <p>
+          Country and scenario filters change the exploration view; they do not change official model
+          values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
+          caveats and weights, open the <a href="methodology.html?v=20260606-ux">methodology page</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>UN Women analytical dashboard</strong>
+        <span id="footer-source">Source: UN Women analytical data package.</span>
+      </div>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
+
+    <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260606-ux"></script>
+    <script src="app.js?v=20260606-overview-method-cleanup"></script>
+  </body>
+</html>
