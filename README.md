@@ -2,9 +2,10 @@
 
 Static analytical dashboard for communicating the Iran-USA/regional escalation shock model outputs.
 
-GitHub Pages URL:
+## Publication Status
 
-`https://ioannisbekas.github.io/un-women-iran-us-shock-dashboard/`
+Public GitHub Pages deployment:
+https://ioannisbekas.github.io/un-women-iran-us-shock-dashboard/
 
 ## Source
 
