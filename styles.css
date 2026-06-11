@@ -168,19 +168,17 @@ main,
 }
 
 .site-header {
-  padding: 42px 0 26px;
+  padding: 34px 0 24px;
 }
 
 .header-inner {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  gap: 46px;
+  grid-template-columns: 1fr;
+  gap: 20px;
   align-items: start;
 }
 
 .brand-rail {
-  position: sticky;
-  top: 24px;
   display: grid;
   gap: 0;
   align-content: start;
@@ -209,6 +207,7 @@ main,
 }
 
 .hero-copy {
+  max-width: 940px;
   padding-top: 2px;
 }
 
