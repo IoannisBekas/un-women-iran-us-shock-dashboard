@@ -176,7 +176,7 @@ main,
   grid-template-columns: 1fr;
   gap: 20px;
   align-items: start;
-  width: min(1080px, 100%);
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -209,7 +209,7 @@ main,
 }
 
 .hero-copy {
-  max-width: 1080px;
+  max-width: none;
   padding-top: 2px;
 }
 
@@ -245,19 +245,20 @@ p {
 }
 
 h1 {
-  max-width: 940px;
+  max-width: 1220px;
   margin: 22px 0 16px;
   font-family: var(--font-serif);
-  font-size: 4.5rem;
+  font-size: clamp(3.7rem, 4.5vw, 4.25rem);
   font-weight: 800;
   line-height: 0.96;
 }
 
 .lede {
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0;
   color: #263440;
   font-size: 1.26rem;
+  text-wrap: pretty;
 }
 
 .hero-rule {
