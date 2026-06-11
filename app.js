@@ -90,6 +90,42 @@ function hasElement(...items) {
   return items.every(Boolean);
 }
 
+function appendMobileCardRow(card, label, value) {
+  const row = document.createElement("div");
+  row.className = "mobile-table-card-row";
+  const key = document.createElement("span");
+  key.textContent = label;
+  const data = document.createElement("strong");
+  data.textContent = value || "n/a";
+  row.append(key, data);
+  card.appendChild(row);
+}
+
+function createMobileTableCard(title, meta, rows) {
+  const card = document.createElement("article");
+  card.className = "mobile-table-card";
+  const heading = document.createElement("h4");
+  heading.textContent = title;
+  card.appendChild(heading);
+  if (meta) {
+    const note = document.createElement("p");
+    note.className = "mobile-table-card-meta";
+    note.textContent = meta;
+    card.appendChild(note);
+  }
+  rows.forEach(([label, value]) => appendMobileCardRow(card, label, value));
+  return card;
+}
+
+function setMobileFiltersExpanded(expanded) {
+  if (!el.controlsBand) return;
+  el.controlsBand.dataset.expanded = expanded ? "true" : "false";
+  if (el.mobileFilterToggle) {
+    el.mobileFilterToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    el.mobileFilterToggle.textContent = expanded ? "Close" : "Filters";
+  }
+}
+
 const charts = {
   beforeAfter: null,
   ranking: null,
@@ -124,6 +160,11 @@ const el = {
   scenarioGroupSelect: document.getElementById("scenario-group-select"),
   scenarioSelect: document.getElementById("scenario-select"),
   filterSummary: document.getElementById("filter-summary"),
+  controlsBand: document.querySelector(".controls-band"),
+  controlsPanel: document.getElementById("controls-panel"),
+  mobileFilterToggle: document.getElementById("mobile-filter-toggle"),
+  compactFilterTitle: document.getElementById("compact-filter-title"),
+  compactFilterSubtitle: document.getElementById("compact-filter-subtitle"),
   messageList: document.getElementById("message-list"),
   rankingConfidenceList: document.getElementById("ranking-confidence-list"),
   countryRegion: document.getElementById("country-region"),
@@ -147,7 +188,9 @@ const el = {
   readinessList: document.getElementById("readiness-list"),
   coverageList: document.getElementById("coverage-list"),
   countryTableBody: document.getElementById("country-table-body"),
+  countryTableCardList: document.getElementById("country-table-card-list"),
   countryTableSummary: document.getElementById("country-table-summary"),
+  beforeAfterCardList: document.getElementById("before-after-card-list"),
   footerSource: document.getElementById("footer-source"),
 };
 
@@ -526,8 +569,9 @@ function renderMessages() {
 }
 
 function renderFilterSummary() {
-  if (!el.filterSummary) return;
+  if (!el.filterSummary && !el.compactFilterTitle && !el.compactFilterSubtitle) return;
   const countries = filteredCountries();
+  const selectedCountry = countryByIso(state.selectedIso);
   const parts = [];
   if (state.region !== "All regions") parts.push(state.region);
   if (state.geography !== "All geographies") parts.push(state.geography.toLowerCase());
@@ -536,7 +580,21 @@ function renderFilterSummary() {
   const geographyNote = state.geography === "All geographies"
     ? ""
     : ` Region options are limited to the ${availableRegions} region${availableRegions === 1 ? "" : "s"} with ${state.geography.toLowerCase()} countries.`;
-  el.filterSummary.textContent = `Showing ${countries.length} of ${data.summary.countryCount} countries${scope}. Selected country: ${countryByIso(state.selectedIso).country}.${geographyNote}`;
+  if (el.filterSummary) {
+    el.filterSummary.textContent = `Showing ${countries.length} of ${data.summary.countryCount} countries${scope}. Selected country: ${selectedCountry.country}.${geographyNote}`;
+  }
+  if (el.compactFilterTitle) {
+    el.compactFilterTitle.textContent = selectedCountry.country;
+  }
+  if (el.compactFilterSubtitle) {
+    const scenarioGroup = scenarioGroupFor(state.scenario)?.label || "Stress lens";
+    const scopeLabel = [
+      state.region === "All regions" ? "All regions" : state.region,
+      state.geography === "All geographies" ? "All geographies" : state.geography,
+      `${scenarioGroup}: ${scenarioLevelLabel(state.scenario)}`,
+    ];
+    el.compactFilterSubtitle.textContent = scopeLabel.join(" · ");
+  }
 }
 
 function renderBeforeAfter() {
@@ -619,6 +677,23 @@ function renderBeforeAfter() {
     el.beforeAfterTableNote.textContent = document.body.dataset.page === "overview"
       ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Supplemental coverage means five public context layers: ACLED conflict events, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
       : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; supplemental coverage means ACLED conflict events, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
+  }
+  if (el.beforeAfterCardList) {
+    el.beforeAfterCardList.innerHTML = "";
+    tableRows.forEach((row) => {
+      const ba = row.beforeAfter || {};
+      const rowYoy = sameMonthYoY(row);
+      el.beforeAfterCardList.appendChild(createMobileTableCard(
+        row.country,
+        positivePeakLabel(rowYoy),
+        [
+          ["Compared with", rowYoy.peakComparisonLabel || rowYoy.bestAvailableComparisonLabel || "No comparable price record"],
+          ["Price records", matchedSeriesLabel(rowYoy)],
+          ["IPC timing", fmtIpcTiming(ba.ipcLatest)],
+          ["Context layers", supplementalLayerLabel(row)],
+        ]
+      ));
+    });
   }
   tableRows.forEach((row) => {
     const ba = row.beforeAfter || {};
@@ -1098,7 +1173,24 @@ function renderTable() {
     const region = state.region === "All regions" ? "all regions" : state.region;
     el.countryTableSummary.textContent = `${countries.length} countries shown for ${region}, ${geography}; table mirrors source ranking fields. Use data confidence and main gap to see where interpretation is weaker.`;
   }
+  if (el.countryTableCardList) {
+    el.countryTableCardList.innerHTML = "";
+  }
   countries.forEach((country) => {
+    if (el.countryTableCardList) {
+      el.countryTableCardList.appendChild(createMobileTableCard(
+        `${country.rank ? `#${country.rank} ` : ""}${country.country}`,
+        `${country.region} · ${countryGeography(country)}`,
+        [
+          ["Score", fmt(country.score)],
+          ["Tier", country.riskTier || "n/a"],
+          ["Data confidence", country.dataConfidence?.level || "n/a"],
+          ["Top pathway", country.pathways?.[0]?.label || "n/a"],
+          ["Gender proxy", fmt(country.genderProxy?.score)],
+          ["Main gap", country.readiness?.mainGap || "n/a"],
+        ]
+      ));
+    }
     const row = document.createElement("tr");
     const values = [
       country.rank ? `#${country.rank}` : "n/a",
@@ -1262,6 +1354,10 @@ function renderAll() {
 }
 
 function bindEvents() {
+  if (el.mobileFilterToggle) el.mobileFilterToggle.addEventListener("click", () => {
+    const expanded = el.mobileFilterToggle.getAttribute("aria-expanded") === "true";
+    setMobileFiltersExpanded(!expanded);
+  });
   if (el.regionFilter) el.regionFilter.addEventListener("change", () => {
     state.region = el.regionFilter.value;
     populateCountrySelect();
