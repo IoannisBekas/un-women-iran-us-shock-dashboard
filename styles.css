@@ -182,7 +182,7 @@ main,
   position: sticky;
   top: 24px;
   display: grid;
-  gap: 18px;
+  gap: 0;
   align-content: start;
 }
 
@@ -196,7 +196,6 @@ main,
   height: auto;
 }
 
-.brand-caption,
 .eyebrow,
 .control-label,
 .metric-label {
