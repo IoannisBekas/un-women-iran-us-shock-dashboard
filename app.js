@@ -104,8 +104,6 @@ let markers = [];
 
 const el = {
   progressBar: document.getElementById("reading-progress-bar"),
-  metaCountryCount: document.getElementById("meta-country-count"),
-  metaGenerated: document.getElementById("meta-generated"),
   methodBoundary: document.getElementById("method-boundary"),
   beforeAfterCountry: document.getElementById("before-after-country"),
   beforeAfterReadiness: document.getElementById("before-after-readiness"),
@@ -433,8 +431,6 @@ function destroyChart(name) {
 }
 
 function renderMeta() {
-  if (el.metaCountryCount) el.metaCountryCount.textContent = `${data.summary.countryCount} countries`;
-  if (el.metaGenerated) el.metaGenerated.textContent = `Generated ${data.metadata.generated}`;
   if (el.methodBoundary) el.methodBoundary.textContent = data.metadata.methodBoundary;
   if (el.footerSource) el.footerSource.textContent = "Source: UN Women analytical data package generated from public-source inputs.";
 }

@@ -9,7 +9,7 @@
       name="description"
       content="Methodology, calculations, caveats and interpretation boundaries for the UN Women Iran-USA regional escalation shock dashboard."
     />
-    <link rel="stylesheet" href="styles.css?v=20260609-contact-footer" />
+    <link rel="stylesheet" href="styles.css?v=20260611-remove-hero-meta" />
     <script>document.documentElement.classList.add("auth-locked");</script>
     <script src="auth.js?v=20260603-lock" defer></script>
   </head>
@@ -29,14 +29,6 @@
           <p class="brand-caption">Methodology and caveats</p>
         </div>
         <div class="hero-copy">
-          <div class="hero-topline">
-            <p class="eyebrow">Methodology</p>
-            <ul class="hero-meta" aria-label="Methodology metadata">
-              <li id="methodology-country-count">28 countries</li>
-              <li id="methodology-generated">Generated 2026-06-06</li>
-              <li>Analytical data package</li>
-            </ul>
-          </div>
           <h1>Methodology</h1>
           <p class="lede">
             The dashboard is a screening and monitoring tool for the Iran-USA regional escalation
@@ -292,8 +284,6 @@
         const labels = methodologyData.componentLabels || {};
         const definitions = methodologyData.componentDefinitions || {};
 
-        setText("methodology-country-count", `${countries.length || "n/a"} countries`);
-        setText("methodology-generated", `Generated ${metadata.generated || "n/a"}`);
         setText("methodology-shock-date", formatDate(metadata.shockStartDate));
         setText("methodology-footer-source", "Source: UN Women analytical data package generated from public-source inputs.");
 

@@ -213,24 +213,6 @@ main,
   padding-top: 2px;
 }
 
-.hero-topline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.hero-meta li,
 .source-pill {
   display: inline-flex;
   align-items: center;
