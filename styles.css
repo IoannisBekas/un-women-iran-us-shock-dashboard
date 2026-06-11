@@ -188,7 +188,7 @@ main,
 
 .brand-lockup {
   display: inline-flex;
-  width: 180px;
+  width: min(230px, 100%);
 }
 
 .brand-logo {
