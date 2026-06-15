@@ -1492,10 +1492,6 @@ tbody tr:hover {
   border-top: 1px solid var(--line);
 }
 
-.footer-summary {
-  display: grid;
-  gap: 4px;
-}
 
 .site-footer a {
   color: var(--un-blue);
@@ -1506,79 +1502,6 @@ tbody tr:hover {
   justify-self: end;
 }
 
-.footer-contacts {
-  display: grid;
-  gap: 18px;
-  width: 100%;
-  padding: 22px 24px;
-  color: var(--ink);
-  border-left: 5px solid var(--un-teal);
-  background: rgba(247, 245, 239, 0.78);
-}
-
-.footer-contact-copy {
-  display: grid;
-  gap: 8px;
-}
-
-.footer-contact-copy h2 {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  line-height: 1.08;
-}
-
-.footer-contact-copy p {
-  margin: 0;
-  color: var(--ink);
-}
-
-.footer-contact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.contact-card {
-  display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  gap: 20px;
-  align-items: center;
-  min-width: 0;
-  padding: 18px;
-  border: 1px solid rgba(0, 119, 125, 0.14);
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.contact-photo {
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.contact-photo-iris {
-  border-radius: 8px;
-}
-
-.contact-copy {
-  display: grid;
-  gap: 5px;
-  min-width: 0;
-}
-
-.contact-copy strong {
-  color: var(--ink);
-  font-size: 1.02rem;
-}
-
-.contact-copy span {
-  color: #455466;
-}
-
-.contact-copy a {
-  overflow-wrap: anywhere;
-}
 
 .floating-back-top {
   position: fixed;
@@ -1699,25 +1622,6 @@ tbody tr:hover {
   main,
   .site-footer {
     width: min(100% - 24px, 1220px);
-  }
-
-  .footer-contacts {
-    padding: 18px;
-  }
-
-  .footer-contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-card {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 14px;
-    padding: 14px;
-  }
-
-  .contact-photo {
-    width: 72px;
-    height: 72px;
   }
 
   .site-footer > a {
