@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,7 +9,7 @@
       name="description"
       content="Dictionary of terms, acronyms, data sources and model concepts used in the UN Women Iran-USA regional escalation shock dashboard."
     />
-    <link rel="stylesheet" href="styles.css?v=20260611-header-width" />
+    <link rel="stylesheet" href="styles.css?v=20260622-gender-displacement" />
     <script>document.documentElement.classList.add("auth-locked");</script>
     <script src="auth.js?v=20260603-lock" defer></script>
   </head>
@@ -23,7 +23,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260615-data#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260622-gender-displacement#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,9 +35,9 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260615-data#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260615-data#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260615-data">Methodology</a>
+            <a class="hero-action-secondary" href="index.html?v=20260622-gender-displacement#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260622-gender-displacement#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260622-gender-displacement">Methodology</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Dictionary</a>
           </div>
         </div>
@@ -60,6 +60,7 @@
       <section class="term-nav" aria-label="Dictionary section links">
         <a href="#food-security">Food-security terms</a>
         <a href="#gender">Gender and labour terms</a>
+        <a href="#displacement">Displacement terms</a>
         <a href="#sources">Data-source acronyms</a>
         <a href="#model">Model and dashboard terms</a>
       </section>
@@ -156,10 +157,11 @@
             <span class="term-meta">Priority score</span>
             <h3>Gender proxy priority</h3>
             <p>
-              A fallback score that uses structural and proxy indicators when measured women/girls
-              outcome data are unavailable.
+              A prioritization score that combines the exposure score with gender vulnerability, IPC,
+              WFP outcome availability, internal displacement, assistance pressure and selected price,
+              import and agriculture pressures.
             </p>
-            <p class="term-use">Helps prioritize monitoring and field validation, not estimate causal impact.</p>
+            <p class="term-use">The added displacement and assistance weights reflect plausible differential gender effects; they do not estimate causal impact.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Labour indicator</span>
@@ -186,6 +188,44 @@
               The share of employed women working in agriculture.
             </p>
             <p class="term-use">Used to understand exposure to agricultural input, fertilizer and food-production shocks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="displacement" class="dictionary-section" aria-labelledby="displacement-title">
+        <div class="section-heading">
+          <p class="eyebrow">Displacement</p>
+          <h2 id="displacement-title">Displacement terms</h2>
+          <p>Terms used to distinguish the continuity proxy from the refreshed internal-displacement layer.</p>
+        </div>
+        <div class="term-grid">
+          <article class="term-card">
+            <span class="term-meta">Continuity input</span>
+            <h3>Legacy external displacement proxy</h3>
+            <p>
+              The older displacement pressure proxy retained so refreshed outputs remain comparable with
+              the earlier model package. It mainly reflects the displacement evidence available in that
+              earlier workflow.
+            </p>
+            <p class="term-use">A zero here does not mean internal displacement is absent.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Model component</span>
+            <h3>IDMC/IOM internal-displacement layer</h3>
+            <p>
+              The refreshed displacement input built from public IDMC and IOM DTM evidence, including
+              conflict displacement stocks, selected events and DTM summaries where available.
+            </p>
+            <p class="term-use">This is the field to inspect for internal displacement pressure in cases such as Palestine and Yemen.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Interpretation</span>
+            <h3>Displacement pressure</h3>
+            <p>
+              A pressure pathway that can affect food security through movement, host-community strain,
+              access constraints, loss of livelihoods and changed assistance needs.
+            </p>
+            <p class="term-use">Use both displacement fields together and read missingness flags before making claims.</p>
           </article>
         </div>
       </section>
@@ -288,7 +328,7 @@
           <article class="term-card">
             <span class="term-meta">Index input</span>
             <h3>Component score</h3>
-            <p>A normalized 0-1 measure for one pathway, such as food-price pressure or displacement pressure.</p>
+            <p>A normalized 0-1 measure for one pathway, such as food-price pressure, internal displacement or assistance pressure.</p>
             <p class="term-use">Components are weighted and summed to create the final index.</p>
           </article>
           <article class="term-card">

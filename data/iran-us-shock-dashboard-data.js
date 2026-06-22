@@ -22,8 +22,8 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "agriculture_input_exposure_score": "Agriculture and fertilizer exposure",
     "acute_food_insecurity_score": "IPC acute food insecurity",
     "wfp_food_security_outcome_score": "Public WFP food-security outcome layer",
-    "displacement_pressure_score": "Existing displacement proxy",
-    "public_displacement_layer_score": "IDMC/IOM public displacement layer",
+    "displacement_pressure_score": "Legacy external displacement proxy",
+    "public_displacement_layer_score": "IDMC/IOM internal displacement layer",
     "assistance_pressure_score": "Assistance/funding pressure",
     "gender_vulnerability_score": "Gender vulnerability"
   },
@@ -33,7 +33,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "agriculture_input_exposure_score": "Exposure through agriculture and fertilizer channels, especially where food production, rural livelihoods or input costs could be affected by regional price shocks.",
     "acute_food_insecurity_score": "Total-population acute food-insecurity severity from public IPC/HDX data, especially IPC Phase 3+ and worse. This is not sex-disaggregated.",
     "wfp_food_security_outcome_score": "Public WFP food-security outcome evidence, such as food consumption or coping indicators, where available. It receives modest weight because public coverage is sparse.",
-    "displacement_pressure_score": "Original displacement pressure proxy retained for continuity, using available displacement/refugee-related evidence from the earlier model package.",
+    "displacement_pressure_score": "Legacy external/refugee-style displacement proxy retained for continuity with the earlier model package. A zero here does not mean internal displacement is absent.",
     "public_displacement_layer_score": "Public internal-displacement layer from IDMC and IOM DTM evidence, including conflict displacement stocks, events and selected DTM summaries.",
     "assistance_pressure_score": "Pressure from humanitarian funding and assistance constraints, using public OCHA FTS and related need/funding proxies where complete ration or reach data are unavailable.",
     "gender_vulnerability_score": "Structural and proxy evidence that women and girls may have less capacity to absorb food, price, income and displacement shocks. It uses gender/labour indicators such as female informal or vulnerable employment, female agricultural employment, labour-force participation and financial access where available. It is not a measured women/girls food-security outcome."
@@ -74,7 +74,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.9574999999999999
         }
       ],
-      "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer; Existing displacement proxy",
+      "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer; Legacy external displacement proxy",
       "mediumPathways": "Gender vulnerability; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
@@ -259,7 +259,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.8900000000000001
         }
       ],
-      "highPathways": "Assistance/funding pressure; Domestic food-price pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
+      "highPathways": "Assistance/funding pressure; Domestic food-price pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer",
       "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; Food/fuel import exposure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
@@ -438,7 +438,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
-          "label": "Existing displacement proxy",
+          "label": "Legacy external displacement proxy",
           "score": 1.0
         },
         {
@@ -446,11 +446,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.8735112790014381
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.8628271378622986
         }
       ],
-      "highPathways": "Existing displacement proxy; Gender vulnerability; IDMC/IOM public displacement layer; Agriculture and fertilizer exposure",
+      "highPathways": "Legacy external displacement proxy; Gender vulnerability; IDMC/IOM internal displacement layer; Agriculture and fertilizer exposure",
       "mediumPathways": "Assistance/funding pressure; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
@@ -642,7 +642,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": "Assistance/funding pressure; Gender vulnerability; IPC acute food insecurity; Food/fuel import exposure",
-      "mediumPathways": "IDMC/IOM public displacement layer; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
+      "mediumPathways": "IDMC/IOM internal displacement layer; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 0.28660371643195864,
@@ -824,7 +824,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": "Domestic food-price pressure; Food/fuel import exposure; Assistance/funding pressure",
-      "mediumPathways": "IDMC/IOM public displacement layer; Gender vulnerability; Public WFP food-security outcome layer",
+      "mediumPathways": "IDMC/IOM internal displacement layer; Gender vulnerability; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 0.9366821498799289,
@@ -1004,11 +1004,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.81
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.7812197157424435
         }
       ],
-      "highPathways": "Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
+      "highPathways": "Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer",
       "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer",
       "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure",
       "components": {
@@ -1181,7 +1181,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": "Assistance/funding pressure; Domestic food-price pressure",
-      "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; IPC acute food insecurity; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
+      "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; IPC acute food insecurity; IDMC/IOM internal displacement layer; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 0.6822660755406463,
@@ -1360,7 +1360,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": "IPC acute food insecurity; Assistance/funding pressure",
-      "mediumPathways": "Food/fuel import exposure; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
+      "mediumPathways": "Food/fuel import exposure; IDMC/IOM internal displacement layer; Public WFP food-security outcome layer",
       "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure",
       "components": {
         "price_pressure_score": 0.30913791619534187,
@@ -1536,16 +1536,16 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.7357452427761262
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.6680619231942029
         },
         {
-          "label": "Existing displacement proxy",
+          "label": "Legacy external displacement proxy",
           "score": 0.5434621044507074
         }
       ],
       "highPathways": "Domestic food-price pressure",
-      "mediumPathways": "IDMC/IOM public displacement layer; Existing displacement proxy; Agriculture and fertilizer exposure; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
+      "mediumPathways": "IDMC/IOM internal displacement layer; Legacy external displacement proxy; Agriculture and fertilizer exposure; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
         "price_pressure_score": 0.7357452427761262,
@@ -1730,7 +1730,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": null,
-      "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Agriculture and fertilizer exposure; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
+      "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Agriculture and fertilizer exposure; IDMC/IOM internal displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.45673006003683875,
@@ -2090,12 +2090,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.6991929440892671
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.6016367100231876
         }
       ],
       "highPathways": "Agriculture and fertilizer exposure; Gender vulnerability",
-      "mediumPathways": "IDMC/IOM public displacement layer; Assistance/funding pressure; Public WFP food-security outcome layer",
+      "mediumPathways": "IDMC/IOM internal displacement layer; Assistance/funding pressure; Public WFP food-security outcome layer",
       "technicalFocus": "track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 0.45673006003683875,
@@ -2280,7 +2280,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": null,
-      "mediumPathways": "Food/fuel import exposure; Agriculture and fertilizer exposure; IPC acute food insecurity; Public WFP food-security outcome layer; IDMC/IOM public displacement layer; Assistance/funding pressure",
+      "mediumPathways": "Food/fuel import exposure; Agriculture and fertilizer exposure; IPC acute food insecurity; Public WFP food-security outcome layer; IDMC/IOM internal displacement layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.46304876984976373,
@@ -2451,7 +2451,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.5820650164425495
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.5236817703917787
         },
         {
@@ -2460,7 +2460,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": null,
-      "mediumPathways": "Gender vulnerability; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
+      "mediumPathways": "Gender vulnerability; IDMC/IOM internal displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.46160596109490293,
@@ -2621,7 +2621,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.661562621196348
         },
         {
@@ -2634,7 +2634,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": null,
-      "mediumPathways": "IDMC/IOM public displacement layer; Gender vulnerability; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
+      "mediumPathways": "IDMC/IOM internal displacement layer; Gender vulnerability; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
       "technicalFocus": "monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
         "price_pressure_score": 0.45673006003683875,
@@ -3000,12 +3000,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.6544651879858416
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.6263767575236827
         }
       ],
       "highPathways": "Agriculture and fertilizer exposure",
-      "mediumPathways": "Gender vulnerability; IDMC/IOM public displacement layer; Food/fuel import exposure; Public WFP food-security outcome layer",
+      "mediumPathways": "Gender vulnerability; IDMC/IOM internal displacement layer; Food/fuel import exposure; Public WFP food-security outcome layer",
       "technicalFocus": "track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 0.40565702910261087,
@@ -3179,12 +3179,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.6739942598882103
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.6320653331066269
         }
       ],
       "highPathways": "Domestic food-price pressure; Food/fuel import exposure",
-      "mediumPathways": "IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
+      "mediumPathways": "IDMC/IOM internal displacement layer; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
         "price_pressure_score": 0.7114738279436563,
@@ -3360,7 +3360,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.5301194729237655
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.5083493987982208
         },
         {
@@ -3369,7 +3369,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": null,
-      "mediumPathways": "Domestic food-price pressure; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
+      "mediumPathways": "Domestic food-price pressure; IDMC/IOM internal displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.5301194729237655,
@@ -4244,7 +4244,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.7700158829513517
         },
         {
@@ -4256,7 +4256,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.5728588503260442
         }
       ],
-      "highPathways": "IDMC/IOM public displacement layer",
+      "highPathways": "IDMC/IOM internal displacement layer",
       "mediumPathways": "Public WFP food-security outcome layer; Food/fuel import exposure; Assistance/funding pressure",
       "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
@@ -4613,7 +4613,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         }
       ],
       "highPathways": null,
-      "mediumPathways": "Food/fuel import exposure; IPC acute food insecurity; Public WFP food-security outcome layer; IDMC/IOM public displacement layer; Assistance/funding pressure",
+      "mediumPathways": "Food/fuel import exposure; IPC acute food insecurity; Public WFP food-security outcome layer; IDMC/IOM internal displacement layer; Assistance/funding pressure",
       "technicalFocus": "maintain screening watch and fill missing component data",
       "components": {
         "price_pressure_score": 0.45673006003683875,
@@ -4780,7 +4780,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
       "pathways": [
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.7986006474788608
         },
         {
@@ -4792,7 +4792,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.5
         }
       ],
-      "highPathways": "IDMC/IOM public displacement layer",
+      "highPathways": "IDMC/IOM internal displacement layer",
       "mediumPathways": "Domestic food-price pressure; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
       "technicalFocus": "monitor IDMC/IOM displacement updates and protection/access constraints",
       "components": {
@@ -4974,12 +4974,12 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.5910884328603512
         },
         {
-          "label": "IDMC/IOM public displacement layer",
+          "label": "IDMC/IOM internal displacement layer",
           "score": 0.5560542419273204
         }
       ],
       "highPathways": null,
-      "mediumPathways": "Gender vulnerability; Agriculture and fertilizer exposure; IDMC/IOM public displacement layer; Food/fuel import exposure; Assistance/funding pressure; Public WFP food-security outcome layer",
+      "mediumPathways": "Gender vulnerability; Agriculture and fertilizer exposure; IDMC/IOM internal displacement layer; Food/fuel import exposure; Assistance/funding pressure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
         "price_pressure_score": 0.0,
@@ -11260,7 +11260,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "score": 0.9574999999999999
         }
       ],
-      "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer; Existing displacement proxy",
+      "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer; Legacy external displacement proxy",
       "mediumPathways": "Gender vulnerability; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
       "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
       "components": {
@@ -11451,7 +11451,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "score": 0.9574999999999999
           }
         ],
-        "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer; Existing displacement proxy",
+        "highPathways": "Domestic food-price pressure; Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer; Legacy external displacement proxy",
         "mediumPathways": "Gender vulnerability; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
@@ -11636,7 +11636,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "score": 0.8900000000000001
           }
         ],
-        "highPathways": "Assistance/funding pressure; Domestic food-price pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
+        "highPathways": "Assistance/funding pressure; Domestic food-price pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer",
         "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; Food/fuel import exposure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
@@ -11815,7 +11815,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "interpretation": "Screening and prioritization score; IDMC/IOM displacement and public WFP outcome layers are weighted where available. Not a causal impact estimate.",
         "pathways": [
           {
-            "label": "Existing displacement proxy",
+            "label": "Legacy external displacement proxy",
             "score": 1.0
           },
           {
@@ -11823,11 +11823,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "score": 0.8735112790014381
           },
           {
-            "label": "IDMC/IOM public displacement layer",
+            "label": "IDMC/IOM internal displacement layer",
             "score": 0.8628271378622986
           }
         ],
-        "highPathways": "Existing displacement proxy; Gender vulnerability; IDMC/IOM public displacement layer; Agriculture and fertilizer exposure",
+        "highPathways": "Legacy external displacement proxy; Gender vulnerability; IDMC/IOM internal displacement layer; Agriculture and fertilizer exposure",
         "mediumPathways": "Assistance/funding pressure; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
@@ -12019,7 +12019,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           }
         ],
         "highPathways": "Assistance/funding pressure; Gender vulnerability; IPC acute food insecurity; Food/fuel import exposure",
-        "mediumPathways": "IDMC/IOM public displacement layer; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
+        "mediumPathways": "IDMC/IOM internal displacement layer; Agriculture and fertilizer exposure; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
           "price_pressure_score": 0.28660371643195864,
@@ -12201,7 +12201,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           }
         ],
         "highPathways": "Domestic food-price pressure; Food/fuel import exposure; Assistance/funding pressure",
-        "mediumPathways": "IDMC/IOM public displacement layer; Gender vulnerability; Public WFP food-security outcome layer",
+        "mediumPathways": "IDMC/IOM internal displacement layer; Gender vulnerability; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
           "price_pressure_score": 0.9366821498799289,
@@ -12381,11 +12381,11 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "score": 0.81
           },
           {
-            "label": "IDMC/IOM public displacement layer",
+            "label": "IDMC/IOM internal displacement layer",
             "score": 0.7812197157424435
           }
         ],
-        "highPathways": "Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM public displacement layer",
+        "highPathways": "Assistance/funding pressure; IPC acute food insecurity; IDMC/IOM internal displacement layer",
         "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Domestic food-price pressure; Public WFP food-security outcome layer",
         "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; monitor IDMC/IOM displacement updates and protection/access constraints; track assistance coverage, ration size and funding-pipeline pressure",
         "components": {
@@ -12558,7 +12558,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           }
         ],
         "highPathways": "Assistance/funding pressure; Domestic food-price pressure",
-        "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; IPC acute food insecurity; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
+        "mediumPathways": "Agriculture and fertilizer exposure; Gender vulnerability; IPC acute food insecurity; IDMC/IOM internal displacement layer; Public WFP food-security outcome layer",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; track fertilizer availability, planting decisions and farmer input support; review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure; prioritize women-headed households and informal/vulnerable female workers in monitoring",
         "components": {
           "price_pressure_score": 0.6822660755406463,
@@ -12737,7 +12737,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           }
         ],
         "highPathways": "IPC acute food insecurity; Assistance/funding pressure",
-        "mediumPathways": "Food/fuel import exposure; IDMC/IOM public displacement layer; Public WFP food-security outcome layer",
+        "mediumPathways": "Food/fuel import exposure; IDMC/IOM internal displacement layer; Public WFP food-security outcome layer",
         "technicalFocus": "review IPC/WFP outcome updates and request sex-disaggregated FCS/rCSI/LCS; track assistance coverage, ration size and funding-pipeline pressure",
         "components": {
           "price_pressure_score": 0.30913791619534187,
@@ -12913,16 +12913,16 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "score": 0.7357452427761262
           },
           {
-            "label": "IDMC/IOM public displacement layer",
+            "label": "IDMC/IOM internal displacement layer",
             "score": 0.6680619231942029
           },
           {
-            "label": "Existing displacement proxy",
+            "label": "Legacy external displacement proxy",
             "score": 0.5434621044507074
           }
         ],
         "highPathways": "Domestic food-price pressure",
-        "mediumPathways": "IDMC/IOM public displacement layer; Existing displacement proxy; Agriculture and fertilizer exposure; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
+        "mediumPathways": "IDMC/IOM internal displacement layer; Legacy external displacement proxy; Agriculture and fertilizer exposure; Food/fuel import exposure; IPC acute food insecurity; Assistance/funding pressure",
         "technicalFocus": "prioritize monthly market-price, exchange-rate and import-cost monitoring; monitor IDMC/IOM displacement updates and protection/access constraints",
         "components": {
           "price_pressure_score": 0.7357452427761262,
@@ -13107,7 +13107,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           }
         ],
         "highPathways": null,
-        "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Agriculture and fertilizer exposure; IDMC/IOM public displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
+        "mediumPathways": "Gender vulnerability; Food/fuel import exposure; Agriculture and fertilizer exposure; IDMC/IOM internal displacement layer; IPC acute food insecurity; Public WFP food-security outcome layer; Assistance/funding pressure",
         "technicalFocus": "maintain screening watch and fill missing component data",
         "components": {
           "price_pressure_score": 0.45673006003683875,

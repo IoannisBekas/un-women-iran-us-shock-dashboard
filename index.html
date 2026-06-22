@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
       content="UN Women analytical overview for the Iran-USA regional escalation shock model across food security, displacement, assistance and gender-vulnerability pathways."
     />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260611-header-width" />
+    <link rel="stylesheet" href="styles.css?v=20260622-gender-displacement" />
     <script>document.documentElement.classList.add("auth-locked");</script>
     <script src="auth.js?v=20260603-lock" defer></script>
   </head>
@@ -37,9 +37,9 @@
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
             <a class="hero-action-primary" href="#findings" aria-current="page">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260615-data#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260615-data">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260615-data">Dictionary</a>
+            <a class="hero-action-secondary" href="country.html?v=20260622-gender-displacement#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260622-gender-displacement">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260622-gender-displacement">Dictionary</a>
           </div>
         </div>
       </div>
@@ -77,9 +77,9 @@
           </div>
           <p class="definition-note dictionary-link-note">
             For country-level filters and scenario exploration, open the
-            <a href="country.html?v=20260615-data">country lens</a>. For the full calculation logic and caveats, open the
-            <a href="methodology.html?v=20260615-data">methodology page</a>. For definitions, open the
-            <a href="dictionary.html?v=20260615-data">dashboard dictionary</a>.
+            <a href="country.html?v=20260622-gender-displacement">country lens</a>. For the full calculation logic and caveats, open the
+            <a href="methodology.html?v=20260622-gender-displacement">methodology page</a>. For definitions, open the
+            <a href="dictionary.html?v=20260622-gender-displacement">dashboard dictionary</a>.
           </p>
         </details>
       </section>
@@ -190,6 +190,44 @@
         </article>
       </section>
 
+      <section class="gender-lens-section" aria-labelledby="gender-lens-title">
+        <div class="section-heading">
+          <p class="eyebrow">UN Women gender and displacement readout</p>
+          <h2 id="gender-lens-title">Gender proxy and internal displacement are explicit model layers</h2>
+          <p>
+            This readout separates the older displacement proxy from the IDMC/IOM internal-displacement layer
+            and shows which pressure pathways feed the gender-sensitive prioritization lens.
+          </p>
+        </div>
+        <div class="gender-lens-grid">
+          <article class="chart-card">
+            <div class="card-title-row compact">
+              <div>
+                <p class="eyebrow">Selected country</p>
+                <h3 id="gender-driver-title">Gender-lens drivers</h3>
+              </div>
+              <span class="source-pill">0-1 inputs</span>
+            </div>
+            <div class="chart-wrap compact-chart">
+              <canvas id="gender-driver-chart"></canvas>
+            </div>
+            <p class="chart-note">Driver bars show selected-country component scores used by the gender-sensitive proxy. They are pressure signals, not measured women/girls outcomes.</p>
+          </article>
+
+          <article class="evidence-panel">
+            <p class="eyebrow">Gender analysis</p>
+            <h2>Priority list and evidence boundary</h2>
+            <div id="gender-lens-list" class="lens-list"></div>
+          </article>
+
+          <article class="evidence-panel wide">
+            <p class="eyebrow">Displacement clarification</p>
+            <h2>Internal displacement is included separately</h2>
+            <div id="displacement-clarity-list" class="lens-list"></div>
+          </article>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
@@ -199,8 +237,8 @@
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260615-data"></script>
-    <script src="app.js?v=20260611-responsive-qa-fixes"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260622-gender-displacement"></script>
+    <script src="app.js?v=20260622-gender-displacement"></script>
   </body>
 </html>
 

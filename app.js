@@ -78,6 +78,15 @@ const SCENARIO_LEVEL_LABELS = {
 const LANDLOCKED_ISO3 = new Set(["AFG", "ARM", "BFA", "ETH", "MLI", "MDA", "SSD"]);
 const GEOGRAPHY_OPTIONS = ["All geographies", "Landlocked", "Coastal or island"];
 
+const GENDER_DRIVER_COMPONENTS = [
+  { key: "gender_vulnerability_score", label: "Gender vulnerability", color: COLORS.red },
+  { key: "acute_food_insecurity_score", label: "IPC severity", color: COLORS.gold },
+  { key: "public_displacement_layer_score", label: "Internal displacement", color: COLORS.blue },
+  { key: "assistance_pressure_score", label: "Assistance pressure", color: COLORS.teal },
+  { key: "wfp_food_security_outcome_score", label: "WFP outcome layer", color: COLORS.neutral },
+  { key: "price_pressure_score", label: "Food-price pressure", color: COLORS.navy },
+];
+
 const state = {
   region: "All regions",
   geography: "All geographies",
@@ -117,6 +126,24 @@ function createMobileTableCard(title, meta, rows) {
   return card;
 }
 
+function appendLensItem(container, label, value, note = "") {
+  const item = document.createElement("div");
+  item.className = "lens-item";
+  const copy = document.createElement("div");
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+  const span = document.createElement("span");
+  span.textContent = value || "n/a";
+  copy.append(strong, span);
+  item.appendChild(copy);
+  if (note) {
+    const p = document.createElement("p");
+    p.textContent = note;
+    item.appendChild(p);
+  }
+  container.appendChild(item);
+}
+
 function setMobileFiltersExpanded(expanded) {
   if (!el.controlsBand) return;
   el.controlsBand.dataset.expanded = expanded ? "true" : "false";
@@ -133,6 +160,7 @@ const charts = {
   scenario: null,
   region: null,
   gender: null,
+  genderDrivers: null,
 };
 
 let map;
@@ -178,6 +206,7 @@ const el = {
   countryConfidence: document.getElementById("country-confidence"),
   pathwayList: document.getElementById("pathway-list"),
   countryFocus: document.getElementById("country-focus"),
+  countryGenderList: document.getElementById("country-gender-list"),
   map: document.getElementById("country-map"),
   mapReset: document.getElementById("map-reset"),
   scenarioTitle: document.getElementById("scenario-title"),
@@ -187,6 +216,9 @@ const el = {
   scenarioNote: document.getElementById("scenario-note"),
   readinessList: document.getElementById("readiness-list"),
   coverageList: document.getElementById("coverage-list"),
+  genderDriverTitle: document.getElementById("gender-driver-title"),
+  genderLensList: document.getElementById("gender-lens-list"),
+  displacementClarityList: document.getElementById("displacement-clarity-list"),
   countryTableBody: document.getElementById("country-table-body"),
   countryTableCardList: document.getElementById("country-table-card-list"),
   countryTableSummary: document.getElementById("country-table-summary"),
@@ -319,6 +351,13 @@ function countryByIso(iso3) {
 
 function countryGeography(country) {
   return LANDLOCKED_ISO3.has(country.iso3) ? "Landlocked" : "Coastal or island";
+}
+
+function displayPathwayLabel(label) {
+  if (!label) return "n/a";
+  return String(label)
+    .replaceAll("Existing displacement proxy", "Legacy external displacement proxy")
+    .replaceAll("IDMC/IOM public displacement layer", "IDMC/IOM internal displacement layer");
 }
 
 function matchesGeography(country) {
@@ -893,7 +932,7 @@ function renderCountryProfile() {
       const text = document.createElement("div");
       const label = document.createElement("div");
       label.className = "pathway-label";
-      label.textContent = pathway.label;
+      label.textContent = displayPathwayLabel(pathway.label);
       const meter = document.createElement("div");
       meter.className = "pathway-meter";
       const fill = document.createElement("span");
@@ -1114,6 +1153,142 @@ function renderGenderChart() {
   });
 }
 
+function renderGenderDriverChart() {
+  if (!window.Chart) return;
+  destroyChart("genderDrivers");
+  const ctx = document.getElementById("gender-driver-chart");
+  if (!ctx) return;
+  const country = countryByIso(state.selectedIso);
+  if (el.genderDriverTitle) el.genderDriverTitle.textContent = `${country.country}: gender-lens drivers`;
+  const entries = GENDER_DRIVER_COMPONENTS.map((entry) => ({
+    ...entry,
+    value: country.components?.[entry.key],
+  }));
+  charts.genderDrivers = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: entries.map((entry) => entry.label),
+      datasets: [
+        {
+          label: country.country,
+          data: entries.map((entry) => entry.value),
+          backgroundColor: entries.map((entry) => entry.color),
+          borderRadius: 2,
+        },
+      ],
+    },
+    options: baseChartOptions({
+      indexAxis: "y",
+      scales: {
+        x: {
+          min: 0,
+          max: 1,
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Bounded component score, 0-1", color: COLORS.muted, font: chartFont() },
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont() },
+        },
+      },
+    }),
+  });
+}
+
+function renderGenderLensList() {
+  if (!el.genderLensList) return;
+  el.genderLensList.innerHTML = "";
+  const rows = filteredCountries()
+    .filter((country) => country.genderProxy?.score !== null && country.genderProxy?.score !== undefined)
+    .sort((a, b) => (b.genderProxy.score || 0) - (a.genderProxy.score || 0))
+    .slice(0, 3);
+  rows.forEach((country) => {
+    appendLensItem(
+      el.genderLensList,
+      `#${country.genderProxy.rank || "n/a"} ${country.country}`,
+      `${fmt(country.genderProxy.score)} gender proxy score`,
+      country.genderProxy.boundary || "Proxy exposure priority only - not a measured outcome."
+    );
+  });
+  const saddAvailable = data.countries.filter((country) => country.readiness?.sexDisaggregatedOutcomeAvailable).length;
+  appendLensItem(
+    el.genderLensList,
+    "Measured women/girls outcome coverage",
+    `${fmtInt(saddAvailable)}/${fmtInt(data.countries.length)} countries`,
+    "Public IPC rows are total-population severity; the dashboard does not infer women/girls IPC counts."
+  );
+}
+
+function renderDisplacementClarity() {
+  if (!el.displacementClarityList) return;
+  el.displacementClarityList.innerHTML = "";
+  appendLensItem(
+    el.displacementClarityList,
+    "How to read a zero legacy displacement score",
+    "Zero in the legacy proxy does not mean no internal displacement",
+    "The refreshed model keeps the older external/refugee-style displacement proxy separate from the IDMC/IOM internal-displacement layer."
+  );
+  ["PSE", "YEM"].map((iso3) => data.countries.find((country) => country.iso3 === iso3)).filter(Boolean).forEach((country) => {
+    const legacy = country.components?.displacement_pressure_score;
+    const internal = country.components?.public_displacement_layer_score;
+    appendLensItem(
+      el.displacementClarityList,
+      country.country,
+      `Legacy ${fmt(legacy, 2)} | IDMC/IOM internal ${fmt(internal, 2)}`,
+      `Context: ${fmtCompact(country.indicators?.idmcConflictTotalDisplacement)} IDMC conflict IDPs; ${fmtCompact(country.indicators?.iomLatestIdpSum)} IOM selected DTM IDPs where public summaries were pulled.`
+    );
+  });
+}
+
+function renderCountryGenderLens() {
+  if (!el.countryGenderList) return;
+  const country = countryByIso(state.selectedIso);
+  el.countryGenderList.innerHTML = "";
+  appendLensItem(
+    el.countryGenderList,
+    "Gender proxy priority",
+    `${fmt(country.genderProxy?.score)} (${country.genderProxy?.tier || "tier n/a"})`,
+    country.genderProxy?.boundary || "Proxy exposure priority only - not a measured before/after impact on girls or women."
+  );
+  appendLensItem(
+    el.countryGenderList,
+    "Gender vulnerability component",
+    fmt(country.components?.gender_vulnerability_score, 2),
+    "Structural gender/labour vulnerability input; it is separate from measured food-security outcomes."
+  );
+  appendLensItem(
+    el.countryGenderList,
+    "IPC input",
+    `${fmtPct(country.indicators?.ipcPhase3PlusPct)} Phase 3+ total population`,
+    "IPC is used, but the public IPC pull is not sex-disaggregated."
+  );
+  appendLensItem(
+    el.countryGenderList,
+    "Internal displacement layer",
+    `IDMC/IOM score ${fmt(country.components?.public_displacement_layer_score, 2)}`,
+    `${fmtCompact(country.indicators?.idmcConflictTotalDisplacement)} IDMC conflict IDPs; ${fmtCompact(country.indicators?.iomLatestIdpSum)} IOM selected DTM IDPs where available.`
+  );
+  appendLensItem(
+    el.countryGenderList,
+    "Legacy displacement proxy",
+    fmt(country.components?.displacement_pressure_score, 2),
+    "Continuity proxy from the earlier model package; interpret separately from internal displacement."
+  );
+  appendLensItem(
+    el.countryGenderList,
+    "Assistance pressure",
+    fmt(country.components?.assistance_pressure_score, 2),
+    "Included in the gender proxy because assistance access and funding constraints can have differential gender effects."
+  );
+  appendLensItem(
+    el.countryGenderList,
+    "Female labour and household proxy",
+    `${fmtPct(country.informality?.femaleInformalEmploymentPct)} informal employment | ${fmtPct(country.indicators?.femaleHeadedHouseholdsPct)} female-headed households`,
+    "Use as structural vulnerability evidence and a prompt for field validation."
+  );
+}
+
 function renderReadiness() {
   if (!el.readinessList) return;
   const country = countryByIso(state.selectedIso);
@@ -1185,7 +1360,7 @@ function renderTable() {
           ["Score", fmt(country.score)],
           ["Tier", country.riskTier || "n/a"],
           ["Data confidence", country.dataConfidence?.level || "n/a"],
-          ["Top pathway", country.pathways?.[0]?.label || "n/a"],
+          ["Top pathway", displayPathwayLabel(country.pathways?.[0]?.label)],
           ["Gender proxy", fmt(country.genderProxy?.score)],
           ["Main gap", country.readiness?.mainGap || "n/a"],
         ]
@@ -1200,7 +1375,7 @@ function renderTable() {
       fmt(country.score),
       country.riskTier || "n/a",
       country.dataConfidence?.level || "n/a",
-      country.pathways?.[0]?.label || "n/a",
+      displayPathwayLabel(country.pathways?.[0]?.label),
       fmtPct(country.indicators.ipcPhase3PlusPct),
       fmt(country.genderProxy?.score),
       fmtPct(country.indicators?.femaleHeadedHouseholdsPct),
@@ -1347,6 +1522,10 @@ function renderAll() {
   renderScenarioChart();
   renderRegionChart();
   renderGenderChart();
+  renderGenderDriverChart();
+  renderGenderLensList();
+  renderDisplacementClarity();
+  renderCountryGenderLens();
   renderReadiness();
   renderCoverage();
   renderTable();

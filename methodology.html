@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,7 +9,7 @@
       name="description"
       content="Methodology, calculations, caveats and interpretation boundaries for the UN Women Iran-USA regional escalation shock dashboard."
     />
-    <link rel="stylesheet" href="styles.css?v=20260611-header-width" />
+    <link rel="stylesheet" href="styles.css?v=20260622-gender-displacement" />
     <script>document.documentElement.classList.add("auth-locked");</script>
     <script src="auth.js?v=20260603-lock" defer></script>
   </head>
@@ -23,7 +23,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260615-data#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260622-gender-displacement#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260615-data#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260615-data#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="index.html?v=20260622-gender-displacement#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260622-gender-displacement#country-lens">Country Lens</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260615-data">Dictionary</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260622-gender-displacement">Dictionary</a>
           </div>
         </div>
       </div>
@@ -68,6 +68,7 @@
       <section class="term-nav" aria-label="Methodology section links">
         <a href="#analytical-frame">Analytical frame</a>
         <a href="#index-calculation">Index calculation</a>
+        <a href="#gender-displacement-method">Gender/displacement lens</a>
         <a href="#before-after-method">Before/after method</a>
         <a href="#scenario-method">Scenario method</a>
         <a href="#caveats">Caveats</a>
@@ -95,10 +96,10 @@
         <p>
           The exposure framework combines domestic food-price pressure, food and fuel import exposure,
           agriculture and fertilizer exposure, IPC acute food insecurity, public WFP food-security
-          outcome availability, displacement, assistance and funding pressure, and gender
-          vulnerability. These pathways are intentionally broader than prices because the food-security
-          story is also shaped by import dependence, assistance access, displacement and structural
-          vulnerability.
+          outcome availability, a legacy external displacement proxy, an IDMC/IOM internal-displacement
+          layer, assistance and funding pressure, and gender vulnerability. These pathways are
+          intentionally broader than prices because the food-security story is also shaped by import
+          dependence, assistance access, displacement and structural vulnerability.
         </p>
       </section>
 
@@ -122,6 +123,39 @@
         </p>
         <h3>Current index weights</h3>
         <ol id="methodology-weights-list" class="methodology-weight-text-list"></ol>
+      </section>
+
+      <section id="gender-displacement-method" class="methodology-text-section" aria-labelledby="gender-displacement-method-title" data-methodology-section>
+        <p class="eyebrow">Gender and displacement</p>
+        <h2 id="gender-displacement-method-title">How displacement, IPC and gender proxy inputs are used</h2>
+        <p>
+          Displacement is intentionally split into two model fields. The <strong>legacy external
+          displacement proxy</strong> is retained for continuity with the earlier package and can be
+          zero for countries where that older proxy does not capture the relevant movement pattern.
+          The <strong>IDMC/IOM internal-displacement layer</strong> is the separate refreshed input
+          that uses public IDMC and IOM DTM evidence for internal displacement stocks, selected events
+          and DTM summaries where available.
+        </p>
+        <p>
+          This means a country such as Palestine or Yemen can show a zero legacy displacement proxy
+          while still carrying nonzero internal-displacement pressure through the IDMC/IOM layer. The
+          zero should therefore be read as "not captured by the legacy proxy", not as "no internal
+          displacement pressure".
+        </p>
+        <p>
+          IPC data are used in the <strong>IPC acute food insecurity</strong> component, but the
+          public IPC pull is total population. The model does not convert total IPC values into
+          women/girls counts. That conversion would require current sex- and age-disaggregated food
+          security outcomes such as FCS, rCSI, LCS, assistance reach, access constraints, or
+          female-headed household outcomes.
+        </p>
+        <p>
+          The gender proxy priority score combines the official exposure score with structural gender
+          vulnerability and selected humanitarian pressure inputs, including internal displacement and
+          assistance pressure. The rationale is that displacement, aid access, funding cuts, food
+          prices and labour-market vulnerability can have differential gender effects. The score is a
+          prioritization lens for monitoring and field validation, not a measured impact estimate.
+        </p>
       </section>
 
       <section id="before-after-method" class="methodology-text-section" aria-labelledby="before-after-method-title" data-methodology-section>
@@ -223,7 +257,7 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260615-data"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260622-gender-displacement"></script>
     <script>
       const methodologyData = window.IRAN_US_SHOCK_DASHBOARD_DATA || {};
 

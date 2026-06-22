@@ -314,6 +314,7 @@ main > *,
 .headline-grid,
 .analysis-grid,
 .evidence-grid,
+.gender-lens-grid,
 .country-layout,
 .country-lens,
 .table-section,
@@ -832,6 +833,29 @@ body[data-page="country"] main > section[id] {
   gap: 16px;
 }
 
+.gender-lens-section {
+  padding: 20px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(232, 241, 239, 0.78), rgba(255, 250, 240, 0.9)),
+    var(--paper);
+  box-shadow: 0 12px 34px rgba(31, 35, 38, 0.07);
+}
+
+.gender-lens-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 16px;
+}
+
+.gender-lens-grid .wide {
+  grid-column: 1 / -1;
+}
+
+.evidence-panel.wide {
+  grid-column: 1 / -1;
+}
+
 .chart-card,
 .decision-card,
 .evidence-panel,
@@ -869,6 +893,10 @@ body[data-page="country"] main > section[id] {
   height: 330px;
   margin-top: 14px;
   min-width: 0;
+}
+
+.compact-chart {
+  height: 300px;
 }
 
 .ranking-chart-wrap {
@@ -910,6 +938,45 @@ canvas {
 .section-heading p {
   margin: 0;
   color: var(--muted);
+}
+
+.lens-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.lens-item {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.lens-item > div {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.lens-item strong {
+  color: var(--un-navy);
+  line-height: 1.2;
+}
+
+.lens-item span {
+  color: var(--ink);
+  font-weight: 800;
+  text-align: right;
+}
+
+.lens-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .before-after-section {
@@ -1554,7 +1621,8 @@ tbody tr:hover {
   .country-layout,
   .before-after-layout,
   .analysis-grid,
-  .evidence-grid {
+  .evidence-grid,
+  .gender-lens-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1673,6 +1741,15 @@ tbody tr:hover {
 
   .methodology-weight-text-list .weight-value {
     justify-items: start;
+  }
+
+  .lens-item > div {
+    display: grid;
+    gap: 4px;
+  }
+
+  .lens-item span {
+    text-align: left;
   }
 
   .before-after-section {
