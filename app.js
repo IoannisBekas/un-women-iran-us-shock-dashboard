@@ -204,6 +204,10 @@ const el = {
   countryProxyRank: document.getElementById("country-proxy-rank"),
   countryMissing: document.getElementById("country-missing"),
   countryConfidence: document.getElementById("country-confidence"),
+  countryImputationPanel: document.getElementById("country-imputation-panel"),
+  countryImputationCount: document.getElementById("country-imputation-count"),
+  countryImputationList: document.getElementById("country-imputation-list"),
+  countryImputationNote: document.getElementById("country-imputation-note"),
   pathwayList: document.getElementById("pathway-list"),
   countryFocus: document.getElementById("country-focus"),
   countryGenderList: document.getElementById("country-gender-list"),
@@ -922,6 +926,8 @@ function renderCountryProfile() {
   el.countryConfidence.parentElement.title = country.dataConfidence?.note || "";
   el.countryFocus.textContent = country.technicalFocus || "No technical focus note available.";
 
+  renderImputationPanel(country);
+
   el.pathwayList.innerHTML = "";
   country.pathways
     .filter((pathway) => pathway.label)
@@ -948,6 +954,38 @@ function renderCountryProfile() {
       item.appendChild(score);
       el.pathwayList.appendChild(item);
     });
+}
+
+function renderImputationPanel(country) {
+  if (!hasElement(el.countryImputationPanel, el.countryImputationCount, el.countryImputationList, el.countryImputationNote)) return;
+  const missingComponents = Array.isArray(country.missingComponents) ? country.missingComponents : [];
+  const warningText = country.dataConfidence?.warnings?.filter((warning) => !/score component/i.test(warning)).join("; ");
+  el.countryImputationCount.textContent = missingComponents.length
+    ? `${fmtInt(missingComponents.length)} flagged`
+    : "None flagged";
+  el.countryImputationList.innerHTML = "";
+
+  if (!missingComponents.length) {
+    const item = document.createElement("li");
+    item.textContent = "No neutral-imputed score components are flagged in the official Component_Scores sheet for this country.";
+    el.countryImputationList.appendChild(item);
+    el.countryImputationPanel.dataset.status = "complete";
+  } else {
+    missingComponents.forEach((component) => {
+      const item = document.createElement("li");
+      const label = document.createElement("strong");
+      label.textContent = component.label || component.key || "Missing component";
+      const detail = document.createElement("span");
+      detail.textContent = component.interpretation || "Source input is missing or unavailable; use the score with data-confidence caution.";
+      item.append(label, detail);
+      el.countryImputationList.appendChild(item);
+    });
+    el.countryImputationPanel.dataset.status = "flagged";
+  }
+
+  el.countryImputationNote.textContent = warningText
+    ? `Additional data-quality notes: ${warningText}.`
+    : "These flags identify missing source inputs used by the composite score; they are not evidence that the issue is absent.";
 }
 
 function renderComponentChart() {

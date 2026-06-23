@@ -11,7 +11,7 @@
     />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260622-gender-displacement" />
+    <link rel="stylesheet" href="styles.css?v=20260623-data-flags" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -23,7 +23,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260622-gender-displacement#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260623-data-flags#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,10 +35,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260622-gender-displacement#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260623-data-flags#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260622-gender-displacement">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260622-gender-displacement">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260623-data-flags">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260623-data-flags">Dictionary</a>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
           <div class="controls-compact-copy">
             <span class="control-label">Current view</span>
             <strong id="compact-filter-title">Country filters</strong>
-            <span id="compact-filter-subtitle">All regions · all geographies</span>
+            <span id="compact-filter-subtitle">All regions &middot; all geographies</span>
           </div>
           <button id="mobile-filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="controls-panel">Filters</button>
         </div>
@@ -121,6 +121,14 @@
                 <span class="metric-label">Data confidence</span>
                 <strong id="country-confidence">-</strong>
               </div>
+            </div>
+            <div id="country-imputation-panel" class="imputation-panel" aria-live="polite">
+              <div class="imputation-heading">
+                <span class="metric-label">Neutral/imputed score components</span>
+                <strong id="country-imputation-count">-</strong>
+              </div>
+              <ul id="country-imputation-list"></ul>
+              <p id="country-imputation-note"></p>
             </div>
             <div id="pathway-list" class="pathway-list"></div>
             <p id="country-focus" class="profile-note"></p>
@@ -335,7 +343,7 @@
         <p>
           Country and scenario filters change the exploration view; they do not change official model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260622-gender-displacement">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260623-data-flags">methodology page</a>.
         </p>
       </section>
     </main>
@@ -348,8 +356,8 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260622-gender-displacement"></script>
-    <script src="app.js?v=20260622-gender-displacement"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260623-data-flags"></script>
+    <script src="app.js?v=20260623-data-flags"></script>
   </body>
 </html>
 

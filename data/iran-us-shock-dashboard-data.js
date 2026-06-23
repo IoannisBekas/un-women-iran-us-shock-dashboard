@@ -1,6 +1,6 @@
 window.IRAN_US_SHOCK_DASHBOARD_DATA = {
   "metadata": {
-    "generated": "2026-06-15",
+    "generated": "2026-06-23",
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
     "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
     "status": "Draft analytical dashboard - internal review version",
@@ -89,6 +89,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6491951593063765
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -274,6 +282,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6011951287318829
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -465,6 +481,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.8735112790014381
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -656,6 +680,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.8206761704087784
       },
       "componentMissingCount": 0,
+      "missingComponents": [],
       "dataConfidence": {
         "level": "Stronger",
         "note": "Core public model inputs are comparatively stronger for this country.",
@@ -838,6 +863,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6145729849083126
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -1023,6 +1056,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5770997713722872
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "price_pressure_score",
+          "label": "Domestic food-price pressure",
+          "flagField": "price_pressure_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "2 score component(s) use missing or neutral inputs; price event-study setup is not ready.",
@@ -1195,6 +1242,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6451258916847351
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -1374,6 +1429,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.4733820592478355
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -1559,6 +1622,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.44295402881904683
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; latest IPC country value is unavailable.",
@@ -1744,6 +1815,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5777339745610489
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -1924,6 +2009,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.8283909795241201
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -2109,6 +2202,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6991929440892671
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -2294,6 +2395,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.46051261745658356
       },
       "componentMissingCount": 3,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "public_displacement_layer_score",
+          "label": "IDMC/IOM internal displacement layer",
+          "flagField": "public_displacement_layer_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "3 score components use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -2474,6 +2595,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5820650164425495
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "2 score component(s) use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -2648,6 +2783,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.5992116315579189
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; latest IPC country value is unavailable.",
@@ -2839,6 +2982,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.49423881072847586
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -3019,6 +3176,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6544651879858416
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -3198,6 +3363,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.45158115435664736
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -3383,6 +3556,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.37058414211010066
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -3563,6 +3750,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.35360295043429557
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -3749,6 +3950,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.39452309935796337
       },
       "componentMissingCount": 3,
+      "missingComponents": [
+        {
+          "key": "price_pressure_score",
+          "label": "Domestic food-price pressure",
+          "flagField": "price_pressure_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -3923,6 +4144,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.36578835085884015
       },
       "componentMissingCount": 3,
+      "missingComponents": [
+        {
+          "key": "price_pressure_score",
+          "label": "Domestic food-price pressure",
+          "flagField": "price_pressure_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -4097,6 +4338,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.298189873019028
       },
       "componentMissingCount": 3,
+      "missingComponents": [
+        {
+          "key": "price_pressure_score",
+          "label": "Domestic food-price pressure",
+          "flagField": "price_pressure_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -4271,6 +4532,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.4594796839175478
       },
       "componentMissingCount": 0,
+      "missingComponents": [],
       "dataConfidence": {
         "level": "Stronger",
         "note": "Core public model inputs are comparatively stronger for this country.",
@@ -4453,6 +4715,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.4556311986749134
       },
       "componentMissingCount": 3,
+      "missingComponents": [
+        {
+          "key": "price_pressure_score",
+          "label": "Domestic food-price pressure",
+          "flagField": "price_pressure_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "3 score components use missing or neutral inputs; price event-study setup is not ready; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -4627,6 +4909,26 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.3744286078583846
       },
       "componentMissingCount": 3,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "public_displacement_layer_score",
+          "label": "IDMC/IOM internal displacement layer",
+          "flagField": "public_displacement_layer_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Limited",
         "note": "3 score components use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -4807,6 +5109,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.2184631683891872
       },
       "componentMissingCount": 2,
+      "missingComponents": [
+        {
+          "key": "acute_food_insecurity_score",
+          "label": "IPC acute food insecurity",
+          "flagField": "acute_food_insecurity_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        },
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
@@ -4993,6 +5309,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6321125330826396
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -11275,6 +11599,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "gender_vulnerability_score": 0.6491951593063765
       },
       "componentMissingCount": 1,
+      "missingComponents": [
+        {
+          "key": "wfp_food_security_outcome_score",
+          "label": "Public WFP food-security outcome layer",
+          "flagField": "wfp_food_security_outcome_missing",
+          "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+        }
+      ],
       "dataConfidence": {
         "level": "Partial",
         "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -11466,6 +11798,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6491951593063765
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -11651,6 +11991,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6011951287318829
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -11842,6 +12190,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.8735112790014381
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -12033,6 +12389,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.8206761704087784
         },
         "componentMissingCount": 0,
+        "missingComponents": [],
         "dataConfidence": {
           "level": "Stronger",
           "note": "Core public model inputs are comparatively stronger for this country.",
@@ -12215,6 +12572,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6145729849083126
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -12400,6 +12765,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.5770997713722872
         },
         "componentMissingCount": 2,
+        "missingComponents": [
+          {
+            "key": "price_pressure_score",
+            "label": "Domestic food-price pressure",
+            "flagField": "price_pressure_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          },
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Limited",
           "note": "2 score component(s) use missing or neutral inputs; price event-study setup is not ready.",
@@ -12572,6 +12951,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.6451258916847351
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -12751,6 +13138,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.4733820592478355
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; public WFP food-security outcome layer is unavailable.",
@@ -12936,6 +13331,14 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.44295402881904683
         },
         "componentMissingCount": 1,
+        "missingComponents": [
+          {
+            "key": "acute_food_insecurity_score",
+            "label": "IPC acute food insecurity",
+            "flagField": "acute_food_insecurity_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "1 score component(s) use missing or neutral inputs; latest IPC country value is unavailable.",
@@ -13121,6 +13524,20 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "gender_vulnerability_score": 0.5777339745610489
         },
         "componentMissingCount": 2,
+        "missingComponents": [
+          {
+            "key": "acute_food_insecurity_score",
+            "label": "IPC acute food insecurity",
+            "flagField": "acute_food_insecurity_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          },
+          {
+            "key": "wfp_food_security_outcome_score",
+            "label": "Public WFP food-security outcome layer",
+            "flagField": "wfp_food_security_outcome_missing",
+            "interpretation": "Source input is missing or unavailable; the component uses a neutral value where required for the composite score."
+          }
+        ],
         "dataConfidence": {
           "level": "Partial",
           "note": "2 score component(s) use missing or neutral inputs; latest IPC country value is unavailable; public WFP food-security outcome layer is unavailable.",
