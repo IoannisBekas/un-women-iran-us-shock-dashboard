@@ -144,6 +144,14 @@ function appendLensItem(container, label, value, note = "") {
   container.appendChild(item);
 }
 
+function appendText(parent, tagName, text, className = "") {
+  const node = document.createElement(tagName);
+  if (className) node.className = className;
+  node.textContent = text;
+  parent.appendChild(node);
+  return node;
+}
+
 function setMobileFiltersExpanded(expanded) {
   if (!el.controlsBand) return;
   el.controlsBand.dataset.expanded = expanded ? "true" : "false";
@@ -1261,21 +1269,96 @@ function renderGenderLensList() {
 function renderDisplacementClarity() {
   if (!el.displacementClarityList) return;
   el.displacementClarityList.innerHTML = "";
-  appendLensItem(
-    el.displacementClarityList,
-    "How to read a zero legacy displacement score",
-    "Zero in the legacy proxy does not mean no internal displacement",
-    "The current model keeps the older external/refugee-style displacement proxy separate from the IDMC/IOM internal-displacement layer."
+
+  const legacyWeight = fmtShare(data.indexWeights?.displacement_pressure_score, 0);
+  const internalWeight = fmtShare(data.indexWeights?.public_displacement_layer_score, 0);
+  const rule = document.createElement("div");
+  rule.className = "displacement-rule-panel";
+  const ruleCards = document.createElement("div");
+  ruleCards.className = "displacement-rule-grid";
+  [
+    [
+      "1. Legacy external/refugee proxy",
+      `${legacyWeight} of the index`,
+      "Continuity input from the earlier dashboard workflow. A 0.00 means the older proxy did not capture displacement pressure for that country."
+    ],
+    [
+      "2. IDMC/IOM internal displacement layer",
+      `${internalWeight} of the index`,
+      "Current internal-displacement evidence layer. This is where internal displacement is counted for Palestine, Yemen and similar cases."
+    ],
+  ].forEach(([title, value, note]) => {
+    const card = document.createElement("div");
+    card.className = "displacement-rule-item";
+    appendText(card, "strong", title);
+    appendText(card, "span", value);
+    appendText(card, "p", note);
+    ruleCards.appendChild(card);
+  });
+  rule.appendChild(ruleCards);
+  appendText(
+    rule,
+    "p",
+    "Interpretation rule: if the legacy proxy is 0.00 but the IDMC/IOM layer is above 0.00, the country is not a zero-displacement case. It has internal displacement relevance through the separate IDMC/IOM layer.",
+    "displacement-plain-language"
   );
+  el.displacementClarityList.appendChild(rule);
+
   ["PSE", "YEM"].map((iso3) => data.countries.find((country) => country.iso3 === iso3)).filter(Boolean).forEach((country) => {
     const legacy = country.components?.displacement_pressure_score;
     const internal = country.components?.public_displacement_layer_score;
-    appendLensItem(
-      el.displacementClarityList,
-      country.country,
-      `Legacy ${fmt(legacy, 2)} | IDMC/IOM internal ${fmt(internal, 2)}`,
-      `Context: ${fmtCompact(country.indicators?.idmcConflictTotalDisplacement)} IDMC conflict IDPs; ${fmtCompact(country.indicators?.iomLatestIdpSum)} IOM selected DTM IDPs where public summaries were pulled.`
+    const legacyPercent = clamp((numericValue(legacy) || 0) * 100, 0, 100);
+    const internalPercent = clamp((numericValue(internal) || 0) * 100, 0, 100);
+    const row = document.createElement("div");
+    row.className = "displacement-country-row";
+
+    const heading = document.createElement("div");
+    heading.className = "displacement-country-heading";
+    appendText(heading, "strong", country.country);
+    appendText(
+      heading,
+      "span",
+      `Readout: legacy ${fmt(legacy, 2)}, internal ${fmt(internal, 2)}`
     );
+    row.appendChild(heading);
+
+    appendText(
+      row,
+      "p",
+      `${country.country} has a ${fmt(legacy, 2)} legacy proxy score, but a ${fmt(internal, 2)} IDMC/IOM internal-displacement score. Treat it as internally displacement-relevant, not as a zero-displacement case.`,
+      "displacement-country-takeaway"
+    );
+
+    const metrics = document.createElement("div");
+    metrics.className = "displacement-score-pair";
+    [
+      ["Legacy external/refugee proxy", legacy, legacyPercent, "legacy"],
+      ["IDMC/IOM internal displacement layer", internal, internalPercent, "internal"],
+    ].forEach(([label, value, percent, type]) => {
+      const metric = document.createElement("div");
+      metric.className = `displacement-score-line ${type}`;
+      const header = document.createElement("div");
+      header.className = "displacement-score-header";
+      appendText(header, "span", label);
+      appendText(header, "strong", fmt(value, 2));
+      const track = document.createElement("div");
+      track.className = "displacement-score-track";
+      const fill = document.createElement("div");
+      fill.className = "displacement-score-fill";
+      fill.style.width = `${percent}%`;
+      track.appendChild(fill);
+      metric.append(header, track);
+      metrics.appendChild(metric);
+    });
+    row.appendChild(metrics);
+
+    const idmc = numericValue(country.indicators?.idmcConflictTotalDisplacement);
+    const iom = numericValue(country.indicators?.iomLatestIdpSum);
+    const idmcText = idmc === null ? "no IDMC conflict IDP value in the public pull" : `${fmtCompact(idmc)} IDMC conflict IDPs`;
+    const iomText = iom === null ? "no IOM selected DTM IDP value in public summaries" : `${fmtCompact(iom)} IOM selected DTM IDPs`;
+    appendText(row, "p", `Public evidence pulled: ${idmcText}; ${iomText}.`, "displacement-source-note");
+
+    el.displacementClarityList.appendChild(row);
   });
 }
 
