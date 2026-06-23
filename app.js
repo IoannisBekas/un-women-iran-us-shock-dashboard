@@ -518,7 +518,7 @@ function destroyChart(name) {
 
 function renderMeta() {
   if (el.methodBoundary) el.methodBoundary.textContent = data.metadata.methodBoundary;
-  if (el.footerSource) el.footerSource.textContent = "Source: UN Women analytical data package generated from public-source inputs.";
+  if (el.footerSource) el.footerSource.textContent = "Source: Public-source indicators and UN Women analytical calculations.";
 }
 
 function populateControls() {
@@ -693,7 +693,7 @@ function renderBeforeAfter() {
       ["Coverage count", `${supplementalLayerLabel(country)} across ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
       ["Layer detail", `ACLED ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
       ["Supplemental score check", supp.augmentedScore !== null && supp.augmentedScore !== undefined ? `Context-only score ${fmt(supp.augmentedScore)} / 100, rank ${supp.augmentedRank || "n/a"}${rankChange !== null ? `, rank change ${fmt(rankChange, 0)}` : ""}.` : "No context-only supplemental score is available."],
-      ["How to use it", supp.interpretation || "Use supplemental coverage to explain context and data gaps. The official Shock Exposure Index remains the main ranking."],
+      ["How to use it", supp.interpretation || "Use supplemental coverage to explain context and data gaps. The published Shock Exposure Index remains the main ranking."],
     ].forEach(([label, value]) => {
       const item = document.createElement("li");
       item.textContent = `${label}: ${value}`;
@@ -967,7 +967,7 @@ function renderImputationPanel(country) {
 
   if (!missingComponents.length) {
     const item = document.createElement("li");
-    item.textContent = "No neutral-imputed score components are flagged in the official Component_Scores sheet for this country.";
+    item.textContent = "No missing-input score components are flagged for this country in the published calculation.";
     el.countryImputationList.appendChild(item);
     el.countryImputationPanel.dataset.status = "complete";
   } else {
@@ -985,7 +985,7 @@ function renderImputationPanel(country) {
 
   el.countryImputationNote.textContent = warningText
     ? `Additional data-quality notes: ${warningText}.`
-    : "These flags identify missing source inputs used by the composite score; they are not evidence that the issue is absent.";
+    : "These flags identify missing inputs used by the composite score; they are not evidence that the issue is absent.";
 }
 
 function renderComponentChart() {
@@ -1051,7 +1051,7 @@ function renderScenarioChart() {
   if (el.scenarioSelectedRank) el.scenarioSelectedRank.textContent = selectedRow?.scenario_rank ? `#${selectedRow.scenario_rank}` : "n/a";
   if (el.scenarioNote) {
     el.scenarioNote.textContent = selectedRow
-      ? `${countryByIso(state.selectedIso).country} is summarized above. The bars show point movement from the official baseline score under the selected stress test; larger deltas mean higher scenario sensitivity, not a forecast.`
+      ? `${countryByIso(state.selectedIso).country} is summarized above. The bars show point movement from the published baseline score under the selected stress test; larger deltas mean higher scenario sensitivity, not a forecast.`
       : "No scenario row available for the selected country.";
   }
 
@@ -1265,7 +1265,7 @@ function renderDisplacementClarity() {
     el.displacementClarityList,
     "How to read a zero legacy displacement score",
     "Zero in the legacy proxy does not mean no internal displacement",
-    "The refreshed model keeps the older external/refugee-style displacement proxy separate from the IDMC/IOM internal-displacement layer."
+    "The current model keeps the older external/refugee-style displacement proxy separate from the IDMC/IOM internal-displacement layer."
   );
   ["PSE", "YEM"].map((iso3) => data.countries.find((country) => country.iso3 === iso3)).filter(Boolean).forEach((country) => {
     const legacy = country.components?.displacement_pressure_score;
@@ -1311,7 +1311,7 @@ function renderCountryGenderLens() {
     el.countryGenderList,
     "Legacy displacement proxy",
     fmt(country.components?.displacement_pressure_score, 2),
-    "Continuity proxy from the earlier model package; interpret separately from internal displacement."
+    "Continuity proxy from the earlier dashboard version; interpret separately from internal displacement."
   );
   appendLensItem(
     el.countryGenderList,
@@ -1384,7 +1384,7 @@ function renderTable() {
   if (el.countryTableSummary) {
     const geography = state.geography === "All geographies" ? "all geographies" : state.geography.toLowerCase();
     const region = state.region === "All regions" ? "all regions" : state.region;
-    el.countryTableSummary.textContent = `${countries.length} countries shown for ${region}, ${geography}; table mirrors source ranking fields. Use data confidence and main gap to see where interpretation is weaker.`;
+    el.countryTableSummary.textContent = `${countries.length} countries shown for ${region}, ${geography}; table summarizes published ranking fields. Use data confidence and main gap to see where interpretation is weaker.`;
   }
   if (el.countryTableCardList) {
     el.countryTableCardList.innerHTML = "";

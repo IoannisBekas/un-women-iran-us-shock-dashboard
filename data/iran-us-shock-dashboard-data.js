@@ -4,16 +4,16 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
     "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
     "status": "Draft analytical dashboard - internal review version",
-    "sourcePackage": "UN Women analytical data package",
+    "sourcePackage": "Public-source indicator compilation",
     "shockStartDate": "2026-02-28",
     "geography": "28 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, East/Southeast Asia, and Latin America and the Caribbean",
     "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across plausible escalation pathways: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
     "weightingMethod": {
-      "weightSource": "Expert-assigned project weights",
+      "weightSource": "Documented analytical weights",
       "processGuidance": "OECD/JRC Handbook on Constructing Composite Indicators: Methodology and User Guide",
       "imfUse": "Conceptual pathway framing only; no IMF numeric weights were used",
       "aggregation": "Shock Exposure Index = 100 x sum(component_score x component_weight)",
-      "sensitivity": "Weight_Sensitivity sheet tests base, displacement/outcome-heavy, gender/humanitarian-heavy and price/import-heavy alternatives"
+      "sensitivity": "Alternative weighting checks test whether country priorities change under different analytical emphases."
     }
   },
   "componentLabels": {
@@ -33,7 +33,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "agriculture_input_exposure_score": "Exposure through agriculture and fertilizer channels, especially where food production, rural livelihoods or input costs could be affected by regional price shocks.",
     "acute_food_insecurity_score": "Total-population acute food-insecurity severity from public IPC/HDX data, especially IPC Phase 3+ and worse. This is not sex-disaggregated.",
     "wfp_food_security_outcome_score": "Public WFP food-security outcome evidence, such as food consumption or coping indicators, where available. It receives modest weight because public coverage is sparse.",
-    "displacement_pressure_score": "Legacy external/refugee-style displacement proxy retained for continuity with the earlier model package. A zero here does not mean internal displacement is absent.",
+    "displacement_pressure_score": "Legacy external/refugee-style displacement proxy retained for continuity with the earlier dashboard version. A zero here does not mean internal displacement is absent.",
     "public_displacement_layer_score": "Public internal-displacement layer from IDMC and IOM DTM evidence, including conflict displacement stocks, events and selected DTM summaries.",
     "assistance_pressure_score": "Pressure from humanitarian funding and assistance constraints, using public OCHA FTS and related need/funding proxies where complete ration or reach data are unavailable.",
     "gender_vulnerability_score": "Structural and proxy evidence that women and girls may have less capacity to absorb food, price, income and displacement shocks. It uses gender/labour indicators such as female informal or vulnerable employment, female agricultural employment, labour-force participation and financial access where available. It is not a measured women/girls food-security outcome."
@@ -141,7 +141,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 195
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -151,7 +151,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-05-31",
           "phase3PlusPct": 41.0,
           "phase3PlusNumber": 19466533.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -214,7 +214,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 9116896.0,
         "idmcConflictNewDisplacement": 1732551.0,
         "idmcLatestYear": 2025.0,
@@ -240,7 +240,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.4833263585076395,
         "riskTier": "Very high",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -340,7 +340,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 248
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -350,7 +350,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-07-31",
           "phase3PlusPct": 56.00000000000001,
           "phase3PlusNumber": 7938973.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -413,7 +413,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 944894.0,
         "idmcConflictNewDisplacement": 863585.0,
         "idmcLatestYear": 2025.0,
@@ -439,7 +439,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -7.3801854882843685,
         "riskTier": "High",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -539,7 +539,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 472
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -549,7 +549,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2025-10-31",
           "phase3PlusPct": 28.000000000000004,
           "phase3PlusNumber": 13775635.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -612,7 +612,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 4355147.0,
         "idmcConflictNewDisplacement": 168265.0,
         "idmcLatestYear": 2025.0,
@@ -638,7 +638,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.990090466817875,
         "riskTier": "High",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -722,7 +722,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 236
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -732,7 +732,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-05-31",
           "phase3PlusPct": 47.0,
           "phase3PlusNumber": 4980505.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -795,7 +795,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": true,
         "layersPulled": 4,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 4795983.0,
         "idmcConflictNewDisplacement": 56798.0,
         "idmcLatestYear": 2025.0,
@@ -821,7 +821,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -2.0,
         "scoreDeltaVsOfficial": -6.278426928866963,
         "riskTier": "High",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -915,7 +915,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 495
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -925,7 +925,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-06-30",
           "phase3PlusPct": 31.0,
           "phase3PlusNumber": 6030282.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -988,7 +988,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 3347408.0,
         "idmcConflictNewDisplacement": 213669.0,
         "idmcLatestYear": 2025.0,
@@ -1014,7 +1014,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -3.0,
         "scoreDeltaVsOfficial": -8.43665055047041,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1101,7 +1101,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "marchYoYPct": null,
           "marchMatchedSeries": 0.0,
           "monthly": [],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -1111,7 +1111,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-06-30",
           "phase3PlusPct": 52.0,
           "phase3PlusNumber": 5834131.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -1174,7 +1174,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": true,
         "layersPulled": 4,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 1430903.0,
         "idmcConflictNewDisplacement": 976969.0,
         "idmcLatestYear": 2025.0,
@@ -1200,7 +1200,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 2.0,
         "scoreDeltaVsOfficial": -0.16509819478822152,
         "riskTier": "High",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1288,7 +1288,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 478
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -1298,7 +1298,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2021-06-30",
           "phase3PlusPct": 30.0,
           "phase3PlusNumber": 16756345.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -1361,7 +1361,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 2378032.0,
         "idmcConflictNewDisplacement": 352933.0,
         "idmcLatestYear": 2025.0,
@@ -1387,7 +1387,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -3.341246078014791,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1481,7 +1481,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 29
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -1491,7 +1491,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2025-11-30",
           "phase3PlusPct": 77.0,
           "phase3PlusNumber": 1600655.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -1554,7 +1554,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 2035131.0,
         "idmcConflictNewDisplacement": 2755779.0,
         "idmcLatestYear": 2025.0,
@@ -1580,7 +1580,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 3.0,
         "scoreDeltaVsOfficial": 0.92744910671626,
         "riskTier": "High",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1674,7 +1674,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 1850
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -1684,7 +1684,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -1747,7 +1747,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": true,
         "layersPulled": 4,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 5963668.0,
         "idmcConflictNewDisplacement": 531246.0,
         "idmcLatestYear": 2025.0,
@@ -1773,7 +1773,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.5046516693233585,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1868,7 +1868,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 184
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -1878,7 +1878,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -1941,7 +1941,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 3639400.0,
         "idmcConflictNewDisplacement": 572538.0,
         "idmcLatestYear": 2025.0,
@@ -1967,7 +1967,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -9.0,
         "scoreDeltaVsOfficial": -7.300776904335265,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2061,7 +2061,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 80
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -2071,7 +2071,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-03-31",
           "phase3PlusPct": 20.0,
           "phase3PlusNumber": 10553872.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -2134,7 +2134,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 269472.0,
         "idmcConflictNewDisplacement": 251407.0,
         "idmcLatestYear": 2025.0,
@@ -2160,7 +2160,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -9.0,
         "scoreDeltaVsOfficial": -6.789133172246714,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2254,7 +2254,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 511
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -2264,7 +2264,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2025-04-30",
           "phase3PlusPct": 16.0,
           "phase3PlusNumber": 15463347.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -2327,7 +2327,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 582991.0,
         "idmcConflictNewDisplacement": 221.0,
         "idmcLatestYear": 2025.0,
@@ -2353,7 +2353,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -11.0,
         "scoreDeltaVsOfficial": -5.460057508025024,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2454,7 +2454,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 24
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -2464,7 +2464,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -2527,7 +2527,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 1,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": null,
         "idmcConflictNewDisplacement": null,
         "idmcLatestYear": null,
@@ -2553,7 +2553,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -5.0,
         "scoreDeltaVsOfficial": -2.636598499519174,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2642,7 +2642,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "marchYoYPct": null,
           "marchMatchedSeries": 0.0,
           "monthly": [],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -2652,7 +2652,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -2715,7 +2715,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 529671.0,
         "idmcConflictNewDisplacement": 128198.0,
         "idmcLatestYear": 2025.0,
@@ -2741,7 +2741,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 4.0,
         "scoreDeltaVsOfficial": 1.5281695664222141,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2841,7 +2841,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 83
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -2851,7 +2851,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -2914,7 +2914,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": true,
         "layersPulled": 4,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 997334.0,
         "idmcConflictNewDisplacement": 31919.0,
         "idmcLatestYear": 2025.0,
@@ -2940,7 +2940,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -7.0,
         "scoreDeltaVsOfficial": -3.5550497882003143,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3035,7 +3035,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 14
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -3045,7 +3045,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -3108,7 +3108,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 0.0,
         "idmcConflictNewDisplacement": null,
         "idmcLatestYear": 2021.0,
@@ -3134,7 +3134,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -10.0,
         "scoreDeltaVsOfficial": -2.893033463052234,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3222,7 +3222,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 518
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -3232,7 +3232,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2025-12-31",
           "phase3PlusPct": 3.0,
           "phase3PlusNumber": 855640.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -3295,7 +3295,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 408646.0,
         "idmcConflictNewDisplacement": 95460.0,
         "idmcLatestYear": 2025.0,
@@ -3321,7 +3321,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -8.0,
         "scoreDeltaVsOfficial": -2.7605677160112307,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3415,7 +3415,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 148
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -3425,7 +3425,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-08-31",
           "phase3PlusPct": 24.0,
           "phase3PlusNumber": 1241715.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -3488,7 +3488,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 64417.0,
         "idmcConflictNewDisplacement": 41242.0,
         "idmcLatestYear": 2025.0,
@@ -3514,7 +3514,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 6.0,
         "scoreDeltaVsOfficial": 1.7932844394996437,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3609,7 +3609,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 2505
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -3619,7 +3619,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -3682,7 +3682,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 28324.0,
         "idmcConflictNewDisplacement": 70629.0,
         "idmcLatestYear": 2025.0,
@@ -3708,7 +3708,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 8.0,
         "scoreDeltaVsOfficial": 2.4528836304913355,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3809,7 +3809,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 352
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -3819,7 +3819,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -3882,7 +3882,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 0.0,
         "idmcConflictNewDisplacement": null,
         "idmcLatestYear": 2024.0,
@@ -3908,7 +3908,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -1.0,
         "scoreDeltaVsOfficial": 0.006530124545179206,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4003,7 +4003,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "marchYoYPct": null,
           "marchMatchedSeries": 0.0,
           "monthly": [],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -4013,7 +4013,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -4076,7 +4076,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 4806.0,
         "idmcConflictNewDisplacement": null,
         "idmcLatestYear": 2025.0,
@@ -4102,7 +4102,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 7.0,
         "scoreDeltaVsOfficial": 2.5335244126466563,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4197,7 +4197,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "marchYoYPct": null,
           "marchMatchedSeries": null,
           "monthly": [],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -4207,7 +4207,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -4270,7 +4270,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": null,
         "idmcConflictNewDisplacement": null,
         "idmcLatestYear": null,
@@ -4296,7 +4296,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 7.0,
         "scoreDeltaVsOfficial": 2.5773273263160377,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4391,7 +4391,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "marchYoYPct": null,
           "marchMatchedSeries": null,
           "monthly": [],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -4401,7 +4401,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -4464,7 +4464,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 2,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 272670.0,
         "idmcConflictNewDisplacement": 633131.0,
         "idmcLatestYear": 2025.0,
@@ -4490,7 +4490,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 10.0,
         "scoreDeltaVsOfficial": 2.799272773056117,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4574,7 +4574,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 293
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -4584,7 +4584,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2025-12-31",
           "phase3PlusPct": 12.0,
           "phase3PlusNumber": 27212933.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -4647,7 +4647,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": true,
         "layersPulled": 4,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 3495705.0,
         "idmcConflictNewDisplacement": 353624.0,
         "idmcLatestYear": 2025.0,
@@ -4673,7 +4673,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -0.6898111007225651,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4768,7 +4768,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "marchYoYPct": null,
           "marchMatchedSeries": 0.0,
           "monthly": [],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -4778,7 +4778,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -4841,7 +4841,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 35672.0,
         "idmcConflictNewDisplacement": 15478.0,
         "idmcLatestYear": 2025.0,
@@ -4867,7 +4867,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 8.0,
         "scoreDeltaVsOfficial": 2.537100724203306,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4968,7 +4968,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 390
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -4978,7 +4978,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -5041,7 +5041,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": false,
         "wfpFsiAvailable": false,
         "layersPulled": 1,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": null,
         "idmcConflictNewDisplacement": null,
         "idmcLatestYear": null,
@@ -5067,7 +5067,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -1.0,
         "scoreDeltaVsOfficial": -3.6243766398621773,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5168,7 +5168,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 749
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": false,
@@ -5178,7 +5178,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": null,
           "phase3PlusPct": null,
           "phase3PlusNumber": null,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -5241,7 +5241,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 3712000.0,
         "idmcConflictNewDisplacement": 167869.0,
         "idmcLatestYear": 2025.0,
@@ -5267,7 +5267,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 11.0,
         "scoreDeltaVsOfficial": 3.686952604941304,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5361,7 +5361,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 366
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -5371,7 +5371,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2024-05-31",
           "phase3PlusPct": 7.000000000000001,
           "phase3PlusNumber": 1749437.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -5434,7 +5434,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 2062534.0,
         "idmcConflictNewDisplacement": 315738.0,
         "idmcLatestYear": 2025.0,
@@ -5460,7 +5460,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -0.6712351923390045,
         "riskTier": "Moderate",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     }
   ],
@@ -11651,7 +11651,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
               "matchedSeries": 195
             }
           ],
-          "sourceSheet": "Model_Price_Panel"
+          "sourceEvidence": "Matched WFP/HDX food-price comparison input"
         },
         "ipcLatest": {
           "available": true,
@@ -11661,7 +11661,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "periodTo": "2026-05-31",
           "phase3PlusPct": 41.0,
           "phase3PlusNumber": 19466533.0,
-          "sourceSheet": "Raw_IPC_Natl_Latest"
+          "sourceEvidence": "Latest national IPC timing and severity evidence"
         }
       },
       "indicators": {
@@ -11724,7 +11724,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "iomDtmAvailable": true,
         "wfpFsiAvailable": false,
         "layersPulled": 3,
-        "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+        "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
         "idmcConflictTotalDisplacement": 9116896.0,
         "idmcConflictNewDisplacement": 1732551.0,
         "idmcLatestYear": 2025.0,
@@ -11750,7 +11750,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.4833263585076395,
         "riskTier": "Very high",
-        "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
       }
     },
     "veryHighOrHighCount": 9,
@@ -11850,7 +11850,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 195
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -11860,7 +11860,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2026-05-31",
             "phase3PlusPct": 41.0,
             "phase3PlusNumber": 19466533.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -11923,7 +11923,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": false,
           "layersPulled": 3,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 9116896.0,
           "idmcConflictNewDisplacement": 1732551.0,
           "idmcLatestYear": 2025.0,
@@ -11949,7 +11949,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -6.4833263585076395,
           "riskTier": "Very high",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12049,7 +12049,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 248
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -12059,7 +12059,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2026-07-31",
             "phase3PlusPct": 56.00000000000001,
             "phase3PlusNumber": 7938973.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -12122,7 +12122,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": false,
           "layersPulled": 3,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 944894.0,
           "idmcConflictNewDisplacement": 863585.0,
           "idmcLatestYear": 2025.0,
@@ -12148,7 +12148,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -7.3801854882843685,
           "riskTier": "High",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12248,7 +12248,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 472
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -12258,7 +12258,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2025-10-31",
             "phase3PlusPct": 28.000000000000004,
             "phase3PlusNumber": 13775635.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -12321,7 +12321,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": false,
           "layersPulled": 3,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 4355147.0,
           "idmcConflictNewDisplacement": 168265.0,
           "idmcLatestYear": 2025.0,
@@ -12347,7 +12347,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -6.990090466817875,
           "riskTier": "High",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12431,7 +12431,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 236
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -12441,7 +12441,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2026-05-31",
             "phase3PlusPct": 47.0,
             "phase3PlusNumber": 4980505.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -12504,7 +12504,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": true,
           "layersPulled": 4,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 4795983.0,
           "idmcConflictNewDisplacement": 56798.0,
           "idmcLatestYear": 2025.0,
@@ -12530,7 +12530,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": -2.0,
           "scoreDeltaVsOfficial": -6.278426928866963,
           "riskTier": "High",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12624,7 +12624,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 495
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -12634,7 +12634,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2026-06-30",
             "phase3PlusPct": 31.0,
             "phase3PlusNumber": 6030282.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -12697,7 +12697,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": false,
           "layersPulled": 3,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 3347408.0,
           "idmcConflictNewDisplacement": 213669.0,
           "idmcLatestYear": 2025.0,
@@ -12723,7 +12723,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": -3.0,
           "scoreDeltaVsOfficial": -8.43665055047041,
           "riskTier": "Moderate",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12810,7 +12810,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "marchYoYPct": null,
             "marchMatchedSeries": 0.0,
             "monthly": [],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -12820,7 +12820,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2026-06-30",
             "phase3PlusPct": 52.0,
             "phase3PlusNumber": 5834131.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -12883,7 +12883,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": true,
           "layersPulled": 4,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 1430903.0,
           "idmcConflictNewDisplacement": 976969.0,
           "idmcLatestYear": 2025.0,
@@ -12909,7 +12909,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 2.0,
           "scoreDeltaVsOfficial": -0.16509819478822152,
           "riskTier": "High",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12997,7 +12997,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 478
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -13007,7 +13007,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2021-06-30",
             "phase3PlusPct": 30.0,
             "phase3PlusNumber": 16756345.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -13070,7 +13070,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": false,
           "layersPulled": 3,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 2378032.0,
           "idmcConflictNewDisplacement": 352933.0,
           "idmcLatestYear": 2025.0,
@@ -13096,7 +13096,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -3.341246078014791,
           "riskTier": "Moderate",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13190,7 +13190,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 29
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": true,
@@ -13200,7 +13200,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": "2025-11-30",
             "phase3PlusPct": 77.0,
             "phase3PlusNumber": 1600655.0,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -13263,7 +13263,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": false,
           "wfpFsiAvailable": false,
           "layersPulled": 2,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 2035131.0,
           "idmcConflictNewDisplacement": 2755779.0,
           "idmcLatestYear": 2025.0,
@@ -13289,7 +13289,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 3.0,
           "scoreDeltaVsOfficial": 0.92744910671626,
           "riskTier": "High",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13383,7 +13383,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 1850
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": false,
@@ -13393,7 +13393,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": null,
             "phase3PlusPct": null,
             "phase3PlusNumber": null,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -13456,7 +13456,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": true,
           "wfpFsiAvailable": true,
           "layersPulled": 4,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 5963668.0,
           "idmcConflictNewDisplacement": 531246.0,
           "idmcLatestYear": 2025.0,
@@ -13482,7 +13482,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -6.5046516693233585,
           "riskTier": "Moderate",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13577,7 +13577,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
                 "matchedSeries": 184
               }
             ],
-            "sourceSheet": "Model_Price_Panel"
+            "sourceEvidence": "Matched WFP/HDX food-price comparison input"
           },
           "ipcLatest": {
             "available": false,
@@ -13587,7 +13587,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
             "periodTo": null,
             "phase3PlusPct": null,
             "phase3PlusNumber": null,
-            "sourceSheet": "Raw_IPC_Natl_Latest"
+            "sourceEvidence": "Latest national IPC timing and severity evidence"
           }
         },
         "indicators": {
@@ -13650,7 +13650,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "iomDtmAvailable": false,
           "wfpFsiAvailable": false,
           "layersPulled": 2,
-          "recommendation": "Weighted into refreshed Shock Exposure Index where numeric layer values are available; missing values are neutral-imputed and flagged.",
+          "recommendation": "Included in the current Shock Exposure Index where numeric layer values are available; missing inputs are set to a neutral value and flagged.",
           "idmcConflictTotalDisplacement": 3639400.0,
           "idmcConflictNewDisplacement": 572538.0,
           "idmcLatestYear": 2025.0,
@@ -13676,16 +13676,16 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": -9.0,
           "scoreDeltaVsOfficial": -7.300776904335265,
           "riskTier": "Moderate",
-          "interpretation": "Proposed source-augmented sensitivity score only; official ranking remains the Shock Exposure Index unless approved."
+          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
         }
       }
     ]
   },
   "keyMessages": [
     "Sudan and South Sudan have the highest current exposure scores in the 28-country scope.",
-    "Palestine moves into the High tier in the refreshed score because acute food insecurity and assistance pressure remain high and new public evidence layers are now included.",
+    "Palestine moves into the High tier in the current score because acute food insecurity and assistance pressure remain high and new public evidence layers are now included.",
     "New public displacement evidence increases measured pressure for Nigeria, Ukraine, Mali, Burkina Faso and Lebanon.",
-    "Data-confidence flags now identify countries where missing or neutral-imputed inputs make the ranking less certain.",
+    "Data-confidence flags identify countries where missing inputs make the ranking less certain.",
     "Assistance-cut and combined-shock scenarios create the largest cross-country risk increases in the current model.",
     "Use the dashboard for prioritization and monitoring; causal estimates for women and girls require sex- and age-disaggregated outcome data."
   ],
@@ -13706,7 +13706,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "notAvailable": [
       "ACLED event data are not included because account/API access was not available in this public-data workflow.",
       "IPC public data are not sex-disaggregated; the model does not infer women/girls IPC counts from total IPC values.",
-      "Public WFP food-security outcome coverage is available for only a small subset of the 28 countries, so missing values are neutral-imputed and flagged."
+      "Public WFP food-security outcome coverage is available for only a small subset of the 28 countries, so missing inputs are set to a neutral value and flagged."
     ]
   }
 };

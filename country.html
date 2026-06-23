@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260623-data-flags" />
+    <link rel="stylesheet" href="styles.css?v=20260623-public-copy" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260623-data-flags#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260623-public-copy#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260623-data-flags#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260623-public-copy#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260623-data-flags">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260623-data-flags">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260623-public-copy">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260623-public-copy">Dictionary</a>
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@
           <p class="eyebrow">Before vs after</p>
           <h2 id="country-before-after-title">Selected-country evidence separates price movement from missing data</h2>
           <p>
-            The selected country view uses like-for-like WFP/HDX same-month comparisons from the source price panel and separates
+            The selected country view uses like-for-like WFP/HDX same-month comparisons from the food-price comparison input and separates
             positive price movements from flat, negative or unavailable evidence.
           </p>
         </div>
@@ -208,9 +208,9 @@
             <p class="eyebrow">Supporting evidence</p>
             <h3>What supplemental coverage adds</h3>
             <p class="chart-note">
-              Supplemental coverage counts five context checks from the analytical data package: ACLED conflict events,
+              Supplemental coverage counts five public-source context checks: ACLED conflict events,
               CPI, food incidents, PortWatch port activity and Findex gender-finance data. These layers
-              explain data availability and context; they do not replace the official exposure score.
+              explain data availability and context; they do not replace the published exposure score.
             </p>
             <ul id="before-after-supplemental-list"></ul>
           </article>
@@ -254,7 +254,7 @@
           <div class="chart-wrap">
             <canvas id="component-chart"></canvas>
           </div>
-          <p class="chart-note">Bars are normalized 0-1 inputs before weights are applied. A longer bar means the selected country is high on that pressure pathway; missing source data are neutral-imputed and flagged.</p>
+          <p class="chart-note">Bars are normalized 0-1 inputs before weights are applied. A longer bar means the selected country is high on that pressure pathway; missing inputs are set to a neutral value and flagged.</p>
         </article>
 
         <article class="chart-card">
@@ -306,9 +306,9 @@
           <summary>
             <span>
               <span class="eyebrow">Filtered country table</span>
-              <strong id="table-title">View official model data summary</strong>
+              <strong id="table-title">View published model data summary</strong>
             </span>
-            <small id="country-table-summary">Table follows the active filters and mirrors source ranking fields.</small>
+            <small id="country-table-summary">Table follows the active filters and summarizes published ranking fields.</small>
           </summary>
           <div id="country-table-card-list" class="mobile-table-cards" aria-label="Filtered country summary cards"></div>
           <div class="table-wrap disclosure-body">
@@ -342,9 +342,9 @@
           <h2 id="method-title">Interpretation boundary</h2>
         </div>
         <p>
-          Country and scenario filters change the exploration view; they do not change official model
+          Country and scenario filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260623-data-flags">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260623-public-copy">methodology page</a>.
         </p>
       </section>
     </main>
@@ -357,7 +357,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260623-data-flags"></script>
-    <script src="app.js?v=20260623-data-flags"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260623-public-copy"></script>
+    <script src="app.js?v=20260623-public-copy"></script>
   </body>
 </html>
