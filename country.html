@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-raw-indicators" />
+    <link rel="stylesheet" href="styles.css?v=20260624-visual-fixes" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-raw-indicators#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260624-visual-fixes#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-raw-indicators#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-visual-fixes#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-raw-indicators">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-raw-indicators">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-visual-fixes">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-visual-fixes">Dictionary</a>
           </div>
         </div>
       </div>
@@ -136,6 +136,12 @@
               <button id="map-reset" class="small-button" type="button">Reset map</button>
             </div>
             <div id="country-map" class="map"></div>
+            <div class="map-legend" aria-label="Map legend">
+              <span><i class="legend-dot very-high"></i>Very high tier</span>
+              <span><i class="legend-dot high"></i>High tier</span>
+              <span><i class="legend-dot moderate"></i>Moderate tier</span>
+              <span><i class="legend-size"></i>Larger dot = higher score</span>
+            </div>
             <p class="chart-note">Map points use country centroids for orientation only. Colour follows exposure tier, size follows the 0-100 score and clicking a point selects that country.</p>
 </article>
         </div>
@@ -243,7 +249,7 @@
             <p class="eyebrow">Supporting evidence</p>
             <h3>What supplemental coverage adds</h3>
             <p class="chart-note">
-              Supplemental coverage counts five public-source context checks: ACLED conflict events,
+              Supplemental coverage counts five public-source context checks: ACLED supplemental coverage,
               CPI, food incidents, PortWatch port activity and Findex gender-finance data. These layers
               explain data availability and context; they do not replace the published exposure score.
             </p>
@@ -333,9 +339,9 @@
           <h2 id="method-title">Interpretation boundary</h2>
         </div>
         <p>
-          Country and scenario filters change the exploration view; they do not change published model
+          Country, region and geography filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260624-raw-indicators">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260624-visual-fixes">methodology page</a>.
         </p>
       </section>
     </main>
@@ -348,7 +354,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-raw-indicators"></script>
-    <script src="app.js?v=20260624-raw-indicators"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-visual-fixes"></script>
+    <script src="app.js?v=20260624-visual-fixes"></script>
   </body>
 </html>

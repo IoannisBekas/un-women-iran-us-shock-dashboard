@@ -930,6 +930,13 @@ canvas {
   background: rgba(255, 255, 255, 0.68);
 }
 
+.mini-table-intro {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
 .indicator-mini-table-inner {
   width: 100%;
   min-width: 680px;
@@ -988,6 +995,11 @@ canvas {
 
 .raw-evidence-table td {
   overflow-wrap: anywhere;
+}
+
+.raw-evidence-disclosure {
+  margin-top: 12px;
+  box-shadow: none;
 }
 
 .decomposition-table-block {
@@ -1621,6 +1633,50 @@ button.confidence-pill {
   margin-top: 12px;
   border: 1px solid var(--line);
   background: var(--soft-blue);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.map-legend span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.legend-dot,
+.legend-size {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--white);
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(31, 35, 38, 0.18);
+}
+
+.legend-dot.very-high {
+  background: var(--un-red);
+}
+
+.legend-dot.high {
+  background: var(--un-gold);
+}
+
+.legend-dot.moderate {
+  background: var(--un-blue);
+}
+
+.legend-size {
+  width: 18px;
+  height: 18px;
+  background: var(--un-blue);
 }
 
 .map-marker {

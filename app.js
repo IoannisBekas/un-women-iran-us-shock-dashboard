@@ -77,6 +77,19 @@ const SCENARIO_LEVEL_LABELS = {
 
 const LANDLOCKED_ISO3 = new Set(["AFG", "ARM", "BFA", "ETH", "MLI", "MDA", "SSD"]);
 const GEOGRAPHY_OPTIONS = ["All geographies", "Landlocked", "Coastal or island"];
+const RAW_EVIDENCE_SUMMARY_LABELS = new Set([
+  "Peak food-price increase",
+  "IPC Phase 3+ population",
+  "IDMC conflict IDPs",
+  "IOM selected DTM IDPs",
+  "Humanitarian funding flows",
+  "Food/nutrition funding per IPC 3+ person",
+  "Imports as share of GDP",
+  "Female informal employment",
+  "Female vulnerable employment",
+  "Women account ownership",
+  "Female-headed households",
+]);
 
 const GENDER_DRIVER_COMPONENTS = [
   { key: "gender_vulnerability_score", label: "Gender vulnerability", color: COLORS.red },
@@ -825,8 +838,8 @@ function renderBeforeAfter() {
   if (el.beforeAfterSupplementalList) {
     el.beforeAfterSupplementalList.innerHTML = "";
     [
-      ["Coverage count", `${supplementalLayerLabel(country)} across ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
-      ["Layer detail", `ACLED ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
+      ["Coverage count", `${supplementalLayerLabel(country)} across supplemental public-context checks: ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
+      ["Layer detail", `ACLED supplemental coverage ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
       ["How to use it", "Use supplemental coverage to explain where extra public context exists. It does not replace or add another published score."],
     ].forEach(([label, value]) => {
       const item = document.createElement("li");
@@ -852,8 +865,8 @@ function renderBeforeAfter() {
     : sortedBeforeAfterRows;
   if (el.beforeAfterTableNote) {
     el.beforeAfterTableNote.textContent = document.body.dataset.page === "overview"
-      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Supplemental coverage means five public context layers: ACLED conflict events, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
-      : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; supplemental coverage means ACLED conflict events, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
+      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Supplemental coverage means five public context checks: ACLED supplemental coverage, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
+      : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; supplemental coverage means five public context checks: ACLED supplemental coverage, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
   }
   if (el.beforeAfterCardList) {
     el.beforeAfterCardList.innerHTML = "";
@@ -1147,6 +1160,7 @@ function renderComponentChart() {
           max: 100,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Average Shock Exposure Index, 0-100", color: COLORS.muted, font: chartFont() },
         },
         y: {
           grid: { display: false },
@@ -1191,16 +1205,13 @@ function rawEvidenceRows(country) {
   ];
 }
 
-function renderRawEvidenceTable() {
-  if (!el.rawEvidenceTable) return;
-  const country = countryByIso(state.selectedIso);
-  el.rawEvidenceTable.innerHTML = "";
+function createRawEvidenceTable(rows) {
   const table = document.createElement("table");
   table.className = "indicator-mini-table-inner raw-evidence-table";
   const thead = document.createElement("thead");
   thead.innerHTML = "<tr><th>Raw indicator</th><th>Value</th><th>Source / interpretation note</th></tr>";
   const tbody = document.createElement("tbody");
-  rawEvidenceRows(country).forEach(([label, value, note]) => {
+  rows.forEach(([label, value, note]) => {
     const row = document.createElement("tr");
     [label, value, note].forEach((text) => {
       const cell = document.createElement("td");
@@ -1210,7 +1221,41 @@ function renderRawEvidenceTable() {
     tbody.appendChild(row);
   });
   table.append(thead, tbody);
-  el.rawEvidenceTable.appendChild(table);
+  return table;
+}
+
+function renderRawEvidenceTable() {
+  if (!el.rawEvidenceTable) return;
+  const country = countryByIso(state.selectedIso);
+  const rows = rawEvidenceRows(country);
+  const summaryRows = rows.filter(([label]) => RAW_EVIDENCE_SUMMARY_LABELS.has(label));
+  el.rawEvidenceTable.innerHTML = "";
+
+  const summaryIntro = document.createElement("p");
+  summaryIntro.className = "mini-table-intro";
+  summaryIntro.textContent = "Key raw indicators are shown first. Open the full table for every raw field used for context and traceability.";
+  el.rawEvidenceTable.appendChild(summaryIntro);
+  el.rawEvidenceTable.appendChild(createRawEvidenceTable(summaryRows));
+
+  const details = document.createElement("details");
+  details.className = "disclosure-panel raw-evidence-disclosure";
+  const summary = document.createElement("summary");
+  const summaryCopy = document.createElement("span");
+  const eyebrow = document.createElement("span");
+  eyebrow.className = "eyebrow";
+  eyebrow.textContent = "Full raw evidence";
+  const title = document.createElement("strong");
+  title.textContent = "View all raw evidence fields";
+  summaryCopy.append(eyebrow, title);
+  const small = document.createElement("small");
+  small.textContent = `${fmtInt(rows.length)} source or near-raw fields, including unavailable values`;
+  summary.append(summaryCopy, small);
+  details.appendChild(summary);
+  const fullTableWrap = document.createElement("div");
+  fullTableWrap.className = "table-wrap disclosure-body";
+  fullTableWrap.appendChild(createRawEvidenceTable(rows));
+  details.appendChild(fullTableWrap);
+  el.rawEvidenceTable.appendChild(details);
 }
 
 function renderScenarioChart() {
@@ -1408,7 +1453,7 @@ function renderGenderDriverChart() {
       scales: {
         x: {
           min: 0,
-          max: 1,
+          max: 100,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
           title: { display: true, text: "Percent of women or female employment", color: COLORS.muted, font: chartFont() },

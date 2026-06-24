@@ -14622,7 +14622,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
     "Palestine moves into the High tier in the current score because acute food insecurity and assistance pressure remain high and new public evidence layers are now included.",
     "New public displacement evidence increases measured pressure for Nigeria, Ukraine, Mali, Burkina Faso and Lebanon.",
     "Data-confidence flags identify countries where missing inputs make the ranking less certain.",
-    "Assistance-cut and combined-shock scenarios create the largest cross-country risk increases in the current model.",
+    "Raw gender, labour, financial-access and displacement indicators are shown directly so users do not need to interpret extra scores.",
     "Use the dashboard for prioritization and monitoring; causal estimates for women and girls require sex- and age-disaggregated outcome data."
   ],
   "sourceNotes": {
@@ -14640,7 +14640,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "Public WFP food-security outcome datasets where available, now formally weighted with modest weight because coverage is sparse"
     ],
     "notAvailable": [
-      "ACLED event data are not included because account/API access was not available in this public-data workflow.",
+      "ACLED coverage is treated only as supplemental public-context status where available and is not part of the official Shock Exposure Index.",
       "IPC public data are not sex-disaggregated; the model does not infer women/girls IPC counts from total IPC values.",
       "Public WFP food-security outcome coverage is available for only a small subset of the 28 countries, so missing inputs are set to a neutral value and flagged."
     ]
