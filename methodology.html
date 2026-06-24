@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
       content="Methodology, calculations, caveats and interpretation boundaries for the UN Women Iran-USA regional escalation shock dashboard."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260624-gender-lens" />
+    <link rel="stylesheet" href="styles.css?v=20260624-chart-explain" />
   </head>
   <body data-page="methodology">
     <a class="skip-link" href="#main-content">Skip to methodology content</a>
@@ -22,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-gender-lens#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260624-chart-explain#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,10 +35,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-gender-lens#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-gender-lens#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-chart-explain#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260624-chart-explain#country-lens">Country Lens</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-gender-lens">Dictionary</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-chart-explain">Dictionary</a>
           </div>
         </div>
       </div>
@@ -66,6 +66,7 @@
 
       <section class="term-nav" aria-label="Methodology section links">
         <a href="#analytical-frame">Analytical frame</a>
+        <a href="#visual-calculation-guide">Visual explanations</a>
         <a href="#index-calculation">Index calculation</a>
         <a href="#gender-displacement-method">Gender/displacement lens</a>
         <a href="#before-after-method">Before/after method</a>
@@ -99,6 +100,29 @@
           layer, assistance and funding pressure, and gender vulnerability. These pathways are
           intentionally broader than prices because the food-security story is also shaped by import
           dependence, assistance access, displacement and structural vulnerability.
+        </p>
+      </section>
+
+      <section id="visual-calculation-guide" class="methodology-text-section" aria-labelledby="visual-calculation-guide-title" data-methodology-section>
+        <p class="eyebrow">Visual interpretation</p>
+        <h2 id="visual-calculation-guide-title">How to read the chart explanations</h2>
+        <p>
+          Each dashboard visual now includes a compact explanation block with three parts:
+          how the visual is calculated, how to read the result, and which dashboard fields feed the
+          chart or table. These blocks are intended to make the dashboard auditable during meetings
+          without requiring users to inspect the workbook.
+        </p>
+        <p>
+          For composite scores, the dashboard shows decomposition tables. In the Shock Exposure Index
+          table, each row is calculated as <code>component_score x component_weight x 100</code>.
+          In the gender proxy table, each row is calculated as the visible input score multiplied by
+          its gender-proxy coefficient, with 0-1 inputs converted to contribution points. The
+          contribution rows show arithmetic drivers of the score; they do not identify causal
+          channels or measured impacts.
+        </p>
+        <p>
+          The explanation blocks do not change the model weights, source data or published country
+          scores. They are an interpretation layer on top of the current dashboard dataset.
         </p>
       </section>
 
@@ -251,7 +275,7 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-gender-lens"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-chart-explain"></script>
     <script>
       const methodologyData = window.IRAN_US_SHOCK_DASHBOARD_DATA || {};
 

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-gender-lens" />
+    <link rel="stylesheet" href="styles.css?v=20260624-chart-explain" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-gender-lens#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260624-chart-explain#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-gender-lens#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-chart-explain#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-gender-lens">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-gender-lens">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-chart-explain">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-chart-explain">Dictionary</a>
           </div>
         </div>
       </div>
@@ -145,6 +145,11 @@
             </div>
             <div id="country-map" class="map"></div>
             <p class="chart-note">Map points use country centroids for orientation only. Colour follows exposure tier, size follows the 0-100 score and clicking a point selects that country.</p>
+            <div class="chart-explain" aria-label="Map calculation">
+              <p><strong>Calculated:</strong> point size is based on <code>countries[].score</code>; color is based on <code>riskTier</code>; coordinates are fixed country centroids.</p>
+              <p><strong>How to read:</strong> use the map for orientation and selection, not for subnational geography or affected-area mapping.</p>
+              <p><strong>Uses fields:</strong> <code>latitude</code>, <code>longitude</code>, <code>score</code>, <code>riskTier</code>.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -157,10 +162,20 @@
             This panel keeps the gender proxy transparent: IPC is total population, internal displacement comes from the IDMC/IOM layer,
             and assistance pressure is included because assistance access and funding constraints can have differential gender effects.
           </p>
+          <div class="chart-explain" aria-label="Selected country gender lens calculation">
+            <p><strong>Calculated:</strong> the panel reports selected normalized model components, total-population IPC severity, IDMC/IOM displacement evidence and structural gender indicators.</p>
+            <p><strong>How to read:</strong> treat these as monitoring prompts for country teams and SADD follow-up, not measured women/girls food-security outcomes.</p>
+            <p><strong>Uses fields:</strong> <code>genderProxy</code>, <code>components.*</code>, <code>indicators.*</code>, <code>genderFinance.*</code>.</p>
+          </div>
           <div id="country-gender-list" class="lens-list"></div>
           <div class="indicator-table-block">
             <h3>Female labour and financial-access indicators</h3>
             <p class="chart-note">These indicators are visible context for UN Women monitoring. They are structural/proxy evidence, not measured SADD food-security outcomes.</p>
+            <div class="chart-explain" aria-label="Gender indicator table calculation">
+              <p><strong>Calculated:</strong> values are direct public-source indicators where available; no extra weight is applied in this table.</p>
+              <p><strong>How to read:</strong> use high vulnerability or low financial-access values to frame questions on coping capacity, access to assistance and livelihoods.</p>
+              <p><strong>Uses fields:</strong> <code>informality</code>, <code>genderFinance.*</code>, <code>femaleHeadedHouseholdsPct</code>.</p>
+            </div>
             <div id="country-gender-indicator-table" class="indicator-mini-table"></div>
           </div>
         </article>
@@ -207,6 +222,11 @@
               </div>
             </div>
             <p id="before-after-note" class="profile-note"></p>
+            <div class="chart-explain" aria-label="Selected country before and after calculation">
+              <p><strong>Calculated:</strong> same-month 2026 vs 2025 WFP/HDX comparisons are matched within country, market, commodity and unit; peak increase keeps the highest positive median change.</p>
+              <p><strong>How to read:</strong> price movement is descriptive evidence. Event-study readiness says whether the public data can support a more formal price analysis.</p>
+              <p><strong>Uses fields:</strong> <code>beforeAfter.sameMonthYoY</code>, <code>beforeAfter.ipcLatest</code>, <code>eventStudyReady</code>.</p>
+            </div>
           </article>
 
           <article class="before-after-panel before-after-story">
@@ -217,6 +237,11 @@
               CPI, food incidents, PortWatch port activity and Findex gender-finance data. These layers
               explain data availability and context; they do not replace the published exposure score.
             </p>
+            <div class="chart-explain" aria-label="Supplemental coverage calculation">
+              <p><strong>Calculated:</strong> counts whether each supplemental source layer has public data for the selected country.</p>
+              <p><strong>How to read:</strong> coverage supports interpretation and identifies data gaps; it is not an additional risk score.</p>
+              <p><strong>Uses fields:</strong> <code>supplementalEvidence.*</code>, ACLED, CPI, food incidents, PortWatch and Findex coverage flags.</p>
+            </div>
             <ul id="before-after-supplemental-list"></ul>
           </article>
         </div>
@@ -260,6 +285,11 @@
             <canvas id="component-chart"></canvas>
           </div>
           <p class="chart-note">Bars are normalized 0-1 inputs before weights are applied. A longer bar means the selected country is high on that pressure pathway; missing inputs are set to a neutral value and flagged.</p>
+          <div class="chart-explain" aria-label="Component pathway chart calculation">
+            <p><strong>Calculated:</strong> source indicators are transformed into bounded <code>component_score</code> values from 0 to 1 before index weights are applied.</p>
+            <p><strong>How to read:</strong> this chart shows pressure intensity by pathway; use the index decomposition next to see how weights convert those scores into final points.</p>
+            <p><strong>Uses fields:</strong> <code>components.*</code>, <code>missingComponents</code>, <code>dataConfidence</code>.</p>
+          </div>
         </article>
 
         <article class="chart-card">
@@ -273,7 +303,13 @@
           <div class="chart-wrap">
             <canvas id="index-decomposition-chart"></canvas>
           </div>
+          <div id="index-decomposition-table" class="decomposition-table-block"></div>
           <p class="chart-note">This deconstructs the published Shock Exposure Index as component score x component weight x 100. It explains the score, not a causal pathway.</p>
+          <div class="chart-explain" aria-label="Shock Exposure Index decomposition calculation">
+            <p><strong>Calculated:</strong> each row is <code>component_score x component_weight x 100</code>; contribution points sum to the published 0-100 Shock Exposure Index.</p>
+            <p><strong>How to read:</strong> the largest rows show which weighted components contribute most to this country's published score.</p>
+            <p><strong>Uses fields:</strong> <code>components.*</code>, <code>indexWeights</code>, <code>score</code>. See <a href="methodology.html?v=20260624-chart-explain#index-calculation">methodology</a>.</p>
+          </div>
         </article>
 
         <article class="chart-card">
@@ -302,6 +338,11 @@
             <canvas id="scenario-chart"></canvas>
           </div>
           <p id="scenario-note" class="chart-note"></p>
+          <div class="chart-explain" aria-label="Scenario sensitivity calculation">
+            <p><strong>Calculated:</strong> scenario rows compare each selected scenario score with the published baseline score and display the point delta.</p>
+            <p><strong>How to read:</strong> larger deltas show greater sensitivity to that stress test. These are planning stress tests, not forecasts.</p>
+            <p><strong>Uses fields:</strong> <code>scenarios[].risk_delta_0_100</code>, <code>scenario_score_0_100</code>, <code>scenario_rank</code>.</p>
+          </div>
         </article>
       </section>
 
@@ -310,12 +351,22 @@
           <p class="eyebrow">Readiness checks</p>
           <h2>What the data can support now</h2>
           <p class="chart-note">These are interpretation gates. They say whether the available public-source data can support a price event-study, food-security outcome model or gender-causal claim.</p>
+          <div class="chart-explain" aria-label="Readiness calculation">
+            <p><strong>Calculated:</strong> readiness flags are rule-based checks against source availability and whether required public fields exist.</p>
+            <p><strong>How to read:</strong> "not ready" means the public dataset cannot support that claim now; it does not mean the situation is low risk.</p>
+            <p><strong>Uses fields:</strong> <code>readiness.*</code>, <code>dataConfidence</code>, source-coverage flags.</p>
+          </div>
           <div id="readiness-list" class="readiness-list"></div>
         </article>
         <article class="evidence-panel">
           <p class="eyebrow">Supplemental coverage</p>
           <h2>Public-data context available for this country</h2>
           <p class="chart-note">These rows show whether useful public context exists for displacement, food-security outcomes and female-headed households. Missing coverage is a data gap, not evidence that the issue is absent.</p>
+          <div class="chart-explain" aria-label="Coverage calculation">
+            <p><strong>Calculated:</strong> each row is a source-availability check, not a severity calculation.</p>
+            <p><strong>How to read:</strong> available coverage means there is public context to inspect; unavailable coverage should be carried as a caveat.</p>
+            <p><strong>Uses fields:</strong> <code>coverage</code>, <code>supplementalEvidence</code>, <code>readiness</code>.</p>
+          </div>
           <div id="coverage-list" class="coverage-list"></div>
         </article>
       </section>
@@ -329,6 +380,11 @@
             </span>
             <small id="country-table-summary">Table follows the active filters and summarizes published ranking fields.</small>
           </summary>
+          <div class="chart-explain table-explain" aria-label="Filtered country table calculation">
+            <p><strong>Calculated:</strong> rows display published country-level fields after the active region and geography filters; filters do not recalculate scores.</p>
+            <p><strong>How to read:</strong> use the table for audit and comparison across model fields. Rankings should be interpreted with the data-confidence and missingness columns.</p>
+            <p><strong>Uses fields:</strong> <code>rank</code>, <code>score</code>, <code>riskTier</code>, <code>dataConfidence</code>, <code>components</code>, <code>indicators</code>.</p>
+          </div>
           <div id="country-table-card-list" class="mobile-table-cards" aria-label="Filtered country summary cards"></div>
           <div class="table-wrap disclosure-body">
             <table>
@@ -363,7 +419,7 @@
         <p>
           Country and scenario filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260624-gender-lens">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260624-chart-explain">methodology page</a>.
         </p>
       </section>
     </main>
@@ -376,7 +432,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-gender-lens"></script>
-    <script src="app.js?v=20260624-gender-lens"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-chart-explain"></script>
+    <script src="app.js?v=20260624-chart-explain"></script>
   </body>
 </html>

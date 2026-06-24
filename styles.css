@@ -272,6 +272,36 @@ main > *,
   font-size: 0.92rem;
 }
 
+.chart-explain {
+  display: grid;
+  gap: 7px;
+  margin-top: 10px;
+  padding: 11px 12px;
+  border-left: 3px solid var(--un-blue);
+  background: rgba(232, 241, 239, 0.58);
+  color: #34414a;
+}
+
+.chart-explain p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.38;
+}
+
+.chart-explain strong {
+  color: var(--un-navy);
+}
+
+.chart-explain code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+
+.chart-explain a {
+  color: var(--un-blue);
+  font-weight: 800;
+}
+
 .interpretation-panel {
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
@@ -959,6 +989,73 @@ canvas {
 .indicator-mini-table-inner td:nth-child(3) {
   color: var(--muted);
   line-height: 1.35;
+}
+
+.decomposition-table-block {
+  overflow-x: auto;
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.decomposition-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.decomposition-table th,
+.decomposition-table td {
+  padding: 8px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.82rem;
+}
+
+.decomposition-table th {
+  background: rgba(232, 241, 239, 0.92);
+  color: var(--un-navy);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.decomposition-table td:nth-child(2),
+.decomposition-table td:nth-child(3),
+.decomposition-table td:nth-child(4) {
+  text-align: right;
+}
+
+.decomposition-table th:nth-child(1),
+.decomposition-table td:nth-child(1) {
+  width: 43%;
+}
+
+.decomposition-table th:nth-child(2),
+.decomposition-table td:nth-child(2),
+.decomposition-table th:nth-child(3),
+.decomposition-table td:nth-child(3) {
+  width: 17%;
+}
+
+.decomposition-table th:nth-child(4),
+.decomposition-table td:nth-child(4) {
+  width: 23%;
+}
+
+.decomposition-table tfoot td {
+  border-top: 2px solid rgba(0, 107, 111, 0.24);
+  background: rgba(255, 250, 240, 0.7);
+  color: var(--un-navy);
+  font-weight: 800;
+}
+
+.decomposition-table .decomposition-note {
+  color: var(--muted);
+  font-weight: 400;
+  text-align: left;
+  white-space: normal;
 }
 
 .displacement-rule-panel,

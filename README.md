@@ -13,7 +13,7 @@ https://ioannisbekas.github.io/un-women-iran-us-shock-dashboard/
 - Data builder: `analysis/scripts/build_iran_us_shock_dashboard_data.py`
 - Before/After module: uses documented WFP/HDX like-for-like food-price comparisons, readiness checks, IPC timing, country context and supplemental public-source coverage. The headline chart shows each country's highest positive matched same-month YoY food-price change in post-shock 2026 months, not negative or flat changes.
 - Scenario controls group the analytical scenarios into a `Stress lens` selector and a three-option `Shock level` selector to keep the dashboard readable without dropping scenarios.
-- Gender lens update: the overview includes a gender proxy ranking, selected-country gender proxy decomposition, UN Women monitoring implications card, and displacement clarification. The Country Lens includes a female labour/Findex financial-access indicator table and a Shock Exposure Index contribution chart. These are explanatory/proxy views; they do not change the official score weights.
+- Chart explanation update: every main visual now includes compact "Calculated / How to read / Uses fields" guidance. Composite visuals also include decomposition tables showing input score, weight or coefficient, contribution points and final score relationship. These are explanatory/proxy views; they do not change the official score weights.
 
 ## Page Structure
 

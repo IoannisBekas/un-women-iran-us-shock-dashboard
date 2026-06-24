@@ -247,6 +247,8 @@ const el = {
   genderMonitoringList: document.getElementById("gender-monitoring-list"),
   displacementClarityList: document.getElementById("displacement-clarity-list"),
   countryGenderIndicatorTable: document.getElementById("country-gender-indicator-table"),
+  genderDecompositionTable: document.getElementById("gender-decomposition-table"),
+  indexDecompositionTable: document.getElementById("index-decomposition-table"),
   countryTableBody: document.getElementById("country-table-body"),
   countryTableCardList: document.getElementById("country-table-card-list"),
   countryTableSummary: document.getElementById("country-table-summary"),
@@ -346,6 +348,10 @@ function genderProxyContributionRows(country) {
         : raw * item.coefficient * 100;
     return {
       label: item.label,
+      field: item.field,
+      inputValue: raw,
+      inputScale: item.scale,
+      coefficient: item.coefficient,
       points,
       color: item.color,
     };
@@ -359,10 +365,58 @@ function indexContributionRows(country) {
     return {
       key,
       label,
+      componentScore: component,
+      weight,
       points: component === null || weight === null ? null : component * weight * 100,
       color: key === "gender_vulnerability_score" ? COLORS.red : key === "public_displacement_layer_score" ? COLORS.blue : COLORS.teal,
     };
   }).filter((row) => row.points !== null);
+}
+
+function appendTableCell(row, text, tagName = "td", className = "") {
+  const cell = document.createElement(tagName);
+  if (className) cell.className = className;
+  cell.textContent = text;
+  row.appendChild(cell);
+  return cell;
+}
+
+function renderDecompositionTable(container, rows, options) {
+  if (!container) return;
+  container.innerHTML = "";
+  const table = document.createElement("table");
+  table.className = "decomposition-table";
+  const thead = document.createElement("thead");
+  const header = document.createElement("tr");
+  ["Input", "Score", "Weight", "Contribution"].forEach((label) => appendTableCell(header, label, "th"));
+  thead.appendChild(header);
+
+  const tbody = document.createElement("tbody");
+  rows.forEach((row) => {
+    const tr = document.createElement("tr");
+    appendTableCell(tr, row.label);
+    appendTableCell(tr, row.scoreText);
+    appendTableCell(tr, row.weightText);
+    appendTableCell(tr, row.pointsText);
+    tbody.appendChild(tr);
+  });
+
+  const tfoot = document.createElement("tfoot");
+  const totalRow = document.createElement("tr");
+  appendTableCell(totalRow, "Recalculated from visible rows");
+  appendTableCell(totalRow, options.note || "", "td", "decomposition-note");
+  appendTableCell(totalRow, "");
+  appendTableCell(totalRow, `${fmt(options.total)} points`);
+  tfoot.appendChild(totalRow);
+  const finalRow = document.createElement("tr");
+  appendTableCell(finalRow, options.finalLabel);
+  appendTableCell(finalRow, options.finalNote || "", "td", "decomposition-note");
+  appendTableCell(finalRow, "");
+  appendTableCell(finalRow, `${fmt(options.finalScore)} points`);
+  tfoot.appendChild(finalRow);
+
+  table.append(thead, tbody, tfoot);
+  container.appendChild(table);
 }
 
 function hasPositiveYoyPeak(country) {
@@ -1299,6 +1353,22 @@ function renderGenderDecompositionChart() {
   const country = countryByIso(state.selectedIso);
   const rows = genderProxyContributionRows(country)
     .sort((a, b) => (b.points || 0) - (a.points || 0));
+  renderDecompositionTable(
+    el.genderDecompositionTable,
+    rows.map((row) => ({
+      label: row.label,
+      scoreText: row.inputScale === "0-100" ? `${fmt(row.inputValue)} / 100` : fmt(row.inputValue, 2),
+      weightText: fmtShare(row.coefficient, 0),
+      pointsText: `${fmt(row.points)} pts`,
+    })),
+    {
+      total: rows.reduce((sum, row) => sum + (numericValue(row.points) || 0), 0),
+      finalScore: country.genderProxy?.score,
+      finalLabel: "Published gender proxy priority score",
+      finalNote: "Final score in the dashboard dataset; small differences can reflect rounding.",
+      note: "Component inputs use full precision in the generated dashboard data.",
+    }
+  );
   charts.genderDecomposition = new Chart(ctx, {
     type: "bar",
     data: {
@@ -1345,6 +1415,22 @@ function renderIndexDecompositionChart() {
   const country = countryByIso(state.selectedIso);
   const rows = indexContributionRows(country)
     .sort((a, b) => (b.points || 0) - (a.points || 0));
+  renderDecompositionTable(
+    el.indexDecompositionTable,
+    rows.map((row) => ({
+      label: row.label,
+      scoreText: fmt(row.componentScore, 2),
+      weightText: fmtShare(row.weight, 0),
+      pointsText: `${fmt(row.points)} pts`,
+    })),
+    {
+      total: rows.reduce((sum, row) => sum + (numericValue(row.points) || 0), 0),
+      finalScore: country.score,
+      finalLabel: "Published Shock Exposure Index",
+      finalNote: "Final country score after full-precision calculation and rounding.",
+      note: "Formula: component score x component weight x 100.",
+    }
+  );
   charts.indexDecomposition = new Chart(ctx, {
     type: "bar",
     data: {
