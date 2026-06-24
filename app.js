@@ -384,39 +384,60 @@ function appendTableCell(row, text, tagName = "td", className = "") {
 function renderDecompositionTable(container, rows, options) {
   if (!container) return;
   container.innerHTML = "";
-  const table = document.createElement("table");
-  table.className = "decomposition-table";
-  const thead = document.createElement("thead");
-  const header = document.createElement("tr");
-  ["Input", "Score", "Weight", "Contribution"].forEach((label) => appendTableCell(header, label, "th"));
-  thead.appendChild(header);
+  const list = document.createElement("div");
+  list.className = "decomposition-table";
 
-  const tbody = document.createElement("tbody");
+  const header = document.createElement("div");
+  header.className = "decomposition-row decomposition-header";
+  ["Input", "Score", "Weight", "Contribution"].forEach((label) => {
+    const cell = document.createElement("div");
+    cell.className = "decomposition-cell";
+    cell.textContent = label;
+    header.appendChild(cell);
+  });
+  list.appendChild(header);
+
   rows.forEach((row) => {
-    const tr = document.createElement("tr");
-    appendTableCell(tr, row.label);
-    appendTableCell(tr, row.scoreText);
-    appendTableCell(tr, row.weightText);
-    appendTableCell(tr, row.pointsText);
-    tbody.appendChild(tr);
+    const item = document.createElement("div");
+    item.className = "decomposition-row";
+    [
+      ["Input", row.label, "input"],
+      ["Score", row.scoreText, "numeric"],
+      ["Weight", row.weightText, "numeric"],
+      ["Contribution", row.pointsText, "numeric"],
+    ].forEach(([label, value, modifier]) => {
+      const cell = document.createElement("div");
+      cell.className = `decomposition-cell decomposition-${modifier}`;
+      cell.dataset.label = label;
+      cell.textContent = value;
+      item.appendChild(cell);
+    });
+    list.appendChild(item);
   });
 
-  const tfoot = document.createElement("tfoot");
-  const totalRow = document.createElement("tr");
-  appendTableCell(totalRow, "Recalculated from visible rows");
-  appendTableCell(totalRow, options.note || "", "td", "decomposition-note");
-  appendTableCell(totalRow, "");
-  appendTableCell(totalRow, `${fmt(options.total)} points`);
-  tfoot.appendChild(totalRow);
-  const finalRow = document.createElement("tr");
-  appendTableCell(finalRow, options.finalLabel);
-  appendTableCell(finalRow, options.finalNote || "", "td", "decomposition-note");
-  appendTableCell(finalRow, "");
-  appendTableCell(finalRow, `${fmt(options.finalScore)} points`);
-  tfoot.appendChild(finalRow);
+  [
+    ["Recalculated from visible rows", options.note || "", `${fmt(options.total)} points`],
+    [options.finalLabel, options.finalNote || "", `${fmt(options.finalScore)} points`],
+  ].forEach(([label, note, value]) => {
+    const item = document.createElement("div");
+    item.className = "decomposition-row decomposition-summary-row";
+    const labelCell = document.createElement("div");
+    labelCell.className = "decomposition-cell decomposition-input";
+    labelCell.dataset.label = "Input";
+    labelCell.textContent = label;
+    const noteCell = document.createElement("div");
+    noteCell.className = "decomposition-cell decomposition-note";
+    noteCell.dataset.label = "Note";
+    noteCell.textContent = note;
+    const valueCell = document.createElement("div");
+    valueCell.className = "decomposition-cell decomposition-numeric decomposition-contribution";
+    valueCell.dataset.label = "Contribution";
+    valueCell.textContent = value;
+    item.append(labelCell, noteCell, valueCell);
+    list.appendChild(item);
+  });
 
-  table.append(thead, tbody, tfoot);
-  container.appendChild(table);
+  container.appendChild(list);
 }
 
 function hasPositiveYoyPeak(country) {

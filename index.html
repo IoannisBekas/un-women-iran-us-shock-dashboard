@@ -11,7 +11,7 @@
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-chart-explain" />
+    <link rel="stylesheet" href="styles.css?v=20260624-no-table-scroll" />
   </head>
   <body data-page="overview">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -36,9 +36,9 @@
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
             <a class="hero-action-primary" href="#findings" aria-current="page">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-chart-explain#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-chart-explain">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-chart-explain">Dictionary</a>
+            <a class="hero-action-secondary" href="country.html?v=20260624-no-table-scroll#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-no-table-scroll">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-no-table-scroll">Dictionary</a>
           </div>
         </div>
       </div>
@@ -76,9 +76,9 @@
           </div>
           <p class="definition-note dictionary-link-note">
             For country-level filters and scenario exploration, open the
-            <a href="country.html?v=20260624-chart-explain">country lens</a>. For the full calculation logic and caveats, open the
-            <a href="methodology.html?v=20260624-chart-explain">methodology page</a>. For definitions, open the
-            <a href="dictionary.html?v=20260624-chart-explain">dashboard dictionary</a>.
+            <a href="country.html?v=20260624-no-table-scroll">country lens</a>. For the full calculation logic and caveats, open the
+            <a href="methodology.html?v=20260624-no-table-scroll">methodology page</a>. For definitions, open the
+            <a href="dictionary.html?v=20260624-no-table-scroll">dashboard dictionary</a>.
           </p>
         </details>
       </section>
@@ -111,7 +111,7 @@
             <div class="chart-explain" aria-label="Before and after chart calculation">
               <p><strong>Calculated:</strong> same country-market-commodity-unit price series in each post-shock 2026 month are matched to the same calendar month in 2025; the chart keeps each country's highest positive median change.</p>
               <p><strong>How to read:</strong> longer bars show larger observed price increases in comparable public WFP/HDX records, not proof that the escalation caused the increase.</p>
-              <p><strong>Uses fields:</strong> <code>beforeAfter.sameMonthYoY.peakPositiveYoYPct</code>, <code>matchedSeriesAtPeak</code>, <code>ipcLatest</code>. See <a href="methodology.html?v=20260624-chart-explain#before-after-method">methodology</a>.</p>
+              <p><strong>Uses fields:</strong> <code>beforeAfter.sameMonthYoY.peakPositiveYoYPct</code>, <code>matchedSeriesAtPeak</code>, <code>ipcLatest</code>. See <a href="methodology.html?v=20260624-no-table-scroll#before-after-method">methodology</a>.</p>
             </div>
           </article>
 
@@ -158,7 +158,7 @@
           <div class="chart-explain" aria-label="Shock Exposure Index ranking calculation">
             <p><strong>Calculated:</strong> <code>100 x sum(component_score x component_weight)</code> across price, import, agriculture, IPC, WFP outcome, displacement, assistance and gender-vulnerability pathways.</p>
             <p><strong>How to read:</strong> the ranking is a screening order for attention and monitoring, not an estimate of how much food security changed.</p>
-            <p><strong>Uses fields:</strong> <code>countries[].score</code>, <code>components.*</code>, <code>indexWeights</code>. Open <a href="country.html?v=20260624-chart-explain#scenario-detail">Country Lens</a> for the weighted decomposition.</p>
+            <p><strong>Uses fields:</strong> <code>countries[].score</code>, <code>components.*</code>, <code>indexWeights</code>. Open <a href="country.html?v=20260624-no-table-scroll#scenario-detail">Country Lens</a> for the weighted decomposition.</p>
           </div>
           <div id="ranking-confidence-list" class="confidence-strip" aria-label="Data-confidence flags"></div>
           <p class="chart-note">Data-confidence flags identify countries where missing or neutral-imputed public inputs make interpretation more cautious; a flag is not evidence of lower risk.</p>
@@ -268,7 +268,7 @@
             <div class="chart-explain" aria-label="Gender proxy decomposition calculation">
               <p><strong>Calculated:</strong> each row is <code>input score x gender-proxy coefficient</code>; 0-1 component inputs are converted to 0-100 contribution points.</p>
               <p><strong>How to read:</strong> the largest rows are the inputs doing most of the arithmetic work for the selected country's proxy priority score.</p>
-              <p><strong>Uses fields:</strong> <code>score</code>, <code>genderProxy.score</code>, <code>components.*</code>. Full caveats are in the <a href="methodology.html?v=20260624-chart-explain#gender-displacement-method">gender methodology</a>.</p>
+              <p><strong>Uses fields:</strong> <code>score</code>, <code>genderProxy.score</code>, <code>components.*</code>. Full caveats are in the <a href="methodology.html?v=20260624-no-table-scroll#gender-displacement-method">gender methodology</a>.</p>
             </div>
           </article>
 
@@ -297,7 +297,7 @@
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-chart-explain"></script>
-    <script src="app.js?v=20260624-chart-explain"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-no-table-scroll"></script>
+    <script src="app.js?v=20260624-no-table-scroll"></script>
   </body>
 </html>

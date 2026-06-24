@@ -992,70 +992,128 @@ canvas {
 }
 
 .decomposition-table-block {
-  overflow-x: auto;
   margin-top: 10px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.68);
+  container-type: inline-size;
+  overflow: visible;
 }
 
 .decomposition-table {
+  display: grid;
   width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
 }
 
-.decomposition-table th,
-.decomposition-table td {
+.decomposition-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(56px, 0.42fr) minmax(52px, 0.34fr) minmax(72px, 0.48fr);
+  align-items: stretch;
+  border-bottom: 1px solid var(--line);
+}
+
+.decomposition-row:last-child {
+  border-bottom: 0;
+}
+
+.decomposition-cell {
+  min-width: 0;
   padding: 8px 8px;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
   font-size: 0.82rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
-.decomposition-table th {
+.decomposition-row .decomposition-cell {
+  border-bottom: 0;
+}
+
+.decomposition-header .decomposition-cell {
   background: rgba(232, 241, 239, 0.92);
   color: var(--un-navy);
   font-size: 0.78rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
-.decomposition-table td:nth-child(2),
-.decomposition-table td:nth-child(3),
-.decomposition-table td:nth-child(4) {
+.decomposition-numeric,
+.decomposition-contribution {
   text-align: right;
+  white-space: nowrap;
 }
 
-.decomposition-table th:nth-child(1),
-.decomposition-table td:nth-child(1) {
-  width: 43%;
-}
-
-.decomposition-table th:nth-child(2),
-.decomposition-table td:nth-child(2),
-.decomposition-table th:nth-child(3),
-.decomposition-table td:nth-child(3) {
-  width: 17%;
-}
-
-.decomposition-table th:nth-child(4),
-.decomposition-table td:nth-child(4) {
-  width: 23%;
-}
-
-.decomposition-table tfoot td {
+.decomposition-summary-row {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(76px, 0.52fr);
   border-top: 2px solid rgba(0, 107, 111, 0.24);
   background: rgba(255, 250, 240, 0.7);
   color: var(--un-navy);
   font-weight: 800;
 }
 
-.decomposition-table .decomposition-note {
+.decomposition-summary-row + .decomposition-summary-row {
+  border-top: 1px solid rgba(0, 107, 111, 0.24);
+}
+
+.decomposition-note {
   color: var(--muted);
   font-weight: 400;
   text-align: left;
   white-space: normal;
+}
+
+@container (max-width: 480px) {
+  .decomposition-header {
+    display: none;
+  }
+
+  .decomposition-row,
+  .decomposition-summary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 9px 10px;
+  }
+
+  .decomposition-cell {
+    display: grid;
+    grid-template-columns: minmax(92px, 0.8fr) minmax(0, 1fr);
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    font-size: 0.84rem;
+  }
+
+  .decomposition-cell::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .decomposition-input {
+    grid-template-columns: 1fr;
+    font-weight: 800;
+  }
+
+  .decomposition-input::before {
+    display: none;
+  }
+
+  .decomposition-numeric,
+  .decomposition-contribution {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .decomposition-note {
+    line-height: 1.35;
+  }
 }
 
 .displacement-rule-panel,
