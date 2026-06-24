@@ -1193,7 +1193,7 @@ function renderScenarioChart() {
       labels: scenarioRows.map((row) => row.country),
       datasets: [
         {
-          label: "Risk delta",
+          label: "Sensitivity delta",
           data: scenarioRows.map((row) => row.risk_delta_0_100),
           backgroundColor: scenarioRows.map((row, index) => {
             if (row.countryiso3 === state.selectedIso) return COLORS.navy;
@@ -1791,7 +1791,7 @@ function renderTable() {
         `${country.region} · ${countryGeography(country)}`,
         [
           ["Score", fmt(country.score)],
-          ["Tier", country.riskTier || "n/a"],
+          ["Exposure tier", country.riskTier || "n/a"],
           ["Data confidence", country.dataConfidence?.level || "n/a"],
           ["Top pathway", displayPathwayLabel(country.pathways?.[0]?.label)],
           ["Gender proxy", fmt(country.genderProxy?.score)],
@@ -1851,7 +1851,7 @@ function renderMapFallback() {
   filteredCountries().forEach((country) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.textContent = `${country.country}: ${fmt(country.score)} (${country.riskTier})`;
+    button.textContent = `${country.country}: ${fmt(country.score)} exposure score (${country.riskTier} tier)`;
     button.addEventListener("click", () => {
       state.selectedIso = country.iso3;
       populateCountrySelect();
@@ -1924,7 +1924,7 @@ function renderMapMarkers() {
     const size = markerSize(country.score);
     markerElement.style.width = `${size}px`;
     markerElement.style.height = `${size}px`;
-    markerElement.title = `${country.country}: ${fmt(country.score)} (${country.riskTier})`;
+    markerElement.title = `${country.country}: ${fmt(country.score)} exposure score (${country.riskTier} tier)`;
     if (country.iso3 === state.selectedIso) {
       markerElement.style.outline = `3px solid ${COLORS.navy}`;
       markerElement.style.outlineOffset = "2px";

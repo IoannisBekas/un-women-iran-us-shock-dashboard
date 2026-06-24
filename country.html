@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-no-table-scroll" />
+    <link rel="stylesheet" href="styles.css?v=20260624-communication-flow" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-no-table-scroll#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260624-communication-flow#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-no-table-scroll#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-communication-flow#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-no-table-scroll">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-no-table-scroll">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-communication-flow">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-communication-flow">Dictionary</a>
           </div>
         </div>
       </div>
@@ -83,8 +83,8 @@
       <section id="country-lens" class="country-lens" aria-labelledby="country-lens-title">
         <div class="section-heading">
           <p class="eyebrow">Selected country</p>
-          <h2 id="country-lens-title">Country filters expose why scores move</h2>
-          <p>Select a country or geography group to inspect score drivers and where the country sits in the regional model.</p>
+          <h2 id="country-lens-title">Country view explains the published score and evidence limits</h2>
+          <p>Select a country or geography group to inspect the score, weighted drivers, scenario sensitivity, price evidence and data gaps.</p>
         </div>
         <div class="country-layout">
           <article class="country-profile">
@@ -103,7 +103,7 @@
             </div>
             <div class="profile-grid">
               <div>
-                <span class="metric-label">Risk tier</span>
+                <span class="metric-label">Exposure tier</span>
                 <strong id="country-tier">-</strong>
               </div>
               <div>
@@ -152,6 +152,89 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section id="scenario-detail" class="analysis-grid score-build-grid" aria-label="Score drivers and scenario sensitivity">
+        <div class="section-heading score-build-heading">
+          <p class="eyebrow">Score mechanics</p>
+          <h2>How the selected country's score is built</h2>
+          <p>
+            These visuals separate unweighted pathway intensity from weighted contribution points, then show
+            how the country moves under the selected stress test.
+          </p>
+        </div>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Unweighted pathway inputs</p>
+              <h3>Which normalized pathway scores are highest</h3>
+            </div>
+            <span class="source-pill">0-1 components</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="component-chart"></canvas>
+          </div>
+          <p class="chart-note">Bars are normalized 0-1 inputs before weights are applied. A longer bar means the selected country is high on that pressure pathway; missing inputs are set to a neutral value and flagged.</p>
+          <div class="chart-explain" aria-label="Component pathway chart calculation">
+            <p><strong>Calculated:</strong> source indicators are transformed into bounded <code>component_score</code> values from 0 to 1 before index weights are applied.</p>
+            <p><strong>How to read:</strong> this chart shows pressure intensity by pathway; use the index decomposition next to see how weights convert those scores into final points.</p>
+            <p><strong>Uses fields:</strong> <code>components.*</code>, <code>missingComponents</code>, <code>dataConfidence</code>.</p>
+          </div>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Weighted contribution points</p>
+              <h3>How component scores become index points</h3>
+            </div>
+            <span class="source-pill">Weighted points</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="index-decomposition-chart"></canvas>
+          </div>
+          <div id="index-decomposition-table" class="decomposition-table-block"></div>
+          <p class="chart-note">This deconstructs the published Shock Exposure Index as component score x component weight x 100. It explains the score, not a causal pathway.</p>
+          <div class="chart-explain" aria-label="Shock Exposure Index decomposition calculation">
+            <p><strong>Calculated:</strong> each row is <code>component_score x component_weight x 100</code>; contribution points sum to the published 0-100 Shock Exposure Index.</p>
+            <p><strong>How to read:</strong> the largest rows show which weighted components contribute most to this country's published score.</p>
+            <p><strong>Uses fields:</strong> <code>components.*</code>, <code>indexWeights</code>, <code>score</code>. See <a href="methodology.html?v=20260624-communication-flow#index-calculation">methodology</a>.</p>
+          </div>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <p class="eyebrow">Scenario sensitivity</p>
+              <h3 id="scenario-title">Countries most sensitive under selected stress test</h3>
+            </div>
+            <span class="source-pill">Scenario delta</span>
+          </div>
+          <div class="scenario-country-card" aria-label="Selected country scenario result">
+            <div>
+              <span class="metric-label">Selected country delta</span>
+              <strong id="scenario-selected-delta">-</strong>
+            </div>
+            <div>
+              <span class="metric-label">Scenario score</span>
+              <strong id="scenario-selected-score">-</strong>
+            </div>
+            <div>
+              <span class="metric-label">Scenario rank</span>
+              <strong id="scenario-selected-rank">-</strong>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="scenario-chart"></canvas>
+          </div>
+          <p id="scenario-note" class="chart-note"></p>
+          <div class="chart-explain" aria-label="Scenario sensitivity calculation">
+            <p><strong>Calculated:</strong> scenario rows compare each selected scenario score with the published baseline score and display the point delta.</p>
+            <p><strong>How to read:</strong> larger deltas show greater sensitivity to that stress test. These are planning stress tests, not forecasts.</p>
+            <p><strong>Uses fields:</strong> <code>scenarios[].risk_delta_0_100</code>, <code>scenario_score_0_100</code>, <code>scenario_rank</code>.</p>
+          </div>
+        </article>
       </section>
 
       <section id="country-gender-displacement" class="evidence-grid" aria-labelledby="country-gender-displacement-title">
@@ -239,7 +322,7 @@
             </p>
             <div class="chart-explain" aria-label="Supplemental coverage calculation">
               <p><strong>Calculated:</strong> counts whether each supplemental source layer has public data for the selected country.</p>
-              <p><strong>How to read:</strong> coverage supports interpretation and identifies data gaps; it is not an additional risk score.</p>
+              <p><strong>How to read:</strong> coverage supports interpretation and identifies data gaps; it is not an additional severity or exposure score.</p>
               <p><strong>Uses fields:</strong> <code>supplementalEvidence.*</code>, ACLED, CPI, food incidents, PortWatch and Findex coverage flags.</p>
             </div>
             <ul id="before-after-supplemental-list"></ul>
@@ -272,80 +355,6 @@
         </details>
       </section>
 
-      <section id="scenario-detail" class="analysis-grid" aria-label="Country charts">
-        <article class="chart-card">
-          <div class="card-title-row compact">
-            <div>
-              <p class="eyebrow">Selected country</p>
-              <h3>Which pathway drives the selected country score</h3>
-            </div>
-            <span class="source-pill">0-1 components</span>
-          </div>
-          <div class="chart-wrap">
-            <canvas id="component-chart"></canvas>
-          </div>
-          <p class="chart-note">Bars are normalized 0-1 inputs before weights are applied. A longer bar means the selected country is high on that pressure pathway; missing inputs are set to a neutral value and flagged.</p>
-          <div class="chart-explain" aria-label="Component pathway chart calculation">
-            <p><strong>Calculated:</strong> source indicators are transformed into bounded <code>component_score</code> values from 0 to 1 before index weights are applied.</p>
-            <p><strong>How to read:</strong> this chart shows pressure intensity by pathway; use the index decomposition next to see how weights convert those scores into final points.</p>
-            <p><strong>Uses fields:</strong> <code>components.*</code>, <code>missingComponents</code>, <code>dataConfidence</code>.</p>
-          </div>
-        </article>
-
-        <article class="chart-card">
-          <div class="card-title-row compact">
-            <div>
-              <p class="eyebrow">Index decomposition</p>
-              <h3>How component scores become index points</h3>
-            </div>
-            <span class="source-pill">Weighted points</span>
-          </div>
-          <div class="chart-wrap">
-            <canvas id="index-decomposition-chart"></canvas>
-          </div>
-          <div id="index-decomposition-table" class="decomposition-table-block"></div>
-          <p class="chart-note">This deconstructs the published Shock Exposure Index as component score x component weight x 100. It explains the score, not a causal pathway.</p>
-          <div class="chart-explain" aria-label="Shock Exposure Index decomposition calculation">
-            <p><strong>Calculated:</strong> each row is <code>component_score x component_weight x 100</code>; contribution points sum to the published 0-100 Shock Exposure Index.</p>
-            <p><strong>How to read:</strong> the largest rows show which weighted components contribute most to this country's published score.</p>
-            <p><strong>Uses fields:</strong> <code>components.*</code>, <code>indexWeights</code>, <code>score</code>. See <a href="methodology.html?v=20260624-no-table-scroll#index-calculation">methodology</a>.</p>
-          </div>
-        </article>
-
-        <article class="chart-card">
-          <div class="card-title-row compact">
-            <div>
-              <p class="eyebrow">Scenario sensitivity</p>
-              <h3 id="scenario-title">Countries most sensitive under selected stress test</h3>
-            </div>
-            <span class="source-pill">Scenario delta</span>
-          </div>
-          <div class="scenario-country-card" aria-label="Selected country scenario result">
-            <div>
-              <span class="metric-label">Selected country delta</span>
-              <strong id="scenario-selected-delta">-</strong>
-            </div>
-            <div>
-              <span class="metric-label">Scenario score</span>
-              <strong id="scenario-selected-score">-</strong>
-            </div>
-            <div>
-              <span class="metric-label">Scenario rank</span>
-              <strong id="scenario-selected-rank">-</strong>
-            </div>
-          </div>
-          <div class="chart-wrap">
-            <canvas id="scenario-chart"></canvas>
-          </div>
-          <p id="scenario-note" class="chart-note"></p>
-          <div class="chart-explain" aria-label="Scenario sensitivity calculation">
-            <p><strong>Calculated:</strong> scenario rows compare each selected scenario score with the published baseline score and display the point delta.</p>
-            <p><strong>How to read:</strong> larger deltas show greater sensitivity to that stress test. These are planning stress tests, not forecasts.</p>
-            <p><strong>Uses fields:</strong> <code>scenarios[].risk_delta_0_100</code>, <code>scenario_score_0_100</code>, <code>scenario_rank</code>.</p>
-          </div>
-        </article>
-      </section>
-
       <section id="country-data" class="evidence-grid" aria-label="Data readiness and source coverage">
         <article class="evidence-panel">
           <p class="eyebrow">Readiness checks</p>
@@ -353,7 +362,7 @@
           <p class="chart-note">These are interpretation gates. They say whether the available public-source data can support a price event-study, food-security outcome model or gender-causal claim.</p>
           <div class="chart-explain" aria-label="Readiness calculation">
             <p><strong>Calculated:</strong> readiness flags are rule-based checks against source availability and whether required public fields exist.</p>
-            <p><strong>How to read:</strong> "not ready" means the public dataset cannot support that claim now; it does not mean the situation is low risk.</p>
+            <p><strong>How to read:</strong> "not ready" means the public dataset cannot support that claim now; it does not mean the situation is low exposure or low severity.</p>
             <p><strong>Uses fields:</strong> <code>readiness.*</code>, <code>dataConfidence</code>, source-coverage flags.</p>
           </div>
           <div id="readiness-list" class="readiness-list"></div>
@@ -395,7 +404,7 @@
                   <th>Region</th>
                   <th>Geography</th>
                   <th>Score</th>
-                  <th>Tier</th>
+                  <th>Exposure tier</th>
                   <th>Data confidence</th>
                   <th>Top pathway</th>
                   <th>IPC 3+ %</th>
@@ -419,7 +428,7 @@
         <p>
           Country and scenario filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260624-no-table-scroll">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260624-communication-flow">methodology page</a>.
         </p>
       </section>
     </main>
@@ -432,7 +441,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-no-table-scroll"></script>
-    <script src="app.js?v=20260624-no-table-scroll"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-communication-flow"></script>
+    <script src="app.js?v=20260624-communication-flow"></script>
   </body>
 </html>

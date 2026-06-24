@@ -897,6 +897,10 @@ canvas {
   color: var(--muted);
 }
 
+.score-build-heading {
+  grid-column: 1 / -1;
+}
+
 .lens-list {
   display: grid;
   gap: 10px;
