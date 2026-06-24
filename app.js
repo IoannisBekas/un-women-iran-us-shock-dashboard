@@ -87,6 +87,18 @@ const GENDER_DRIVER_COMPONENTS = [
   { key: "price_pressure_score", label: "Food-price pressure", color: COLORS.navy },
 ];
 
+const GENDER_PROXY_DECOMPOSITION_COMPONENTS = [
+  { field: "score", label: "Official Shock Exposure Index", coefficient: 0.25, scale: "0-100", color: COLORS.navy },
+  { field: "components.gender_vulnerability_score", label: "Gender vulnerability", coefficient: 0.25, scale: "0-1", color: COLORS.red },
+  { field: "components.acute_food_insecurity_score", label: "IPC acute food insecurity", coefficient: 0.15, scale: "0-1", color: COLORS.gold },
+  { field: "components.wfp_food_security_outcome_score", label: "WFP outcome layer", coefficient: 0.10, scale: "0-1", color: COLORS.neutral },
+  { field: "components.public_displacement_layer_score", label: "IDMC/IOM internal displacement", coefficient: 0.15, scale: "0-1", color: COLORS.blue },
+  { field: "components.assistance_pressure_score", label: "Assistance/funding pressure", coefficient: 0.10, scale: "0-1", color: COLORS.teal },
+  { field: "components.price_pressure_score", label: "Domestic food-price pressure", coefficient: 0.10, scale: "0-1", color: COLORS.navy },
+  { field: "components.import_exposure_score", label: "Food/fuel import exposure", coefficient: 0.05, scale: "0-1", color: COLORS.neutralLight },
+  { field: "components.agriculture_input_exposure_score", label: "Agriculture/fertilizer exposure", coefficient: 0.10, scale: "0-1", color: COLORS.blue },
+];
+
 const state = {
   region: "All regions",
   geography: "All geographies",
@@ -169,6 +181,8 @@ const charts = {
   region: null,
   gender: null,
   genderDrivers: null,
+  genderDecomposition: null,
+  indexDecomposition: null,
 };
 
 let map;
@@ -230,7 +244,9 @@ const el = {
   coverageList: document.getElementById("coverage-list"),
   genderDriverTitle: document.getElementById("gender-driver-title"),
   genderLensList: document.getElementById("gender-lens-list"),
+  genderMonitoringList: document.getElementById("gender-monitoring-list"),
   displacementClarityList: document.getElementById("displacement-clarity-list"),
+  countryGenderIndicatorTable: document.getElementById("country-gender-indicator-table"),
   countryTableBody: document.getElementById("country-table-body"),
   countryTableCardList: document.getElementById("country-table-card-list"),
   countryTableSummary: document.getElementById("country-table-summary"),
@@ -314,6 +330,39 @@ function eventStudyUseText(country) {
 function numericValue(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return null;
   return Number(value);
+}
+
+function valueAtPath(obj, path) {
+  return String(path).split(".").reduce((current, key) => (current == null ? null : current[key]), obj);
+}
+
+function genderProxyContributionRows(country) {
+  return GENDER_PROXY_DECOMPOSITION_COMPONENTS.map((item) => {
+    const raw = numericValue(valueAtPath(country, item.field));
+    const points = raw === null
+      ? null
+      : item.scale === "0-100"
+        ? raw * item.coefficient
+        : raw * item.coefficient * 100;
+    return {
+      label: item.label,
+      points,
+      color: item.color,
+    };
+  }).filter((row) => row.points !== null);
+}
+
+function indexContributionRows(country) {
+  return Object.entries(data.componentLabels || {}).map(([key, label]) => {
+    const component = numericValue(country.components?.[key]);
+    const weight = numericValue(data.indexWeights?.[key]);
+    return {
+      key,
+      label,
+      points: component === null || weight === null ? null : component * weight * 100,
+      color: key === "gender_vulnerability_score" ? COLORS.red : key === "public_displacement_layer_score" ? COLORS.blue : COLORS.teal,
+    };
+  }).filter((row) => row.points !== null);
 }
 
 function hasPositiveYoyPeak(country) {
@@ -1242,6 +1291,98 @@ function renderGenderDriverChart() {
   });
 }
 
+function renderGenderDecompositionChart() {
+  if (!window.Chart) return;
+  destroyChart("genderDecomposition");
+  const ctx = document.getElementById("gender-decomposition-chart");
+  if (!ctx) return;
+  const country = countryByIso(state.selectedIso);
+  const rows = genderProxyContributionRows(country)
+    .sort((a, b) => (b.points || 0) - (a.points || 0));
+  charts.genderDecomposition = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: rows.map((row) => row.label),
+      datasets: [
+        {
+          label: "Contribution points",
+          data: rows.map((row) => row.points),
+          backgroundColor: rows.map((row) => row.color),
+          borderRadius: 2,
+        },
+      ],
+    },
+    options: baseChartOptions({
+      indexAxis: "y",
+      scales: {
+        x: {
+          min: 0,
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Points in gender proxy score", color: COLORS.muted, font: chartFont() },
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont() },
+        },
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (context) => `${fmt(context.parsed.x)} points`,
+          },
+        },
+      },
+    }),
+  });
+}
+
+function renderIndexDecompositionChart() {
+  if (!window.Chart) return;
+  destroyChart("indexDecomposition");
+  const ctx = document.getElementById("index-decomposition-chart");
+  if (!ctx) return;
+  const country = countryByIso(state.selectedIso);
+  const rows = indexContributionRows(country)
+    .sort((a, b) => (b.points || 0) - (a.points || 0));
+  charts.indexDecomposition = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: rows.map((row) => row.label),
+      datasets: [
+        {
+          label: "Weighted index points",
+          data: rows.map((row) => row.points),
+          backgroundColor: rows.map((row) => row.color),
+          borderRadius: 2,
+        },
+      ],
+    },
+    options: baseChartOptions({
+      indexAxis: "y",
+      scales: {
+        x: {
+          min: 0,
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Points in 0-100 Shock Exposure Index", color: COLORS.muted, font: chartFont() },
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont() },
+        },
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (context) => `${fmt(context.parsed.x)} points`,
+          },
+        },
+      },
+    }),
+  });
+}
+
 function renderGenderLensList() {
   if (!el.genderLensList) return;
   el.genderLensList.innerHTML = "";
@@ -1263,6 +1404,35 @@ function renderGenderLensList() {
     "Measured women/girls outcome coverage",
     `${fmtInt(saddAvailable)}/${fmtInt(data.countries.length)} countries`,
     "Public IPC rows are total-population severity; the dashboard does not infer women/girls IPC counts."
+  );
+}
+
+function renderGenderMonitoringList() {
+  if (!el.genderMonitoringList) return;
+  el.genderMonitoringList.innerHTML = "";
+  const country = countryByIso(state.selectedIso);
+  const topDrivers = genderProxyContributionRows(country)
+    .sort((a, b) => (b.points || 0) - (a.points || 0))
+    .slice(0, 3)
+    .map((row) => row.label.toLowerCase())
+    .join(", ");
+  appendLensItem(
+    el.genderMonitoringList,
+    "Use",
+    "Prioritize monitoring",
+    `${country.country}'s strongest gender-proxy drivers are ${topDrivers || "not available"}. Use them to decide which questions to validate with country teams.`
+  );
+  appendLensItem(
+    el.genderMonitoringList,
+    "Ask for",
+    "SADD outcomes",
+    "Request sex- and age-disaggregated FCS, rCSI, LCS, assistance reach, access constraints and female-headed household outcomes before making impact claims."
+  );
+  appendLensItem(
+    el.genderMonitoringList,
+    "Do not claim",
+    "Causal gender impact",
+    "These are structural/proxy indicators for screening. They do not estimate how many women or girls became food insecure."
   );
 }
 
@@ -1408,6 +1578,41 @@ function renderCountryGenderLens() {
     `${fmtPct(country.informality?.femaleInformalEmploymentPct)} informal employment | ${fmtPct(country.indicators?.femaleHeadedHouseholdsPct)} female-headed households`,
     "Use as structural vulnerability evidence and a prompt for field validation."
   );
+}
+
+function renderCountryGenderIndicators() {
+  if (!el.countryGenderIndicatorTable) return;
+  const country = countryByIso(state.selectedIso);
+  const rows = [
+    ["Female informal employment", fmtPct(country.informality?.femaleInformalEmploymentPct), country.informality?.proxyUsed || "ILOSTAT/proxy status not available"],
+    ["Female vulnerable employment", fmtPct(country.indicators?.femaleVulnerableEmploymentPct), "Structural labour vulnerability indicator"],
+    ["Female agricultural employment", fmtPct(country.indicators?.femaleAgricultureEmploymentPct), "Agriculture/fertilizer shock exposure context"],
+    ["Female labour force participation", fmtPct(country.indicators?.femaleLaborForceParticipationPct), "Structural economic participation context"],
+    ["Women account ownership", fmtPct(country.genderFinance?.accountWomenPct ?? country.indicators?.femaleAccountOwnershipPct), country.genderFinance?.latestYear ? `Findex ${country.genderFinance.latestYear}` : "Findex/account coverage varies"],
+    ["Women mobile money account", fmtPct(country.genderFinance?.mobileMoneyWomenPct), "Findex financial access context"],
+    ["Women formal/mobile saving", fmtPct(country.genderFinance?.formalOrMobileSavingWomenPct), "Findex resilience/coping context"],
+    ["Women receiving wages", fmtPct(country.genderFinance?.receivedWagesWomenPct), "Findex income-channel context"],
+    ["Women receiving government payments", fmtPct(country.genderFinance?.receivedGovernmentPaymentsWomenPct), "Findex assistance/payment-channel context"],
+    ["Women digital bill payment", fmtPct(country.genderFinance?.digitalBillPaymentWomenPct), "Findex digital access context"],
+    ["Female-headed households", fmtPct(country.indicators?.femaleHeadedHouseholdsPct), country.indicators?.femaleHeadedHouseholdsYear ? `Latest year ${country.indicators.femaleHeadedHouseholdsYear}` : "Coverage varies"],
+  ];
+  el.countryGenderIndicatorTable.innerHTML = "";
+  const table = document.createElement("table");
+  table.className = "indicator-mini-table-inner";
+  const thead = document.createElement("thead");
+  thead.innerHTML = "<tr><th>Indicator</th><th>Value</th><th>How to read it</th></tr>";
+  const tbody = document.createElement("tbody");
+  rows.forEach(([label, value, note]) => {
+    const tr = document.createElement("tr");
+    [label, value, note].forEach((text) => {
+      const cell = document.createElement("td");
+      cell.textContent = text || "n/a";
+      tr.appendChild(cell);
+    });
+    tbody.appendChild(tr);
+  });
+  table.append(thead, tbody);
+  el.countryGenderIndicatorTable.appendChild(table);
 }
 
 function renderReadiness() {
@@ -1644,9 +1849,13 @@ function renderAll() {
   renderRegionChart();
   renderGenderChart();
   renderGenderDriverChart();
+  renderGenderDecompositionChart();
+  renderIndexDecompositionChart();
   renderGenderLensList();
+  renderGenderMonitoringList();
   renderDisplacementClarity();
   renderCountryGenderLens();
+  renderCountryGenderIndicators();
   renderReadiness();
   renderCoverage();
   renderTable();

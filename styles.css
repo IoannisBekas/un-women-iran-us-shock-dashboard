@@ -906,6 +906,61 @@ canvas {
   line-height: 1.35;
 }
 
+.indicator-table-block {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.indicator-table-block h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--un-navy);
+  font-size: 1.24rem;
+  line-height: 1.15;
+}
+
+.indicator-mini-table {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.indicator-mini-table-inner {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.indicator-mini-table-inner th,
+.indicator-mini-table-inner td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.indicator-mini-table-inner th {
+  background: rgba(232, 241, 239, 0.92);
+  color: var(--un-navy);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.indicator-mini-table-inner td:nth-child(2) {
+  width: 120px;
+  color: var(--ink);
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.indicator-mini-table-inner td:nth-child(3) {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
 .displacement-rule-panel,
 .displacement-country-row {
   display: grid;

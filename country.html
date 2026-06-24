@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260623-explain-displacement" />
+    <link rel="stylesheet" href="styles.css?v=20260624-gender-lens" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260623-explain-displacement#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260624-gender-lens#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260623-explain-displacement#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-gender-lens#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260623-explain-displacement">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260623-explain-displacement">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-gender-lens">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-gender-lens">Dictionary</a>
           </div>
         </div>
       </div>
@@ -158,6 +158,11 @@
             and assistance pressure is included because assistance access and funding constraints can have differential gender effects.
           </p>
           <div id="country-gender-list" class="lens-list"></div>
+          <div class="indicator-table-block">
+            <h3>Female labour and financial-access indicators</h3>
+            <p class="chart-note">These indicators are visible context for UN Women monitoring. They are structural/proxy evidence, not measured SADD food-security outcomes.</p>
+            <div id="country-gender-indicator-table" class="indicator-mini-table"></div>
+          </div>
         </article>
       </section>
 
@@ -260,6 +265,20 @@
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
+              <p class="eyebrow">Index decomposition</p>
+              <h3>How component scores become index points</h3>
+            </div>
+            <span class="source-pill">Weighted points</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="index-decomposition-chart"></canvas>
+          </div>
+          <p class="chart-note">This deconstructs the published Shock Exposure Index as component score x component weight x 100. It explains the score, not a causal pathway.</p>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
               <p class="eyebrow">Scenario sensitivity</p>
               <h3 id="scenario-title">Countries most sensitive under selected stress test</h3>
             </div>
@@ -344,7 +363,7 @@
         <p>
           Country and scenario filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260623-explain-displacement">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260624-gender-lens">methodology page</a>.
         </p>
       </section>
     </main>
@@ -357,7 +376,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260623-explain-displacement"></script>
-    <script src="app.js?v=20260623-explain-displacement"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-gender-lens"></script>
+    <script src="app.js?v=20260624-gender-lens"></script>
   </body>
 </html>
