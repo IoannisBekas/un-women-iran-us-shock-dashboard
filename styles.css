@@ -272,51 +272,6 @@ main > *,
   font-size: 0.92rem;
 }
 
-.chart-explain {
-  display: grid;
-  margin-top: 10px;
-  border-left: 4px solid var(--un-blue);
-  background: rgba(232, 241, 239, 0.58);
-  color: #34414a;
-}
-
-.chart-explain p {
-  position: relative;
-  margin: 0;
-  min-height: 34px;
-  padding: 10px 12px 10px 122px;
-  font-size: 0.88rem;
-  line-height: 1.45;
-}
-
-.chart-explain p + p {
-  border-top: 1px solid rgba(0, 124, 146, 0.15);
-}
-
-.chart-explain strong {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 92px;
-  color: var(--un-navy);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
-.chart-explain code {
-  font-family: var(--font-mono);
-  font-size: 0.86em;
-  overflow-wrap: anywhere;
-}
-
-.chart-explain a {
-  color: var(--un-blue);
-  font-weight: 800;
-}
-
 .interpretation-panel {
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
@@ -2054,18 +2009,6 @@ tbody tr:hover {
 
   .gender-lens-section .evidence-panel.wide h2 {
     font-size: 1.55rem;
-  }
-
-  .chart-explain p {
-    min-height: 0;
-    padding: 10px 12px;
-  }
-
-  .chart-explain strong {
-    position: static;
-    display: block;
-    width: auto;
-    margin-bottom: 4px;
   }
 
   .methodology-text-page {
