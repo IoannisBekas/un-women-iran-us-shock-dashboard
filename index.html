@@ -11,7 +11,7 @@
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-visual-fixes" />
+    <link rel="stylesheet" href="styles.css?v=20260624-clean-labels" />
   </head>
   <body data-page="overview">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -37,9 +37,9 @@
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
             <a class="hero-action-primary" href="#findings" aria-current="page">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-visual-fixes#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-visual-fixes">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-visual-fixes">Dictionary</a>
+            <a class="hero-action-secondary" href="country.html?v=20260624-clean-labels#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-clean-labels">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-clean-labels">Dictionary</a>
           </div>
         </div>
       </div>
@@ -77,9 +77,9 @@
           </div>
           <p class="definition-note dictionary-link-note">
             For country-level filters and raw country evidence, open the
-            <a href="country.html?v=20260624-visual-fixes">country lens</a>. For the full calculation logic and caveats, open the
-            <a href="methodology.html?v=20260624-visual-fixes">methodology page</a>. For definitions, open the
-            <a href="dictionary.html?v=20260624-visual-fixes">dashboard dictionary</a>.
+            <a href="country.html?v=20260624-clean-labels">country lens</a>. For the full calculation logic and caveats, open the
+            <a href="methodology.html?v=20260624-clean-labels">methodology page</a>. For definitions, open the
+            <a href="dictionary.html?v=20260624-clean-labels">dashboard dictionary</a>.
           </p>
         </details>
       </section>
@@ -100,10 +100,8 @@
           <article class="before-after-panel">
             <div class="card-title-row compact">
               <div>
-                <p class="eyebrow">Main readout</p>
                 <h3>The largest like-for-like price increases are concentrated in four countries</h3>
               </div>
-              <span class="source-pill">2026 vs 2025</span>
             </div>
             <div class="chart-wrap before-after-chart-wrap">
               <canvas id="before-after-chart"></canvas>
@@ -112,7 +110,6 @@
 </article>
 
           <article class="before-after-panel before-after-story">
-            <p class="eyebrow">Cross-country read</p>
             <h3>Highest positive post-shock price increases</h3>
             <ul id="before-after-message-list"></ul>
           </article>
@@ -141,11 +138,9 @@
         <article class="chart-card wide">
           <div class="card-title-row">
             <div>
-              <p class="eyebrow">Shock Exposure Index ranking</p>
               <h2>Sudan and South Sudan top the exposure-priority ranking</h2>
               <p>Scores combine price pressure, import exposure, agriculture inputs, IPC severity, displacement, assistance pressure and gender vulnerability.</p>
             </div>
-            <span class="source-pill">0-100 exposure score</span>
           </div>
           <div class="chart-wrap ranking-chart-wrap">
             <canvas id="ranking-chart"></canvas>
@@ -166,10 +161,8 @@
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
-              <p class="eyebrow">Regional comparison</p>
               <h3>East Africa has the highest average exposure score</h3>
             </div>
-            <span class="source-pill">By region</span>
           </div>
           <div class="chart-wrap">
             <canvas id="region-chart"></canvas>
@@ -180,10 +173,8 @@
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
-              <p class="eyebrow">Raw gender indicator</p>
               <h3>Female informal employment is highest where available</h3>
             </div>
-            <span class="source-pill">Raw %</span>
           </div>
           <div class="chart-wrap">
             <canvas id="gender-chart"></canvas>
@@ -205,10 +196,8 @@
           <article class="chart-card">
             <div class="card-title-row compact">
               <div>
-                <p class="eyebrow">Selected country</p>
                 <h3 id="gender-driver-title">Raw gender and financial-access indicators</h3>
               </div>
-              <span class="source-pill">Raw %</span>
             </div>
             <div class="chart-wrap compact-chart">
               <canvas id="gender-driver-chart"></canvas>
@@ -231,10 +220,8 @@
           <article class="chart-card wide">
             <div class="card-title-row compact">
               <div>
-                <p class="eyebrow">Selected-country evidence</p>
                 <h3>Raw food-security, displacement, assistance and gender indicators</h3>
               </div>
-              <span class="source-pill">Raw values</span>
             </div>
             <div id="country-raw-evidence-table" class="indicator-mini-table"></div>
             <p class="chart-note">These values are source indicators or near-raw dashboard fields. They are shown to explain context without introducing a second composite score.</p>
@@ -260,7 +247,7 @@
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-visual-fixes"></script>
-    <script src="app.js?v=20260624-visual-fixes"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-clean-labels"></script>
+    <script src="app.js?v=20260624-clean-labels"></script>
   </body>
 </html>

@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-visual-fixes" />
+    <link rel="stylesheet" href="styles.css?v=20260624-clean-labels" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-visual-fixes#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260624-clean-labels#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-visual-fixes#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-clean-labels#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-visual-fixes">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-visual-fixes">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-clean-labels">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-clean-labels">Dictionary</a>
           </div>
         </div>
       </div>
@@ -130,7 +130,6 @@
           <article class="map-card">
             <div class="card-title-row compact">
               <div>
-                <p class="eyebrow">Regional footprint</p>
                 <h3>Country points by exposure tier</h3>
               </div>
               <button id="map-reset" class="small-button" type="button">Reset map</button>
@@ -160,10 +159,8 @@
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
-              <p class="eyebrow">Raw country evidence</p>
               <h3>Food security, displacement, assistance and structural indicators</h3>
             </div>
-            <span class="source-pill">Raw values</span>
           </div>
           <div id="country-raw-evidence-table" class="indicator-mini-table"></div>
           <p class="chart-note">These are source indicators or near-raw dashboard fields. They are shown directly so readers do not have to interpret extra scores.</p>
@@ -172,10 +169,8 @@
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
-              <p class="eyebrow">Weighted contribution points</p>
               <h3>How component scores become index points</h3>
             </div>
-            <span class="source-pill">Weighted points</span>
           </div>
           <div class="chart-wrap">
             <canvas id="index-decomposition-chart"></canvas>
@@ -215,7 +210,6 @@
           <article class="before-after-panel">
             <div class="card-title-row compact">
               <div>
-                <p class="eyebrow">Selected country</p>
                 <h3 id="before-after-country">Country</h3>
               </div>
               <span id="before-after-readiness" class="source-pill">Readiness</span>
@@ -341,7 +335,7 @@
         <p>
           Country, region and geography filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260624-visual-fixes">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260624-clean-labels">methodology page</a>.
         </p>
       </section>
     </main>
@@ -354,7 +348,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-visual-fixes"></script>
-    <script src="app.js?v=20260624-visual-fixes"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-clean-labels"></script>
+    <script src="app.js?v=20260624-clean-labels"></script>
   </body>
 </html>
