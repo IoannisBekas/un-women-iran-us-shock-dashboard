@@ -10,7 +10,7 @@
       content="Methodology, calculations, caveats and interpretation boundaries for the UN Women Iran-USA regional escalation shock dashboard."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260624-no-explainer-boxes" />
+    <link rel="stylesheet" href="styles.css?v=20260624-raw-indicators" />
   </head>
   <body data-page="methodology">
     <a class="skip-link" href="#main-content">Skip to methodology content</a>
@@ -22,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-no-explainer-boxes#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260624-raw-indicators#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,10 +35,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-no-explainer-boxes#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-no-explainer-boxes#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-raw-indicators#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260624-raw-indicators#country-lens">Country Lens</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-no-explainer-boxes">Dictionary</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-raw-indicators">Dictionary</a>
           </div>
         </div>
       </div>
@@ -68,9 +68,9 @@
         <a href="#analytical-frame">Analytical frame</a>
         <a href="#visual-calculation-guide">Visual explanations</a>
         <a href="#index-calculation">Index calculation</a>
-        <a href="#gender-displacement-method">Gender/displacement lens</a>
+        <a href="#gender-displacement-method">Gender/displacement indicators</a>
         <a href="#before-after-method">Before/after method</a>
-        <a href="#scenario-method">Scenario method</a>
+        <a href="#scenario-method">Internal sensitivity checks</a>
         <a href="#caveats">Caveats</a>
         <a href="#source-trace">Source trace</a>
       </section>
@@ -87,9 +87,9 @@
         <p>
           First, the <strong>Shock Exposure Index</strong> ranks each country on a 0-100 screening
           scale. Higher scores mean higher relative exposure and monitoring priority, not measured
-          harm. Second, <strong>scenario sensitivity</strong> stress-tests how country
-          scores move under oil-price, fertilizer, food-price and assistance-cut assumptions. Third,
-          the <strong>before/after price module</strong> compares available food-price series across
+          harm. Second, raw or near-raw indicator panels show IPC, WFP, displacement, assistance,
+          import, agriculture, labour and financial-access evidence directly. Third, the
+          <strong>before/after price module</strong> compares available food-price series across
           matched months. Fourth, readiness and caveat fields explain where the available evidence can support
           stronger interpretation and where it cannot.
         </p>
@@ -107,18 +107,15 @@
         <p class="eyebrow">Visual interpretation</p>
         <h2 id="visual-calculation-guide-title">How to read the chart explanations</h2>
         <p>
-          Each dashboard visual now includes a compact explanation block with three parts:
-          how the visual is calculated, how to read the result, and which dashboard fields feed the
-          chart or table. These blocks are intended to make the dashboard auditable during meetings
-          without requiring users to inspect the workbook.
+          The user-facing dashboard now presents only one composite score: the official
+          Shock Exposure Index. Other panels use raw or near-raw fields with units and source notes
+          so readers do not need to interpret multiple score systems.
         </p>
         <p>
-          For composite scores, the dashboard shows decomposition tables. In the Shock Exposure Index
-          table, each row is calculated as <code>component_score x component_weight x 100</code>.
-          In the gender proxy table, each row is calculated as the visible input score multiplied by
-          its gender-proxy coefficient, with 0-1 inputs converted to contribution points. The
-          contribution rows show arithmetic drivers of the score; they do not identify causal
-          channels or measured impacts.
+          The only visible decomposition table is for the Shock Exposure Index. Each row is
+          calculated as <code>component_score x component_weight x 100</code>. The contribution rows
+          explain the arithmetic behind the official score; they do not identify causal channels or
+          measured impacts.
         </p>
         <p>
           The explanation blocks do not change the model weights, source data or published country
@@ -142,7 +139,8 @@
           This formula creates a composite screening score, not a probability of crisis and not a
           measured outcome. A country can rank highly because several pressure pathways are elevated,
           or because one high-weight pathway is very strong. Alternative weighting schemes are provided
-          so users can test whether the ranking is sensitive to the documented weights.
+          so the internal model can be audited, but those alternative scores are not presented as
+          user-facing dashboard indicators.
         </p>
         <h3>Current index weights</h3>
         <ol id="methodology-weights-list" class="methodology-weight-text-list"></ol>
@@ -150,7 +148,7 @@
 
       <section id="gender-displacement-method" class="methodology-text-section" aria-labelledby="gender-displacement-method-title" data-methodology-section>
         <p class="eyebrow">Gender and displacement</p>
-        <h2 id="gender-displacement-method-title">How displacement, IPC and gender proxy inputs are used</h2>
+        <h2 id="gender-displacement-method-title">How displacement, IPC and gender indicators are used</h2>
         <p>
           Displacement is intentionally split into two model fields. The <strong>legacy external
           displacement proxy</strong> is retained for continuity with the earlier dashboard version and can be
@@ -160,10 +158,9 @@
           and DTM summaries where available.
         </p>
         <p>
-          This means a country such as Palestine or Yemen can show a zero legacy displacement proxy
-          while still carrying nonzero internal-displacement pressure through the IDMC/IOM layer. The
-          zero should therefore be read as "not captured by the legacy proxy", not as "no internal
-          displacement pressure".
+          In the simplified dashboard, readers see the public IDMC/IOM displacement evidence directly
+          instead of comparing displacement proxy scores. This helps avoid the mistaken reading that
+          an older zero proxy means no internal displacement.
         </p>
         <p>
           IPC data are used in the <strong>IPC acute food insecurity</strong> component, but the
@@ -173,11 +170,12 @@
           female-headed household outcomes.
         </p>
         <p>
-          The gender proxy priority score combines the published exposure score with structural gender
-          vulnerability and selected humanitarian pressure inputs, including internal displacement and
-          assistance pressure. The rationale is that displacement, aid access, funding cuts, food
-          prices and labour-market vulnerability can have differential gender effects. The score is a
-          prioritization lens for monitoring and field validation, not a measured impact estimate.
+          Gender vulnerability remains one internal component of the Shock Exposure Index. The
+          user-facing dashboard no longer presents a separate gender-proxy score. Instead, it shows
+          interpretable gender, labour and financial-access indicators directly, such as female
+          informal employment, vulnerable employment, agricultural employment, labour-force
+          participation, account ownership, mobile money, saving, wage receipt and government payment
+          receipt where available.
         </p>
       </section>
 
@@ -209,14 +207,12 @@
       </section>
 
       <section id="scenario-method" class="methodology-text-section" aria-labelledby="scenario-method-title" data-methodology-section>
-        <p class="eyebrow">Scenarios</p>
-        <h2 id="scenario-method-title">Stress tests, not forecasts</h2>
+        <p class="eyebrow">Internal checks</p>
+        <h2 id="scenario-method-title">Sensitivity checks are retained internally</h2>
         <p>
-          Scenario values come from documented scenario sensitivity calculations. The
-          Country Lens page groups the scenarios into a stress lens and a three-option shock
-          level so the controls remain readable. Scenario deltas are point movements from the
-          baseline score under a stated assumption. They are stress tests for planning discussion,
-          not forecasts of what will happen.
+          Scenario and weight-sensitivity calculations remain in the workbook as internal audit
+          checks, but they are not presented as separate user-facing dashboard scores. This keeps the
+          dashboard focused on the official Shock Exposure Index and the raw evidence behind it.
         </p>
         <p>
           Oil-price scenarios emphasize import exposure, price pressure and assistance pressure.
@@ -242,10 +238,10 @@
           Results should therefore be interpreted as country exposure, evidence strength and monitoring
           priority across plausible escalation pathways. Before/after prices describe matched
           food-price changes after the shock window. Gender vulnerability is a structural and proxy
-          prioritization lens. Scenario outputs are stress tests for planning discussion. The dashboard
-          does not prove causality, estimate women/girls food-security impact, treat scenario deltas
-          as forecasts, or treat negative, flat or missing price comparisons as evidence that a
-          country has no risk.
+          prioritization lens within the official index, while the dashboard shows raw gender
+          indicators directly. The dashboard does not prove causality, estimate women/girls
+          food-security impact, or treat negative, flat or missing price comparisons as evidence that
+          a country has no risk.
         </p>
       </section>
 
@@ -254,10 +250,11 @@
         <h2 id="source-trace-title">Public sources and calculation trace</h2>
         <p>
           Dashboard values are read from documented public-source inputs and calculation checks. The
-          main trace points are: final country ranking and score; bounded component scores; component
-          weights and weighted contributions; WFP/HDX food-price evidence; latest national IPC timing
-          and severity; scenario score movements; and price event-study, food-security outcome and
-          gender-causal readiness flags.
+          main trace points are: final country ranking and Shock Exposure Index score; bounded
+          component scores and weights used to calculate that official index; WFP/HDX food-price
+          evidence; latest national IPC timing and severity; IDMC/IOM displacement evidence; OCHA FTS
+          funding evidence; gender/labour/financial-access indicators; and price event-study,
+          food-security outcome and gender-causal readiness flags.
         </p>
         <p>
           Supplemental public-source checks provide context and data-gap evidence from ACLED, CPI, food incidents,
@@ -275,7 +272,7 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-no-explainer-boxes"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-raw-indicators"></script>
     <script>
       const methodologyData = window.IRAN_US_SHOCK_DASHBOARD_DATA || {};
 

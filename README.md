@@ -12,17 +12,17 @@ https://ioannisbekas.github.io/un-women-iran-us-shock-dashboard/
 - Published dashboard dataset: `dashboard/web/iran-us-shock/data/iran-us-shock-dashboard-data.js`
 - Data builder: `analysis/scripts/build_iran_us_shock_dashboard_data.py`
 - Before/After module: uses documented WFP/HDX like-for-like food-price comparisons, readiness checks, IPC timing, country context and supplemental public-source coverage. The headline chart shows each country's highest positive matched same-month YoY food-price change in post-shock 2026 months, not negative or flat changes.
-- Scenario controls group the analytical scenarios into a `Stress lens` selector and a three-option `Shock level` selector to keep the dashboard readable without dropping scenarios.
-- Explanation update: repeated per-chart "Calculated / How to read / Uses fields" boxes were removed to keep the dashboard cleaner. Composite visuals still use decomposition tables, concise chart notes and methodology/dictionary links for calculation detail.
-- Communication-flow update: the Country Lens now shows score mechanics immediately after the selected-country profile/map, before the gender/displacement and price-evidence sections. Visible labels use "exposure" and "sensitivity" language where "risk" could be read as a forecast.
+- Simplification update: the only composite score presented to users is the official Shock Exposure Index. Scenario, gender-proxy, supplemental and other secondary score views are retained only as internal workbook/model checks where needed.
+- Explanation update: repeated per-chart "Calculated / How to read / Uses fields" boxes were removed to keep the dashboard cleaner. The visible decomposition table is limited to the official Shock Exposure Index; other context panels show raw or near-raw indicators with units and notes.
+- Communication-flow update: the Country Lens now shows score mechanics immediately after the selected-country profile/map, then raw country evidence, gender/displacement indicators, price evidence and data-readiness sections.
 
 ## Page Structure
 
-- `index.html`: regional overview, headline before/after story, ranking, regional charts, and method boundary.
-- `country.html`: country-specific explorer with region, landlocked/coastal, country, stress-lens and shock-level filters. The main view prioritizes the selected country; full evidence tables are collapsed behind disclosure panels.
+- `index.html`: regional overview, headline before/after story, official Shock Exposure Index ranking, regional chart, raw gender indicator chart and method boundary.
+- `country.html`: country-specific explorer with region, landlocked/coastal and country filters. The main view prioritizes the selected country; full evidence tables are collapsed behind disclosure panels.
 - `methodology.html`: text-led methodology page covering analysis logic, calculations, public-source traceability, caveats and safe interpretation language.
 - `dictionary.html`: plain-language definitions for terms, data sources and interpretation boundaries.
-- The global header intentionally keeps only four page destinations: `Overview`, `Country Lens`, `Methodology`, and `Dictionary`. The before/after, ranking, scenario and data-readiness views remain as modules inside the overview or country pages.
+- The global header intentionally keeps only four page destinations: `Overview`, `Country Lens`, `Methodology`, and `Dictionary`. The before/after, ranking and data-readiness views remain as modules inside the overview or country pages.
 - The overview page uses finding-led chart titles, direct value labels on headline bars, a top-10 before/after evidence table, and concise caveat/source notes. Keep full filtered evidence tables on `country.html`, but keep them collapsed by default so the selected-country story remains primary.
 
 ## Local Preview
@@ -69,4 +69,4 @@ node analysis/scripts/validate_iran_us_shock_dashboard.mjs
 
 ## Method Boundary
 
-The dashboard communicates a screening and prioritization model. The Shock Exposure Index uses documented analytical weights guided by OECD/JRC composite-indicator practice and checked through sensitivity testing. IMF-style shock logic is used only to frame food, fuel, fertilizer and import-exposure pathways; no external weight set is copied. IDMC/IOM displacement and public WFP food-security outcome layers are formally weighted in the current score, but the model should not be used to claim causal impact on women or girls unless sex- and age-disaggregated outcome data become available and the causal-readiness checks support estimation.
+The dashboard communicates a screening and prioritization model. The user-facing composite score is the official Shock Exposure Index. It uses documented analytical weights guided by OECD/JRC composite-indicator practice and checked through internal sensitivity testing. IMF-style shock logic is used only to frame food, fuel, fertilizer and import-exposure pathways; no external weight set is copied. IDMC/IOM displacement and public WFP food-security outcome layers are formally weighted in the current score, while dashboard context panels show the underlying raw evidence directly. The model should not be used to claim causal impact on women or girls unless sex- and age-disaggregated outcome data become available and the causal-readiness checks support estimation.

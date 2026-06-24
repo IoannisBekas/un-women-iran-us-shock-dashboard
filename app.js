@@ -249,6 +249,7 @@ const el = {
   countryGenderIndicatorTable: document.getElementById("country-gender-indicator-table"),
   genderDecompositionTable: document.getElementById("gender-decomposition-table"),
   indexDecompositionTable: document.getElementById("index-decomposition-table"),
+  rawEvidenceTable: document.getElementById("country-raw-evidence-table"),
   countryTableBody: document.getElementById("country-table-body"),
   countryTableCardList: document.getElementById("country-table-card-list"),
   countryTableSummary: document.getElementById("country-table-summary"),
@@ -273,6 +274,11 @@ function fmtInt(value) {
 function fmtCompact(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
   return nf({ notation: "compact", maximumFractionDigits: 1 }).format(Number(value));
+}
+
+function fmtUsd(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
+  return `$${nf({ notation: "compact", maximumFractionDigits: 1 }).format(Number(value))}`;
 }
 
 function fmtPct(value, digits = 1) {
@@ -654,7 +660,7 @@ function renderMeta() {
 }
 
 function populateControls() {
-  if (!hasElement(el.geographyFilter, el.regionFilter, el.countrySelect, el.scenarioGroupSelect, el.scenarioSelect)) return;
+  if (!hasElement(el.geographyFilter, el.regionFilter, el.countrySelect)) return;
   el.geographyFilter.innerHTML = "";
   GEOGRAPHY_OPTIONS.forEach((geography) => {
     const option = document.createElement("option");
@@ -762,11 +768,9 @@ function renderFilterSummary() {
     el.compactFilterTitle.textContent = selectedCountry.country;
   }
   if (el.compactFilterSubtitle) {
-    const scenarioGroup = scenarioGroupFor(state.scenario)?.label || "Stress lens";
     const scopeLabel = [
       state.region === "All regions" ? "All regions" : state.region,
       state.geography === "All geographies" ? "All geographies" : state.geography,
-      `${scenarioGroup}: ${scenarioLevelLabel(state.scenario)}`,
     ];
     el.compactFilterSubtitle.textContent = scopeLabel.join(" · ");
   }
@@ -818,14 +822,12 @@ function renderBeforeAfter() {
   }
 
   const supp = country.supplementalEvidence || {};
-  const rankChange = numericValue(supp.rankChangeVsOfficial);
   if (el.beforeAfterSupplementalList) {
     el.beforeAfterSupplementalList.innerHTML = "";
     [
       ["Coverage count", `${supplementalLayerLabel(country)} across ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
       ["Layer detail", `ACLED ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
-      ["Supplemental score check", supp.augmentedScore !== null && supp.augmentedScore !== undefined ? `Context-only score ${fmt(supp.augmentedScore)} / 100, rank ${supp.augmentedRank || "n/a"}${rankChange !== null ? `, rank change ${fmt(rankChange, 0)}` : ""}.` : "No context-only supplemental score is available."],
-      ["How to use it", supp.interpretation || "Use supplemental coverage to explain context and data gaps. The published Shock Exposure Index remains the main ranking."],
+      ["How to use it", "Use supplemental coverage to explain where extra public context exists. It does not replace or add another published score."],
     ].forEach(([label, value]) => {
       const item = document.createElement("li");
       item.textContent = `${label}: ${value}`;
@@ -1051,41 +1053,34 @@ function renderCountryProfile() {
   el.countryScoreFill.style.width = `${clamp(country.score)}%`;
   el.countryTier.textContent = country.riskTier || "n/a";
   el.countryRank.textContent = country.rank ? `#${country.rank}` : "n/a";
-  el.countryProxyRank.textContent = country.genderProxy?.rank ? `#${country.genderProxy.rank}` : "n/a";
+  el.countryProxyRank.textContent = fmtPct(country.indicators?.ipcPhase3PlusPct);
   el.countryMissing.textContent = fmtInt(country.componentMissingCount);
   el.countryConfidence.textContent = country.dataConfidence?.level || "n/a";
   el.countryConfidence.parentElement.dataset.confidence = country.dataConfidence?.level || "";
   el.countryConfidence.parentElement.title = country.dataConfidence?.note || "";
-  el.countryFocus.textContent = country.technicalFocus || "No technical focus note available.";
+  el.countryFocus.textContent = "Use the raw evidence table below to explain the country context. The headline score remains the official Shock Exposure Index.";
 
   renderImputationPanel(country);
 
   el.pathwayList.innerHTML = "";
-  country.pathways
-    .filter((pathway) => pathway.label)
-    .forEach((pathway) => {
-      const item = document.createElement("div");
-      item.className = "pathway-item";
-
-      const text = document.createElement("div");
-      const label = document.createElement("div");
-      label.className = "pathway-label";
-      label.textContent = displayPathwayLabel(pathway.label);
-      const meter = document.createElement("div");
-      meter.className = "pathway-meter";
-      const fill = document.createElement("span");
-      fill.style.width = `${clamp((pathway.score || 0) * 100)}%`;
-      meter.appendChild(fill);
-      text.appendChild(label);
-      text.appendChild(meter);
-
-      const score = document.createElement("div");
-      score.className = "pathway-score";
-      score.textContent = fmt(pathway.score, 2);
-      item.appendChild(text);
-      item.appendChild(score);
-      el.pathwayList.appendChild(item);
-    });
+  [
+    ["IPC Phase 3+", `${fmtPct(country.indicators?.ipcPhase3PlusPct)} (${fmtCompact(country.indicators?.ipcPhase3PlusNumber)} people)`],
+    ["IDMC conflict IDPs", fmtCompact(country.indicators?.idmcConflictTotalDisplacement)],
+    ["Peak food-price increase", positivePeakLabel(sameMonthYoY(country))],
+  ].forEach(([label, value]) => {
+    const item = document.createElement("div");
+    item.className = "pathway-item raw-profile-item";
+    const text = document.createElement("div");
+    const title = document.createElement("div");
+    title.className = "pathway-label";
+    title.textContent = label;
+    text.appendChild(title);
+    const detail = document.createElement("div");
+    detail.className = "pathway-score";
+    detail.textContent = value || "n/a";
+    item.append(text, detail);
+    el.pathwayList.appendChild(item);
+  });
 }
 
 function renderImputationPanel(country) {
@@ -1149,7 +1144,7 @@ function renderComponentChart() {
       scales: {
         x: {
           min: 0,
-          max: 1,
+          max: 100,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
         },
@@ -1160,6 +1155,62 @@ function renderComponentChart() {
       },
     }),
   });
+}
+
+function rawEvidenceRows(country) {
+  const yoy = sameMonthYoY(country);
+  return [
+    ["Peak food-price increase", positivePeakLabel(yoy), yoy.peakComparisonLabel || yoy.bestAvailableComparisonLabel || "Matched WFP/HDX same-month comparison"],
+    ["Price records compared", matchedSeriesLabel(yoy), "Like-for-like market, commodity and unit records at peak comparison"],
+    ["Median price change since baseline", fmtSignedPct(country.indicators?.medianPriceChangeSinceBaselinePct), `${fmtInt(country.indicators?.comparableSeries)} comparable WFP/HDX series`],
+    ["IPC Phase 3+ population", `${fmtPct(country.indicators?.ipcPhase3PlusPct)} (${fmtCompact(country.indicators?.ipcPhase3PlusNumber)} people)`, "Total-population IPC severity, not sex-disaggregated"],
+    ["IPC Phase 4+ population", `${fmtPct(country.indicators?.ipcPhase4PlusPct)} (${fmtCompact(country.indicators?.ipcPhase4PlusNumber)} people)`, "Total-population IPC severity where available"],
+    ["WFP poor/borderline food consumption", fmtPct(country.indicators?.wfpPoorBorderlineFoodConsumptionPct), "Public WFP outcome field where available"],
+    ["WFP rCSI mean", fmt(country.indicators?.wfpRcsiMean, 1), "Public WFP coping indicator where available"],
+    ["IDMC conflict IDPs", fmtCompact(country.indicators?.idmcConflictTotalDisplacement), "Public IDMC conflict displacement stock"],
+    ["IOM selected DTM IDPs", fmtCompact(country.indicators?.iomLatestIdpSum), "Selected public IOM DTM summary rows"],
+    ["Post-shock displacement figure", fmtCompact(country.indicators?.idmcPostShockConflictFigureTotal), "Selected IDMC post-shock conflict figure where available"],
+    ["Humanitarian funding flows", fmtUsd(country.indicators?.destinationFundingUsd), "OCHA FTS destination-country flow total"],
+    ["Food/nutrition funding per IPC 3+ person", fmtUsd(country.indicators?.foodNutritionFundingPerIpc3PlusUsd), "OCHA FTS food/nutrition/multi-sector funding divided by IPC Phase 3+ population"],
+    ["Imports as share of GDP", fmtPct(country.indicators?.importsGdpPct), "World Bank/WDI structural exposure"],
+    ["Food imports share of merchandise imports", fmtPct(country.indicators?.foodImportsMerchandisePct), "Food import reliance indicator"],
+    ["Fuel imports share of merchandise imports", fmtPct(country.indicators?.fuelImportsMerchandisePct), "Fuel import reliance indicator"],
+    ["Agriculture value added", fmtPct(country.indicators?.agricultureValueAddedGdpPct), "Agriculture share of GDP"],
+    ["Cereal import dependency", fmtPct(country.indicators?.cerealImportDependencyPct), "FAOSTAT food-system exposure"],
+    ["Fertilizer import dependency", fmtPct(country.indicators?.fertilizerImportDependencyPct), "FAOSTAT fertilizer exposure"],
+    ["Female informal employment", fmtPct(country.informality?.femaleInformalEmploymentPct), country.informality?.femaleInformalEmploymentYear ? `ILOSTAT/proxy year ${country.informality.femaleInformalEmploymentYear}` : "ILOSTAT/proxy coverage varies"],
+    ["Female vulnerable employment", fmtPct(country.indicators?.femaleVulnerableEmploymentPct), "Structural labour-market indicator"],
+    ["Female agricultural employment", fmtPct(country.indicators?.femaleAgricultureEmploymentPct), "Female employment exposure to agriculture"],
+    ["Female labour force participation", fmtPct(country.indicators?.femaleLaborForceParticipationPct), "Structural labour-market indicator"],
+    ["Women account ownership", fmtPct(country.genderFinance?.accountWomenPct ?? country.indicators?.femaleAccountOwnershipPct), country.genderFinance?.latestYear ? `Findex ${country.genderFinance.latestYear}` : "Findex coverage varies"],
+    ["Women mobile money account", fmtPct(country.genderFinance?.mobileMoneyWomenPct), "Findex financial-access indicator where available"],
+    ["Women formal/mobile saving", fmtPct(country.genderFinance?.formalOrMobileSavingWomenPct), "Findex coping/resilience context where available"],
+    ["Women receiving wages", fmtPct(country.genderFinance?.receivedWagesWomenPct), "Findex income-channel indicator where available"],
+    ["Women receiving government payments", fmtPct(country.genderFinance?.receivedGovernmentPaymentsWomenPct), "Findex assistance/payment-channel context where available"],
+    ["Female-headed households", fmtPct(country.indicators?.femaleHeadedHouseholdsPct), country.indicators?.femaleHeadedHouseholdsYear ? `World Bank year ${country.indicators.femaleHeadedHouseholdsYear}` : "Coverage varies"],
+  ];
+}
+
+function renderRawEvidenceTable() {
+  if (!el.rawEvidenceTable) return;
+  const country = countryByIso(state.selectedIso);
+  el.rawEvidenceTable.innerHTML = "";
+  const table = document.createElement("table");
+  table.className = "indicator-mini-table-inner raw-evidence-table";
+  const thead = document.createElement("thead");
+  thead.innerHTML = "<tr><th>Raw indicator</th><th>Value</th><th>Source / interpretation note</th></tr>";
+  const tbody = document.createElement("tbody");
+  rawEvidenceRows(country).forEach(([label, value, note]) => {
+    const row = document.createElement("tr");
+    [label, value, note].forEach((text) => {
+      const cell = document.createElement("td");
+      cell.textContent = text || "n/a";
+      row.appendChild(cell);
+    });
+    tbody.appendChild(row);
+  });
+  table.append(thead, tbody);
+  el.rawEvidenceTable.appendChild(table);
 }
 
 function renderScenarioChart() {
@@ -1287,8 +1338,8 @@ function renderGenderChart() {
   const ctx = document.getElementById("gender-chart");
   if (!ctx) return;
   const rows = filteredCountries()
-    .filter((country) => country.genderProxy?.score !== null && country.genderProxy?.score !== undefined)
-    .sort((a, b) => (b.genderProxy.score || 0) - (a.genderProxy.score || 0))
+    .filter((country) => numericValue(country.informality?.femaleInformalEmploymentPct) !== null)
+    .sort((a, b) => numericValue(b.informality?.femaleInformalEmploymentPct) - numericValue(a.informality?.femaleInformalEmploymentPct))
     .slice(0, 10);
   charts.gender = new Chart(ctx, {
     type: "bar",
@@ -1296,7 +1347,7 @@ function renderGenderChart() {
       labels: rows.map((row) => row.country),
       datasets: [
         {
-          data: rows.map((row) => row.genderProxy.score),
+          data: rows.map((row) => row.informality.femaleInformalEmploymentPct),
           backgroundColor: rows.map((row, index) => {
             if (row.iso3 === state.selectedIso) return COLORS.navy;
             return index < 3 ? COLORS.red : COLORS.neutralLight;
@@ -1313,6 +1364,7 @@ function renderGenderChart() {
           max: 100,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Female informal employment, %", color: COLORS.muted, font: chartFont() },
         },
         y: {
           grid: { display: false },
@@ -1329,11 +1381,15 @@ function renderGenderDriverChart() {
   const ctx = document.getElementById("gender-driver-chart");
   if (!ctx) return;
   const country = countryByIso(state.selectedIso);
-  if (el.genderDriverTitle) el.genderDriverTitle.textContent = `${country.country}: gender-lens drivers`;
-  const entries = GENDER_DRIVER_COMPONENTS.map((entry) => ({
-    ...entry,
-    value: country.components?.[entry.key],
-  }));
+  if (el.genderDriverTitle) el.genderDriverTitle.textContent = `${country.country}: raw gender and finance indicators`;
+  const entries = [
+    { label: "Female informal employment", value: country.informality?.femaleInformalEmploymentPct, color: COLORS.red },
+    { label: "Female vulnerable employment", value: country.indicators?.femaleVulnerableEmploymentPct, color: COLORS.gold },
+    { label: "Female agricultural employment", value: country.indicators?.femaleAgricultureEmploymentPct, color: COLORS.teal },
+    { label: "Female labour force participation", value: country.indicators?.femaleLaborForceParticipationPct, color: COLORS.blue },
+    { label: "Women account ownership", value: country.genderFinance?.accountWomenPct ?? country.indicators?.femaleAccountOwnershipPct, color: COLORS.navy },
+    { label: "Women mobile money account", value: country.genderFinance?.mobileMoneyWomenPct, color: COLORS.neutral },
+  ].filter((entry) => numericValue(entry.value) !== null);
   charts.genderDrivers = new Chart(ctx, {
     type: "bar",
     data: {
@@ -1355,7 +1411,7 @@ function renderGenderDriverChart() {
           max: 1,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
-          title: { display: true, text: "Bounded component score, 0-1", color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Percent of women or female employment", color: COLORS.muted, font: chartFont() },
         },
         y: {
           grid: { display: false },
@@ -1493,18 +1549,25 @@ function renderIndexDecompositionChart() {
 function renderGenderLensList() {
   if (!el.genderLensList) return;
   el.genderLensList.innerHTML = "";
-  const rows = filteredCountries()
-    .filter((country) => country.genderProxy?.score !== null && country.genderProxy?.score !== undefined)
-    .sort((a, b) => (b.genderProxy.score || 0) - (a.genderProxy.score || 0))
-    .slice(0, 3);
-  rows.forEach((country) => {
-    appendLensItem(
-      el.genderLensList,
-      `#${country.genderProxy.rank || "n/a"} ${country.country}`,
-      `${fmt(country.genderProxy.score)} gender proxy score`,
-      country.genderProxy.boundary || "Proxy exposure priority only - not a measured outcome."
-    );
-  });
+  const country = countryByIso(state.selectedIso);
+  appendLensItem(
+    el.genderLensList,
+    "Female informal employment",
+    fmtPct(country.informality?.femaleInformalEmploymentPct),
+    country.informality?.proxyUsed || "ILOSTAT/proxy coverage varies."
+  );
+  appendLensItem(
+    el.genderLensList,
+    "Female vulnerable/agricultural employment",
+    `${fmtPct(country.indicators?.femaleVulnerableEmploymentPct)} vulnerable | ${fmtPct(country.indicators?.femaleAgricultureEmploymentPct)} agriculture`,
+    "Raw structural labour indicators for country-team interpretation."
+  );
+  appendLensItem(
+    el.genderLensList,
+    "Women financial access",
+    `${fmtPct(country.genderFinance?.accountWomenPct ?? country.indicators?.femaleAccountOwnershipPct)} account ownership | ${fmtPct(country.genderFinance?.mobileMoneyWomenPct)} mobile money`,
+    "Findex indicators are shown directly where available."
+  );
   const saddAvailable = data.countries.filter((country) => country.readiness?.sexDisaggregatedOutcomeAvailable).length;
   appendLensItem(
     el.genderLensList,
@@ -1518,16 +1581,11 @@ function renderGenderMonitoringList() {
   if (!el.genderMonitoringList) return;
   el.genderMonitoringList.innerHTML = "";
   const country = countryByIso(state.selectedIso);
-  const topDrivers = genderProxyContributionRows(country)
-    .sort((a, b) => (b.points || 0) - (a.points || 0))
-    .slice(0, 3)
-    .map((row) => row.label.toLowerCase())
-    .join(", ");
   appendLensItem(
     el.genderMonitoringList,
     "Use",
-    "Prioritize monitoring",
-    `${country.country}'s strongest gender-proxy drivers are ${topDrivers || "not available"}. Use them to decide which questions to validate with country teams.`
+    "Read raw indicators alongside the Shock Exposure Index",
+    `${country.country}'s raw IPC, displacement, assistance and gender/labour indicators should guide what country teams validate next.`
   );
   appendLensItem(
     el.genderMonitoringList,
@@ -1547,96 +1605,61 @@ function renderDisplacementClarity() {
   if (!el.displacementClarityList) return;
   el.displacementClarityList.innerHTML = "";
 
-  const legacyWeight = fmtShare(data.indexWeights?.displacement_pressure_score, 0);
-  const internalWeight = fmtShare(data.indexWeights?.public_displacement_layer_score, 0);
   const rule = document.createElement("div");
   rule.className = "displacement-rule-panel";
-  const ruleCards = document.createElement("div");
-  ruleCards.className = "displacement-rule-grid";
-  [
-    [
-      "1. Legacy external/refugee proxy",
-      `${legacyWeight} of the index`,
-      "Continuity input from the earlier dashboard workflow. A 0.00 means the older proxy did not capture displacement pressure for that country."
-    ],
-    [
-      "2. IDMC/IOM internal displacement layer",
-      `${internalWeight} of the index`,
-      "Current internal-displacement evidence layer. This is where internal displacement is counted for Palestine, Yemen and similar cases."
-    ],
-  ].forEach(([title, value, note]) => {
-    const card = document.createElement("div");
-    card.className = "displacement-rule-item";
-    appendText(card, "strong", title);
-    appendText(card, "span", value);
-    appendText(card, "p", note);
-    ruleCards.appendChild(card);
-  });
-  rule.appendChild(ruleCards);
+  appendText(rule, "strong", "How to read this");
   appendText(
     rule,
     "p",
-    "Interpretation rule: if the legacy proxy is 0.00 but the IDMC/IOM layer is above 0.00, the country is not a zero-displacement case. It has internal displacement relevance through the separate IDMC/IOM layer.",
+    "The dashboard now shows public displacement evidence directly instead of asking users to compare displacement proxy scores. Large IDMC or IOM values should be read as displacement relevance even when older proxy fields were incomplete.",
     "displacement-plain-language"
   );
   el.displacementClarityList.appendChild(rule);
 
-  ["PSE", "YEM"].map((iso3) => data.countries.find((country) => country.iso3 === iso3)).filter(Boolean).forEach((country) => {
-    const legacy = country.components?.displacement_pressure_score;
-    const internal = country.components?.public_displacement_layer_score;
-    const legacyPercent = clamp((numericValue(legacy) || 0) * 100, 0, 100);
-    const internalPercent = clamp((numericValue(internal) || 0) * 100, 0, 100);
-    const row = document.createElement("div");
-    row.className = "displacement-country-row";
+  const exampleCountries = ["PSE", "YEM"].map((iso3) => data.countries.find((country) => country.iso3 === iso3)).filter(Boolean);
+  if (!exampleCountries.length) return;
 
-    const heading = document.createElement("div");
-    heading.className = "displacement-country-heading";
-    appendText(heading, "strong", country.country);
-    appendText(
-      heading,
-      "span",
-      `Readout: legacy ${fmt(legacy, 2)}, internal ${fmt(internal, 2)}`
-    );
-    row.appendChild(heading);
+  const tableBlock = document.createElement("div");
+  tableBlock.className = "displacement-compare-block";
+  appendText(tableBlock, "h3", "Palestine and Yemen displacement evidence");
+  appendText(
+    tableBlock,
+    "p",
+    "The readout below uses public IDMC/IOM evidence rather than secondary displacement scores.",
+    "displacement-source-note"
+  );
 
-    appendText(
-      row,
-      "p",
-      `${country.country} has a ${fmt(legacy, 2)} legacy proxy score, but a ${fmt(internal, 2)} IDMC/IOM internal-displacement score. Treat it as internally displacement-relevant, not as a zero-displacement case.`,
-      "displacement-country-takeaway"
-    );
+  const table = document.createElement("table");
+  table.className = "displacement-compare-table";
+  const labels = ["Country", "IDMC conflict IDPs", "IOM selected DTM IDPs", "Post-shock displacement figure", "Readout"];
+  const appendDisplacementCell = (row, text, label, className = "") => {
+    const cell = appendTableCell(row, text, "td", className);
+    cell.dataset.label = label;
+    return cell;
+  };
+  const thead = document.createElement("thead");
+  const header = document.createElement("tr");
+  labels.forEach((label) => appendTableCell(header, label, "th"));
+  thead.appendChild(header);
+  table.appendChild(thead);
 
-    const metrics = document.createElement("div");
-    metrics.className = "displacement-score-pair";
-    [
-      ["Legacy external/refugee proxy", legacy, legacyPercent, "legacy"],
-      ["IDMC/IOM internal displacement layer", internal, internalPercent, "internal"],
-    ].forEach(([label, value, percent, type]) => {
-      const metric = document.createElement("div");
-      metric.className = `displacement-score-line ${type}`;
-      const header = document.createElement("div");
-      header.className = "displacement-score-header";
-      appendText(header, "span", label);
-      appendText(header, "strong", fmt(value, 2));
-      const track = document.createElement("div");
-      track.className = "displacement-score-track";
-      const fill = document.createElement("div");
-      fill.className = "displacement-score-fill";
-      fill.style.width = `${percent}%`;
-      track.appendChild(fill);
-      metric.append(header, track);
-      metrics.appendChild(metric);
-    });
-    row.appendChild(metrics);
-
+  const tbody = document.createElement("tbody");
+  exampleCountries.forEach((country) => {
     const idmc = numericValue(country.indicators?.idmcConflictTotalDisplacement);
     const iom = numericValue(country.indicators?.iomLatestIdpSum);
-    const idmcText = idmc === null ? "no IDMC conflict IDP value in the public pull" : `${fmtCompact(idmc)} IDMC conflict IDPs`;
-    const iomText = iom === null ? "no IOM selected DTM IDP value in public summaries" : `${fmtCompact(iom)} IOM selected DTM IDPs`;
-    appendText(row, "p", `Public evidence pulled: ${idmcText}; ${iomText}.`, "displacement-source-note");
+    const postShock = numericValue(country.indicators?.idmcPostShockConflictFigureTotal);
 
-    el.displacementClarityList.appendChild(row);
+    const row = document.createElement("tr");
+    appendDisplacementCell(row, country.country, labels[0]);
+    appendDisplacementCell(row, idmc === null ? "n/a" : fmtCompact(idmc), labels[1], "numeric");
+    appendDisplacementCell(row, iom === null ? "n/a" : fmtCompact(iom), labels[2], "numeric");
+    appendDisplacementCell(row, postShock === null ? "n/a" : fmtCompact(postShock), labels[3], "numeric");
+    appendDisplacementCell(row, "Treat as displacement-relevant where public IDMC/IOM evidence is present.", labels[4]);
+    tbody.appendChild(row);
   });
+  table.appendChild(tbody);
+  tableBlock.appendChild(table);
+  el.displacementClarityList.appendChild(tableBlock);
 }
 
 function renderCountryGenderLens() {
@@ -1645,45 +1668,26 @@ function renderCountryGenderLens() {
   el.countryGenderList.innerHTML = "";
   appendLensItem(
     el.countryGenderList,
-    "Gender proxy priority",
-    `${fmt(country.genderProxy?.score)} (${country.genderProxy?.tier || "tier n/a"})`,
-    country.genderProxy?.boundary || "Proxy exposure priority only - not a measured before/after impact on girls or women."
-  );
-  appendLensItem(
-    el.countryGenderList,
-    "Gender vulnerability component",
-    fmt(country.components?.gender_vulnerability_score, 2),
-    "Structural gender/labour vulnerability input; it is separate from measured food-security outcomes."
-  );
-  appendLensItem(
-    el.countryGenderList,
     "IPC input",
-    `${fmtPct(country.indicators?.ipcPhase3PlusPct)} Phase 3+ total population`,
+    `${fmtPct(country.indicators?.ipcPhase3PlusPct)} Phase 3+ total population (${fmtCompact(country.indicators?.ipcPhase3PlusNumber)} people)`,
     "IPC is used, but the public IPC pull is not sex-disaggregated."
   );
   appendLensItem(
     el.countryGenderList,
-    "Internal displacement layer",
-    `IDMC/IOM score ${fmt(country.components?.public_displacement_layer_score, 2)}`,
+    "Internal displacement evidence",
     `${fmtCompact(country.indicators?.idmcConflictTotalDisplacement)} IDMC conflict IDPs; ${fmtCompact(country.indicators?.iomLatestIdpSum)} IOM selected DTM IDPs where available.`
   );
   appendLensItem(
     el.countryGenderList,
-    "Legacy displacement proxy",
-    fmt(country.components?.displacement_pressure_score, 2),
-    "Continuity proxy from the earlier dashboard version; interpret separately from internal displacement."
+    "Assistance/funding evidence",
+    `${fmtUsd(country.indicators?.destinationFundingUsd)} destination funding; ${fmtUsd(country.indicators?.foodNutritionFundingPerIpc3PlusUsd)} food/nutrition funding per IPC Phase 3+ person`,
+    "FTS funding fields do not fully measure assistance reach, ration size or access constraints."
   );
   appendLensItem(
     el.countryGenderList,
-    "Assistance pressure",
-    fmt(country.components?.assistance_pressure_score, 2),
-    "Included in the gender proxy because assistance access and funding constraints can have differential gender effects."
-  );
-  appendLensItem(
-    el.countryGenderList,
-    "Female labour and household proxy",
+    "Female labour and household indicators",
     `${fmtPct(country.informality?.femaleInformalEmploymentPct)} informal employment | ${fmtPct(country.indicators?.femaleHeadedHouseholdsPct)} female-headed households`,
-    "Use as structural vulnerability evidence and a prompt for field validation."
+    "Use as structural vulnerability evidence and a prompt for field validation, not as measured food-security impact."
   );
 }
 
@@ -1779,7 +1783,7 @@ function renderTable() {
   if (el.countryTableSummary) {
     const geography = state.geography === "All geographies" ? "all geographies" : state.geography.toLowerCase();
     const region = state.region === "All regions" ? "all regions" : state.region;
-    el.countryTableSummary.textContent = `${countries.length} countries shown for ${region}, ${geography}; table summarizes published ranking fields. Use data confidence and main gap to see where interpretation is weaker.`;
+    el.countryTableSummary.textContent = `${countries.length} countries shown for ${region}, ${geography}; table keeps the official score plus raw indicators. Use data confidence and main gap to see where interpretation is weaker.`;
   }
   if (el.countryTableCardList) {
     el.countryTableCardList.innerHTML = "";
@@ -1793,8 +1797,9 @@ function renderTable() {
           ["Score", fmt(country.score)],
           ["Exposure tier", country.riskTier || "n/a"],
           ["Data confidence", country.dataConfidence?.level || "n/a"],
-          ["Top pathway", displayPathwayLabel(country.pathways?.[0]?.label)],
-          ["Gender proxy", fmt(country.genderProxy?.score)],
+          ["IPC Phase 3+", fmtPct(country.indicators.ipcPhase3PlusPct)],
+          ["IDMC IDPs", fmtCompact(country.indicators?.idmcConflictTotalDisplacement)],
+          ["Female vulnerable %", fmtPct(country.indicators?.femaleVulnerableEmploymentPct)],
           ["Main gap", country.readiness?.mainGap || "n/a"],
         ]
       ));
@@ -1808,9 +1813,9 @@ function renderTable() {
       fmt(country.score),
       country.riskTier || "n/a",
       country.dataConfidence?.level || "n/a",
-      displayPathwayLabel(country.pathways?.[0]?.label),
+      fmtCompact(country.indicators?.idmcConflictTotalDisplacement),
       fmtPct(country.indicators.ipcPhase3PlusPct),
-      fmt(country.genderProxy?.score),
+      fmtPct(country.indicators?.femaleVulnerableEmploymentPct),
       fmtPct(country.indicators?.femaleHeadedHouseholdsPct),
       fmtPct(country.informality?.femaleInformalEmploymentPct),
       country.readiness?.mainGap || "n/a",
@@ -1951,12 +1956,11 @@ function renderAll() {
   renderCountryProfile();
   renderRankingChart();
   renderRankingConfidence();
+  renderRawEvidenceTable();
   renderComponentChart();
-  renderScenarioChart();
   renderRegionChart();
   renderGenderChart();
   renderGenderDriverChart();
-  renderGenderDecompositionChart();
   renderIndexDecompositionChart();
   renderGenderLensList();
   renderGenderMonitoringList();

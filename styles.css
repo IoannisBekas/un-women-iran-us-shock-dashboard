@@ -965,6 +965,31 @@ canvas {
   line-height: 1.35;
 }
 
+.indicator-mini-table-inner.raw-evidence-table {
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.raw-evidence-table th:nth-child(1),
+.raw-evidence-table td:nth-child(1) {
+  width: 32%;
+}
+
+.raw-evidence-table th:nth-child(2),
+.raw-evidence-table td:nth-child(2) {
+  width: 22%;
+  white-space: normal;
+}
+
+.raw-evidence-table th:nth-child(3),
+.raw-evidence-table td:nth-child(3) {
+  width: 46%;
+}
+
+.raw-evidence-table td {
+  overflow-wrap: anywhere;
+}
+
 .decomposition-table-block {
   margin-top: 10px;
   border: 1px solid var(--line);
@@ -1091,118 +1116,91 @@ canvas {
 }
 
 .displacement-rule-panel,
-.displacement-country-row {
+.displacement-compare-block {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 14px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.62);
 }
 
-.displacement-rule-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.displacement-rule-item {
-  display: grid;
-  gap: 6px;
-  align-content: start;
-  padding-left: 12px;
+.displacement-rule-panel {
   border-left: 4px solid var(--un-blue);
+  background: rgba(232, 241, 239, 0.72);
 }
 
-.displacement-rule-item:first-child {
-  border-left-color: var(--un-gold);
-}
-
-.displacement-rule-item strong,
-.displacement-country-heading strong {
+.displacement-rule-panel strong,
+.displacement-compare-block h3 {
   color: var(--un-navy);
   line-height: 1.2;
 }
 
-.displacement-rule-item span,
-.displacement-country-heading span {
-  color: var(--ink);
-  font-weight: 800;
+.displacement-compare-block h3 {
+  margin: 0;
+  font-size: 1.05rem;
 }
 
-.displacement-rule-item p,
 .displacement-plain-language,
-.displacement-country-takeaway,
 .displacement-source-note {
   margin: 0;
   color: var(--muted);
   line-height: 1.42;
 }
 
-.displacement-plain-language,
-.displacement-country-takeaway {
-  padding: 10px 12px;
-  border-left: 4px solid var(--un-blue);
-  background: rgba(232, 241, 239, 0.86);
+.displacement-plain-language {
   color: #263440;
   font-weight: 700;
-}
-
-.displacement-country-heading {
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.displacement-score-pair {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.displacement-score-line {
-  display: grid;
-  gap: 8px;
-}
-
-.displacement-score-header {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.displacement-score-header span {
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
-.displacement-score-header strong {
-  color: var(--ink);
-}
-
-.displacement-score-track {
-  width: 100%;
-  height: 11px;
-  overflow: hidden;
-  border: 1px solid rgba(31, 35, 38, 0.12);
-  background: rgba(203, 210, 206, 0.48);
-}
-
-.displacement-score-fill {
-  height: 100%;
-  min-width: 0;
-  background: var(--un-blue);
-}
-
-.displacement-score-line.legacy .displacement-score-fill {
-  background: var(--un-gold);
 }
 
 .displacement-source-note {
   font-size: 0.9rem;
 }
+
+.displacement-compare-table {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.9rem;
+}
+
+.displacement-compare-table th,
+.displacement-compare-table td {
+  padding: 10px 9px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.displacement-compare-table th {
+  color: var(--un-navy);
+  font-size: 0.73rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(232, 241, 239, 0.68);
+}
+
+.displacement-compare-table td {
+  color: var(--muted);
+}
+
+.displacement-compare-table td:first-child,
+.displacement-compare-table .numeric {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.displacement-compare-table .numeric {
+  text-align: right;
+}
+
 
 .before-after-section {
   padding: 20px;
@@ -1590,6 +1588,10 @@ button.confidence-pill {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   text-align: right;
+}
+
+.raw-profile-item {
+  grid-template-columns: minmax(0, 1fr) minmax(96px, auto);
 }
 
 .scenario-country-card {
@@ -2041,15 +2043,90 @@ tbody tr:hover {
     text-align: left;
   }
 
-  .displacement-rule-grid,
-  .displacement-score-pair {
-    grid-template-columns: 1fr;
+  .raw-evidence-table,
+  .raw-evidence-table thead,
+  .raw-evidence-table tbody,
+  .raw-evidence-table tr,
+  .raw-evidence-table th,
+  .raw-evidence-table td {
+    display: block;
   }
 
-  .displacement-country-heading,
-  .displacement-score-header {
+  .raw-evidence-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .raw-evidence-table tr {
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .raw-evidence-table tr:first-child {
+    border-top: 0;
+  }
+
+  .raw-evidence-table td,
+  .raw-evidence-table td:nth-child(2),
+  .raw-evidence-table td:nth-child(3) {
+    width: auto;
+    padding: 5px 0;
+    text-align: left;
+  }
+
+  .raw-evidence-table td:first-child {
+    font-weight: 900;
+  }
+
+  .displacement-compare-table,
+  .displacement-compare-table thead,
+  .displacement-compare-table tbody,
+  .displacement-compare-table tr,
+  .displacement-compare-table th,
+  .displacement-compare-table td {
+    display: block;
+  }
+
+  .displacement-compare-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .displacement-compare-table tr {
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .displacement-compare-table tr:first-child {
+    border-top: 0;
+  }
+
+  .displacement-compare-table td {
     display: grid;
-    gap: 4px;
+    grid-template-columns: minmax(108px, 40%) minmax(0, 1fr);
+    gap: 10px;
+    padding: 7px 0;
+    border-top: 0;
+  }
+
+  .displacement-compare-table td::before {
+    content: attr(data-label);
+    color: var(--un-navy);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .displacement-compare-table .numeric {
+    text-align: left;
   }
 
   .before-after-section {

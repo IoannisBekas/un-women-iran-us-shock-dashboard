@@ -10,7 +10,7 @@
       content="Dictionary of terms, acronyms, data sources and model concepts used in the UN Women Iran-USA regional escalation shock dashboard."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260624-no-explainer-boxes" />
+    <link rel="stylesheet" href="styles.css?v=20260624-raw-indicators" />
   </head>
   <body data-page="dictionary">
     <a class="skip-link" href="#main-content">Skip to dictionary content</a>
@@ -22,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-no-explainer-boxes#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260624-raw-indicators#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -34,9 +34,9 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-no-explainer-boxes#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-no-explainer-boxes#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-no-explainer-boxes">Methodology</a>
+            <a class="hero-action-secondary" href="index.html?v=20260624-raw-indicators#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260624-raw-indicators#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-raw-indicators">Methodology</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Dictionary</a>
           </div>
         </div>
@@ -51,8 +51,8 @@
         </div>
         <p>
           Use these definitions when interpreting the dashboard in analytical and briefing settings. The
-          wording keeps a clear line between measured evidence, proxy indicators and model-based
-          prioritization.
+          wording keeps a clear line between measured evidence, raw/proxy indicators and the one
+          user-facing composite score: the Shock Exposure Index.
         </p>
       </section>
 
@@ -153,14 +153,14 @@
             <p class="term-use">Uses gender/labour indicators; it is not a measured women/girls food-security outcome.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Priority score</span>
-            <h3>Gender proxy priority</h3>
+            <span class="term-meta">Dashboard display</span>
+            <h3>Gender/labour indicators</h3>
             <p>
-              A prioritization score that combines the exposure score with gender vulnerability, IPC,
-              WFP outcome availability, internal displacement, assistance pressure and selected price,
-              import and agriculture pressures.
+              Raw or near-raw indicators shown directly for interpretation, including female informal
+              employment, vulnerable employment, agricultural employment, labour-force participation
+              and financial-access fields where available.
             </p>
-            <p class="term-use">The added displacement and assistance weights reflect plausible differential gender effects; they do not estimate causal impact.</p>
+            <p class="term-use">These indicators guide monitoring questions; they are not a separate dashboard score.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Labour indicator</span>
@@ -195,27 +195,27 @@
         <div class="section-heading">
           <p class="eyebrow">Displacement</p>
           <h2 id="displacement-title">Displacement terms</h2>
-          <p>Terms used to distinguish the continuity proxy from the current internal-displacement layer.</p>
+          <p>Terms used to distinguish internal model inputs from the raw displacement evidence shown to users.</p>
         </div>
         <div class="term-grid">
           <article class="term-card">
-            <span class="term-meta">Continuity input</span>
+            <span class="term-meta">Internal continuity input</span>
             <h3>Legacy external displacement proxy</h3>
             <p>
               The older displacement pressure proxy retained so outputs remain comparable with
               the earlier dashboard version. It mainly reflects the displacement evidence available in that
               earlier workflow.
             </p>
-            <p class="term-use">A zero here does not mean internal displacement is absent.</p>
+            <p class="term-use">A zero here does not mean internal displacement is absent; the dashboard now emphasizes raw IDMC/IOM evidence.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Model component</span>
+            <span class="term-meta">Internal model component</span>
             <h3>IDMC/IOM internal-displacement layer</h3>
             <p>
               The current displacement input built from public IDMC and IOM DTM evidence, including
               conflict displacement stocks, selected events and DTM summaries where available.
             </p>
-            <p class="term-use">This is the field to inspect for internal displacement pressure in cases such as Palestine and Yemen.</p>
+            <p class="term-use">The user-facing dashboard shows the underlying IDMC/IOM values directly for cases such as Palestine and Yemen.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Interpretation</span>
@@ -315,7 +315,7 @@
         <div class="section-heading">
           <p class="eyebrow">Model</p>
           <h2 id="model-title">Model and dashboard terms</h2>
-          <p>Terms used to describe the index, scenarios and interpretation boundaries.</p>
+          <p>Terms used to describe the official index, supporting raw evidence and interpretation boundaries.</p>
         </div>
         <div class="term-grid">
           <article class="term-card">
@@ -325,16 +325,16 @@
             <p class="term-use">Ranks exposure and monitoring priority; it does not estimate causal impact.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Index input</span>
+            <span class="term-meta">Official index input</span>
             <h3>Component score</h3>
             <p>A normalized 0-1 measure for one pathway, such as food-price pressure, internal displacement or assistance pressure.</p>
-            <p class="term-use">Components are weighted and summed to create the final index.</p>
+            <p class="term-use">Components are weighted and summed to create the official Shock Exposure Index; other dashboard panels show raw values directly.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Calculation</span>
             <h3>Contribution points</h3>
-            <p>The number of points a component adds to a composite score after its score and weight or coefficient are applied.</p>
-            <p class="term-use">Used in the decomposition charts to show what drives the final score; it is arithmetic, not causal attribution.</p>
+            <p>The number of points a component adds to the Shock Exposure Index after its score and weight are applied.</p>
+            <p class="term-use">Used only for the official index decomposition; it is arithmetic, not causal attribution.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Before/after</span>
@@ -363,14 +363,14 @@
           <article class="term-card">
             <span class="term-meta">Method</span>
             <h3>Scenario sensitivity</h3>
-            <p>Stress tests showing how country risk scores move under oil, fertilizer, food-price or assistance-cut scenarios.</p>
-            <p class="term-use">Useful for planning; not a forecast.</p>
+            <p>Internal stress tests showing how model scores move under oil, fertilizer, food-price or assistance-cut assumptions.</p>
+            <p class="term-use">Retained in the workbook for audit/sensitivity checks; no longer presented as a user-facing dashboard score.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Method</span>
             <h3>Weight sensitivity</h3>
             <p>Alternative weighting assumptions that test whether country priorities change when the model emphasis changes.</p>
-            <p class="term-use">Used as a robustness check for the documented-weight index.</p>
+            <p class="term-use">Internal robustness check for the documented-weight index, not a user-facing score.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Data quality</span>
