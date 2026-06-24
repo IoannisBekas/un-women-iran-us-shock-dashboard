@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,7 +11,7 @@
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-communication-flow" />
+    <link rel="stylesheet" href="styles.css?v=20260624-readable-explainer" />
   </head>
   <body data-page="overview">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -36,9 +36,9 @@
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
             <a class="hero-action-primary" href="#findings" aria-current="page">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-communication-flow#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-communication-flow">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-communication-flow">Dictionary</a>
+            <a class="hero-action-secondary" href="country.html?v=20260624-readable-explainer#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260624-readable-explainer">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260624-readable-explainer">Dictionary</a>
           </div>
         </div>
       </div>
@@ -76,9 +76,9 @@
           </div>
           <p class="definition-note dictionary-link-note">
             For country-level filters and scenario exploration, open the
-            <a href="country.html?v=20260624-communication-flow">country lens</a>. For the full calculation logic and caveats, open the
-            <a href="methodology.html?v=20260624-communication-flow">methodology page</a>. For definitions, open the
-            <a href="dictionary.html?v=20260624-communication-flow">dashboard dictionary</a>.
+            <a href="country.html?v=20260624-readable-explainer">country lens</a>. For the full calculation logic and caveats, open the
+            <a href="methodology.html?v=20260624-readable-explainer">methodology page</a>. For definitions, open the
+            <a href="dictionary.html?v=20260624-readable-explainer">dashboard dictionary</a>.
           </p>
         </details>
       </section>
@@ -109,9 +109,9 @@
             </div>
             <p id="before-after-chart-note" class="chart-note"></p>
             <div class="chart-explain" aria-label="Before and after chart calculation">
-              <p><strong>Calculated:</strong> same country-market-commodity-unit price series in each post-shock 2026 month are matched to the same calendar month in 2025; the chart keeps each country's highest positive median change.</p>
-              <p><strong>How to read:</strong> longer bars show larger observed price increases in comparable public WFP/HDX records, not proof that the escalation caused the increase.</p>
-              <p><strong>Uses fields:</strong> <code>beforeAfter.sameMonthYoY.peakPositiveYoYPct</code>, <code>matchedSeriesAtPeak</code>, <code>ipcLatest</code>. See <a href="methodology.html?v=20260624-communication-flow#before-after-method">methodology</a>.</p>
+              <p><strong>Calculation</strong> same country-market-commodity-unit price series in each post-shock 2026 month are matched to the same calendar month in 2025; the chart keeps each country's highest positive median change.</p>
+              <p><strong>Read as</strong> longer bars show larger observed price increases in comparable public WFP/HDX records, not proof that the escalation caused the increase.</p>
+              <p><strong>Source fields</strong> <code>beforeAfter.sameMonthYoY.peakPositiveYoYPct</code>, <code>matchedSeriesAtPeak</code>, <code>ipcLatest</code>. See <a href="methodology.html?v=20260624-readable-explainer#before-after-method">methodology</a>.</p>
             </div>
           </article>
 
@@ -156,9 +156,9 @@
           </div>
           <p class="chart-note">Higher bars mean higher relative exposure across the weighted model pathways. The 0-100 score supports prioritization; it is not a probability, forecast or measured causal impact.</p>
           <div class="chart-explain" aria-label="Shock Exposure Index ranking calculation">
-            <p><strong>Calculated:</strong> <code>100 x sum(component_score x component_weight)</code> across price, import, agriculture, IPC, WFP outcome, displacement, assistance and gender-vulnerability pathways.</p>
-            <p><strong>How to read:</strong> the ranking is a screening order for attention and monitoring, not an estimate of how much food security changed.</p>
-            <p><strong>Uses fields:</strong> <code>countries[].score</code>, <code>components.*</code>, <code>indexWeights</code>. Open <a href="country.html?v=20260624-communication-flow#scenario-detail">Country Lens</a> for the weighted decomposition.</p>
+            <p><strong>Calculation</strong> <code>100 x sum(component_score x component_weight)</code> across price, import, agriculture, IPC, WFP outcome, displacement, assistance and gender-vulnerability pathways.</p>
+            <p><strong>Read as</strong> the ranking is a screening order for attention and monitoring, not an estimate of how much food security changed.</p>
+            <p><strong>Source fields</strong> <code>countries[].score</code>, <code>components.*</code>, <code>indexWeights</code>. Open <a href="country.html?v=20260624-readable-explainer#scenario-detail">Country Lens</a> for the weighted decomposition.</p>
           </div>
           <div id="ranking-confidence-list" class="confidence-strip" aria-label="Data-confidence flags"></div>
           <p class="chart-note">Data-confidence flags identify countries where missing or neutral-imputed public inputs make interpretation more cautious; a flag is not evidence of lower risk.</p>
@@ -185,9 +185,9 @@
           </div>
           <p class="chart-note">Bars show the average Shock Exposure Index score for countries in each region. Click a region bar to filter the dashboard to that region.</p>
           <div class="chart-explain" aria-label="Regional comparison calculation">
-            <p><strong>Calculated:</strong> simple average of <code>countries[].score</code> for countries in the region after the active geography filter.</p>
-            <p><strong>How to read:</strong> this compares regional concentration of model exposure; it does not weight by population or caseload.</p>
-            <p><strong>Uses fields:</strong> <code>region</code>, <code>geography</code>, <code>score</code>.</p>
+            <p><strong>Calculation</strong> simple average of <code>countries[].score</code> for countries in the region after the active geography filter.</p>
+            <p><strong>Read as</strong> this compares regional concentration of model exposure; it does not weight by population or caseload.</p>
+            <p><strong>Source fields</strong> <code>region</code>, <code>geography</code>, <code>score</code>.</p>
           </div>
         </article>
 
@@ -204,9 +204,9 @@
           </div>
           <p class="chart-note">Higher bars indicate stronger structural gender-vulnerability signals in the proxy inputs. This is a prioritization lens, not a measured before/after outcome for women or girls.</p>
           <div class="chart-explain" aria-label="Gender proxy ranking calculation">
-            <p><strong>Calculated:</strong> gender proxy priority combines the official exposure score with structural gender vulnerability, IPC severity, WFP outcomes, displacement, assistance, food-price, import and agriculture/fertilizer signals.</p>
-            <p><strong>How to read:</strong> use the ranking to decide where UN Women should look more closely, not to claim measured differential impact.</p>
-            <p><strong>Uses fields:</strong> <code>genderProxy.score</code> and selected <code>components.*</code>. See the decomposition below for contribution points.</p>
+            <p><strong>Calculation</strong> gender proxy priority combines the official exposure score with structural gender vulnerability, IPC severity, WFP outcomes, displacement, assistance, food-price, import and agriculture/fertilizer signals.</p>
+            <p><strong>Read as</strong> use the ranking to decide where UN Women should look more closely, not to claim measured differential impact.</p>
+            <p><strong>Source fields</strong> <code>genderProxy.score</code> and selected <code>components.*</code>. See the decomposition below for contribution points.</p>
           </div>
         </article>
       </section>
@@ -234,9 +234,9 @@
             </div>
             <p class="chart-note">Driver bars show selected-country component scores used by the gender-sensitive proxy. They are pressure signals, not measured women/girls outcomes.</p>
             <div class="chart-explain" aria-label="Gender lens driver calculation">
-              <p><strong>Calculated:</strong> selected inputs are shown as normalized 0-1 component scores before gender-proxy coefficients are applied.</p>
-              <p><strong>How to read:</strong> longer bars show stronger pressure signals to validate with country teams and SADD outcome data.</p>
-              <p><strong>Uses fields:</strong> <code>components.gender_vulnerability_score</code>, <code>acute_food_insecurity_score</code>, <code>public_displacement_layer_score</code>, <code>assistance_pressure_score</code>.</p>
+              <p><strong>Calculation</strong> selected inputs are shown as normalized 0-1 component scores before gender-proxy coefficients are applied.</p>
+              <p><strong>Read as</strong> longer bars show stronger pressure signals to validate with country teams and SADD outcome data.</p>
+              <p><strong>Source fields</strong> <code>components.gender_vulnerability_score</code>, <code>acute_food_insecurity_score</code>, <code>public_displacement_layer_score</code>, <code>assistance_pressure_score</code>.</p>
             </div>
           </article>
 
@@ -266,9 +266,9 @@
             <div id="gender-decomposition-table" class="decomposition-table-block"></div>
             <p class="chart-note">Contribution points deconstruct the gender-sensitive proxy score. They explain the arithmetic behind prioritization; they are not measured SADD outcomes or causal gender impacts.</p>
             <div class="chart-explain" aria-label="Gender proxy decomposition calculation">
-              <p><strong>Calculated:</strong> each row is <code>input score x gender-proxy coefficient</code>; 0-1 component inputs are converted to 0-100 contribution points.</p>
-              <p><strong>How to read:</strong> the largest rows are the inputs doing most of the arithmetic work for the selected country's proxy priority score.</p>
-              <p><strong>Uses fields:</strong> <code>score</code>, <code>genderProxy.score</code>, <code>components.*</code>. Full caveats are in the <a href="methodology.html?v=20260624-communication-flow#gender-displacement-method">gender methodology</a>.</p>
+              <p><strong>Calculation</strong> each row is <code>input score x gender-proxy coefficient</code>; 0-1 component inputs are converted to 0-100 contribution points.</p>
+              <p><strong>Read as</strong> the largest rows are the inputs doing most of the arithmetic work for the selected country's proxy priority score.</p>
+              <p><strong>Source fields</strong> <code>score</code>, <code>genderProxy.score</code>, <code>components.*</code>. Full caveats are in the <a href="methodology.html?v=20260624-readable-explainer#gender-displacement-method">gender methodology</a>.</p>
             </div>
           </article>
 
@@ -279,9 +279,9 @@
               The legacy proxy and the IDMC/IOM internal-displacement layer answer different questions. Read them side by side.
             </p>
             <div class="chart-explain" aria-label="Displacement layer calculation">
-              <p><strong>Calculated:</strong> the legacy external/refugee proxy remains separate from the IDMC/IOM internal-displacement layer; both feed the published index with different weights.</p>
-              <p><strong>How to read:</strong> a zero legacy score does not mean no internal displacement. Use the IDMC/IOM row for internal displacement relevance.</p>
-              <p><strong>Uses fields:</strong> <code>components.displacement_pressure_score</code>, <code>components.public_displacement_layer_score</code>, <code>indicators.idmcConflictTotalDisplacement</code>, <code>indicators.iomLatestIdpSum</code>.</p>
+              <p><strong>Calculation</strong> the legacy external/refugee proxy remains separate from the IDMC/IOM internal-displacement layer; both feed the published index with different weights.</p>
+              <p><strong>Read as</strong> a zero legacy score does not mean no internal displacement. Use the IDMC/IOM row for internal displacement relevance.</p>
+              <p><strong>Source fields</strong> <code>components.displacement_pressure_score</code>, <code>components.public_displacement_layer_score</code>, <code>indicators.idmcConflictTotalDisplacement</code>, <code>indicators.iomLatestIdpSum</code>.</p>
             </div>
             <div id="displacement-clarity-list" class="lens-list"></div>
           </article>
@@ -297,7 +297,7 @@
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-communication-flow"></script>
-    <script src="app.js?v=20260624-communication-flow"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-readable-explainer"></script>
+    <script src="app.js?v=20260624-readable-explainer"></script>
   </body>
 </html>
