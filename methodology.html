@@ -68,6 +68,7 @@
         <a href="#analytical-frame">Analytical frame</a>
         <a href="#visual-calculation-guide">Visual explanations</a>
         <a href="#index-calculation">Index calculation</a>
+        <a href="#data-treatment">Data treatment</a>
         <a href="#gender-displacement-method">Gender/displacement indicators</a>
         <a href="#before-after-method">Before/after method</a>
         <a href="#scenario-method">Internal/model traceability</a>
@@ -227,6 +228,68 @@
           <code>inverted minmax</code> means lower raw values create higher pressure or
           vulnerability. <code>bounded_ratio</code> caps the scaled value at 1. Missing
           source inputs use neutral values where needed and are flagged in the dashboard data.
+        </p>
+      </section>
+
+      <section id="data-treatment" class="methodology-text-section" aria-labelledby="data-treatment-title" data-methodology-section>
+        <p class="eyebrow">Data treatment</p>
+        <h2 id="data-treatment-title">Data treatment assumptions and special cases</h2>
+        <p>
+          The dashboard uses a consistent country-level screening dataset. Because public-source
+          coverage is uneven, several data-treatment rules are applied before calculating the
+          Shock Exposure Index.
+        </p>
+        <p>
+          Missing normalized inputs are not treated as zero risk. For <code>minmax</code>,
+          <code>log/minmax</code> and <code>bounded_ratio</code> transformations, missing values
+          are set to a neutral <code>0.5</code> where a component score must be calculated.
+          Missingness is then flagged through the missing-component and data-confidence fields.
+        </p>
+        <p>
+          IPC is used as total-population acute food-insecurity evidence. The workflow selects the
+          second projection period where available, otherwise the first projection, otherwise the
+          current period. If no usable national IPC Phase 3+ value is available, the IPC component
+          is neutral-imputed and flagged. Within an available IPC row, missing Phase 4 or Phase 5
+          values are treated as zero when constructing Phase 4+.
+        </p>
+        <p>
+          WFP food-price evidence uses like-for-like market, commodity and unit comparisons between
+          post-shock 2026 months and the same calendar month in 2025. If a country has no comparable
+          post-shock price series, the price component is neutral-imputed and the price event-study
+          readiness flag is set to not ready.
+        </p>
+        <p>
+          Public WFP food-security outcome coverage is sparse. Where FCS or rCSI public outcome
+          values are unavailable, the WFP outcome component is neutral-imputed and flagged. Available
+          percentage fields are normalized to proportions before scoring.
+        </p>
+        <p>
+          Displacement is handled through two separate inputs: a legacy external/refugee-style
+          displacement proxy and an IDMC/IOM internal-displacement layer. IDMC/IOM count values use
+          log/minmax normalization. A zero in the legacy proxy does not mean no internal displacement.
+          If an IDMC event source is available but reports no post-shock figure, that event value is
+          treated as zero; if source coverage is absent, missingness is flagged.
+        </p>
+        <p>
+          Assistance/funding pressure uses OCHA FTS funding flows and funding per IPC Phase 3+
+          person. This is a funding-pressure proxy, not a measure of assistance reach, ration size,
+          transfer value or access. If the IPC denominator is unavailable, the funding-per-need part
+          is neutral-imputed.
+        </p>
+        <p>
+          Gender vulnerability is a structural/proxy component, not a measured women/girls
+          food-security outcome. It uses female vulnerable employment, low female labour-force
+          participation, low women's account ownership and female agricultural employment. Missing
+          sub-indicators are neutral-imputed through the same normalization rules. Raw gender, labour,
+          Findex and female-headed household indicators are shown as monitoring context, not as
+          separate user-facing composite scores.
+        </p>
+        <p>
+          Supplemental ACLED, CPI, food-incident, PortWatch and broader Findex layers are retained
+          as public-context or internal sensitivity evidence. They do not change the official
+          Shock Exposure Index unless the model is explicitly revised. Scenario and weight-sensitivity
+          rows are retained for auditability only; they are stress tests, not forecasts or dashboard
+          findings.
         </p>
       </section>
 
