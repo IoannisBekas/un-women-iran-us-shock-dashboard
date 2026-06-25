@@ -50,7 +50,7 @@ const SCENARIO_LABELS = {
 };
 
 const SCENARIO_GROUPS = [
-  { id: "combined", label: "Combined pathway", scenarios: ["combined_high", "combined_base", "combined_low"] },
+  { id: "combined", label: "Combined stress test", scenarios: ["combined_high", "combined_base", "combined_low"] },
   { id: "assistance", label: "Assistance financing", scenarios: ["assistance_cut_50pct", "assistance_cut_25pct", "assistance_cut_10pct"] },
   { id: "food", label: "Food prices", scenarios: ["food_price_20pct", "food_price_10pct", "food_price_5pct"] },
   { id: "fertilizer", label: "Fertilizer prices", scenarios: ["fertilizer_50pct", "fertilizer_25pct", "fertilizer_10pct"] },
@@ -1516,8 +1516,8 @@ function renderGenderDecompositionChart() {
     {
       total: rows.reduce((sum, row) => sum + (numericValue(row.points) || 0), 0),
       finalScore: country.genderProxy?.score,
-      finalLabel: "Published gender proxy priority score",
-      finalNote: "Final score in the dashboard dataset; small differences can reflect rounding.",
+      finalLabel: "Internal gender-priority proxy",
+      finalNote: "Hidden/internal traceability field; not a current user-facing dashboard score.",
       note: "Component inputs use full precision in the generated dashboard data.",
     }
   );
@@ -1541,7 +1541,7 @@ function renderGenderDecompositionChart() {
           min: 0,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
-          title: { display: true, text: "Points in gender proxy score", color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: "Internal gender-priority proxy points", color: COLORS.muted, font: chartFont() },
         },
         y: {
           grid: { display: false },
@@ -1808,7 +1808,7 @@ function renderReadiness() {
   const items = [
     ["Price event-study setup", country.readiness.priceEventStudy],
     ["Food-security outcome model", country.readiness.foodSecurityOutcome],
-    ["Gender causal model", country.readiness.genderCausal],
+    ["Women/girls causal-impact analysis", country.readiness.genderCausal],
     ["Main data gap", country.readiness.mainGap],
   ];
   el.readinessList.innerHTML = "";

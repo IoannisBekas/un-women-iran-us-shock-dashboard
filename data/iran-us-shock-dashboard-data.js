@@ -2,16 +2,16 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
   "metadata": {
     "generated": "2026-06-24",
     "title": "UN Women Iran-USA Regional Escalation Shock Dashboard",
-    "subtitle": "Screening and prioritization model for food-security, displacement and gender vulnerability pathways",
+    "subtitle": "Screening and prioritization model for food-security, displacement and gender-vulnerability components",
     "status": "Draft analytical dashboard - internal review version",
     "sourcePackage": "Public-source indicator compilation",
     "shockStartDate": "2026-02-28",
     "geography": "28 countries across the Middle East, South Asia, East Africa, West Africa/Sahel, Eastern Europe/Caucasus, East/Southeast Asia, and Latin America and the Caribbean",
-    "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across plausible escalation pathways: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
+    "methodBoundary": "Use this dashboard as an early-warning and prioritization tool. It compares countries across weighted evidence categories: prices, imports, agriculture inputs, food insecurity, displacement, assistance pressure and gender vulnerability. It does not estimate how many women or girls became food insecure because public sex- and age-disaggregated outcome data are not available.",
     "weightingMethod": {
       "weightSource": "Documented analytical weights",
       "processGuidance": "OECD/JRC Handbook on Constructing Composite Indicators: Methodology and User Guide",
-      "imfUse": "Conceptual pathway framing only; no IMF numeric weights were used",
+      "imfUse": "Conceptual shock-channel framing only; no IMF numeric weights were used",
       "aggregation": "Shock Exposure Index = 100 x sum(component_score x component_weight)",
       "sensitivity": "Alternative weighting checks test whether country priorities change under different analytical emphases."
     }

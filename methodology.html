@@ -31,7 +31,7 @@
           <p class="lede">
             The dashboard is a screening and monitoring tool for the Iran-USA regional escalation
             food-security risk context. It combines price, import, agriculture, food-insecurity,
-            displacement, assistance and gender-vulnerability pathways from documented public-source indicators.
+            displacement, assistance and gender-vulnerability components from documented public-source indicators.
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
@@ -50,7 +50,7 @@
         <h2 id="methodology-intro-title">What the dashboard can and cannot say</h2>
         <p>
           The dashboard is a screening and monitoring tool. It ranks country exposure to plausible
-          Iran-USA regional escalation pathways and helps prioritize where closer food-security and
+          the Iran-USA regional escalation risk context and helps prioritize where closer food-security and
           gender-sensitive monitoring may be needed. It does not estimate how many women or girls
           became food insecure, because public sex- and age-disaggregated food-security outcome data
           are not available across the country set.
@@ -98,7 +98,7 @@
           The exposure framework combines domestic food-price pressure, food and fuel import exposure,
           agriculture and fertilizer exposure, IPC acute food insecurity, public WFP food-security
           outcome availability, a legacy external displacement proxy, an IDMC/IOM internal-displacement
-          layer, assistance and funding pressure, and gender vulnerability. These pathways are
+          layer, assistance and funding pressure, and gender vulnerability. These components are
           intentionally broader than prices because food-security risk is also shaped by import
           dependence, assistance access, displacement and structural vulnerability.
         </p>
@@ -135,7 +135,7 @@
         <p class="eyebrow">Calculation</p>
         <h2 id="index-calculation-title">Shock Exposure Index</h2>
         <p>
-          Each country receives a bounded 0-1 score for each pathway. Source indicators are normalized
+          Each country receives a bounded 0-1 score for each model component. Source indicators are normalized
           to a common scale before weighting. Where a source value is missing, the
           component is set to a neutral value where needed and the missingness is flagged through the
           missing-component and data-confidence fields. The published index is calculated as:
@@ -145,8 +145,8 @@
         </p>
         <p>
           This formula creates a composite screening score, not a probability of crisis and not a
-          measured outcome. A country can rank highly because several pressure pathways are elevated,
-          or because one high-weight pathway is very strong. Alternative weighting schemes are provided
+          measured outcome. A country can rank highly because several pressure components are elevated,
+          or because one high-weight component is very strong. Alternative weighting schemes are provided
           only so the internal model can be audited; those alternatives are not presented as
           user-facing dashboard scores.
         </p>
@@ -231,7 +231,7 @@
           Fertilizer scenarios emphasize agriculture exposure, import exposure and acute food
           insecurity. Food-price scenarios emphasize domestic price pressure, acute food insecurity
           and gender vulnerability. Assistance-cut scenarios emphasize assistance pressure, acute
-          food insecurity and displacement. Combined scenarios add the corresponding pathway shocks
+          food insecurity and displacement. Combined scenarios add the corresponding stress-test assumptions
           together under low, base and high assumptions. These rows are retained for reproducibility
           and sensitivity review only.
         </p>
@@ -249,7 +249,7 @@
         </p>
         <p>
           Results should therefore be interpreted as country exposure, evidence strength and monitoring
-          priority across plausible escalation pathways. Before/after prices describe matched
+          priority across the model evidence categories. Before/after prices describe matched
           food-price changes after the shock window. Gender vulnerability is a structural and proxy
           prioritization lens within the official index, while the dashboard shows raw gender
           indicators directly as cross-country overview evidence and selected-country Country Lens
@@ -268,7 +268,7 @@
           component scores and weights used to calculate that official index; WFP/HDX food-price
           evidence; latest national IPC timing and severity; IDMC/IOM displacement evidence; OCHA FTS
           funding evidence; gender/labour/financial-access indicators; and readiness checks for
-          price event-study, food-security outcome and gender-causal analysis.
+          price event-study, food-security outcome and women/girls causal-impact analysis.
         </p>
         <p>
           Additional public-source checks provide context and data-gap evidence from ACLED availability,
