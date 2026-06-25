@@ -153,6 +153,81 @@
         </p>
         <h3>Current index weights</h3>
         <ol id="methodology-weights-list" class="methodology-weight-text-list"></ol>
+        <h3>Component calculation summary</h3>
+        <p>
+          These rows show how each 0-1 component score is built before it is multiplied by
+          the component weight. They explain the arithmetic behind the official Shock Exposure
+          Index; they are not separate dashboard scores or rankings.
+        </p>
+        <div class="table-wrap source-component-wrap">
+          <table class="source-component-table component-calculation-table">
+            <colgroup>
+              <col style="width: 22%;">
+              <col style="width: 10%;">
+              <col style="width: 68%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Weight</th>
+                <th>Calculation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Domestic food-price pressure</td>
+                <td>15%</td>
+                <td><code>minmax(median_log_change_since_baseline)</code> from WFP/HDX price data.</td>
+              </tr>
+              <tr>
+                <td>Food/fuel import exposure</td>
+                <td>12%</td>
+                <td><code>0.30 x imports/GDP + 0.25 x food imports share + 0.25 x cereal import dependency + 0.20 x fuel imports share</code>, normalized.</td>
+              </tr>
+              <tr>
+                <td>Agriculture and fertilizer exposure</td>
+                <td>12%</td>
+                <td><code>0.30 x female agricultural employment + 0.25 x agriculture value added + 0.25 x fertilizer import dependency + 0.20 x fertilizer consumption intensity</code>, normalized.</td>
+              </tr>
+              <tr>
+                <td>IPC acute food insecurity</td>
+                <td>17%</td>
+                <td><code>0.75 x bounded_ratio(IPC Phase 3+, 60%) + 0.25 x bounded_ratio(IPC Phase 4+, 25%)</code>.</td>
+              </tr>
+              <tr>
+                <td>Public WFP food-security outcome layer</td>
+                <td>5%</td>
+                <td><code>0.45 x poor/borderline FCS + 0.25 x rCSI mean + 0.15 x rCSI-any + 0.15 x low-FCS score</code>.</td>
+              </tr>
+              <tr>
+                <td>Legacy external displacement proxy</td>
+                <td>7%</td>
+                <td><code>minmax(selected_displacement_pressure_people)</code>. Legacy external/refugee-style proxy retained for continuity.</td>
+              </tr>
+              <tr>
+                <td>IDMC/IOM internal displacement layer</td>
+                <td>8%</td>
+                <td><code>0.40 x IDMC conflict displacement + 0.30 x IDMC post-shock event figure + 0.30 x IOM DTM current IDP score</code>, using log/min-max normalization.</td>
+              </tr>
+              <tr>
+                <td>Assistance/funding pressure</td>
+                <td>9%</td>
+                <td><code>0.60 x IPC acute food insecurity + 0.40 x inverted minmax(food/nutrition/multi-sector funding per IPC Phase 3+ person)</code>.</td>
+              </tr>
+              <tr>
+                <td>Gender vulnerability</td>
+                <td>15%</td>
+                <td><code>0.35 x female vulnerable employment + 0.25 x low female labour-force participation + 0.25 x low women account ownership + 0.15 x female agricultural employment</code>, normalized.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="chart-note">
+          <code>minmax</code> normalizes values within the dashboard country set.
+          <code>inverted minmax</code> means lower raw values create higher pressure or
+          vulnerability. <code>bounded_ratio</code> caps the scaled value at 1. Missing
+          source inputs use neutral values where needed and are flagged in the dashboard data.
+        </p>
       </section>
 
       <section id="gender-displacement-method" class="methodology-text-section" aria-labelledby="gender-displacement-method-title" data-methodology-section>
