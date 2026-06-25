@@ -756,6 +756,11 @@ body[data-page="country"] main > section[id] {
   gap: 16px;
 }
 
+.analysis-section-heading {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
 .gender-lens-section {
   padding: 20px;
   border: 1px solid var(--line);
@@ -1585,6 +1590,17 @@ canvas {
   border-right: 0;
   border-bottom: 0;
   border-left: 0;
+}
+
+.overview-disclosure,
+.country-source-disclosure {
+  margin-top: 12px;
+}
+
+.overview-disclosure .source-coverage-heatmap,
+.overview-disclosure .lens-list,
+.country-source-disclosure .indicator-mini-table {
+  margin-top: 12px;
 }
 
 .table-footnote {

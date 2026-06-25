@@ -30,9 +30,9 @@
         <div class="hero-copy">
           <h1>Iran-USA regional escalation shock</h1>
           <p class="lede">
-            Food-price evidence is most visible in East Africa and the Horn, while the official Shock
-            Exposure Index summarizes broader exposure across food security, displacement, assistance,
-            imports and gender-vulnerability components.
+            Use the overview to compare countries with the official Shock Exposure Index, then scan
+            the public price, displacement, source-coverage and gender/labour evidence that supports
+            interpretation.
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
@@ -46,6 +46,29 @@
     </header>
 
     <main id="main-content" tabindex="-1">
+      <section id="ranking-overview" class="headline-grid" aria-label="Main analytical readout">
+        <article class="chart-card wide">
+          <div class="card-title-row">
+            <div>
+              <h2>Sudan and South Sudan top the exposure-priority ranking</h2>
+              <p>The index combines price pressure, import exposure, agriculture inputs, IPC severity, displacement, assistance pressure and gender vulnerability.</p>
+            </div>
+          </div>
+          <div class="chart-wrap ranking-chart-wrap">
+            <canvas id="ranking-chart"></canvas>
+          </div>
+          <p class="chart-note">Higher bars mean higher relative exposure across the weighted model components. The 0-100 index supports prioritization; it is not a probability, forecast or measured causal impact.</p>
+<div id="ranking-confidence-list" class="confidence-strip" aria-label="Data-confidence flags"></div>
+          <p class="chart-note">Data-confidence flags identify countries where missing public inputs make interpretation more cautious; a flag is not evidence of lower risk.</p>
+        </article>
+
+        <article class="decision-card">
+          <p class="eyebrow">Decision readout</p>
+          <h2>What this means</h2>
+          <ul id="message-list"></ul>
+        </article>
+      </section>
+
       <section id="before-after" class="before-after-section" aria-labelledby="before-after-title">
         <div class="section-heading">
           <p class="eyebrow">Before vs after</p>
@@ -77,49 +100,43 @@
           </article>
         </div>
 
-        <div id="before-after-card-list" class="mobile-table-cards" aria-label="Top before and after country evidence cards"></div>
-        <div class="table-wrap before-after-table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Country</th>
-                <th>Peak increase</th>
-                <th>Peak comparison</th>
-                <th>Price records compared</th>
-                <th>IPC latest timing</th>
-                <th>Public-context coverage</th>
-              </tr>
-            </thead>
-            <tbody id="before-after-table-body"></tbody>
-          </table>
-        </div>
+        <details class="disclosure-panel overview-disclosure">
+          <summary>
+            <span>
+              <span class="eyebrow">Full price evidence</span>
+              <strong>View all country rows used in the before/after comparison</strong>
+            </span>
+            <small>The chart keeps the headline readout visible; this table keeps every country traceable.</small>
+          </summary>
+          <div id="before-after-card-list" class="mobile-table-cards" aria-label="Top before and after country evidence cards"></div>
+          <div class="table-wrap before-after-table-wrap disclosure-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Country</th>
+                  <th>Peak increase</th>
+                  <th>Peak comparison</th>
+                  <th>Price records compared</th>
+                  <th>IPC latest timing</th>
+                  <th>Public-context coverage</th>
+                </tr>
+              </thead>
+              <tbody id="before-after-table-body"></tbody>
+            </table>
+          </div>
+        </details>
         <p id="before-after-table-note" class="chart-note table-footnote"></p>
       </section>
 
-      <section id="ranking-overview" class="headline-grid" aria-label="Main analytical readout">
-        <article class="chart-card wide">
-          <div class="card-title-row">
-            <div>
-              <h2>Sudan and South Sudan top the exposure-priority ranking</h2>
-              <p>The index combines price pressure, import exposure, agriculture inputs, IPC severity, displacement, assistance pressure and gender vulnerability.</p>
-            </div>
-          </div>
-          <div class="chart-wrap ranking-chart-wrap">
-            <canvas id="ranking-chart"></canvas>
-          </div>
-          <p class="chart-note">Higher bars mean higher relative exposure across the weighted model components. The 0-100 index supports prioritization; it is not a probability, forecast or measured causal impact.</p>
-<div id="ranking-confidence-list" class="confidence-strip" aria-label="Data-confidence flags"></div>
-          <p class="chart-note">Data-confidence flags identify countries where missing public inputs make interpretation more cautious; a flag is not evidence of lower risk.</p>
-        </article>
-
-        <article class="decision-card">
-          <p class="eyebrow">Decision readout</p>
-          <h2>What this means</h2>
-          <ul id="message-list"></ul>
-        </article>
-      </section>
-
       <section class="analysis-grid" aria-label="Regional overview charts">
+        <div class="section-heading analysis-section-heading">
+          <p class="eyebrow">Cross-country context</p>
+          <h2>Regional and gender/labour indicators</h2>
+          <p>
+            These charts show cross-country context that helps interpret the ranking. They are raw
+            or near-raw indicators, not additional dashboard scores.
+          </p>
+        </div>
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
@@ -192,7 +209,16 @@
           </p>
         </div>
         <div id="source-coverage-summary" class="source-coverage-summary" aria-label="Source coverage summary"></div>
-        <div id="source-coverage-heatmap" class="source-coverage-heatmap" aria-label="Country by source family coverage"></div>
+        <details class="disclosure-panel overview-disclosure">
+          <summary>
+            <span>
+              <span class="eyebrow">Full source matrix</span>
+              <strong>View country-by-source coverage</strong>
+            </span>
+            <small>Use this as a traceability appendix, not as a risk ranking.</small>
+          </summary>
+          <div id="source-coverage-heatmap" class="source-coverage-heatmap" aria-label="Country by source family coverage"></div>
+        </details>
         <p class="chart-note">
           ACLED, CPI, food incidents, PortWatch and Findex are public-context checks. They help explain
           data availability and context; they do not replace the Shock Exposure Index or create additional scores.
@@ -214,7 +240,16 @@
             <p class="chart-note">
               The user-facing dashboard no longer asks readers to compare displacement scores. It shows IDMC and IOM public displacement evidence directly.
             </p>
-<div id="displacement-clarity-list" class="lens-list"></div>
+            <details class="disclosure-panel overview-disclosure">
+              <summary>
+                <span>
+                  <span class="eyebrow">All-country displacement table</span>
+                  <strong>View IDMC/IOM public displacement evidence by country</strong>
+                </span>
+                <small>All countries remain included; the table is collapsed to keep the overview focused.</small>
+              </summary>
+              <div id="displacement-clarity-list" class="lens-list"></div>
+            </details>
           </article>
         </div>
       </section>
