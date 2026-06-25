@@ -194,6 +194,7 @@ const charts = {
   region: null,
   gender: null,
   femaleVulnerable: null,
+  femaleLabourForce: null,
   femaleAgriculture: null,
   genderDrivers: null,
   genderDecomposition: null,
@@ -1545,7 +1546,7 @@ function renderRegionChart() {
   });
 }
 
-function renderFemaleIndicatorChart({ chartKey, canvasId, valueGetter, color, xAxisTitle }) {
+function renderFemaleIndicatorChart({ chartKey, canvasId, valueGetter, color, xAxisTitle, sortDirection = "desc" }) {
   if (!window.Chart) return;
   destroyChart(chartKey);
   const ctx = document.getElementById(canvasId);
@@ -1553,7 +1554,7 @@ function renderFemaleIndicatorChart({ chartKey, canvasId, valueGetter, color, xA
   const rows = filteredCountries()
     .map((country) => ({ country, value: numericValue(valueGetter(country)) }))
     .filter((row) => row.value !== null)
-    .sort((a, b) => b.value - a.value)
+    .sort((a, b) => (sortDirection === "asc" ? a.value - b.value : b.value - a.value))
     .slice(0, 10);
   charts[chartKey] = new Chart(ctx, {
     type: "bar",
@@ -1603,6 +1604,17 @@ function renderFemaleVulnerableChart() {
     valueGetter: (country) => country.indicators?.femaleVulnerableEmploymentPct,
     color: COLORS.gold,
     xAxisTitle: "Female vulnerable employment, %",
+  });
+}
+
+function renderFemaleLabourForceChart() {
+  renderFemaleIndicatorChart({
+    chartKey: "femaleLabourForce",
+    canvasId: "female-labour-force-chart",
+    valueGetter: (country) => country.indicators?.femaleLaborForceParticipationPct,
+    color: COLORS.blue,
+    xAxisTitle: "Female labour-force participation, %",
+    sortDirection: "asc",
   });
 }
 
@@ -2299,6 +2311,7 @@ function renderAll() {
   renderRegionChart();
   renderGenderChart();
   renderFemaleVulnerableChart();
+  renderFemaleLabourForceChart();
   renderFemaleAgricultureChart();
   renderGenderDriverChart();
   renderIndexDecompositionChart();
