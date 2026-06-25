@@ -787,7 +787,7 @@ function renderFilterSummary() {
       state.region === "All regions" ? "All regions" : state.region,
       state.geography === "All geographies" ? "All geographies" : state.geography,
     ];
-    el.compactFilterSubtitle.textContent = scopeLabel.join(" · ");
+    el.compactFilterSubtitle.textContent = scopeLabel.join(" - ");
   }
 }
 
@@ -1868,7 +1868,7 @@ function renderTable() {
     if (el.countryTableCardList) {
       el.countryTableCardList.appendChild(createMobileTableCard(
         `${country.rank ? `#${country.rank} ` : ""}${country.country}`,
-        `${country.region} · ${countryGeography(country)}`,
+        `${country.region} - ${countryGeography(country)}`,
         [
           ["Score", fmt(country.score)],
           ["Exposure tier", country.riskTier || "n/a"],

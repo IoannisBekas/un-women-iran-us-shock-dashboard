@@ -869,6 +869,14 @@ canvas {
 
 .score-build-heading {
   grid-column: 1 / -1;
+  max-width: 760px;
+  margin-bottom: 8px;
+}
+
+.score-build-heading h2 {
+  font-size: clamp(1.62rem, 2.4vw, 2rem);
+  line-height: 1.12;
+  text-wrap: balance;
 }
 
 .lens-list {
@@ -925,7 +933,7 @@ canvas {
 }
 
 .indicator-mini-table {
-  overflow-x: auto;
+  overflow-x: hidden;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.68);
 }
@@ -939,8 +947,9 @@ canvas {
 
 .indicator-mini-table-inner {
   width: 100%;
-  min-width: 680px;
+  min-width: 0;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .indicator-mini-table-inner th,
@@ -1307,6 +1316,36 @@ canvas {
 
 .before-after-table-wrap {
   margin-top: 16px;
+}
+
+.before-after-table-wrap table th:nth-child(1),
+.before-after-table-wrap table td:nth-child(1) {
+  width: 14%;
+}
+
+.before-after-table-wrap table th:nth-child(2),
+.before-after-table-wrap table td:nth-child(2) {
+  width: 13%;
+}
+
+.before-after-table-wrap table th:nth-child(3),
+.before-after-table-wrap table td:nth-child(3) {
+  width: 19%;
+}
+
+.before-after-table-wrap table th:nth-child(4),
+.before-after-table-wrap table td:nth-child(4) {
+  width: 18%;
+}
+
+.before-after-table-wrap table th:nth-child(5),
+.before-after-table-wrap table td:nth-child(5) {
+  width: 17%;
+}
+
+.before-after-table-wrap table th:nth-child(6),
+.before-after-table-wrap table td:nth-child(6) {
+  width: 19%;
 }
 
 .disclosure-panel {
@@ -1778,7 +1817,7 @@ button.confidence-pill {
 .table-wrap {
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   border: 1px solid var(--line);
   background: var(--paper);
 }
@@ -1830,29 +1869,43 @@ button.confidence-pill {
   overflow-wrap: anywhere;
 }
 
+.table-section .mobile-table-cards {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.table-section .mobile-table-cards + .table-wrap {
+  display: none;
+}
+
 table {
   width: 100%;
-  min-width: 1180px;
+  min-width: 0;
+  table-layout: fixed;
   border-collapse: collapse;
 }
 
 th,
 td {
-  padding: 10px 12px;
+  padding: 8px 9px;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
+  overflow-wrap: anywhere;
 }
 
 th {
   background: var(--un-navy);
   color: var(--white);
-  font-size: 0.84rem;
+  font-size: 0.76rem;
+  line-height: 1.18;
 }
 
 td {
   color: #263440;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
+  line-height: 1.28;
 }
 
 tbody tr:hover {

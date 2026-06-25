@@ -62,13 +62,14 @@
         <a href="#displacement">Displacement terms</a>
         <a href="#sources">Data-source acronyms</a>
         <a href="#model">Model and dashboard terms</a>
+        <a href="#internal-traceability">Internal/model traceability</a>
       </section>
 
       <section id="food-security" class="dictionary-section" aria-labelledby="food-security-title">
         <div class="section-heading">
           <p class="eyebrow">Food security</p>
           <h2 id="food-security-title">Food-security terms</h2>
-          <p>Terms used to describe severity, consumption and coping outcomes.</p>
+          <p>Terms directly used in the current dashboard to describe IPC severity, price evidence and WFP outcome availability.</p>
         </div>
         <div class="term-grid">
           <article class="term-card">
@@ -99,31 +100,13 @@
             <p class="term-use">Higher phases indicate more severe acute food insecurity.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">WFP outcome</span>
-            <h3>FCS</h3>
+            <span class="term-meta">Model component</span>
+            <h3>Public WFP food-security outcome layer</h3>
             <p>
-              Food Consumption Score. A WFP indicator summarizing household dietary diversity and food
-              consumption frequency.
+              A bounded Shock Exposure Index component that uses public WFP food-security outcome evidence
+              where available, such as poor/borderline food consumption or coping indicators.
             </p>
-            <p class="term-use">Public FCS data are used only where available and are not assumed to be sex-disaggregated.</p>
-          </article>
-          <article class="term-card">
-            <span class="term-meta">Coping indicator</span>
-            <h3>rCSI</h3>
-            <p>
-              Reduced Coping Strategy Index. A WFP indicator that reflects how often households use food
-              consumption coping strategies.
-            </p>
-            <p class="term-use">Higher coping can indicate stress, but it needs context and survey coverage checks.</p>
-          </article>
-          <article class="term-card">
-            <span class="term-meta">Coping indicator</span>
-            <h3>LCS</h3>
-            <p>
-              Livelihood Coping Strategies. A measure of whether households use stress, crisis or emergency
-              coping actions that may damage future resilience.
-            </p>
-            <p class="term-use">Useful when available, but not consistently public across all 28 countries.</p>
+            <p class="term-use">The dashboard may show raw WFP fields where available; it does not treat them as SADD outcomes.</p>
           </article>
         </div>
       </section>
@@ -188,6 +171,23 @@
             </p>
             <p class="term-use">Used to understand exposure to agricultural input, fertilizer and food-production shocks.</p>
           </article>
+          <article class="term-card">
+            <span class="term-meta">Financial access</span>
+            <h3>Women financial-access indicators</h3>
+            <p>
+              Findex indicators such as women's account ownership, mobile money account ownership,
+              formal/mobile saving, wage receipt and government payment receipt.
+            </p>
+            <p class="term-use">Shown as raw or near-raw context for monitoring questions, not as a separate composite score.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Household structure</span>
+            <h3>Female-headed households</h3>
+            <p>
+              The share of households headed by women where public country data are available.
+            </p>
+            <p class="term-use">Used as structural context for monitoring and data-gap assessment; coverage varies by country and year.</p>
+          </article>
         </div>
       </section>
 
@@ -195,7 +195,7 @@
         <div class="section-heading">
           <p class="eyebrow">Displacement</p>
           <h2 id="displacement-title">Displacement terms</h2>
-          <p>Terms used to distinguish internal model inputs from the raw displacement evidence shown to users.</p>
+          <p>Terms used to distinguish visible public displacement evidence from internal index inputs.</p>
         </div>
         <div class="term-grid">
           <article class="term-card">
@@ -218,13 +218,13 @@
             <p class="term-use">The user-facing dashboard shows the underlying IDMC/IOM values directly in an all-country displacement table.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Interpretation</span>
-            <h3>Displacement pressure</h3>
+            <span class="term-meta">Dashboard display</span>
+            <h3>Public displacement evidence</h3>
             <p>
-              A pressure pathway that can affect food security through movement, host-community strain,
-              access constraints, loss of livelihoods and changed assistance needs.
+              Raw or near-raw public IDMC and IOM displacement values shown by country, such as conflict
+              IDPs, selected DTM IDPs and selected post-shock displacement figures.
             </p>
-            <p class="term-use">Use both displacement fields together and read missingness flags before making claims.</p>
+            <p class="term-use">Large values indicate displacement relevance; missing values are data gaps, not evidence that displacement is absent.</p>
           </article>
         </div>
       </section>
@@ -291,6 +291,12 @@
             <p class="term-use">Used for informal employment and related labour-market vulnerability indicators.</p>
           </article>
           <article class="term-card">
+            <span class="term-meta">Financial access</span>
+            <h3>Findex</h3>
+            <p>World Bank Global Findex database on account ownership, payments, saving, borrowing and financial access.</p>
+            <p class="term-use">Used for raw women’s financial-access context where country coverage exists.</p>
+          </article>
+          <article class="term-card">
             <span class="term-meta">Conflict data</span>
             <h3>ACLED</h3>
             <p>Armed Conflict Location &amp; Event Data Project.</p>
@@ -301,12 +307,6 @@
             <h3>FAO Food Price Index</h3>
             <p>A global index tracking international prices of major food commodity groups.</p>
             <p class="term-use">Used as global food-price context, not as a country-level household outcome.</p>
-          </article>
-          <article class="term-card">
-            <span class="term-meta">Commodity prices</span>
-            <h3>World Bank Commodity Markets</h3>
-            <p>World Bank source for international commodity price series.</p>
-            <p class="term-use">Used for oil, fertilizer and food-price scenario context.</p>
           </article>
         </div>
       </section>
@@ -361,20 +361,14 @@
             <p class="term-use">Weights are documented, reviewed and sensitivity-tested.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Method</span>
-            <h3>Scenario sensitivity</h3>
-            <p>Internal stress tests showing how model scores move under oil, fertilizer, food-price or assistance-cut assumptions.</p>
-            <p class="term-use">Retained in the workbook for audit/sensitivity checks; no longer presented as a user-facing dashboard score.</p>
-          </article>
-          <article class="term-card">
-            <span class="term-meta">Method</span>
-            <h3>Weight sensitivity</h3>
-            <p>Alternative weighting assumptions that test whether country priorities change when the model emphasis changes.</p>
-            <p class="term-use">Internal robustness check for the documented-weight index, not a user-facing score.</p>
+            <span class="term-meta">Data quality</span>
+            <h3>Data confidence</h3>
+            <p>A dashboard label describing how much caution is needed because of missing, neutral or incomplete source inputs.</p>
+            <p class="term-use">Use it to qualify interpretation of the Shock Exposure Index and raw indicators; it is not a separate risk score.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Data quality</span>
-            <h3>Data readiness</h3>
+            <h3>Readiness checks</h3>
             <p>A check on whether the available data can support stronger analysis, such as before/after or causal estimation.</p>
             <p class="term-use">Most countries are not ready for women/girls causal estimates without SADD outcomes.</p>
           </article>
@@ -395,6 +389,72 @@
             <h3>Neutral imputation</h3>
             <p>Replacing missing component values with a neutral score, usually 0.5 on a 0-1 scale.</p>
             <p class="term-use">Prevents missing data alone from pushing a country to the top or bottom of the ranking.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="internal-traceability" class="dictionary-section" aria-labelledby="internal-traceability-title">
+        <div class="section-heading">
+          <p class="eyebrow">Internal/model traceability</p>
+          <h2 id="internal-traceability-title">Terms retained for workbook and methodology traceability</h2>
+          <p>
+            These terms may appear in hidden workbook sheets, generated data fields or methodology notes.
+            They are not separate user-facing dashboard outputs or additional published scores.
+          </p>
+        </div>
+        <div class="term-grid compact">
+          <article class="term-card">
+            <span class="term-meta">Hidden/internal field</span>
+            <h3>Gender proxy priority score</h3>
+            <p>
+              An earlier internal prioritization field retained in hidden data/workbook traces for reproducibility.
+            </p>
+            <p class="term-use">Do not cite it as a current dashboard output; the visible gender section now shows raw or near-raw indicators.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Hidden/internal pathway</span>
+            <h3>Displacement pressure</h3>
+            <p>
+              A model pathway describing how displacement can affect food security through movement,
+              host-community strain, access constraints, livelihood disruption and assistance needs.
+            </p>
+            <p class="term-use">The visible dashboard shows public IDMC/IOM evidence and the official Shock Exposure Index instead of a standalone displacement score.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Internal sensitivity check</span>
+            <h3>Scenario sensitivity</h3>
+            <p>Stress-test rows showing how model scores would move under oil, fertilizer, food-price or assistance-cut assumptions.</p>
+            <p class="term-use">Retained for audit/sensitivity checks; not a forecast and not a user-facing dashboard score.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Internal sensitivity check</span>
+            <h3>Weight sensitivity</h3>
+            <p>Alternative weighting assumptions used to test whether country priorities change when model emphasis changes.</p>
+            <p class="term-use">Internal robustness check for the documented-weight index, not a user-facing score.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">WFP survey term</span>
+            <h3>FCS</h3>
+            <p>Food Consumption Score, a WFP indicator summarizing household dietary diversity and food consumption frequency.</p>
+            <p class="term-use">Mentioned for outcome-data traceability where public WFP data exist; not treated as SADD in this dashboard.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">WFP survey term</span>
+            <h3>rCSI</h3>
+            <p>Reduced Coping Strategy Index, a WFP indicator of how often households use food-consumption coping strategies.</p>
+            <p class="term-use">Mentioned for outcome-data traceability; coverage varies and it is not a user-facing score.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">WFP survey term</span>
+            <h3>LCS</h3>
+            <p>Livelihood Coping Strategies, a measure of stress, crisis or emergency coping actions.</p>
+            <p class="term-use">Used as an example of SADD outcome data that should be requested before making gender-impact claims.</p>
+          </article>
+          <article class="term-card">
+            <span class="term-meta">Internal scenario source</span>
+            <h3>World Bank Commodity Markets</h3>
+            <p>World Bank source for international commodity price series.</p>
+            <p class="term-use">Referenced for internal oil, fertilizer and food-price scenario context; not a country-level household outcome.</p>
           </article>
         </div>
       </section>
