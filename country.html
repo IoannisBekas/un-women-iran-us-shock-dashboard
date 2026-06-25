@@ -12,7 +12,7 @@
     <link rel="icon" href="data:," />
     <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-clean-labels" />
+    <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -24,7 +24,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-clean-labels#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260625-source-coverage#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -36,10 +36,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-clean-labels#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260625-source-coverage#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-clean-labels">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-clean-labels">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260625-source-coverage">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260625-source-coverage">Dictionary</a>
           </div>
         </div>
       </div>
@@ -290,6 +290,15 @@
           <p class="chart-note">These rows show whether useful public context exists for displacement, food-security outcomes and female-headed households. Missing coverage is a data gap, not evidence that the issue is absent.</p>
 <div id="coverage-list" class="coverage-list"></div>
         </article>
+        <article class="evidence-panel wide">
+          <p class="eyebrow">Selected-country source evidence</p>
+          <h2>Which source families support this country view</h2>
+          <p class="chart-note">
+            This table explains source availability for the selected country. It is a traceability view, not
+            another ranking or score.
+          </p>
+<div id="country-source-evidence-table" class="indicator-mini-table"></div>
+        </article>
       </section>
 
       <section class="table-section" aria-labelledby="table-title">
@@ -335,7 +344,7 @@
         <p>
           Country, region and geography filters change the exploration view; they do not change published model
           values. Read before/after prices as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260624-clean-labels">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260625-source-coverage">methodology page</a>.
         </p>
       </section>
     </main>
@@ -348,7 +357,7 @@
 
     <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-clean-labels"></script>
-    <script src="app.js?v=20260624-clean-labels"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260625-source-coverage"></script>
+    <script src="app.js?v=20260625-source-coverage"></script>
   </body>
 </html>

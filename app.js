@@ -261,7 +261,10 @@ const el = {
   genderLensList: document.getElementById("gender-lens-list"),
   genderMonitoringList: document.getElementById("gender-monitoring-list"),
   displacementClarityList: document.getElementById("displacement-clarity-list"),
+  sourceCoverageSummary: document.getElementById("source-coverage-summary"),
+  sourceCoverageHeatmap: document.getElementById("source-coverage-heatmap"),
   countryGenderIndicatorTable: document.getElementById("country-gender-indicator-table"),
+  countrySourceEvidenceTable: document.getElementById("country-source-evidence-table"),
   genderDecompositionTable: document.getElementById("gender-decomposition-table"),
   indexDecompositionTable: document.getElementById("index-decomposition-table"),
   rawEvidenceTable: document.getElementById("country-raw-evidence-table"),
@@ -490,6 +493,169 @@ function coverageStatusLabel(value) {
   return String(value)
     .replaceAll("_", " ")
     .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function hasData(value) {
+  return value !== null && value !== undefined && !Number.isNaN(Number(value));
+}
+
+function sourceStatusFromSupplemental(value) {
+  const status = String(value || "").toLowerCase();
+  if (status === "covered" || status === "available") return "available";
+  if (status === "partial" || status === "limited") return "partial";
+  return "missing";
+}
+
+function sourceStatusLabel(status) {
+  if (status === "available") return "Available";
+  if (status === "partial") return "Partial";
+  return "Missing";
+}
+
+function sourceStatusBadge(status) {
+  const badge = document.createElement("span");
+  badge.className = `source-status source-status-${status || "missing"}`;
+  badge.textContent = sourceStatusLabel(status);
+  return badge;
+}
+
+function sourceCoverageRows(country) {
+  const yoy = sameMonthYoY(country);
+  const indicators = country.indicators || {};
+  const coverage = country.additionalCoverage || {};
+  const supplemental = country.supplementalEvidence || {};
+  const genderFinance = country.genderFinance || {};
+
+  const wfpPriceStatus = yoy.status === "no_matched_yoy_series" ? "missing" : "available";
+  const ipcStatus = hasData(indicators.ipcPhase3PlusPct) || country.beforeAfter?.ipcLatest?.available ? "available" : "missing";
+  const wdiStatus = [
+    indicators.importsGdpPct,
+    indicators.foodImportsMerchandisePct,
+    indicators.fuelImportsMerchandisePct,
+    indicators.agricultureValueAddedGdpPct,
+  ].some(hasData) ? "available" : "missing";
+  const faostatStatus = [
+    indicators.cerealImportDependencyPct,
+    indicators.fertilizerImportDependencyPct,
+  ].some(hasData) ? "available" : "missing";
+  const idmcStatus = coverage.idmcAnnualAvailable || coverage.idmcEventsAvailable || [
+    indicators.idmcConflictTotalDisplacement,
+    indicators.idmcPostShockConflictFigureTotal,
+  ].some(hasData) ? "available" : "missing";
+  const iomStatus = coverage.iomDtmAvailable || hasData(indicators.iomLatestIdpSum) ? "available" : "missing";
+  const ftsStatus = hasData(indicators.destinationFundingUsd) || hasData(indicators.foodNutritionFundingPerIpc3PlusUsd) ? "available" : "missing";
+  const wfpOutcomeStatus = coverage.wfpFsiAvailable || [
+    indicators.wfpPoorBorderlineFoodConsumptionPct,
+    indicators.wfpRcsiMean,
+  ].some(hasData) ? "available" : "missing";
+  const findexStatus = [
+    genderFinance.accountWomenPct,
+    genderFinance.mobileMoneyWomenPct,
+    genderFinance.formalOrMobileSavingWomenPct,
+    indicators.femaleAccountOwnershipPct,
+  ].some(hasData) ? "available" : sourceStatusFromSupplemental(supplemental.findexCoverageStatus);
+
+  return [
+    {
+      key: "wfp_prices",
+      shortLabel: "Prices",
+      label: "WFP/HDX food prices",
+      status: wfpPriceStatus,
+      evidence: wfpPriceStatus === "available" ? `${positivePeakLabel(yoy)}; ${matchedSeriesLabel(yoy)} matched records` : "No comparable same-month price record",
+      use: "Domestic food-price pressure and before/after price evidence",
+      note: "Descriptive matched price movement, not causal attribution.",
+    },
+    {
+      key: "ipc",
+      shortLabel: "IPC",
+      label: "IPC/HDX acute food insecurity",
+      status: ipcStatus,
+      evidence: hasData(indicators.ipcPhase3PlusPct) ? `${fmtPct(indicators.ipcPhase3PlusPct)} Phase 3+ (${fmtCompact(indicators.ipcPhase3PlusNumber)} people)` : fmtIpcTiming(country.beforeAfter?.ipcLatest),
+      use: "IPC acute food insecurity component and IPC Phase 3+/4+ context",
+      note: "Total-population evidence; not sex-disaggregated.",
+    },
+    {
+      key: "wdi",
+      shortLabel: "WDI",
+      label: "World Bank WDI",
+      status: wdiStatus,
+      evidence: hasData(indicators.importsGdpPct) ? `${fmtPct(indicators.importsGdpPct)} imports/GDP` : "No selected WDI field available",
+      use: "Import exposure and structural country context",
+      note: "Structural exposure, not a short-term outcome.",
+    },
+    {
+      key: "faostat",
+      shortLabel: "FAOSTAT",
+      label: "FAOSTAT",
+      status: faostatStatus,
+      evidence: hasData(indicators.fertilizerImportDependencyPct) ? `${fmtPct(indicators.fertilizerImportDependencyPct)} fertilizer import dependency` : hasData(indicators.cerealImportDependencyPct) ? `${fmtPct(indicators.cerealImportDependencyPct)} cereal import dependency` : "No selected FAOSTAT field available",
+      use: "Agriculture and fertilizer exposure",
+      note: "Food-system and input-dependency context.",
+    },
+    {
+      key: "unhcr",
+      shortLabel: "UNHCR",
+      label: "UNHCR displacement extracts",
+      status: hasData(country.components?.displacement_pressure_score) ? "available" : "missing",
+      evidence: hasData(country.components?.displacement_pressure_score) ? `Legacy proxy input ${fmt(country.components.displacement_pressure_score, 2)}` : "Legacy proxy unavailable",
+      use: "Legacy external displacement proxy retained for continuity",
+      note: "Not shown as a standalone score; zero does not mean no internal displacement.",
+    },
+    {
+      key: "fts",
+      shortLabel: "FTS",
+      label: "OCHA Financial Tracking Service",
+      status: ftsStatus,
+      evidence: hasData(indicators.destinationFundingUsd) ? `${fmtUsd(indicators.destinationFundingUsd)} destination funding` : "No selected FTS field available",
+      use: "Assistance/funding pressure and funding-per-person context",
+      note: "Funding flow/context indicator, not assistance reach.",
+    },
+    {
+      key: "idmc",
+      shortLabel: "IDMC",
+      label: "IDMC internal displacement",
+      status: idmcStatus,
+      evidence: hasData(indicators.idmcConflictTotalDisplacement) ? `${fmtCompact(indicators.idmcConflictTotalDisplacement)} conflict IDPs` : coverage.idmcEventsAvailable ? `${fmtCompact(coverage.idmcPostShockFigureTotal)} post-shock figure total` : "No selected IDMC field available",
+      use: "IDMC/IOM internal-displacement layer and public displacement evidence",
+      note: "Shown as public displacement evidence, not a separate score.",
+    },
+    {
+      key: "iom",
+      shortLabel: "IOM",
+      label: "IOM DTM public summaries",
+      status: iomStatus,
+      evidence: hasData(indicators.iomLatestIdpSum) ? `${fmtCompact(indicators.iomLatestIdpSum)} selected DTM IDPs` : "No selected IOM DTM field available",
+      use: "IDMC/IOM internal-displacement layer and public displacement evidence",
+      note: "Selected public DTM summaries where available.",
+    },
+    {
+      key: "wfp_outcomes",
+      shortLabel: "WFP out.",
+      label: "Public WFP food-security outcomes",
+      status: wfpOutcomeStatus,
+      evidence: hasData(indicators.wfpPoorBorderlineFoodConsumptionPct) ? `${fmtPct(indicators.wfpPoorBorderlineFoodConsumptionPct)} poor/borderline FCS` : hasData(indicators.wfpRcsiMean) ? `${fmt(indicators.wfpRcsiMean, 1)} rCSI mean` : "No selected public WFP outcome field available",
+      use: "Public WFP food-security outcome layer",
+      note: "Coverage is sparse, so this receives modest weight.",
+    },
+    {
+      key: "findex",
+      shortLabel: "Findex",
+      label: "Findex gender-finance indicators",
+      status: findexStatus,
+      evidence: hasData(genderFinance.accountWomenPct ?? indicators.femaleAccountOwnershipPct) ? `${fmtPct(genderFinance.accountWomenPct ?? indicators.femaleAccountOwnershipPct)} women account ownership` : "No selected Findex field available",
+      use: "Gender and financial-access monitoring context",
+      note: "Context only; not a measured food-security outcome.",
+    },
+    {
+      key: "acled",
+      shortLabel: "ACLED",
+      label: "ACLED public event coverage",
+      status: sourceStatusFromSupplemental(supplemental.acledCoverageStatus),
+      evidence: `Coverage status: ${coverageStatusLabel(supplemental.acledCoverageStatus)}`,
+      use: "Supplemental public-context coverage",
+      note: "Not an index component and not conflict-impact attribution.",
+    },
+  ];
 }
 
 function compactCountryList(rows, limit = 5) {
@@ -1852,6 +2018,102 @@ function renderCoverage() {
   });
 }
 
+function renderSourceCoverageHeatmap() {
+  if (!el.sourceCoverageHeatmap && !el.sourceCoverageSummary) return;
+  const countries = [...data.countries].sort((a, b) => (a.rank || 999) - (b.rank || 999));
+  const sourceRows = sourceCoverageRows(countries[0] || {});
+
+  if (el.sourceCoverageSummary) {
+    el.sourceCoverageSummary.innerHTML = "";
+    sourceRows.forEach((source) => {
+      const counts = countries.reduce((acc, country) => {
+        const row = sourceCoverageRows(country).find((item) => item.key === source.key);
+        const status = row?.status || "missing";
+        acc[status] = (acc[status] || 0) + 1;
+        return acc;
+      }, { available: 0, partial: 0, missing: 0 });
+      const item = document.createElement("div");
+      item.className = "source-summary-card";
+      const title = document.createElement("strong");
+      title.textContent = source.shortLabel;
+      const detail = document.createElement("span");
+      detail.textContent = `${fmtInt(counts.available || 0)} available, ${fmtInt(counts.missing || 0)} missing`;
+      item.append(title, detail);
+      el.sourceCoverageSummary.appendChild(item);
+    });
+  }
+
+  if (!el.sourceCoverageHeatmap) return;
+  el.sourceCoverageHeatmap.innerHTML = "";
+
+  const header = document.createElement("div");
+  header.className = "source-coverage-row source-coverage-header";
+  appendText(header, "div", "Country", "source-country-cell");
+  sourceRows.forEach((source) => appendText(header, "div", source.shortLabel, "source-status-cell"));
+  el.sourceCoverageHeatmap.appendChild(header);
+
+  countries.forEach((country) => {
+    const row = document.createElement("div");
+    row.className = "source-coverage-row";
+    const countryCell = document.createElement("div");
+    countryCell.className = "source-country-cell";
+    const countryName = document.createElement("strong");
+    countryName.textContent = country.country;
+    const countryMeta = document.createElement("span");
+    countryMeta.textContent = `#${country.rank || "n/a"} - ${country.region}`;
+    countryCell.append(countryName, countryMeta);
+    row.appendChild(countryCell);
+
+    sourceCoverageRows(country).forEach((source) => {
+      const cell = document.createElement("div");
+      cell.className = "source-status-cell";
+      const badge = sourceStatusBadge(source.status);
+      badge.title = `${source.label}: ${source.evidence}`;
+      cell.appendChild(badge);
+      row.appendChild(cell);
+    });
+    el.sourceCoverageHeatmap.appendChild(row);
+  });
+}
+
+function createSourceEvidenceTable(rows) {
+  const table = document.createElement("table");
+  table.className = "indicator-mini-table-inner source-evidence-table";
+  const thead = document.createElement("thead");
+  thead.innerHTML = "<tr><th>Source family</th><th>Status</th><th>Selected-country evidence</th><th>Dashboard use / caveat</th></tr>";
+  const tbody = document.createElement("tbody");
+  rows.forEach((row) => {
+    const tr = document.createElement("tr");
+    const sourceCell = document.createElement("td");
+    sourceCell.textContent = row.label;
+    const statusCell = document.createElement("td");
+    statusCell.appendChild(sourceStatusBadge(row.status));
+    const evidenceCell = document.createElement("td");
+    evidenceCell.textContent = row.evidence || "n/a";
+    const useCell = document.createElement("td");
+    const use = document.createElement("strong");
+    use.textContent = row.use || "Context";
+    const note = document.createElement("span");
+    note.textContent = row.note || "";
+    useCell.append(use, note);
+    tr.append(sourceCell, statusCell, evidenceCell, useCell);
+    tbody.appendChild(tr);
+  });
+  table.append(thead, tbody);
+  return table;
+}
+
+function renderCountrySourceEvidence() {
+  if (!el.countrySourceEvidenceTable) return;
+  const country = countryByIso(state.selectedIso);
+  el.countrySourceEvidenceTable.innerHTML = "";
+  const intro = document.createElement("p");
+  intro.className = "mini-table-intro";
+  intro.textContent = `${country.country}: source availability for the current country view. Available means the dashboard dataset has a usable field; missing is a coverage gap, not evidence of absence.`;
+  el.countrySourceEvidenceTable.appendChild(intro);
+  el.countrySourceEvidenceTable.appendChild(createSourceEvidenceTable(sourceCoverageRows(country)));
+}
+
 function renderTable() {
   if (!el.countryTableBody) return;
   el.countryTableBody.innerHTML = "";
@@ -2043,10 +2305,12 @@ function renderAll() {
   renderGenderLensList();
   renderGenderMonitoringList();
   renderDisplacementClarity();
+  renderSourceCoverageHeatmap();
   renderCountryGenderLens();
   renderCountryGenderIndicators();
   renderReadiness();
   renderCoverage();
+  renderCountrySourceEvidence();
   renderTable();
   if (map) renderMapMarkers();
 }

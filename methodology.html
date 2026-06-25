@@ -10,7 +10,7 @@
       content="Methodology, calculations, caveats and interpretation boundaries for the UN Women Iran-USA regional escalation shock dashboard."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260624-clean-labels" />
+    <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
   </head>
   <body data-page="methodology">
     <a class="skip-link" href="#main-content">Skip to methodology content</a>
@@ -22,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260624-clean-labels#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260625-source-coverage#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,10 +35,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260624-clean-labels#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-clean-labels#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="index.html?v=20260625-source-coverage#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260625-source-coverage#country-lens">Country Lens</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-clean-labels">Dictionary</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260625-source-coverage">Dictionary</a>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
         <p class="eyebrow">Analytical boundary</p>
         <h2 id="methodology-intro-title">What the dashboard can and cannot say</h2>
         <p>
-          The dashboard is a screening and monitoring tool. It ranks country exposure to plausible
+          The dashboard is a screening and monitoring tool. It ranks country exposure in
           the Iran-USA regional escalation risk context and helps prioritize where closer food-security and
           gender-sensitive monitoring may be needed. It does not estimate how many women or girls
           became food insecure, because public sex- and age-disaggregated food-security outcome data
@@ -73,6 +73,7 @@
         <a href="#scenario-method">Internal/model traceability</a>
         <a href="#caveats">Caveats</a>
         <a href="#source-trace">Source trace</a>
+        <a href="#source-component-map">Source map</a>
       </section>
 
       <section id="analytical-frame" class="methodology-text-section" aria-labelledby="analytical-frame-title" data-methodology-section>
@@ -283,6 +284,95 @@
         <h3>Core public sources recorded in the published dashboard dataset</h3>
         <ul id="methodology-source-list" class="methodology-source-text-list"></ul>
       </section>
+
+      <section id="source-component-map" class="methodology-text-section" aria-labelledby="source-component-map-title" data-methodology-section>
+        <p class="eyebrow">Source map</p>
+        <h2 id="source-component-map-title">How source families connect to dashboard evidence</h2>
+        <p>
+          This matrix separates official index inputs from contextual evidence. A source can be
+          documented in the workbook without appearing as a standalone chart.
+        </p>
+        <div class="table-wrap source-component-wrap">
+          <table class="source-component-table">
+            <thead>
+              <tr>
+                <th>Source family</th>
+                <th>Feeds or supports</th>
+                <th>Visible dashboard treatment</th>
+                <th>Interpretation note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>WFP/HDX food prices</td>
+                <td>Domestic food-price pressure; before/after price evidence</td>
+                <td>Overview and Country Lens price comparison</td>
+                <td>Descriptive matched price movement, not causal attribution.</td>
+              </tr>
+              <tr>
+                <td>IPC/HDX</td>
+                <td>IPC acute food insecurity component; IPC Phase 3+/4+ context</td>
+                <td>Country Lens indicators and index decomposition</td>
+                <td>Total-population acute food-insecurity evidence; not sex-disaggregated.</td>
+              </tr>
+              <tr>
+                <td>World Bank WDI</td>
+                <td>Food/fuel import exposure and structural country context</td>
+                <td>Selected raw fields in Country Lens and workbook</td>
+                <td>Structural exposure, not a short-term outcome measure.</td>
+              </tr>
+              <tr>
+                <td>FAOSTAT</td>
+                <td>Agriculture and fertilizer exposure</td>
+                <td>Selected raw fields in Country Lens and workbook</td>
+                <td>Used for food-system and input-dependency context.</td>
+              </tr>
+              <tr>
+                <td>UNHCR extracts</td>
+                <td>Legacy external displacement proxy</td>
+                <td>Internal/model traceability; not shown as a standalone score</td>
+                <td>A zero legacy proxy does not mean no internal displacement.</td>
+              </tr>
+              <tr>
+                <td>IDMC and IOM DTM</td>
+                <td>IDMC/IOM internal-displacement layer and public displacement evidence</td>
+                <td>Overview displacement table and Country Lens source evidence</td>
+                <td>Public internal-displacement evidence is shown directly.</td>
+              </tr>
+              <tr>
+                <td>OCHA FTS</td>
+                <td>Assistance/funding pressure and funding-per-person context</td>
+                <td>Selected raw funding fields in Country Lens and workbook</td>
+                <td>Funding flows are pressure/context indicators, not assistance-reach outcomes.</td>
+              </tr>
+              <tr>
+                <td>Public WFP food-security outcomes</td>
+                <td>Public WFP food-security outcome layer</td>
+                <td>Shown where available; coverage is flagged when sparse</td>
+                <td>Receives modest weight because public coverage is uneven.</td>
+              </tr>
+              <tr>
+                <td>Findex</td>
+                <td>Gender and financial-access context</td>
+                <td>Selected raw indicators in Overview/Country Lens</td>
+                <td>Monitoring context only; not a measured food-security outcome.</td>
+              </tr>
+              <tr>
+                <td>ACLED, CPI, food incidents and PortWatch</td>
+                <td>Supplemental public-context coverage</td>
+                <td>Evidence coverage readouts; not index components</td>
+                <td>Availability/context checks, not additional dashboard scores.</td>
+              </tr>
+              <tr>
+                <td>Scenario rows</td>
+                <td>Internal stress-test sensitivity checks</td>
+                <td>Workbook/methodology traceability only</td>
+                <td>Not forecasts and not separate user-facing dashboard scores.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -291,7 +381,7 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-clean-labels"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260625-source-coverage"></script>
     <script>
       const methodologyData = window.IRAN_US_SHOCK_DASHBOARD_DATA || {};
 

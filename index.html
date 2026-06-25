@@ -11,7 +11,7 @@
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260624-clean-labels" />
+    <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
   </head>
   <body data-page="overview">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -37,9 +37,9 @@
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
             <a class="hero-action-primary" href="#findings" aria-current="page">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260624-clean-labels#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260624-clean-labels">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260624-clean-labels">Dictionary</a>
+            <a class="hero-action-secondary" href="country.html?v=20260625-source-coverage#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260625-source-coverage">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260625-source-coverage">Dictionary</a>
           </div>
         </div>
       </div>
@@ -169,6 +169,24 @@
 </article>
       </section>
 
+      <section id="source-coverage" class="source-coverage-section" aria-labelledby="source-coverage-title">
+        <div class="section-heading">
+          <p class="eyebrow">Evidence coverage</p>
+          <h2 id="source-coverage-title">Which public source families are available by country</h2>
+          <p>
+            This readout shows source coverage, not risk. A source marked available means the current dashboard
+            dataset contains usable evidence for that country; missing coverage is a data gap, not evidence
+            that the issue is absent.
+          </p>
+        </div>
+        <div id="source-coverage-summary" class="source-coverage-summary" aria-label="Source coverage summary"></div>
+        <div id="source-coverage-heatmap" class="source-coverage-heatmap" aria-label="Country by source family coverage"></div>
+        <p class="chart-note">
+          ACLED, CPI, food incidents, PortWatch and Findex are public-context checks. They help explain
+          data availability and context; they do not replace the Shock Exposure Index or create additional scores.
+        </p>
+      </section>
+
       <section class="gender-lens-section" aria-labelledby="gender-lens-title">
         <div class="section-heading">
           <p class="eyebrow">Displacement evidence</p>
@@ -198,7 +216,7 @@
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260624-clean-labels"></script>
-    <script src="app.js?v=20260624-clean-labels"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260625-source-coverage"></script>
+    <script src="app.js?v=20260625-source-coverage"></script>
   </body>
 </html>
