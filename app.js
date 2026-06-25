@@ -193,6 +193,8 @@ const charts = {
   scenario: null,
   region: null,
   gender: null,
+  femaleVulnerable: null,
+  femaleAgriculture: null,
   genderDrivers: null,
   genderDecomposition: null,
   indexDecomposition: null,
@@ -838,9 +840,9 @@ function renderBeforeAfter() {
   if (el.beforeAfterSupplementalList) {
     el.beforeAfterSupplementalList.innerHTML = "";
     [
-      ["Coverage count", `${supplementalLayerLabel(country)} across supplemental public-context checks: ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
-      ["Layer detail", `ACLED supplemental coverage ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
-      ["How to use it", "Use supplemental coverage to explain where extra public context exists. It does not replace or add another published score."],
+      ["Coverage count", `${supplementalLayerLabel(country)} across additional public-context checks: ACLED, CPI, food incidents, PortWatch and Findex; ${fmtInt(supp.missingLayerCount)} missing.`],
+      ["Layer detail", `ACLED availability ${coverageStatusLabel(supp.acledCoverageStatus)}; CPI ${coverageStatusLabel(supp.cpiCoverageStatus)}; food incidents ${coverageStatusLabel(supp.foodIncidentCoverageStatus)}; PortWatch ${coverageStatusLabel(supp.portwatchCoverageStatus)}; Findex ${coverageStatusLabel(supp.findexCoverageStatus)}.`],
+      ["How to use it", "Use public-context coverage to explain where extra public data exist. It does not replace or add another published score."],
     ].forEach(([label, value]) => {
       const item = document.createElement("li");
       item.textContent = `${label}: ${value}`;
@@ -865,8 +867,8 @@ function renderBeforeAfter() {
     : sortedBeforeAfterRows;
   if (el.beforeAfterTableNote) {
     el.beforeAfterTableNote.textContent = document.body.dataset.page === "overview"
-      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Supplemental coverage means five public context checks: ACLED supplemental coverage, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
-      : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; supplemental coverage means five public context checks: ACLED supplemental coverage, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
+      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
+      : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
   }
   if (el.beforeAfterCardList) {
     el.beforeAfterCardList.innerHTML = "";
@@ -1377,26 +1379,24 @@ function renderRegionChart() {
   });
 }
 
-function renderGenderChart() {
+function renderFemaleIndicatorChart({ chartKey, canvasId, valueGetter, color, xAxisTitle }) {
   if (!window.Chart) return;
-  destroyChart("gender");
-  const ctx = document.getElementById("gender-chart");
+  destroyChart(chartKey);
+  const ctx = document.getElementById(canvasId);
   if (!ctx) return;
   const rows = filteredCountries()
-    .filter((country) => numericValue(country.informality?.femaleInformalEmploymentPct) !== null)
-    .sort((a, b) => numericValue(b.informality?.femaleInformalEmploymentPct) - numericValue(a.informality?.femaleInformalEmploymentPct))
+    .map((country) => ({ country, value: numericValue(valueGetter(country)) }))
+    .filter((row) => row.value !== null)
+    .sort((a, b) => b.value - a.value)
     .slice(0, 10);
-  charts.gender = new Chart(ctx, {
+  charts[chartKey] = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: rows.map((row) => row.country),
+      labels: rows.map((row) => row.country.country),
       datasets: [
         {
-          data: rows.map((row) => row.informality.femaleInformalEmploymentPct),
-          backgroundColor: rows.map((row, index) => {
-            if (row.iso3 === state.selectedIso) return COLORS.navy;
-            return index < 3 ? COLORS.red : COLORS.neutralLight;
-          }),
+          data: rows.map((row) => row.value),
+          backgroundColor: rows.map((_row, index) => (index < 3 ? color : COLORS.neutralLight)),
           borderRadius: 2,
         },
       ],
@@ -1409,7 +1409,7 @@ function renderGenderChart() {
           max: 100,
           grid: { color: COLORS.grid },
           ticks: { color: COLORS.muted, font: chartFont() },
-          title: { display: true, text: "Female informal employment, %", color: COLORS.muted, font: chartFont() },
+          title: { display: true, text: xAxisTitle, color: COLORS.muted, font: chartFont() },
         },
         y: {
           grid: { display: false },
@@ -1417,6 +1417,36 @@ function renderGenderChart() {
         },
       },
     }),
+  });
+}
+
+function renderGenderChart() {
+  renderFemaleIndicatorChart({
+    chartKey: "gender",
+    canvasId: "gender-chart",
+    valueGetter: (country) => country.informality?.femaleInformalEmploymentPct,
+    color: COLORS.red,
+    xAxisTitle: "Female informal employment, %",
+  });
+}
+
+function renderFemaleVulnerableChart() {
+  renderFemaleIndicatorChart({
+    chartKey: "femaleVulnerable",
+    canvasId: "female-vulnerable-chart",
+    valueGetter: (country) => country.indicators?.femaleVulnerableEmploymentPct,
+    color: COLORS.gold,
+    xAxisTitle: "Female vulnerable employment, %",
+  });
+}
+
+function renderFemaleAgricultureChart() {
+  renderFemaleIndicatorChart({
+    chartKey: "femaleAgriculture",
+    canvasId: "female-agriculture-chart",
+    valueGetter: (country) => country.indicators?.femaleAgricultureEmploymentPct,
+    color: COLORS.teal,
+    xAxisTitle: "Female agricultural employment, %",
   });
 }
 
@@ -1650,33 +1680,35 @@ function renderDisplacementClarity() {
   if (!el.displacementClarityList) return;
   el.displacementClarityList.innerHTML = "";
 
-  const rule = document.createElement("div");
-  rule.className = "displacement-rule-panel";
-  appendText(rule, "strong", "How to read this");
-  appendText(
-    rule,
-    "p",
-    "The dashboard now shows public displacement evidence directly instead of asking users to compare displacement proxy scores. Large IDMC or IOM values should be read as displacement relevance even when older proxy fields were incomplete.",
-    "displacement-plain-language"
-  );
-  el.displacementClarityList.appendChild(rule);
-
-  const exampleCountries = ["PSE", "YEM"].map((iso3) => data.countries.find((country) => country.iso3 === iso3)).filter(Boolean);
-  if (!exampleCountries.length) return;
+  const displacementRows = [...data.countries].sort((a, b) => {
+    const aMax = Math.max(
+      numericValue(a.indicators?.idmcConflictTotalDisplacement) || 0,
+      numericValue(a.indicators?.iomLatestIdpSum) || 0,
+      numericValue(a.indicators?.idmcPostShockConflictFigureTotal) || 0
+    );
+    const bMax = Math.max(
+      numericValue(b.indicators?.idmcConflictTotalDisplacement) || 0,
+      numericValue(b.indicators?.iomLatestIdpSum) || 0,
+      numericValue(b.indicators?.idmcPostShockConflictFigureTotal) || 0
+    );
+    if (bMax !== aMax) return bMax - aMax;
+    return a.country.localeCompare(b.country);
+  });
+  if (!displacementRows.length) return;
 
   const tableBlock = document.createElement("div");
   tableBlock.className = "displacement-compare-block";
-  appendText(tableBlock, "h3", "Palestine and Yemen displacement evidence");
+  appendText(tableBlock, "h3", "Public displacement evidence by country");
   appendText(
     tableBlock,
     "p",
-    "The readout below uses public IDMC/IOM evidence rather than secondary displacement scores.",
+    `All ${fmtInt(displacementRows.length)} countries are shown. n/a means no public value is available in the current dashboard pull.`,
     "displacement-source-note"
   );
 
   const table = document.createElement("table");
   table.className = "displacement-compare-table";
-  const labels = ["Country", "IDMC conflict IDPs", "IOM selected DTM IDPs", "Post-shock displacement figure", "Readout"];
+  const labels = ["Country", "IDMC conflict IDPs", "IOM selected DTM IDPs", "Post-shock displacement figure"];
   const appendDisplacementCell = (row, text, label, className = "") => {
     const cell = appendTableCell(row, text, "td", className);
     cell.dataset.label = label;
@@ -1689,7 +1721,7 @@ function renderDisplacementClarity() {
   table.appendChild(thead);
 
   const tbody = document.createElement("tbody");
-  exampleCountries.forEach((country) => {
+  displacementRows.forEach((country) => {
     const idmc = numericValue(country.indicators?.idmcConflictTotalDisplacement);
     const iom = numericValue(country.indicators?.iomLatestIdpSum);
     const postShock = numericValue(country.indicators?.idmcPostShockConflictFigureTotal);
@@ -1699,7 +1731,6 @@ function renderDisplacementClarity() {
     appendDisplacementCell(row, idmc === null ? "n/a" : fmtCompact(idmc), labels[1], "numeric");
     appendDisplacementCell(row, iom === null ? "n/a" : fmtCompact(iom), labels[2], "numeric");
     appendDisplacementCell(row, postShock === null ? "n/a" : fmtCompact(postShock), labels[3], "numeric");
-    appendDisplacementCell(row, "Treat as displacement-relevant where public IDMC/IOM evidence is present.", labels[4]);
     tbody.appendChild(row);
   });
   table.appendChild(tbody);
@@ -2005,6 +2036,8 @@ function renderAll() {
   renderComponentChart();
   renderRegionChart();
   renderGenderChart();
+  renderFemaleVulnerableChart();
+  renderFemaleAgricultureChart();
   renderGenderDriverChart();
   renderIndexDecompositionChart();
   renderGenderLensList();

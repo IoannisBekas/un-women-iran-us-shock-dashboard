@@ -264,7 +264,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.4833263585076395,
         "riskTier": "Very high",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -487,7 +487,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -7.3801854882843685,
         "riskTier": "High",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -710,7 +710,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.990090466817875,
         "riskTier": "High",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -917,7 +917,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -2.0,
         "scoreDeltaVsOfficial": -6.278426928866963,
         "riskTier": "High",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1134,7 +1134,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -3.0,
         "scoreDeltaVsOfficial": -8.43665055047041,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1344,7 +1344,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 2.0,
         "scoreDeltaVsOfficial": -0.16509819478822152,
         "riskTier": "High",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1555,7 +1555,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -3.341246078014791,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1772,7 +1772,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 3.0,
         "scoreDeltaVsOfficial": 0.92744910671626,
         "riskTier": "High",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -1989,7 +1989,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.5046516693233585,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2207,7 +2207,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -9.0,
         "scoreDeltaVsOfficial": -7.300776904335265,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2424,7 +2424,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -9.0,
         "scoreDeltaVsOfficial": -6.789133172246714,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2641,7 +2641,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -11.0,
         "scoreDeltaVsOfficial": -5.460057508025024,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -2865,7 +2865,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -5.0,
         "scoreDeltaVsOfficial": -2.636598499519174,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3077,7 +3077,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 4.0,
         "scoreDeltaVsOfficial": 1.5281695664222141,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3300,7 +3300,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -7.0,
         "scoreDeltaVsOfficial": -3.5550497882003143,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3518,7 +3518,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -10.0,
         "scoreDeltaVsOfficial": -2.893033463052234,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3729,7 +3729,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -8.0,
         "scoreDeltaVsOfficial": -2.7605677160112307,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -3946,7 +3946,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 6.0,
         "scoreDeltaVsOfficial": 1.7932844394996437,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4164,7 +4164,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 8.0,
         "scoreDeltaVsOfficial": 2.4528836304913355,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4388,7 +4388,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -1.0,
         "scoreDeltaVsOfficial": 0.006530124545179206,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4606,7 +4606,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 7.0,
         "scoreDeltaVsOfficial": 2.5335244126466563,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -4824,7 +4824,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 7.0,
         "scoreDeltaVsOfficial": 2.5773273263160377,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5042,7 +5042,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 10.0,
         "scoreDeltaVsOfficial": 2.799272773056117,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5249,7 +5249,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -0.6898111007225651,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5467,7 +5467,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 8.0,
         "scoreDeltaVsOfficial": 2.537100724203306,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5691,7 +5691,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": -1.0,
         "scoreDeltaVsOfficial": -3.6243766398621773,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -5915,7 +5915,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 11.0,
         "scoreDeltaVsOfficial": 3.686952604941304,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     {
@@ -6132,7 +6132,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -0.6712351923390045,
         "riskTier": "Moderate",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     }
   ],
@@ -12446,7 +12446,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
         "rankChangeVsOfficial": 0.0,
         "scoreDeltaVsOfficial": -6.4833263585076395,
         "riskTier": "Very high",
-        "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+        "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
       }
     },
     "veryHighOrHighCount": 9,
@@ -12669,7 +12669,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -6.4833263585076395,
           "riskTier": "Very high",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -12892,7 +12892,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -7.3801854882843685,
           "riskTier": "High",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13115,7 +13115,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -6.990090466817875,
           "riskTier": "High",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13322,7 +13322,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": -2.0,
           "scoreDeltaVsOfficial": -6.278426928866963,
           "riskTier": "High",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13539,7 +13539,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": -3.0,
           "scoreDeltaVsOfficial": -8.43665055047041,
           "riskTier": "Moderate",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13749,7 +13749,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 2.0,
           "scoreDeltaVsOfficial": -0.16509819478822152,
           "riskTier": "High",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -13960,7 +13960,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -3.341246078014791,
           "riskTier": "Moderate",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -14177,7 +14177,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 3.0,
           "scoreDeltaVsOfficial": 0.92744910671626,
           "riskTier": "High",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -14394,7 +14394,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": 0.0,
           "scoreDeltaVsOfficial": -6.5046516693233585,
           "riskTier": "Moderate",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       },
       {
@@ -14612,7 +14612,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
           "rankChangeVsOfficial": -9.0,
           "scoreDeltaVsOfficial": -7.300776904335265,
           "riskTier": "Moderate",
-          "interpretation": "Proposed supplemental context score only; published ranking remains the Shock Exposure Index."
+          "interpretation": "Internal public-context sensitivity check only; the published ranking remains the Shock Exposure Index."
         }
       }
     ]
@@ -14640,7 +14640,7 @@ window.IRAN_US_SHOCK_DASHBOARD_DATA = {
       "Public WFP food-security outcome datasets where available, now formally weighted with modest weight because coverage is sparse"
     ],
     "notAvailable": [
-      "ACLED coverage is treated only as supplemental public-context status where available and is not part of the official Shock Exposure Index.",
+      "ACLED availability is treated only as additional public-context status where available and is not part of the official Shock Exposure Index.",
       "IPC public data are not sex-disaggregated; the model does not infer women/girls IPC counts from total IPC values.",
       "Public WFP food-security outcome coverage is available for only a small subset of the 28 countries, so missing inputs are set to a neutral value and flagged."
     ]

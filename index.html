@@ -46,44 +46,6 @@
     </header>
 
     <main id="main-content" tabindex="-1">
-      <section id="findings" class="interpretation-panel" aria-labelledby="reading-title">
-        <div>
-          <p class="eyebrow">How to read this dashboard</p>
-          <h2 id="reading-title">Screening tool, not a causal estimate</h2>
-        </div>
-        <p id="method-boundary">
-          The score ranks exposure to plausible escalation pathways. It does not estimate
-          how many women or girls became food insecure after the shock, because the current
-          public data pull does not include sex- and age-disaggregated food-security outcomes.
-        </p>
-      </section>
-
-      <section class="definitions-panel" aria-labelledby="definitions-title">
-        <details class="definitions-details" open>
-          <summary id="definitions-title">Three-point read</summary>
-          <div class="definition-grid editorial-readout">
-            <article class="definition-card">
-              <h3>Prices rose most in the Horn and East Africa</h3>
-              <p>Matched same-month food-price increases peak in Sudan, Ethiopia, South Sudan and Somalia.</p>
-            </article>
-            <article class="definition-card">
-              <h3>The ranking is broader than prices</h3>
-              <p>The Shock Exposure Index combines prices with IPC severity, displacement, assistance, import and gender-vulnerability pathways.</p>
-            </article>
-            <article class="definition-card">
-              <h3>The evidence supports prioritization, not attribution</h3>
-              <p>The analytical model can flag pressure and readiness. It cannot estimate a causal women/girls food-security impact.</p>
-            </article>
-          </div>
-          <p class="definition-note dictionary-link-note">
-            For country-level filters and raw country evidence, open the
-            <a href="country.html?v=20260624-clean-labels">country lens</a>. For the full calculation logic and caveats, open the
-            <a href="methodology.html?v=20260624-clean-labels">methodology page</a>. For definitions, open the
-            <a href="dictionary.html?v=20260624-clean-labels">dashboard dictionary</a>.
-          </p>
-        </details>
-      </section>
-
       <section id="before-after" class="before-after-section" aria-labelledby="before-after-title">
         <div class="section-heading">
           <p class="eyebrow">Before vs after</p>
@@ -125,7 +87,7 @@
                 <th>Peak comparison</th>
                 <th>Price records compared</th>
                 <th>IPC latest timing</th>
-                <th>Supplemental coverage</th>
+                <th>Public-context coverage</th>
               </tr>
             </thead>
             <tbody id="before-after-table-body"></tbody>
@@ -181,54 +143,43 @@
           </div>
           <p class="chart-note">Bars show the female informal employment percentage from ILOSTAT/proxy records where available. This is a raw labour-market indicator, not a separate dashboard score.</p>
 </article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <h3>Female vulnerable employment highlights income insecurity</h3>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="female-vulnerable-chart"></canvas>
+          </div>
+          <p class="chart-note">Bars show the share of employed women in vulnerable employment where available. This is a raw structural labour indicator, not a measured food-security outcome.</p>
+</article>
+
+        <article class="chart-card">
+          <div class="card-title-row compact">
+            <div>
+              <h3>Female agricultural employment shows exposure to food-system shocks</h3>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="female-agriculture-chart"></canvas>
+          </div>
+          <p class="chart-note">Bars show the share of employed women working in agriculture where available. Use this as context for agriculture, fertilizer and food-production exposure.</p>
+</article>
       </section>
 
       <section class="gender-lens-section" aria-labelledby="gender-lens-title">
         <div class="section-heading">
-          <p class="eyebrow">UN Women gender and displacement readout</p>
-          <h2 id="gender-lens-title">Raw gender and displacement indicators are shown directly</h2>
+          <p class="eyebrow">Displacement evidence</p>
+          <h2 id="gender-lens-title">Public displacement evidence is shown by country</h2>
           <p>
-            This readout shows the underlying labour, finance, IPC, displacement and assistance
-            evidence directly instead of introducing a second score.
+            This overview table keeps the displacement readout cross-country. Selected-country raw evidence
+            belongs in the Country Lens page.
           </p>
         </div>
         <div class="gender-lens-grid">
-          <article class="chart-card">
-            <div class="card-title-row compact">
-              <div>
-                <h3 id="gender-driver-title">Raw gender and financial-access indicators</h3>
-              </div>
-            </div>
-            <div class="chart-wrap compact-chart">
-              <canvas id="gender-driver-chart"></canvas>
-            </div>
-            <p class="chart-note">Bars show selected-country percentages where available. Missing Findex or labour indicators are left as unavailable rather than converted into another score.</p>
-</article>
-
-          <article class="evidence-panel">
-            <p class="eyebrow">Gender analysis</p>
-            <h2>Raw indicators and evidence boundary</h2>
-            <div id="gender-lens-list" class="lens-list"></div>
-          </article>
-
-          <article class="evidence-panel">
-            <p class="eyebrow">UN Women monitoring</p>
-            <h2>What this means for monitoring</h2>
-            <div id="gender-monitoring-list" class="lens-list"></div>
-          </article>
-
-          <article class="chart-card wide">
-            <div class="card-title-row compact">
-              <div>
-                <h3>Raw food-security, displacement, assistance and gender indicators</h3>
-              </div>
-            </div>
-            <div id="country-raw-evidence-table" class="indicator-mini-table"></div>
-            <p class="chart-note">These values are source indicators or near-raw dashboard fields. They are shown to explain context without introducing a second composite score.</p>
-</article>
-
           <article class="evidence-panel wide">
-            <p class="eyebrow">Displacement clarification</p>
             <h2>Internal displacement is shown as public evidence</h2>
             <p class="chart-note">
               The user-facing dashboard no longer asks readers to compare displacement scores. It shows IDMC and IOM public displacement evidence directly.
