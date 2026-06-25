@@ -57,7 +57,7 @@
           <div class="chart-wrap ranking-chart-wrap">
             <canvas id="ranking-chart"></canvas>
           </div>
-          <p class="chart-note">Higher bars mean higher relative exposure across the weighted model components. The 0-100 index supports prioritization; it is not a probability, forecast or measured causal impact.</p>
+          <p class="chart-note">Higher bars mean higher relative exposure across the weighted model components. Bar outlines and the flags below mark countries where public inputs are missing or neutral-imputed. The 0-100 index supports prioritization; it is not a probability, forecast or measured causal impact.</p>
 <div id="ranking-confidence-list" class="confidence-strip" aria-label="Data-confidence flags"></div>
           <p class="chart-note">Data-confidence flags identify countries where missing public inputs make interpretation more cautious; a flag is not evidence of lower risk.</p>
         </article>
@@ -71,21 +71,20 @@
 
       <section id="before-after" class="before-after-section" aria-labelledby="before-after-title">
         <div class="section-heading">
-          <p class="eyebrow">Before vs after</p>
-          <h2 id="before-after-title">Food prices rose most sharply in Sudan, Ethiopia, South Sudan and Somalia</h2>
+          <p class="eyebrow">Descriptive price evidence</p>
+          <h2 id="before-after-title">Comparable food-price records show the largest positive rises in Sudan, Ethiopia, South Sudan and Somalia</h2>
           <p>
             The food-price comparison input compares like-for-like WFP/HDX market and commodity price records in post-shock 2026 months
-            with the same calendar month in 2025, then keeps the highest positive observed increase per country.
-            Flat, negative and unavailable countries remain visible so readers can distinguish a price rise
-            from a flat comparison or a missing price comparison. The country evidence keeps peak increase and
-            IPC latest timing together where public records allow comparison.
+            with the same calendar month in 2025. This is a descriptive screening signal, not evidence that
+            the Iran-USA escalation caused the observed price movement. Local conflict, inflation, exchange-rate
+            movement, market access and seasonality can drive the same price series.
           </p>
         </div>
         <div class="before-after-layout">
           <article class="before-after-panel">
             <div class="card-title-row compact">
               <div>
-                <h3>The largest like-for-like price increases are concentrated in four countries</h3>
+                <h3>Highest positive observed same-month price increases</h3>
               </div>
             </div>
             <div class="chart-wrap before-after-chart-wrap">
@@ -95,7 +94,7 @@
 </article>
 
           <article class="before-after-panel before-after-story">
-            <h3>Highest positive post-shock price increases</h3>
+            <h3>How to read this price view</h3>
             <ul id="before-after-message-list"></ul>
           </article>
         </div>
@@ -128,16 +127,16 @@
         <p id="before-after-table-note" class="chart-note table-footnote"></p>
       </section>
 
-      <section class="analysis-grid" aria-label="Regional overview charts">
+      <section id="regional-index-summary" class="analysis-grid regional-index-section" aria-label="Regional index summary">
         <div class="section-heading analysis-section-heading">
-          <p class="eyebrow">Cross-country context</p>
-          <h2>Regional and gender/labour indicators</h2>
+          <p class="eyebrow">Regional index summary</p>
+          <h2>Regional averages summarize the official Shock Exposure Index</h2>
           <p>
-            These charts show cross-country context that helps interpret the ranking. They are raw
-            or near-raw indicators, not additional dashboard scores.
+            This section stays at the regional level. It averages the official country-level index
+            within each region and should not be read as a raw indicator.
           </p>
         </div>
-        <article class="chart-card">
+        <article class="chart-card wide">
           <div class="card-title-row compact">
             <div>
               <h3>East Africa has the highest average exposure score</h3>
@@ -148,7 +147,17 @@
           </div>
           <p class="chart-note">Bars show the average Shock Exposure Index score for countries in each region. Click a region bar to filter the dashboard to that region.</p>
 </article>
+      </section>
 
+      <section id="gender-labour-overview" class="analysis-grid" aria-label="Gender and labour overview charts">
+        <div class="section-heading analysis-section-heading">
+          <p class="eyebrow">Gender and labour context</p>
+          <h2>Raw gender and labour indicators by country</h2>
+          <p>
+            These are country-level structural indicators for monitoring context. They are not separate
+            dashboard scores, and they are not measured women/girls food-security outcomes.
+          </p>
+        </div>
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
@@ -176,13 +185,13 @@
         <article class="chart-card">
           <div class="card-title-row compact">
             <div>
-              <h3>Female labour-force participation is lowest where available</h3>
+              <h3>Low female labour-force participation is highest where available</h3>
             </div>
           </div>
           <div class="chart-wrap">
             <canvas id="female-labour-force-chart"></canvas>
           </div>
-          <p class="chart-note">Bars show the female labour-force participation percentage, sorted from lowest to higher participation. Lower participation is used in the gender vulnerability component as a structural economic-access signal.</p>
+          <p class="chart-note">Bars show the participation gap, calculated as 100 minus female labour-force participation. Longer bars mean lower participation and higher structural economic-access concern.</p>
 </article>
 
         <article class="chart-card">

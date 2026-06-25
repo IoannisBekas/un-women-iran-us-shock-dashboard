@@ -10,7 +10,6 @@
       content="Country-specific UN Women explorer for the Iran-USA regional escalation shock model with country and geography filters."
     />
     <link rel="icon" href="data:," />
-    <link href="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
   </head>
@@ -127,21 +126,15 @@
             <p id="country-focus" class="profile-note"></p>
           </article>
 
-          <article class="map-card">
+          <article class="comparison-card">
             <div class="card-title-row compact">
               <div>
-                <h3>Country points by exposure tier</h3>
+                <h3>Countries in the current filter</h3>
+                <p>Non-geographic comparison of the official index. This avoids implying subnational precision from national-level data.</p>
               </div>
-              <button id="map-reset" class="small-button" type="button">Reset map</button>
             </div>
-            <div id="country-map" class="map"></div>
-            <div class="map-legend" aria-label="Map legend">
-              <span><i class="legend-dot very-high"></i>Very high tier</span>
-              <span><i class="legend-dot high"></i>High tier</span>
-              <span><i class="legend-dot moderate"></i>Moderate tier</span>
-              <span><i class="legend-size"></i>Larger dot = higher score</span>
-            </div>
-            <p class="chart-note">Map points use country centroids for orientation only. Colour follows exposure tier, size follows the 0-100 score and clicking a point selects that country.</p>
+            <div id="country-comparison-list" class="country-comparison-list" aria-label="Filtered country comparison list"></div>
+            <p class="chart-note">Rows show country-level scores only. Limited or partial confidence marks missing or neutral-imputed public inputs; it is not evidence of lower risk.</p>
 </article>
         </div>
       </section>
@@ -364,7 +357,6 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="https://unpkg.com/maplibre-gl@5.16.0/dist/maplibre-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
     <script src="data/iran-us-shock-dashboard-data.js?v=20260625-source-coverage"></script>
     <script src="app.js?v=20260625-source-coverage"></script>

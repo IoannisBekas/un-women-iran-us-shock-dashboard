@@ -201,9 +201,6 @@ const charts = {
   indexDecomposition: null,
 };
 
-let map;
-let markers = [];
-
 const el = {
   progressBar: document.getElementById("reading-progress-bar"),
   methodBoundary: document.getElementById("method-boundary"),
@@ -249,8 +246,7 @@ const el = {
   pathwayList: document.getElementById("pathway-list"),
   countryFocus: document.getElementById("country-focus"),
   countryGenderList: document.getElementById("country-gender-list"),
-  map: document.getElementById("country-map"),
-  mapReset: document.getElementById("map-reset"),
+  countryComparisonList: document.getElementById("country-comparison-list"),
   scenarioTitle: document.getElementById("scenario-title"),
   scenarioSelectedDelta: document.getElementById("scenario-selected-delta"),
   scenarioSelectedScore: document.getElementById("scenario-selected-score"),
@@ -425,6 +421,10 @@ function renderDecompositionTable(container, rows, options) {
   rows.forEach((row) => {
     const item = document.createElement("div");
     item.className = "decomposition-row";
+    if (row.imputed) {
+      item.dataset.imputed = "true";
+      item.title = "This row uses a missing or neutral-imputed public input.";
+    }
     [
       ["Input", row.label, "input"],
       ["Score", row.scoreText, "numeric"],
@@ -498,6 +498,27 @@ function coverageStatusLabel(value) {
 
 function hasData(value) {
   return value !== null && value !== undefined && !Number.isNaN(Number(value));
+}
+
+function isUnavailableText(value) {
+  const text = String(value ?? "").trim().toLowerCase();
+  return !text || text === "n/a" || text.includes("not available") || text.includes("no selected") || text.includes("no comparable price record");
+}
+
+function confidenceBorderColor(country) {
+  const level = country.dataConfidence?.level;
+  if (level === "Limited") return COLORS.red;
+  if (level === "Partial") return COLORS.gold;
+  return "rgba(0, 0, 0, 0)";
+}
+
+function confidenceBorderWidth(country) {
+  const level = country.dataConfidence?.level;
+  return level === "Limited" || level === "Partial" ? 2 : 0;
+}
+
+function missingComponentKeySet(country) {
+  return new Set((country.missingComponents || []).map((component) => component.key));
 }
 
 function sourceStatusFromSupplemental(value) {
@@ -985,17 +1006,18 @@ function renderBeforeAfter() {
   renderBeforeAfterChart(positiveRows);
   if (el.beforeAfterChartNote) {
     el.beforeAfterChartNote.textContent = positiveRows.length
-      ? "Bars show each country's highest positive median food-price change against the same month in 2025. This is a headline price-rise view; flat, negative and unavailable comparisons stay in the table."
+      ? "Bars show only each country's highest positive median food-price change against the same month in 2025. This is a screening view, not causal attribution; flat, negative and unavailable comparisons stay in the table."
       : "No country in the current filtered view has a positive price increase against the same month in 2025.";
   }
 
   if (el.beforeAfterMessageList) {
     el.beforeAfterMessageList.innerHTML = "";
     [
-      largestIncrease ? `${largestIncrease.country} is the strongest price story: ${fmtSignedPct(sameMonthYoY(largestIncrease).peakPositiveYoYPct)} in ${sameMonthYoY(largestIncrease).peakComparisonLabel}.` : "No positive price increase against the same month in 2025 is available in this filtered view.",
-      `${positiveRows.length} of ${countries.length} countries show at least one positive post-shock price increase against the same month in 2025.`,
+      largestIncrease ? `${largestIncrease.country} has the largest positive matched price comparison: ${fmtSignedPct(sameMonthYoY(largestIncrease).peakPositiveYoYPct)} in ${sameMonthYoY(largestIncrease).peakComparisonLabel}.` : "No positive price increase against the same month in 2025 is available in this filtered view.",
+      `${positiveRows.length} of ${countries.length} countries show at least one positive post-February 2026 price increase against the same month in 2025.`,
       noPositiveRows.length ? `${noPositiveRows.length} countries have comparable price data but no positive median increase, so they are treated as caution context rather than headline evidence.` : "No country with comparable price data is negative or flat across all available post-shock comparisons.",
       noMatchedRows.length ? `No comparable price record is available for ${compactCountryList(noMatchedRows)}.` : "All countries in this view have at least one comparable same-month price record.",
+      "Do not read this chart as evidence that the Iran-USA escalation caused the price change; local conflict, inflation, access constraints and exchange-rate movement may also explain observed prices.",
     ].forEach((message) => {
       const item = document.createElement("li");
       item.textContent = message;
@@ -1034,7 +1056,7 @@ function renderBeforeAfter() {
     : sortedBeforeAfterRows;
   if (el.beforeAfterTableNote) {
     el.beforeAfterTableNote.textContent = document.body.dataset.page === "overview"
-      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
+      ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases only. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
       : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
   }
   if (el.beforeAfterCardList) {
@@ -1088,7 +1110,7 @@ function renderBeforeAfterChart(rows) {
       labels: chartRows.map((row) => row.country),
       datasets: [
         {
-          label: "Peak price increase vs 2025",
+          label: "Highest positive price comparison vs 2025",
           data: chartRows.map((row) => sameMonthYoY(row).peakPositiveYoYPct),
           backgroundColor: chartRows.map((row, index) => {
             if (row.iso3 === state.selectedIso) return COLORS.navy;
@@ -1153,7 +1175,8 @@ function renderRankingChart() {
             if (country.riskTier === "High") return COLORS.gold;
             return COLORS.neutralLight;
           }),
-          borderWidth: 0,
+          borderColor: countries.map(confidenceBorderColor),
+          borderWidth: countries.map(confidenceBorderWidth),
           borderRadius: 2,
         },
       ],
@@ -1166,6 +1189,20 @@ function renderRankingChart() {
         barValueLabel: {
           maxLabels: 3,
           formatter: (value) => fmt(value, 1),
+        },
+        tooltip: {
+          backgroundColor: COLORS.navy,
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          padding: 10,
+          callbacks: {
+            label: (context) => {
+              const country = countries[context.dataIndex];
+              const confidence = country?.dataConfidence?.level ? `; confidence: ${country.dataConfidence.level}` : "";
+              const missing = country?.componentMissingCount ? `; ${country.componentMissingCount} missing/neutral component(s)` : "";
+              return `${fmt(context.parsed.x)} points${confidence}${missing}`;
+            },
+          },
         },
       },
       scales: {
@@ -1194,23 +1231,23 @@ function renderRankingChart() {
 
 function renderRankingConfidence() {
   if (!el.rankingConfidenceList) return;
-  const limited = filteredCountries()
-    .filter((country) => country.dataConfidence?.level === "Limited")
+  const flagged = filteredCountries()
+    .filter((country) => ["Limited", "Partial"].includes(country.dataConfidence?.level))
     .slice(0, 8);
   el.rankingConfidenceList.innerHTML = "";
-  if (!limited.length) {
+  if (!flagged.length) {
     const item = document.createElement("span");
     item.className = "confidence-pill";
     item.dataset.confidence = "Stronger";
-    item.textContent = "No limited-data flags in this filtered view";
+    item.textContent = "No limited or partial data-confidence flags in this filtered view";
     el.rankingConfidenceList.appendChild(item);
     return;
   }
   const intro = document.createElement("span");
   intro.className = "confidence-label";
-  intro.textContent = "Limited-data flags";
+  intro.textContent = "Missing/neutral-input flags";
   el.rankingConfidenceList.appendChild(intro);
-  limited.forEach((country) => {
+  flagged.forEach((country) => {
     const item = document.createElement("button");
     item.type = "button";
     item.className = "confidence-pill";
@@ -1380,7 +1417,9 @@ function createRawEvidenceTable(rows) {
   const thead = document.createElement("thead");
   thead.innerHTML = "<tr><th>Raw indicator</th><th>Value</th><th>Source / interpretation note</th></tr>";
   const tbody = document.createElement("tbody");
-  rows.forEach(([label, value, note]) => {
+  const visibleRows = rows.filter(([, value]) => !isUnavailableText(value));
+  const rowsToRender = visibleRows.length ? visibleRows : [["No available values", "Not available", "Selected public fields are unavailable for this country in the current pull."]];
+  rowsToRender.forEach(([label, value, note]) => {
     const row = document.createElement("tr");
     [label, value, note].forEach((text) => {
       const cell = document.createElement("td");
@@ -1397,14 +1436,19 @@ function renderRawEvidenceTable() {
   if (!el.rawEvidenceTable) return;
   const country = countryByIso(state.selectedIso);
   const rows = rawEvidenceRows(country);
-  const summaryRows = rows.filter(([label]) => RAW_EVIDENCE_SUMMARY_LABELS.has(label));
+  const availableRows = rows.filter(([, value]) => !isUnavailableText(value));
+  const summaryRows = availableRows.filter(([label]) => RAW_EVIDENCE_SUMMARY_LABELS.has(label));
+  const displayedSummaryRows = summaryRows.length ? summaryRows : availableRows.slice(0, 10);
+  const hiddenUnavailableCount = rows.length - availableRows.length;
   el.rawEvidenceTable.innerHTML = "";
 
   const summaryIntro = document.createElement("p");
   summaryIntro.className = "mini-table-intro";
-  summaryIntro.textContent = "Key raw indicators are shown first. Open the full table for every raw field used for context and traceability.";
+  summaryIntro.textContent = hiddenUnavailableCount
+    ? `Available raw indicators are shown first; ${fmtInt(hiddenUnavailableCount)} unavailable field(s) are hidden to reduce n/a noise.`
+    : "Available raw indicators are shown first. Open the full table for every raw field used for context and traceability.";
   el.rawEvidenceTable.appendChild(summaryIntro);
-  el.rawEvidenceTable.appendChild(createRawEvidenceTable(summaryRows));
+  el.rawEvidenceTable.appendChild(createRawEvidenceTable(displayedSummaryRows));
 
   const details = document.createElement("details");
   details.className = "disclosure-panel raw-evidence-disclosure";
@@ -1417,12 +1461,12 @@ function renderRawEvidenceTable() {
   title.textContent = "View all raw evidence fields";
   summaryCopy.append(eyebrow, title);
   const small = document.createElement("small");
-  small.textContent = `${fmtInt(rows.length)} source or near-raw fields, including unavailable values`;
+  small.textContent = `${fmtInt(availableRows.length)} available source or near-raw fields; unavailable fields hidden`;
   summary.append(summaryCopy, small);
   details.appendChild(summary);
   const fullTableWrap = document.createElement("div");
   fullTableWrap.className = "table-wrap disclosure-body";
-  fullTableWrap.appendChild(createRawEvidenceTable(rows));
+  fullTableWrap.appendChild(createRawEvidenceTable(availableRows));
   details.appendChild(fullTableWrap);
   el.rawEvidenceTable.appendChild(details);
 }
@@ -1611,10 +1655,12 @@ function renderFemaleLabourForceChart() {
   renderFemaleIndicatorChart({
     chartKey: "femaleLabourForce",
     canvasId: "female-labour-force-chart",
-    valueGetter: (country) => country.indicators?.femaleLaborForceParticipationPct,
+    valueGetter: (country) => {
+      const value = numericValue(country.indicators?.femaleLaborForceParticipationPct);
+      return value === null ? null : 100 - value;
+    },
     color: COLORS.blue,
-    xAxisTitle: "Female labour-force participation, %",
-    sortDirection: "asc",
+    xAxisTitle: "Low participation gap: 100 - female LFPR, percentage points",
   });
 }
 
@@ -1743,22 +1789,25 @@ function renderIndexDecompositionChart() {
   const ctx = document.getElementById("index-decomposition-chart");
   if (!ctx) return;
   const country = countryByIso(state.selectedIso);
+  const missingKeys = missingComponentKeySet(country);
   const rows = indexContributionRows(country)
+    .map((row) => ({ ...row, imputed: missingKeys.has(row.key) }))
     .sort((a, b) => (b.points || 0) - (a.points || 0));
   renderDecompositionTable(
     el.indexDecompositionTable,
     rows.map((row) => ({
       label: row.label,
-      scoreText: fmt(row.componentScore, 2),
+      scoreText: row.imputed ? `${fmt(row.componentScore, 2)} (neutral/imputed)` : fmt(row.componentScore, 2),
       weightText: fmtShare(row.weight, 0),
       pointsText: `${fmt(row.points)} pts`,
+      imputed: row.imputed,
     })),
     {
       total: rows.reduce((sum, row) => sum + (numericValue(row.points) || 0), 0),
       finalScore: country.score,
       finalLabel: "Published Shock Exposure Index",
       finalNote: "Final country score after full-precision calculation and rounding.",
-      note: "Formula: component score x component weight x 100.",
+      note: "Formula: component score x component weight x 100. Rows marked neutral/imputed use missing public inputs.",
     }
   );
   charts.indexDecomposition = new Chart(ctx, {
@@ -1769,7 +1818,9 @@ function renderIndexDecompositionChart() {
         {
           label: "Weighted index points",
           data: rows.map((row) => row.points),
-          backgroundColor: rows.map((row) => row.color),
+          backgroundColor: rows.map((row) => (row.imputed ? COLORS.neutralLight : row.color)),
+          borderColor: rows.map((row) => (row.imputed ? COLORS.gold : "rgba(0, 0, 0, 0)")),
+          borderWidth: rows.map((row) => (row.imputed ? 2 : 0)),
           borderRadius: 2,
         },
       ],
@@ -1961,13 +2012,21 @@ function renderCountryGenderIndicators() {
     ["Women digital bill payment", fmtPct(country.genderFinance?.digitalBillPaymentWomenPct), "Findex digital access context"],
     ["Female-headed households", fmtPct(country.indicators?.femaleHeadedHouseholdsPct), country.indicators?.femaleHeadedHouseholdsYear ? `Latest year ${country.indicators.femaleHeadedHouseholdsYear}` : "Coverage varies"],
   ];
+  const availableRows = rows.filter(([, value]) => !isUnavailableText(value));
+  const hiddenUnavailableCount = rows.length - availableRows.length;
   el.countryGenderIndicatorTable.innerHTML = "";
+  const intro = document.createElement("p");
+  intro.className = "mini-table-intro";
+  intro.textContent = hiddenUnavailableCount
+    ? `${fmtInt(availableRows.length)} available gender/labour/financial-access indicator(s) shown; ${fmtInt(hiddenUnavailableCount)} unavailable field(s) hidden.`
+    : `${fmtInt(availableRows.length)} available gender/labour/financial-access indicator(s) shown.`;
+  el.countryGenderIndicatorTable.appendChild(intro);
   const table = document.createElement("table");
   table.className = "indicator-mini-table-inner";
   const thead = document.createElement("thead");
   thead.innerHTML = "<tr><th>Indicator</th><th>Value</th><th>How to read it</th></tr>";
   const tbody = document.createElement("tbody");
-  rows.forEach(([label, value, note]) => {
+  availableRows.forEach(([label, value, note]) => {
     const tr = document.createElement("tr");
     [label, value, note].forEach((text) => {
       const cell = document.createElement("td");
@@ -2194,108 +2253,45 @@ function renderTable() {
   });
 }
 
-function markerSize(score) {
-  return 12 + clamp(score, 0, 100) / 5;
-}
-
-function renderMapFallback() {
-  if (!el.map) return;
-  el.map.innerHTML = "";
-  const fallback = document.createElement("div");
-  fallback.className = "map-fallback";
-  filteredCountries().forEach((country) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = `${country.country}: ${fmt(country.score)} exposure score (${country.riskTier} tier)`;
-    button.addEventListener("click", () => {
-      state.selectedIso = country.iso3;
-      populateCountrySelect();
-      renderAll();
-    });
-    fallback.appendChild(button);
-  });
-  el.map.appendChild(fallback);
-}
-
-function initMap() {
-  if (!el.map) return;
-  if (!window.maplibregl || !el.map) {
-    renderMapFallback();
-    return;
-  }
-  map = new maplibregl.Map({
-    container: el.map,
-    style: {
-      version: 8,
-      sources: {
-        carto: {
-          type: "raster",
-          tiles: [
-            "https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
-            "https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
-            "https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
-          ],
-          tileSize: 256,
-          attribution: "Map tiles by CARTO",
-        },
-      },
-      layers: [
-        {
-          id: "carto",
-          type: "raster",
-          source: "carto",
-        },
-      ],
-    },
-    center: [45, 18],
-    zoom: 1.4,
-    attributionControl: false,
-  });
-  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
-  map.scrollZoom.disable();
-  map.on("load", renderMapMarkers);
-  map.on("idle", () => {
-    if (!markers.length) renderMapMarkers();
-  });
-  setTimeout(() => {
-    if (!markers.length) renderMapMarkers();
-  }, 250);
-  setTimeout(() => {
-    if (!markers.length) renderMapMarkers();
-  }, 1200);
-}
-
-function renderMapMarkers() {
-  if (!map) return;
-  markers.forEach((marker) => marker.remove());
-  markers = [];
-  const countries = filteredCountries().filter((country) => country.lat !== null && country.lon !== null);
-  const bounds = new maplibregl.LngLatBounds();
+function renderCountryComparisonList() {
+  if (!el.countryComparisonList) return;
+  const countries = filteredCountries().slice(0, 12);
+  el.countryComparisonList.innerHTML = "";
   countries.forEach((country) => {
-    const markerElement = document.createElement("button");
-    markerElement.type = "button";
-    markerElement.className = "map-marker";
-    markerElement.dataset.tier = country.riskTier || "";
-    const size = markerSize(country.score);
-    markerElement.style.width = `${size}px`;
-    markerElement.style.height = `${size}px`;
-    markerElement.title = `${country.country}: ${fmt(country.score)} exposure score (${country.riskTier} tier)`;
-    if (country.iso3 === state.selectedIso) {
-      markerElement.style.outline = `3px solid ${COLORS.navy}`;
-      markerElement.style.outlineOffset = "2px";
-    }
-    markerElement.addEventListener("click", () => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "country-comparison-item";
+    item.dataset.selected = country.iso3 === state.selectedIso ? "true" : "false";
+    item.dataset.confidence = country.dataConfidence?.level || "";
+
+    const meta = document.createElement("span");
+    meta.className = "country-comparison-meta";
+    meta.textContent = `${country.rank ? `#${country.rank}` : "Unranked"} | ${country.riskTier || "Tier n/a"} | ${country.dataConfidence?.level || "Confidence n/a"}`;
+
+    const name = document.createElement("strong");
+    name.textContent = country.country;
+
+    const score = document.createElement("span");
+    score.className = "country-comparison-score";
+    score.textContent = `${fmt(country.score)} / 100`;
+
+    const bar = document.createElement("span");
+    bar.className = "country-comparison-track";
+    const fill = document.createElement("span");
+    fill.style.width = `${clamp(country.score)}%`;
+    bar.appendChild(fill);
+
+    item.append(meta, name, score, bar);
+    item.title = country.componentMissingCount
+      ? `${country.componentMissingCount} missing or neutral-imputed score component(s).`
+      : "No missing score components flagged.";
+    item.addEventListener("click", () => {
       state.selectedIso = country.iso3;
       populateCountrySelect();
       renderAll();
     });
-    const marker = new maplibregl.Marker({ element: markerElement, anchor: "center" }).setLngLat([country.lon, country.lat]).addTo(map);
-    markers.push(marker);
-    bounds.extend([country.lon, country.lat]);
+    el.countryComparisonList.appendChild(item);
   });
-  if (!bounds.isEmpty()) {
-    map.fitBounds(bounds, { padding: 44, maxZoom: 4.2, duration: 0 });
-  }
 }
 
 function renderAll() {
@@ -2325,7 +2321,7 @@ function renderAll() {
   renderCoverage();
   renderCountrySourceEvidence();
   renderTable();
-  if (map) renderMapMarkers();
+  renderCountryComparisonList();
 }
 
 function bindEvents() {
@@ -2357,13 +2353,6 @@ function bindEvents() {
     state.scenarioGroup = scenarioGroupFor(state.scenario)?.id || state.scenarioGroup;
     renderAll();
   });
-  if (el.mapReset) el.mapReset.addEventListener("click", () => {
-    state.region = "All regions";
-    state.geography = "All geographies";
-    state.selectedIso = data.summary.topCountry?.iso3 || data.countries[0]?.iso3;
-    populateControls();
-    renderAll();
-  });
   window.addEventListener("scroll", () => {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
@@ -2379,7 +2368,6 @@ function init() {
   populateControls();
   bindEvents();
   renderAll();
-  initMap();
 }
 
 init();
