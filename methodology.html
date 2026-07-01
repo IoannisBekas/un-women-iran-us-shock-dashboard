@@ -10,7 +10,7 @@
       content="Methodology, calculations, caveats and interpretation boundaries for the UN Women Iran-USA regional escalation shock dashboard."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
+    <link rel="stylesheet" href="styles.css?v=20260630-visible-tables" />
   </head>
   <body data-page="methodology">
     <a class="skip-link" href="#main-content">Skip to methodology content</a>
@@ -22,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260625-source-coverage#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260629-caseload#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,10 +35,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260625-source-coverage#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260625-source-coverage#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="index.html?v=20260629-caseload#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260629-caseload#country-lens">Country Lens</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260625-source-coverage">Dictionary</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260629-caseload">Dictionary</a>
           </div>
         </div>
       </div>
@@ -51,9 +51,10 @@
         <p>
           The dashboard is a screening and monitoring tool. It ranks country exposure in
           the Iran-USA regional escalation risk context and helps prioritize where closer food-security and
-          gender-sensitive monitoring may be needed. It does not estimate how many women or girls
-          became food insecure, because public sex- and age-disaggregated food-security outcome data
-          are not available across the country set.
+          gender-sensitive monitoring may be needed. It does not present observed women/girls
+          impact counts.
+          Public sex- and age-disaggregated food-security outcome data are not available across
+          the country set.
         </p>
         <p>
           The before/after module is descriptive price evidence. It compares matched food-price
@@ -71,7 +72,7 @@
         <a href="#data-treatment">Data treatment</a>
         <a href="#gender-displacement-method">Gender/displacement indicators</a>
         <a href="#before-after-method">Before/after method</a>
-        <a href="#scenario-method">Internal/model traceability</a>
+        <a href="#scenario-method">Sensitivity checks</a>
         <a href="#caveats">Caveats</a>
         <a href="#source-trace">Source trace</a>
         <a href="#source-component-map">Source map</a>
@@ -128,8 +129,8 @@
         <p>
           The explanation blocks do not change the model weights, source data or published country
           scores. They are an interpretation layer on top of the current dashboard dataset.
-          Terms that appear only in hidden workbook sheets or generated data traces are kept only for
-          reproducibility and are not separate dashboard findings.
+          Technical calculation fields are retained for reproducibility and are not separate
+          dashboard findings.
         </p>
       </section>
 
@@ -149,7 +150,7 @@
           This formula creates a composite screening score, not a probability of crisis and not a
           measured outcome. A country can rank highly because several pressure components are elevated,
           or because one high-weight component is very strong. Alternative weighting schemes are provided
-          only so the internal model can be audited; those alternatives are not presented as
+          only as sensitivity checks; those alternatives are not presented as
           user-facing dashboard scores.
         </p>
         <h3>Current index weights</h3>
@@ -220,7 +221,7 @@
 + 0.25 x female agricultural employment</code></pre>
         <p>
           Supplemental ACLED, CPI, food-incident, PortWatch and broader Findex layers are retained
-          as public-context or internal sensitivity evidence. They do not change the official
+          as public-context or sensitivity evidence. They do not change the official
           Shock Exposure Index unless the model is explicitly revised. Scenario and weight-sensitivity
           rows are retained for auditability only; they are stress tests, not forecasts or dashboard
           findings.
@@ -245,16 +246,16 @@
         </p>
         <p>
           IPC data are used in the <strong>IPC acute food insecurity</strong> component, but the
-          public IPC pull is total population. The model does not convert total IPC values into
-          women/girls counts. That conversion would require current sex- and age-disaggregated food
-          security outcomes such as FCS, rCSI, LCS, assistance reach, access constraints, or
+          public IPC pull is total population. The dashboard does not convert total IPC values into
+          observed women/girls counts. Validating observed women/girls food-security outcomes
+          would still require current sex- and
+          age-disaggregated data such as FCS, rCSI, LCS, assistance reach, access constraints, or
           female-headed household outcomes.
         </p>
         <p>
           Gender vulnerability remains one component inside the official Shock Exposure Index. The
-          user-facing dashboard no longer presents a separate gender-proxy priority score. If that
-          field appears in hidden workbook or generated-data traces, it is retained only for
-          reproducibility. Instead, the dashboard shows
+          user-facing dashboard no longer presents a separate gender-proxy priority score. Technical
+          fields are retained only for reproducibility. Instead, the dashboard shows
           interpretable gender, labour and financial-access indicators directly: the overview uses
           cross-country gender/labour readouts such as female informal, vulnerable and agricultural
           employment, while the Country Lens page shows selected-country labour and Findex indicators such as vulnerable
@@ -291,13 +292,13 @@
       </section>
 
       <section id="scenario-method" class="methodology-text-section" aria-labelledby="scenario-method-title" data-methodology-section>
-        <p class="eyebrow">Internal/model traceability</p>
+        <p class="eyebrow">Sensitivity checks</p>
         <h2 id="scenario-method-title">Sensitivity checks are not user-facing scores</h2>
         <p>
-          Scenario and weight-sensitivity calculations remain in the workbook as internal audit
-          checks, but they are not presented as separate dashboard results, forecasts or user-facing
-          scores. This keeps the dashboard focused on the official Shock Exposure Index and the raw
-          or near-raw evidence behind it.
+          Scenario and weight-sensitivity calculations remain available for technical traceability, but
+          they are not presented as separate dashboard results, forecasts or user-facing scores.
+          This keeps the dashboard focused on the official Shock Exposure Index and the raw or
+          near-raw evidence behind it.
         </p>
         <p>
           Oil-price scenarios emphasize import exposure, price pressure and assistance pressure.
@@ -306,7 +307,7 @@
           and gender vulnerability. Assistance-cut scenarios emphasize assistance pressure, acute
           food insecurity and displacement. Combined scenarios add the corresponding stress-test assumptions
           together under low, base and high assumptions. These rows are retained for reproducibility
-          and sensitivity review only.
+          and sensitivity traceability only.
         </p>
       </section>
 
@@ -333,8 +334,8 @@
       </section>
 
       <section id="source-trace" class="methodology-text-section" aria-labelledby="source-trace-title" data-methodology-section>
-        <p class="eyebrow">Traceability</p>
-        <h2 id="source-trace-title">Public sources and calculation trace</h2>
+        <p class="eyebrow">Sources</p>
+        <h2 id="source-trace-title">Public sources and calculation notes</h2>
         <p>
           Dashboard values are read from documented public-source inputs and calculation checks. The
           main trace points are: final country ranking and Shock Exposure Index score; bounded
@@ -349,9 +350,9 @@
           replace the published Shock Exposure Index.
         </p>
         <p>
-          Hidden workbook sheets and generated-data traces may still contain scenario sensitivity,
-          weight sensitivity, gender-proxy priority, supplemental-source and other intermediate fields.
-          Those fields are retained for auditability and reproducibility, not as current dashboard outputs.
+          Technical files may still contain scenario sensitivity, weight sensitivity, gender-proxy
+          priority, supplemental-source and other intermediate fields. Those fields are retained for
+          auditability and reproducibility, not as current dashboard outputs.
         </p>
         <h3>Core public sources recorded in the published dashboard dataset</h3>
         <ul id="methodology-source-list" class="methodology-source-text-list"></ul>
@@ -362,7 +363,7 @@
         <h2 id="source-component-map-title">How source families connect to dashboard evidence</h2>
         <p>
           This matrix separates official index inputs from contextual evidence. A source can be
-          documented in the workbook without appearing as a standalone chart.
+          documented in technical notes without appearing as a standalone chart.
         </p>
         <div class="table-wrap source-component-wrap">
           <table class="source-component-table">
@@ -390,19 +391,19 @@
               <tr>
                 <td>World Bank WDI</td>
                 <td>Food/fuel import exposure and structural country context</td>
-                <td>Selected raw fields in Country Lens and workbook</td>
+                <td>Selected raw fields in Country Lens and technical notes</td>
                 <td>Structural exposure, not a short-term outcome measure.</td>
               </tr>
               <tr>
                 <td>FAOSTAT</td>
                 <td>Agriculture and fertilizer exposure</td>
-                <td>Selected raw fields in Country Lens and workbook</td>
+                <td>Selected raw fields in Country Lens and technical notes</td>
                 <td>Used for food-system and input-dependency context.</td>
               </tr>
               <tr>
                 <td>UNHCR extracts</td>
                 <td>Legacy external displacement proxy</td>
-                <td>Internal/model traceability; not shown as a standalone score</td>
+                <td>Traceability only; not shown as a standalone score</td>
                 <td>A zero legacy proxy does not mean no internal displacement.</td>
               </tr>
               <tr>
@@ -414,7 +415,7 @@
               <tr>
                 <td>OCHA FTS</td>
                 <td>Assistance/funding pressure and funding-per-person context</td>
-                <td>Selected raw funding fields in Country Lens and workbook</td>
+                <td>Selected raw funding fields in Country Lens and technical notes</td>
                 <td>Funding flows are pressure/context indicators, not assistance-reach outcomes.</td>
               </tr>
               <tr>
@@ -438,7 +439,7 @@
               <tr>
                 <td>Scenario rows</td>
                 <td>Internal stress-test sensitivity checks</td>
-                <td>Workbook/methodology traceability only</td>
+                <td>Methodology notes only</td>
                 <td>Not forecasts and not separate user-facing dashboard scores.</td>
               </tr>
             </tbody>
@@ -453,7 +454,7 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260625-source-coverage"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260629-caseload"></script>
     <script>
       const methodologyData = window.IRAN_US_SHOCK_DASHBOARD_DATA || {};
 

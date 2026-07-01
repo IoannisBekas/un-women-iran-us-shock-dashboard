@@ -10,8 +10,7 @@
       content="Country-specific UN Women explorer for the Iran-USA regional escalation shock model with country and geography filters."
     />
     <link rel="icon" href="data:," />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
+    <link rel="stylesheet" href="styles.css?v=20260630-visible-tables" />
   </head>
   <body data-page="country">
     <a class="skip-link" href="#main-content">Skip to dashboard content</a>
@@ -23,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260625-source-coverage#findings" aria-label="UN Women dashboard overview">
+          <a class="brand-lockup" href="index.html?v=20260630-updated-source#findings" aria-label="UN Women dashboard overview">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -35,10 +34,10 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260625-source-coverage#findings">Overview</a>
+            <a class="hero-action-secondary" href="index.html?v=20260630-updated-source#findings">Overview</a>
             <a class="hero-action-primary" href="#country-lens" aria-current="page">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260625-source-coverage">Methodology</a>
-            <a class="hero-action-secondary" href="dictionary.html?v=20260625-source-coverage">Dictionary</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260629-caseload">Methodology</a>
+            <a class="hero-action-secondary" href="dictionary.html?v=20260629-caseload">Dictionary</a>
           </div>
         </div>
       </div>
@@ -179,12 +178,12 @@
           <h2 id="country-gender-displacement-title">Gender, IPC, assistance and internal displacement indicators</h2>
           <p class="chart-note">
             This panel shows raw or near-raw indicators directly. IPC is total population; internal displacement
-            comes from public IDMC/IOM evidence; gender indicators are structural context, not measured SADD outcomes.
+            comes from public IDMC/IOM evidence; gender indicators are structural context, not measured sex-disaggregated outcomes.
           </p>
 <div id="country-gender-list" class="lens-list"></div>
           <div class="indicator-table-block">
             <h3>Female labour and financial-access indicators</h3>
-            <p class="chart-note">These indicators are visible context for UN Women monitoring. They are structural/proxy evidence, not measured SADD food-security outcomes.</p>
+            <p class="chart-note">These indicators are visible context for UN Women monitoring. They are structural/proxy evidence, not measured sex-disaggregated food-security outcomes.</p>
 <div id="country-gender-indicator-table" class="indicator-mini-table"></div>
           </div>
         </article>
@@ -243,16 +242,10 @@
 <ul id="before-after-supplemental-list"></ul>
           </article>
         </div>
-        <details class="disclosure-panel before-after-table-wrap">
-          <summary>
-            <span>
-              <span class="eyebrow">Filtered evidence table</span>
-              <strong>View all countries in the current price-evidence filter</strong>
-            </span>
-            <small id="before-after-table-note">Table follows the active region and geography filters.</small>
-          </summary>
+        <div class="table-panel before-after-table-wrap">
+          <p id="before-after-table-note" class="chart-note table-footnote">Table follows the active region and geography filters.</p>
           <div id="before-after-card-list" class="mobile-table-cards" aria-label="Before and after country evidence cards"></div>
-          <div class="table-wrap disclosure-body">
+          <div class="table-wrap">
             <table>
               <thead>
                 <tr>
@@ -267,7 +260,7 @@
               <tbody id="before-after-table-body"></tbody>
             </table>
           </div>
-        </details>
+        </div>
       </section>
 
       <section id="country-data" class="evidence-grid" aria-label="Readiness checks and source coverage">
@@ -287,33 +280,24 @@
           <p class="eyebrow">Selected-country source evidence</p>
           <h2>Which source families support this country view</h2>
           <p class="chart-note">
-            This table explains source availability for the selected country. It is a traceability view, not
+            This table explains source availability for the selected country. It is a source-detail view, not
             another ranking or score.
           </p>
-          <details class="disclosure-panel country-source-disclosure">
-            <summary>
-              <span>
-                <span class="eyebrow">Source traceability</span>
-                <strong>View selected-country source-family evidence</strong>
-              </span>
-              <small>Open this when you need to defend source coverage or missingness.</small>
-            </summary>
+          <div class="table-panel country-source-panel">
             <div id="country-source-evidence-table" class="indicator-mini-table"></div>
-          </details>
+          </div>
         </article>
       </section>
 
       <section class="table-section" aria-labelledby="table-title">
-        <details class="disclosure-panel">
-          <summary>
-            <span>
-              <span class="eyebrow">Filtered country table</span>
-              <strong id="table-title">View published model data summary</strong>
-            </span>
-            <small id="country-table-summary">Table follows the active filters and summarizes published ranking fields.</small>
-          </summary>
-<div id="country-table-card-list" class="mobile-table-cards" aria-label="Filtered country summary cards"></div>
-          <div class="table-wrap disclosure-body">
+        <div class="section-heading table-heading">
+          <p class="eyebrow">Filtered country table</p>
+          <h2 id="table-title">Published model data summary</h2>
+          <p id="country-table-summary">Table follows the active filters and summarizes published ranking fields.</p>
+        </div>
+        <div class="table-panel">
+          <div id="country-table-card-list" class="mobile-table-cards" aria-label="Filtered country summary cards"></div>
+          <div class="table-wrap">
             <table>
               <thead>
                 <tr>
@@ -335,7 +319,7 @@
               <tbody id="country-table-body"></tbody>
             </table>
           </div>
-        </details>
+        </div>
       </section>
 
       <section id="method" class="interpretation-panel country-method-callout" aria-labelledby="method-title">
@@ -346,7 +330,7 @@
         <p>
           Country, region and geography filters change the exploration view; they do not change published model
           values. Read price comparisons as descriptive evidence, not causal impact. For formulas,
-          caveats and weights, open the <a href="methodology.html?v=20260625-source-coverage">methodology page</a>.
+          caveats and weights, open the <a href="methodology.html?v=20260629-caseload">methodology page</a>.
         </p>
       </section>
     </main>
@@ -357,8 +341,8 @@
 
     <a class="floating-back-top" href="#top" aria-label="Back to top">Back to top</a>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
-    <script src="data/iran-us-shock-dashboard-data.js?v=20260625-source-coverage"></script>
-    <script src="app.js?v=20260625-source-coverage"></script>
+    <script src="assets/vendor/chart.umd.min.js"></script>
+    <script src="data/iran-us-shock-dashboard-data.js?v=20260630-updated-source"></script>
+    <script src="app.js?v=20260630-visible-tables"></script>
   </body>
 </html>

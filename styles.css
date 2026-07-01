@@ -838,12 +838,232 @@ body[data-page="country"] main > section[id] {
   min-width: 0;
 }
 
+.static-figure {
+  margin: 14px 0 0;
+}
+
+.static-figure-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid rgba(219, 211, 197, 0.72);
+  background: #fff;
+}
+
+.static-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.static-figure-scroll img {
+  min-width: 720px;
+}
+
+.hormuz-figure-grid .chart-card,
+.country-hormuz-figures .chart-card {
+  align-content: start;
+}
+
+.static-figure-disclosure {
+  grid-column: 1 / -1;
+  background: rgba(255, 253, 247, 0.9);
+}
+
+.static-figure-disclosure .static-figure {
+  padding: 14px;
+}
+
+.figure-page-intro {
+  align-items: start;
+  gap: 20px;
+}
+
+.figure-gallery-section {
+  display: grid;
+  gap: 16px;
+}
+
+.figure-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.figure-gallery-grid .wide {
+  grid-column: 1 / -1;
+}
+
+.figure-card {
+  align-content: start;
+}
+
+.figure-card .card-title-row {
+  margin-bottom: 0;
+}
+
+.income-channel-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(360px, 1.28fr);
+  gap: 14px 22px;
+  align-items: start;
+}
+
+.income-channel-card .card-title-row {
+  grid-column: 1 / -1;
+}
+
+.income-channel-card .compact-metric-grid {
+  grid-template-columns: 1fr;
+  margin-top: 0;
+}
+
+.income-channel-card .interactive-chart-wrap {
+  margin-top: 0;
+}
+
+.interactive-chart-wrap {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  margin-top: 14px;
+}
+
+.figure-chart-medium {
+  height: 430px;
+}
+
+.figure-chart-large {
+  height: 500px;
+}
+
+.figure-chart-tall {
+  height: 590px;
+}
+
+.figure-chart-extra-tall {
+  height: 820px;
+}
+
+.compact-metric-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 12px;
+}
+
+.compact-metric-grid .caseload-metric {
+  min-height: auto;
+  padding: 10px;
+}
+
+.compact-metric-grid .caseload-metric strong {
+  font-size: 1.5rem;
+}
+
+.figure-control {
+  display: grid;
+  gap: 6px;
+  min-width: min(280px, 100%);
+}
+
+.figure-control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  min-width: min(440px, 100%);
+}
+
+.figure-control.compact {
+  min-width: min(130px, 100%);
+}
+
+.figure-control select {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.figure-source-panel {
+  margin-top: 14px;
+  box-shadow: none;
+}
+
+.figure-source-panel summary {
+  padding: 12px 14px;
+}
+
+.figure-source-panel .static-figure {
+  padding: 0 14px 14px;
+}
+
+.figure-split-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  min-width: 0;
+}
+
+.figure-xl .static-figure-scroll img {
+  min-width: 1080px;
+}
+
+.figure-tall .static-figure-scroll img {
+  min-width: 860px;
+}
+
 .compact-chart {
   height: 300px;
 }
 
 .ranking-chart-wrap {
   height: 520px;
+}
+
+.caseload-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.caseload-metric {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-height: 126px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.caseload-metric strong {
+  color: var(--un-navy);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.caseload-metric p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.caseload-range-chart-wrap {
+  height: 370px;
+}
+
+.women-girls-chart-wrap {
+  height: 460px;
+}
+
+.caseload-table-section table {
+  font-size: 0.84rem;
 }
 
 canvas {
@@ -1575,10 +1795,25 @@ canvas {
   width: 19%;
 }
 
-.disclosure-panel {
+.disclosure-panel,
+.table-panel {
   border: 1px solid var(--line);
   background: rgba(255, 253, 247, 0.9);
   box-shadow: 0 10px 28px rgba(31, 35, 38, 0.06);
+}
+
+.table-panel {
+  margin-top: 16px;
+}
+
+.table-panel > .table-wrap,
+.table-panel > .indicator-mini-table {
+  border: 0;
+}
+
+.table-panel > .chart-note,
+.table-panel > .mini-table-intro {
+  padding: 12px 14px 0;
 }
 
 .disclosure-panel summary {
@@ -1614,13 +1849,20 @@ canvas {
 }
 
 .overview-disclosure,
-.country-source-disclosure {
+.country-source-disclosure,
+.overview-table-panel,
+.source-coverage-table-panel,
+.displacement-table-panel,
+.country-source-panel {
   margin-top: 12px;
 }
 
 .overview-disclosure .source-coverage-heatmap,
 .overview-disclosure .lens-list,
-.country-source-disclosure .indicator-mini-table {
+.country-source-disclosure .indicator-mini-table,
+.source-coverage-table-panel .source-coverage-heatmap,
+.displacement-table-panel .lens-list,
+.country-source-panel .indicator-mini-table {
   margin-top: 12px;
 }
 
@@ -2087,16 +2329,6 @@ button.confidence-pill {
   overflow-wrap: anywhere;
 }
 
-.table-section .mobile-table-cards {
-  display: grid;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.table-section .mobile-table-cards + .table-wrap {
-  display: none;
-}
-
 table {
   width: 100%;
   min-width: 0;
@@ -2189,7 +2421,7 @@ tbody tr:hover {
   right: clamp(14px, 2vw, 28px);
   bottom: clamp(14px, 2vw, 28px);
   z-index: 90;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   min-height: 42px;
@@ -2236,8 +2468,20 @@ tbody tr:hover {
   .before-after-layout,
   .analysis-grid,
   .evidence-grid,
-  .gender-lens-grid {
+  .gender-lens-grid,
+  .figure-gallery-grid,
+  .figure-split-chart-grid {
     grid-template-columns: 1fr;
+  }
+
+  .income-channel-card {
+    grid-template-columns: 1fr;
+  }
+
+  .income-channel-card .card-title-row,
+  .income-channel-card .compact-metric-grid,
+  .income-channel-card .interactive-chart-wrap {
+    grid-column: auto;
   }
 
   .brand-rail {
@@ -2252,6 +2496,18 @@ tbody tr:hover {
   .source-panel ul,
   .source-coverage-summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .caseload-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compact-metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .income-channel-card .compact-metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .controls-band {
@@ -2335,6 +2591,18 @@ tbody tr:hover {
   .before-after-metrics,
   .methodology-source-text-list {
     grid-template-columns: 1fr;
+  }
+
+  .caseload-metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseload-range-chart-wrap {
+    height: 340px;
+  }
+
+  .women-girls-chart-wrap {
+    height: 430px;
   }
 
   .gender-lens-section .evidence-panel.wide h2 {
@@ -2566,6 +2834,65 @@ tbody tr:hover {
     height: 300px;
   }
 
+  .figure-page-intro {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .figure-page-intro h2 {
+    font-size: 1.65rem;
+  }
+
+  .figure-page-intro p:last-child {
+    font-size: 0.98rem;
+  }
+
+  #figure-summary-list.caseload-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  #figure-summary-list .caseload-metric {
+    min-height: 104px;
+    padding: 12px;
+  }
+
+  #figure-summary-list .caseload-metric strong {
+    font-size: 1.5rem;
+  }
+
+  .compact-metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .income-channel-card .compact-metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .figure-chart-medium,
+  .figure-chart-large {
+    height: 430px;
+  }
+
+  .figure-chart-tall {
+    height: 560px;
+  }
+
+  .figure-chart-extra-tall {
+    height: 760px;
+  }
+
+  .figure-control-row {
+    justify-content: stretch;
+    min-width: 0;
+  }
+
+  .figure-control,
+  .figure-control.compact {
+    min-width: 0;
+  }
+
   .ranking-chart-wrap {
     height: 620px;
   }
@@ -2586,18 +2913,7 @@ tbody tr:hover {
   }
 
   .floating-back-top {
-    right: 12px;
-    bottom: 12px;
-    width: 42px;
-    min-width: 42px;
-    min-height: 42px;
-    padding: 0;
-    font-size: 0;
-  }
-
-  .floating-back-top::before {
-    content: "Top";
-    font-size: 0.68rem;
+    display: none;
   }
 
   .readiness-item,

@@ -10,7 +10,7 @@
       content="Dictionary of terms, acronyms, data sources and model concepts used in the UN Women Iran-USA regional escalation shock dashboard."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260625-source-coverage" />
+    <link rel="stylesheet" href="styles.css?v=20260630-visible-tables" />
   </head>
   <body data-page="dictionary">
     <a class="skip-link" href="#main-content">Skip to dictionary content</a>
@@ -22,7 +22,7 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="brand-rail" aria-label="Dashboard identity">
-          <a class="brand-lockup" href="index.html?v=20260625-source-coverage#findings" aria-label="UN Women dashboard home">
+          <a class="brand-lockup" href="index.html?v=20260629-caseload#findings" aria-label="UN Women dashboard home">
             <img class="brand-logo" src="assets/UN_WOMEN_Logo.png?v=20260611-current-lockup" alt="UN Women - For all women and girls" />
           </a>
         </div>
@@ -34,9 +34,9 @@
           </p>
           <div class="hero-rule" aria-hidden="true"></div>
           <div class="hero-actions" aria-label="Primary dashboard links">
-            <a class="hero-action-secondary" href="index.html?v=20260625-source-coverage#findings">Overview</a>
-            <a class="hero-action-secondary" href="country.html?v=20260625-source-coverage#country-lens">Country Lens</a>
-            <a class="hero-action-secondary" href="methodology.html?v=20260625-source-coverage">Methodology</a>
+            <a class="hero-action-secondary" href="index.html?v=20260629-caseload#findings">Overview</a>
+            <a class="hero-action-secondary" href="country.html?v=20260629-caseload#country-lens">Country Lens</a>
+            <a class="hero-action-secondary" href="methodology.html?v=20260629-caseload">Methodology</a>
             <a class="hero-action-primary" href="#main-content" aria-current="page">Dictionary</a>
           </div>
         </div>
@@ -62,7 +62,7 @@
         <a href="#displacement">Displacement terms</a>
         <a href="#sources">Data-source acronyms</a>
         <a href="#model">Model and dashboard terms</a>
-        <a href="#internal-traceability">Internal/model traceability</a>
+        <a href="#technical-terms">Technical terms</a>
       </section>
 
       <section id="food-security" class="dictionary-section" aria-labelledby="food-security-title">
@@ -106,7 +106,7 @@
               A bounded Shock Exposure Index component that uses public WFP food-security outcome evidence
               where available, such as poor/borderline food consumption or coping indicators.
             </p>
-            <p class="term-use">The dashboard may show raw WFP fields where available; it does not treat them as SADD outcomes.</p>
+            <p class="term-use">The dashboard may show raw WFP fields where available; it does not treat them as sex- and age-disaggregated outcomes.</p>
           </article>
         </div>
       </section>
@@ -120,7 +120,7 @@
         <div class="term-grid">
           <article class="term-card">
             <span class="term-meta">Data standard</span>
-            <h3>SADD</h3>
+            <h3>Sex- and age-disaggregated data</h3>
             <p>
               Sex- and age-disaggregated data. This means outcomes are broken down by sex and age group.
             </p>
@@ -370,7 +370,7 @@
             <span class="term-meta">Data quality</span>
             <h3>Readiness checks</h3>
             <p>A check on whether the available data can support stronger analysis, such as before/after or causal estimation.</p>
-            <p class="term-use">Most countries are not ready for women/girls causal estimates without SADD outcomes.</p>
+            <p class="term-use">Most countries are not ready for women/girls causal estimates without sex- and age-disaggregated outcomes.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">Interpretation</span>
@@ -393,65 +393,65 @@
         </div>
       </section>
 
-      <section id="internal-traceability" class="dictionary-section" aria-labelledby="internal-traceability-title">
+      <section id="technical-terms" class="dictionary-section" aria-labelledby="technical-terms-title">
         <div class="section-heading">
-          <p class="eyebrow">Internal/model traceability</p>
-          <h2 id="internal-traceability-title">Terms retained for workbook and methodology traceability</h2>
+          <p class="eyebrow">Technical terms</p>
+          <h2 id="technical-terms-title">Terms retained for methodology notes</h2>
           <p>
-            These terms may appear in hidden workbook sheets, generated data fields or methodology notes.
-            They are not separate user-facing dashboard outputs or additional published scores.
+            These terms may appear in technical notes or source documentation. They are not separate
+            user-facing dashboard outputs or additional published scores.
           </p>
         </div>
         <div class="term-grid compact">
           <article class="term-card">
-            <span class="term-meta">Hidden/internal field</span>
+            <span class="term-meta">Technical field</span>
             <h3>Internal gender-priority proxy</h3>
             <p>
-              An earlier internal prioritization field retained in hidden data/workbook traces for reproducibility.
+              An earlier prioritization field retained in technical calculation files for reproducibility.
             </p>
             <p class="term-use">Do not cite it as a current dashboard output; the visible gender section now shows raw or near-raw indicators.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Hidden/internal component</span>
+            <span class="term-meta">Technical component</span>
             <h3>Displacement pressure</h3>
             <p>
-              An internal model component describing how displacement can affect food security through movement,
+              A model component describing how displacement can affect food security through movement,
               host-community strain, access constraints, livelihood disruption and assistance needs.
             </p>
             <p class="term-use">The visible dashboard shows public IDMC/IOM evidence and the official Shock Exposure Index instead of a standalone displacement score.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Internal sensitivity check</span>
+            <span class="term-meta">Sensitivity check</span>
             <h3>Scenario sensitivity</h3>
             <p>Stress-test rows showing how model scores would move under oil, fertilizer, food-price or assistance-cut assumptions.</p>
             <p class="term-use">Retained for audit/sensitivity checks; not a forecast and not a user-facing dashboard score.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Internal sensitivity check</span>
+            <span class="term-meta">Sensitivity check</span>
             <h3>Weight sensitivity</h3>
             <p>Alternative weighting assumptions used to test whether country priorities change when model emphasis changes.</p>
-            <p class="term-use">Internal robustness check for the documented-weight index, not a user-facing score.</p>
+            <p class="term-use">Robustness check for the documented-weight index, not a user-facing score.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">WFP survey term</span>
             <h3>FCS</h3>
             <p>Food Consumption Score, a WFP indicator summarizing household dietary diversity and food consumption frequency.</p>
-            <p class="term-use">Mentioned for outcome-data traceability where public WFP data exist; not treated as SADD in this dashboard.</p>
+            <p class="term-use">Mentioned where public WFP outcome data exist; not treated as sex- and age-disaggregated in this dashboard.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">WFP survey term</span>
             <h3>rCSI</h3>
             <p>Reduced Coping Strategy Index, a WFP indicator of how often households use food-consumption coping strategies.</p>
-            <p class="term-use">Mentioned for outcome-data traceability; coverage varies and it is not a user-facing score.</p>
+            <p class="term-use">Mentioned for outcome-data context; coverage varies and it is not a user-facing score.</p>
           </article>
           <article class="term-card">
             <span class="term-meta">WFP survey term</span>
             <h3>LCS</h3>
             <p>Livelihood Coping Strategies, a measure of stress, crisis or emergency coping actions.</p>
-            <p class="term-use">Used as an example of SADD outcome data that should be requested before making gender-impact claims.</p>
+            <p class="term-use">Used as an example of sex- and age-disaggregated outcome data that should be requested before making gender-impact claims.</p>
           </article>
           <article class="term-card">
-            <span class="term-meta">Internal scenario source</span>
+            <span class="term-meta">Scenario source</span>
             <h3>World Bank Commodity Markets</h3>
             <p>World Bank source for international commodity price series.</p>
             <p class="term-use">Referenced for internal oil, fertilizer and food-price scenario context; not a country-level household outcome.</p>

@@ -199,6 +199,14 @@ const charts = {
   genderDrivers: null,
   genderDecomposition: null,
   indexDecomposition: null,
+  caseloadRange: null,
+  figureRange: null,
+  figureWaterfall: null,
+  figureTopCountries: null,
+  figureAllCountriesPeople: null,
+  figureAllCountriesPopulation: null,
+  figureWomenGirlsAbsolute: null,
+  figureGenderShare: null,
 };
 
 const el = {
@@ -269,6 +277,12 @@ const el = {
   countryTableCardList: document.getElementById("country-table-card-list"),
   countryTableSummary: document.getElementById("country-table-summary"),
   beforeAfterCardList: document.getElementById("before-after-card-list"),
+  caseloadSummaryList: document.getElementById("caseload-summary-list"),
+  caseloadBoundaryNote: document.getElementById("caseload-boundary-note"),
+  caseloadSourceNote: document.getElementById("caseload-source-note"),
+  caseloadEstimatesTableBody: document.getElementById("caseload-estimates-table-body"),
+  caseloadEstimatesCardList: document.getElementById("caseload-estimates-card-list"),
+  caseloadTableSummary: document.getElementById("caseload-table-summary"),
   footerSource: document.getElementById("footer-source"),
 };
 
@@ -312,6 +326,11 @@ function fmtShare(value, digits = 1) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
   const number = Number(value);
   return fmtPct(Math.abs(number) <= 1 ? number * 100 : number, digits);
+}
+
+function fmtMillions(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
+  return `${fmt(Number(value) / 1000000, digits)}M`;
 }
 
 function fmtDate(value) {
@@ -1057,7 +1076,7 @@ function renderBeforeAfter() {
   if (el.beforeAfterTableNote) {
     el.beforeAfterTableNote.textContent = document.body.dataset.page === "overview"
       ? `Overview table shows the top ${tableRows.length} positive like-for-like price increases only. Price records compared are WFP/HDX market, commodity and unit records matched between a 2026 post-shock month and the same month in 2025. Public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data.`
-      : `${tableRows.length} countries in this collapsed table after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
+      : `${tableRows.length} countries shown after the active filters. Price records compared are like-for-like WFP/HDX market, commodity and unit records; public-context coverage means five additional public-data checks: ACLED availability, CPI, food incidents, PortWatch port activity and Findex gender-finance data. Rows with no positive rise or no comparable price record are kept as interpretation context.`;
   }
   if (el.beforeAfterCardList) {
     el.beforeAfterCardList.innerHTML = "";
@@ -1437,38 +1456,16 @@ function renderRawEvidenceTable() {
   const country = countryByIso(state.selectedIso);
   const rows = rawEvidenceRows(country);
   const availableRows = rows.filter(([, value]) => !isUnavailableText(value));
-  const summaryRows = availableRows.filter(([label]) => RAW_EVIDENCE_SUMMARY_LABELS.has(label));
-  const displayedSummaryRows = summaryRows.length ? summaryRows : availableRows.slice(0, 10);
   const hiddenUnavailableCount = rows.length - availableRows.length;
   el.rawEvidenceTable.innerHTML = "";
 
   const summaryIntro = document.createElement("p");
   summaryIntro.className = "mini-table-intro";
   summaryIntro.textContent = hiddenUnavailableCount
-    ? `Available raw indicators are shown first; ${fmtInt(hiddenUnavailableCount)} unavailable field(s) are hidden to reduce n/a noise.`
-    : "Available raw indicators are shown first. Open the full table for every raw field used for context and traceability.";
+    ? `Available raw indicators are shown; ${fmtInt(hiddenUnavailableCount)} unavailable field(s) are hidden to reduce n/a noise.`
+    : "All available raw fields used for context and source traceability are shown.";
   el.rawEvidenceTable.appendChild(summaryIntro);
-  el.rawEvidenceTable.appendChild(createRawEvidenceTable(displayedSummaryRows));
-
-  const details = document.createElement("details");
-  details.className = "disclosure-panel raw-evidence-disclosure";
-  const summary = document.createElement("summary");
-  const summaryCopy = document.createElement("span");
-  const eyebrow = document.createElement("span");
-  eyebrow.className = "eyebrow";
-  eyebrow.textContent = "Full raw evidence";
-  const title = document.createElement("strong");
-  title.textContent = "View all raw evidence fields";
-  summaryCopy.append(eyebrow, title);
-  const small = document.createElement("small");
-  small.textContent = `${fmtInt(availableRows.length)} available source or near-raw fields; unavailable fields hidden`;
-  summary.append(summaryCopy, small);
-  details.appendChild(summary);
-  const fullTableWrap = document.createElement("div");
-  fullTableWrap.className = "table-wrap disclosure-body";
-  fullTableWrap.appendChild(createRawEvidenceTable(availableRows));
-  details.appendChild(fullTableWrap);
-  el.rawEvidenceTable.appendChild(details);
+  el.rawEvidenceTable.appendChild(createRawEvidenceTable(availableRows));
 }
 
 function renderScenarioChart() {
@@ -1741,7 +1738,7 @@ function renderGenderDecompositionChart() {
       total: rows.reduce((sum, row) => sum + (numericValue(row.points) || 0), 0),
       finalScore: country.genderProxy?.score,
       finalLabel: "Internal gender-priority proxy",
-      finalNote: "Hidden/internal traceability field; not a current user-facing dashboard score.",
+      finalNote: "Traceability field; not a current user-facing dashboard score.",
       note: "Component inputs use full precision in the generated dashboard data.",
     }
   );
@@ -1872,11 +1869,11 @@ function renderGenderLensList() {
     `${fmtPct(country.genderFinance?.accountWomenPct ?? country.indicators?.femaleAccountOwnershipPct)} account ownership | ${fmtPct(country.genderFinance?.mobileMoneyWomenPct)} mobile money`,
     "Findex indicators are shown directly where available."
   );
-  const saddAvailable = data.countries.filter((country) => country.readiness?.sexDisaggregatedOutcomeAvailable).length;
+  const sexDisaggregatedAvailable = data.countries.filter((country) => country.readiness?.sexDisaggregatedOutcomeAvailable).length;
   appendLensItem(
     el.genderLensList,
     "Measured women/girls outcome coverage",
-    `${fmtInt(saddAvailable)}/${fmtInt(data.countries.length)} countries`,
+    `${fmtInt(sexDisaggregatedAvailable)}/${fmtInt(data.countries.length)} countries`,
     "Public IPC rows are total-population severity; the dashboard does not infer women/girls IPC counts."
   );
 }
@@ -1894,7 +1891,7 @@ function renderGenderMonitoringList() {
   appendLensItem(
     el.genderMonitoringList,
     "Ask for",
-    "SADD outcomes",
+    "Sex-disaggregated outcomes",
     "Request sex- and age-disaggregated FCS, rCSI, LCS, assistance reach, access constraints and female-headed household outcomes before making impact claims."
   );
   appendLensItem(
@@ -2294,6 +2291,789 @@ function renderCountryComparisonList() {
   });
 }
 
+function scenarioCaseloadData() {
+  return data.scenarioCaseload || {};
+}
+
+function caseloadGenderKey(row) {
+  return `${row?.iso3 || ""}|${row?.scenario || ""}`;
+}
+
+function caseloadScenarioLabel(value) {
+  if (value === "mild") return "Mild";
+  if (value === "central") return "Central";
+  if (value === "severe") return "Severe";
+  return value || "Scenario n/a";
+}
+
+const FIGURE_HORIZONS = {
+  "6m": {
+    label: "Sep 2026 (+6m)",
+    add: "add_6m_sep26",
+    pct: "pct_6m_sep26",
+    upper: "add_6m_sep26_upper",
+    women: "women_girls_6m_sep26",
+    men: "men_boys_6m_sep26",
+    womenUpper: "women_girls_6m_sep26_upper",
+    menUpper: "men_boys_6m_sep26_upper",
+    concentration: "women_girls_pct_est_female_population_6m_sep26",
+  },
+  "9m": {
+    label: "Dec 2026 (+9m)",
+    add: "add_9m_dec26",
+    pct: "pct_9m_dec26",
+    upper: "add_9m_dec26_upper",
+    women: "women_girls_9m_dec26",
+    men: "men_boys_9m_dec26",
+    womenUpper: "women_girls_9m_dec26_upper",
+    menUpper: "men_boys_9m_dec26_upper",
+    concentration: "women_girls_pct_est_female_population_9m_dec26",
+  },
+};
+
+const FIGURE_PANEL_SPECS = [
+  { id: "central-6m", label: "Central +6m (Sep 2026)", scenario: "central", horizon: "6m", band: "price_only" },
+  { id: "severe-6m", label: "Severe +6m (Sep 2026)", scenario: "severe", horizon: "6m", band: "price_only" },
+  { id: "severe-upper-6m", label: "Severe + income +6m (Sep 2026)", scenario: "severe", horizon: "6m", band: "upper_band" },
+  { id: "central-9m", label: "Central +9m (Dec 2026)", scenario: "central", horizon: "9m", band: "price_only" },
+  { id: "severe-9m", label: "Severe +9m (Dec 2026)", scenario: "severe", horizon: "9m", band: "price_only" },
+  { id: "severe-upper-9m", label: "Severe + income +9m (Dec 2026)", scenario: "severe", horizon: "9m", band: "upper_band" },
+];
+
+function selectedFigureRowLimit(selectId, fallback = 15) {
+  const selected = document.getElementById(selectId)?.value || String(fallback);
+  if (selected === "all") return { value: null, all: true };
+  const value = Number.parseInt(selected, 10);
+  return Number.isFinite(value) && value > 0 ? { value, all: false } : { value: fallback, all: false };
+}
+
+function applyFigureRowLimit(rows, limit) {
+  return limit.all ? rows : rows.slice(0, limit.value);
+}
+
+function figureRowLimitLabel(limit, totalRows) {
+  if (limit.all) return `All ${fmtInt(totalRows)} countries`;
+  return `Top ${fmtInt(Math.min(limit.value, totalRows))} of ${fmtInt(totalRows)} countries`;
+}
+
+function setFigureChartHeight(canvasId, rowCount) {
+  const canvas = document.getElementById(canvasId);
+  const wrapper = canvas?.closest(".interactive-chart-wrap");
+  if (!wrapper) return;
+  const height = Math.max(430, Math.min(820, 210 + rowCount * 24));
+  wrapper.style.height = `${height}px`;
+}
+
+function caseloadEstimateRows() {
+  const caseload = scenarioCaseloadData();
+  return Array.isArray(caseload.estimates) ? caseload.estimates : [];
+}
+
+function caseloadGenderRows() {
+  const caseload = scenarioCaseloadData();
+  return Array.isArray(caseload.genderBreakdown) ? caseload.genderBreakdown : [];
+}
+
+function caseloadGenderRowMap() {
+  return new Map(caseloadGenderRows().map((row) => [caseloadGenderKey(row), row]));
+}
+
+function caseloadRowsForScenario(scenario) {
+  return caseloadEstimateRows().filter((row) => row.scenario === scenario);
+}
+
+function caseloadUpperValue(row, horizonKey) {
+  const fields = FIGURE_HORIZONS[horizonKey];
+  if (!fields) return 0;
+  const upperBandValue = numericValue(row?.[fields.upper]);
+  const priceOnly = numericValue(row?.[fields.add]) || 0;
+  return upperBandValue && upperBandValue > 0 ? upperBandValue : priceOnly;
+}
+
+function caseloadPanelValue(row, spec) {
+  const fields = FIGURE_HORIZONS[spec.horizon];
+  if (!fields) return 0;
+  if (spec.band === "upper_band") return caseloadUpperValue(row, spec.horizon);
+  return numericValue(row?.[fields.add]) || 0;
+}
+
+function caseloadPanelPct(row, spec) {
+  const totalPop = numericValue(row?.total_population) || numericValue(row?.total_pop);
+  if (!totalPop) return 0;
+  return (caseloadPanelValue(row, spec) / totalPop) * 100;
+}
+
+function caseloadPanelRows(spec, metric = "people") {
+  return caseloadRowsForScenario(spec.scenario)
+    .map((row) => {
+      const value = metric === "population_pct"
+        ? caseloadPanelPct(row, spec)
+        : caseloadPanelValue(row, spec);
+      return {
+        ...row,
+        value,
+        chartValue: metric === "people_log" ? Math.max(value, 1000) : value,
+      };
+    })
+    .sort((a, b) => (b.value || 0) - (a.value || 0));
+}
+
+function caseloadPanelTotal(scenario, horizonKey, band = "price_only") {
+  const spec = { scenario, horizon: horizonKey, band };
+  return caseloadRowsForScenario(scenario).reduce((total, row) => total + caseloadPanelValue(row, spec), 0);
+}
+
+function selectedFigurePanel(selectId) {
+  const selected = document.getElementById(selectId)?.value;
+  return FIGURE_PANEL_SPECS.find((spec) => spec.id === selected) || FIGURE_PANEL_SPECS[0];
+}
+
+function genderPanelValue(row, spec) {
+  const fields = FIGURE_HORIZONS[spec.horizon];
+  if (!fields) return 0;
+  if (spec.band === "upper_band") {
+    const upper = numericValue(row?.[fields.womenUpper]);
+    if (upper !== null && upper !== undefined && upper > 0) return upper;
+  }
+  return numericValue(row?.[fields.women]) || 0;
+}
+
+function genderPanelRows(spec) {
+  return caseloadGenderRows()
+    .filter((row) => row.scenario === spec.scenario)
+    .map((row) => ({
+      ...row,
+      value: genderPanelValue(row, spec),
+      shareValue: numericValue(row.women_girls_burden_pp_from_parity),
+    }))
+    .filter((row) => row.value !== null && row.value !== undefined)
+    .sort((a, b) => (b.value || 0) - (a.value || 0));
+}
+
+function caseloadMethodColor(row) {
+  const method = String(row?.method || "").toLowerCase();
+  if (method.includes("ipc")) return COLORS.teal;
+  if (method.includes("cross")) return "#9858e5";
+  if (method.includes("fallback")) return COLORS.red;
+  return COLORS.gold;
+}
+
+function caseloadMethodLabel(method) {
+  const value = String(method || "").replaceAll("_", " ");
+  return value ? value.replace(/\b\w/g, (match) => match.toUpperCase()) : "Method n/a";
+}
+
+function caseloadMetricCard(label, value, note) {
+  const item = document.createElement("article");
+  item.className = "caseload-metric";
+  appendText(item, "span", label, "metric-label");
+  appendText(item, "strong", value);
+  appendText(item, "p", note);
+  return item;
+}
+
+function renderCaseloadSummary() {
+  const caseload = scenarioCaseloadData();
+  if (el.caseloadBoundaryNote) {
+    el.caseloadBoundaryNote.textContent = caseload.methodBoundary || "Scenario/counterfactual planning estimates; not observed impact.";
+  }
+  if (el.caseloadSourceNote) {
+    el.caseloadSourceNote.textContent = caseload.sourceNote || "";
+  }
+  if (!el.caseloadSummaryList) return;
+  el.caseloadSummaryList.innerHTML = "";
+  if (!caseload.available) {
+    el.caseloadSummaryList.appendChild(caseloadMetricCard("Data status", "Not available", "Scenario-caseload estimates are not available in the current dashboard dataset."));
+    return;
+  }
+  if (el.caseloadSummaryList.dataset.mode === "figure-intro") {
+    const hasGender = caseloadGenderRows().length > 0;
+    [
+      ["1", "Scenario scale", "Range chart shows estimated additional caseloads across +6m and +9m."],
+      ["2", "Largest caseloads", "Central September country estimates show where the largest caseloads sit."],
+      ["3", "Income losses", "Waterfall shows how income-channel losses can widen the severe-case estimate."],
+      ["4", "Gender distribution", hasGender ? "Estimated women/girls and men/boys distribution is included for scenario planning." : "Gender-distribution estimates are not available."],
+    ].forEach(([label, value, note]) => el.caseloadSummaryList.appendChild(caseloadMetricCard(label, value, note)));
+    return;
+  }
+  const headline = caseload.headline || {};
+  [
+    [
+      "Central Sep 2026",
+      fmtMillions(headline.centralSep26),
+      "Additional people, price-only central scenario",
+    ],
+    [
+      "Central Dec 2026",
+      fmtMillions(headline.centralDec26),
+      "Additional people, price-only central scenario",
+    ],
+    [
+      "Severe Dec 2026",
+      fmtMillions(headline.severeDec26),
+      "Additional people, price-only severe scenario",
+    ],
+    [
+      "Severe + income",
+      fmtMillions(headline.severeUpperDec26),
+      "Severe scenario with income-channel effects",
+    ],
+  ].forEach(([label, value, note]) => el.caseloadSummaryList.appendChild(caseloadMetricCard(label, value, note)));
+}
+
+function renderCaseloadRangeChart() {
+  if (!window.Chart) return;
+  destroyChart("caseloadRange");
+  const ctx = document.getElementById("caseload-range-chart");
+  if (!ctx) return;
+  const caseload = scenarioCaseloadData();
+  const headline = caseload.headline || {};
+  const labels = ["Sep 2026 (+6m)", "Dec 2026 (+9m)"];
+  const datasets = [
+    {
+      label: "Mild price-only",
+      data: [headline.mildSep26, headline.mildDec26],
+      borderColor: COLORS.teal,
+      backgroundColor: "rgba(92, 127, 120, 0.12)",
+      pointBackgroundColor: COLORS.teal,
+      borderDash: [6, 4],
+      borderWidth: 2,
+      tension: 0.22,
+    },
+    {
+      label: "Central estimate",
+      data: [headline.centralSep26, headline.centralDec26],
+      borderColor: COLORS.navy,
+      backgroundColor: "rgba(31, 35, 38, 0.08)",
+      pointBackgroundColor: COLORS.navy,
+      pointRadius: 5,
+      pointHoverRadius: 6,
+      borderWidth: 4,
+      tension: 0.22,
+    },
+    {
+      label: "Severe price-only",
+      data: [headline.severeSep26, headline.severeDec26],
+      borderColor: COLORS.gold,
+      backgroundColor: "rgba(199, 138, 44, 0.12)",
+      pointBackgroundColor: COLORS.gold,
+      borderDash: [6, 4],
+      borderWidth: 2,
+      tension: 0.22,
+    },
+    {
+      label: "Severe + income effects",
+      data: [headline.severeUpperSep26, headline.severeUpperDec26],
+      borderColor: COLORS.red,
+      backgroundColor: "rgba(232, 74, 95, 0.1)",
+      pointBackgroundColor: COLORS.red,
+      borderDash: [3, 4],
+      borderWidth: 2,
+      tension: 0.22,
+    },
+  ];
+
+  charts.caseloadRange = new Chart(ctx, {
+    type: "line",
+    data: { labels, datasets },
+    options: baseChartOptions({
+      interaction: { mode: "nearest", intersect: false },
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: { color: COLORS.navy, font: chartFont(), boxWidth: 14 },
+        },
+        tooltip: {
+          backgroundColor: COLORS.navy,
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          padding: 10,
+          callbacks: {
+            label: (context) => `${context.dataset.label}: ${fmtMillions(context.parsed.y)}`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.navy, font: chartFont() },
+        },
+        y: {
+          min: 0,
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont(), callback: (value) => fmtCompact(value) },
+          title: { display: true, text: "Additional food-insecure people", color: COLORS.muted, font: chartFont() },
+        },
+      },
+    }),
+  });
+}
+
+function renderFigureMetricCards() {
+  const container = document.getElementById("figure-summary-list");
+  if (!container) return;
+  const centralSep = caseloadPanelTotal("central", "6m");
+  const centralDec = caseloadPanelTotal("central", "9m");
+  const severeDec = caseloadPanelTotal("severe", "9m");
+  const severeUpperDec = caseloadPanelTotal("severe", "9m", "upper_band");
+  const incomeAdd = severeUpperDec - severeDec;
+  container.innerHTML = "";
+  [
+    ["Central +6m", fmtMillions(centralSep), "Additional people, price-only central scenario"],
+    ["Central +9m", fmtMillions(centralDec), "Additional people, price-only central scenario"],
+    ["Severe + income +9m", fmtMillions(severeUpperDec), "Severe scenario with income-channel effects"],
+    ["Added income-loss effect", fmtMillions(incomeAdd), `${fmtPct(incomeAdd / severeDec * 100)} above severe price-only +9m`],
+  ].forEach(([label, value, note]) => container.appendChild(caseloadMetricCard(label, value, note)));
+}
+
+function renderFigureRangeChart() {
+  if (!window.Chart) return;
+  const ctx = document.getElementById("figure-range-chart");
+  if (!ctx) return;
+  destroyChart("figureRange");
+  const labels = [FIGURE_HORIZONS["6m"].label, FIGURE_HORIZONS["9m"].label];
+  const datasets = [
+    {
+      label: "Mild price-only",
+      data: [caseloadPanelTotal("mild", "6m"), caseloadPanelTotal("mild", "9m")],
+      borderColor: COLORS.teal,
+      backgroundColor: "rgba(92, 127, 120, 0.14)",
+      borderDash: [6, 4],
+      pointBackgroundColor: COLORS.teal,
+      borderWidth: 2,
+      tension: 0.22,
+    },
+    {
+      label: "Central estimate",
+      data: [caseloadPanelTotal("central", "6m"), caseloadPanelTotal("central", "9m")],
+      borderColor: COLORS.navy,
+      backgroundColor: "rgba(31, 35, 38, 0.08)",
+      pointBackgroundColor: COLORS.navy,
+      pointRadius: 5,
+      pointHoverRadius: 7,
+      borderWidth: 4,
+      tension: 0.22,
+    },
+    {
+      label: "Severe price-only",
+      data: [caseloadPanelTotal("severe", "6m"), caseloadPanelTotal("severe", "9m")],
+      borderColor: COLORS.gold,
+      backgroundColor: "rgba(199, 138, 44, 0.12)",
+      borderDash: [6, 4],
+      pointBackgroundColor: COLORS.gold,
+      borderWidth: 2,
+      tension: 0.22,
+    },
+    {
+      label: "Severe + income effects",
+      data: [caseloadPanelTotal("severe", "6m", "upper_band"), caseloadPanelTotal("severe", "9m", "upper_band")],
+      borderColor: COLORS.red,
+      backgroundColor: "rgba(232, 74, 95, 0.1)",
+      borderDash: [3, 4],
+      pointBackgroundColor: COLORS.red,
+      borderWidth: 2,
+      tension: 0.22,
+    },
+  ];
+
+  charts.figureRange = new Chart(ctx, {
+    type: "line",
+    data: { labels, datasets },
+    options: baseChartOptions({
+      interaction: { mode: "nearest", intersect: false },
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: { color: COLORS.navy, font: chartFont(), boxWidth: 14 },
+        },
+        tooltip: {
+          backgroundColor: COLORS.navy,
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          padding: 10,
+          callbacks: {
+            label: (context) => `${context.dataset.label}: ${fmtMillions(context.parsed.y)}`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.navy, font: chartFont() },
+        },
+        y: {
+          min: 0,
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont(), callback: (value) => fmtCompact(value) },
+          title: { display: true, text: "Additional food-insecure people", color: COLORS.muted, font: chartFont() },
+        },
+      },
+    }),
+  });
+}
+
+function renderFigureWaterfallChart() {
+  if (!window.Chart) return;
+  const ctx = document.getElementById("figure-waterfall-chart");
+  if (!ctx) return;
+  destroyChart("figureWaterfall");
+  const priceOnly = caseloadPanelTotal("severe", "9m");
+  const upperBand = caseloadPanelTotal("severe", "9m", "upper_band");
+  const incomeAdd = Math.max(0, upperBand - priceOnly);
+  const metrics = document.getElementById("figure-waterfall-metrics");
+  if (metrics) {
+    metrics.innerHTML = "";
+    [
+      ["Price-only", fmtMillions(priceOnly)],
+      ["Income-loss effect", fmtMillions(incomeAdd)],
+      ["Severe + income", fmtMillions(upperBand)],
+    ].forEach(([label, value]) => metrics.appendChild(caseloadMetricCard(label, value, "Severe scenario, Dec 2026")));
+  }
+
+  charts.figureWaterfall = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Price only", "+ Income losses", "Severe + income"],
+      datasets: [
+        {
+          label: "Additional food-insecure people",
+          data: [[0, priceOnly], [priceOnly, upperBand], [0, upperBand]],
+          actualValues: [priceOnly, incomeAdd, upperBand],
+          backgroundColor: [COLORS.navy, COLORS.gold, COLORS.red],
+          borderRadius: 2,
+        },
+      ],
+    },
+    options: baseChartOptions({
+      plugins: {
+        tooltip: {
+          backgroundColor: COLORS.navy,
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          padding: 10,
+          callbacks: {
+            label: (context) => `${context.label}: ${fmtMillions(context.dataset.actualValues[context.dataIndex])}`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont() },
+        },
+        y: {
+          min: 0,
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont(), callback: (value) => fmtCompact(value) },
+          title: { display: true, text: "Additional food-insecure people", color: COLORS.muted, font: chartFont() },
+        },
+      },
+    }),
+  });
+}
+
+function renderFigureCountryBarChart({
+  chartKey,
+  canvasId,
+  rows,
+  axisTitle,
+  datasetLabel,
+  logScale = false,
+  percent = false,
+  maxLabels = 12,
+  dynamicHeight = false,
+}) {
+  if (!window.Chart) return;
+  const ctx = document.getElementById(canvasId);
+  if (!ctx) return;
+  destroyChart(chartKey);
+  if (!rows.length) return;
+  if (dynamicHeight) setFigureChartHeight(canvasId, rows.length);
+  const values = rows.map((row) => row.value || 0);
+  const chartValues = rows.map((row) => logScale ? Math.max(row.value || 0, 1000) : row.value || 0);
+  const maxValue = Math.max(...values);
+  charts[chartKey] = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: rows.map((row) => row.country),
+      datasets: [
+        {
+          label: datasetLabel,
+          data: chartValues,
+          actualValues: values,
+          backgroundColor: rows.map((row, index) => index === 0 ? COLORS.navy : caseloadMethodColor(row)),
+          borderColor: rows.map((row) => row.low_confidence ? COLORS.navy : "rgba(0, 0, 0, 0)"),
+          borderWidth: rows.map((row) => row.low_confidence ? 1 : 0),
+          borderRadius: 2,
+        },
+      ],
+    },
+    plugins: [barValueLabelPlugin],
+    options: baseChartOptions({
+      indexAxis: "y",
+      layout: { padding: { right: maxLabels ? 62 : 10 } },
+      plugins: {
+        barValueLabel: {
+          maxLabels,
+          formatter: (_value, index) => percent ? fmtPct(values[index]) : fmtCompact(values[index]),
+          insideColor: "#fff",
+        },
+        tooltip: {
+          backgroundColor: COLORS.navy,
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          padding: 10,
+          callbacks: {
+            label: (context) => {
+              const row = rows[context.dataIndex];
+              const value = context.dataset.actualValues[context.dataIndex];
+              const method = caseloadMethodLabel(row.method);
+              const confidence = row.low_confidence ? "low confidence" : "standard confidence";
+              return `${datasetLabel}: ${percent ? fmtPct(value) : fmtCompact(value)} | ${method} | ${confidence}`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          type: logScale ? "logarithmic" : "linear",
+          min: logScale ? 1000 : 0,
+          suggestedMax: logScale ? undefined : maxValue * 1.15,
+          grid: { color: COLORS.grid },
+          ticks: {
+            color: COLORS.muted,
+            font: chartFont(),
+            maxTicksLimit: logScale ? 6 : percent ? 5 : 7,
+            callback: (value) => percent ? `${value}%` : fmtCompact(value),
+          },
+          title: { display: true, text: axisTitle, color: COLORS.muted, font: chartFont() },
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont(), autoSkip: false },
+        },
+      },
+    }),
+  });
+}
+
+function renderFigureTopCountryCharts() {
+  const centralSepSpec = { scenario: "central", horizon: "6m", band: "price_only" };
+  const centralRows = caseloadPanelRows(centralSepSpec);
+  renderFigureCountryBarChart({
+    chartKey: "figureTopCountries",
+    canvasId: "figure-top-countries-chart",
+    rows: centralRows.slice(0, 15),
+    axisTitle: "Additional food-insecure people, central +6m",
+    datasetLabel: "Additional people",
+    maxLabels: 15,
+    dynamicHeight: true,
+  });
+}
+
+function renderFigureAllCountryPanels() {
+  const peopleSpec = selectedFigurePanel("figure-all-country-people-select");
+  const peopleRowsAll = caseloadPanelRows(peopleSpec, "people_log");
+  const peopleLimit = selectedFigureRowLimit("figure-all-country-people-limit-select", 15);
+  const peopleRows = applyFigureRowLimit(peopleRowsAll, peopleLimit);
+  const peopleTitle = document.getElementById("figure-all-country-people-title");
+  if (peopleTitle) peopleTitle.textContent = `${peopleSpec.label} | ${figureRowLimitLabel(peopleLimit, peopleRowsAll.length)}`;
+  renderFigureCountryBarChart({
+    chartKey: "figureAllCountriesPeople",
+    canvasId: "figure-all-countries-people-chart",
+    rows: peopleRows,
+    axisTitle: "Additional food-insecure people, log scale",
+    datasetLabel: "Additional people",
+    logScale: true,
+    maxLabels: peopleLimit.all ? 12 : peopleRows.length,
+    dynamicHeight: true,
+  });
+
+  const populationSpec = selectedFigurePanel("figure-all-country-population-select");
+  const populationRowsAll = caseloadPanelRows(populationSpec, "population_pct");
+  const populationLimit = selectedFigureRowLimit("figure-all-country-population-limit-select", 10);
+  const populationRows = applyFigureRowLimit(populationRowsAll, populationLimit);
+  const populationTitle = document.getElementById("figure-all-country-population-title");
+  if (populationTitle) populationTitle.textContent = `${populationSpec.label} | ${figureRowLimitLabel(populationLimit, populationRowsAll.length)}`;
+  renderFigureCountryBarChart({
+    chartKey: "figureAllCountriesPopulation",
+    canvasId: "figure-all-countries-population-chart",
+    rows: populationRows,
+    axisTitle: "Additional people as % of total population",
+    datasetLabel: "Population share",
+    percent: true,
+    maxLabels: populationLimit.all ? 12 : populationRows.length,
+    dynamicHeight: true,
+  });
+}
+
+function renderFigureGenderShareChart(rows) {
+  if (!window.Chart) return;
+  const ctx = document.getElementById("figure-gender-share-chart");
+  if (!ctx) return;
+  destroyChart("figureGenderShare");
+  const sorted = [...rows]
+    .filter((row) => row.shareValue !== null && row.shareValue !== undefined)
+    .sort((a, b) => (b.shareValue || 0) - (a.shareValue || 0));
+  if (!sorted.length) return;
+  const values = sorted.map((row) => row.shareValue || 0);
+  const maxAbs = Math.max(...values.map((value) => Math.abs(value)), 1);
+  charts.figureGenderShare = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: sorted.map((row) => row.country),
+      datasets: [
+        {
+          label: "Women/girls share vs parity",
+          data: values,
+          backgroundColor: values.map((value) => value >= 0 ? COLORS.red : COLORS.blue),
+          borderRadius: 2,
+        },
+      ],
+    },
+    plugins: [barValueLabelPlugin],
+    options: baseChartOptions({
+      indexAxis: "y",
+      layout: { padding: { right: 58, left: 8 } },
+      plugins: {
+        barValueLabel: {
+          maxLabels: 18,
+          formatter: (value) => `${value > 0 ? "+" : ""}${fmt(value, 1)} pp`,
+          color: COLORS.navy,
+          insideColor: "#fff",
+        },
+        tooltip: {
+          backgroundColor: COLORS.navy,
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          padding: 10,
+          callbacks: {
+            label: (context) => {
+              const row = sorted[context.dataIndex];
+              const share = numericValue(row.women_girls_share_pct);
+              return `Women/girls share: ${fmtPct(share)} (${context.parsed.x > 0 ? "+" : ""}${fmt(context.parsed.x, 1)} pp vs 50%)`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          min: -Math.ceil(maxAbs + 1),
+          max: Math.ceil(maxAbs + 1),
+          grid: { color: COLORS.grid },
+          ticks: { color: COLORS.muted, font: chartFont(), callback: (value) => `${value} pp` },
+          title: { display: true, text: "Percentage points above / below 50% women/girls share", color: COLORS.muted, font: chartFont() },
+        },
+        y: {
+          grid: { display: false },
+          ticks: { color: COLORS.navy, font: chartFont(), autoSkip: false },
+        },
+      },
+    }),
+  });
+}
+
+function renderFigureGenderCharts() {
+  const ctx = document.getElementById("figure-women-girls-absolute-chart");
+  const shareCtx = document.getElementById("figure-gender-share-chart");
+  if (!ctx && !shareCtx) return;
+  const spec = selectedFigurePanel("figure-gender-panel-select");
+  const title = document.getElementById("figure-gender-panel-title");
+  if (title) title.textContent = spec.label;
+  const rows = genderPanelRows(spec);
+  renderFigureCountryBarChart({
+    chartKey: "figureWomenGirlsAbsolute",
+    canvasId: "figure-women-girls-absolute-chart",
+    rows: rows.slice(0, 15),
+    axisTitle: `Additional women/girls, ${spec.label}`,
+    datasetLabel: "Women/girls",
+    maxLabels: 15,
+  });
+  renderFigureGenderShareChart(rows);
+}
+
+function renderFigurePage() {
+  const hasFigureCanvas = [
+    "figure-range-chart",
+    "figure-waterfall-chart",
+    "figure-top-countries-chart",
+    "figure-all-countries-people-chart",
+    "figure-all-countries-population-chart",
+    "figure-women-girls-absolute-chart",
+    "figure-gender-share-chart",
+  ].some((id) => document.getElementById(id));
+  if (!hasFigureCanvas) return;
+  renderFigureMetricCards();
+  renderFigureRangeChart();
+  renderFigureWaterfallChart();
+  renderFigureTopCountryCharts();
+  renderFigureAllCountryPanels();
+  renderFigureGenderCharts();
+}
+
+function renderCaseloadTable() {
+  const caseload = scenarioCaseloadData();
+  if (!el.caseloadEstimatesTableBody) return;
+  const rows = Array.isArray(caseload.estimates) ? [...caseload.estimates] : [];
+  const scenarioRank = { mild: 1, central: 2, severe: 3 };
+  rows.sort((a, b) => String(a.country).localeCompare(String(b.country)) || (scenarioRank[a.scenario] || 99) - (scenarioRank[b.scenario] || 99));
+  el.caseloadEstimatesTableBody.innerHTML = "";
+  if (el.caseloadEstimatesCardList) el.caseloadEstimatesCardList.innerHTML = "";
+  if (el.caseloadTableSummary) {
+    const countries = new Set(rows.map((row) => row.iso3)).size;
+    const genderRows = caseloadGenderRows().length;
+    el.caseloadTableSummary.textContent = `${fmtInt(rows.length)} country-scenario rows across ${fmtInt(countries)} countries. Values are planning estimates; ${fmtInt(genderRows)} gender-distribution rows are available for scenario planning.`;
+  }
+
+  rows.forEach((row) => {
+    if (el.caseloadEstimatesCardList) {
+      el.caseloadEstimatesCardList.appendChild(createMobileTableCard(
+        `${row.country} - ${caseloadScenarioLabel(row.scenario)}`,
+        `${row.method || "method n/a"} | ${row.low_confidence ? "Low confidence" : "Standard confidence"}`,
+        [
+          ["Sep 2026", fmtCompact(row.add_6m_sep26)],
+          ["Sep %", fmtPct(row.pct_6m_sep26)],
+          ["Sep upper", fmtCompact(row.add_6m_sep26_upper)],
+          ["Dec 2026", fmtCompact(row.add_9m_dec26)],
+          ["Dec %", fmtPct(row.pct_9m_dec26)],
+          ["Dec upper", fmtCompact(row.add_9m_dec26_upper)],
+          ["Baseline", row.baseline_ipc3plus ? `IPC ${fmtCompact(row.baseline_ipc3plus)}` : `PoU ${fmtCompact(row.baseline_pou)}`],
+        ]
+      ));
+    }
+
+    const tr = document.createElement("tr");
+    [
+      row.country,
+      caseloadScenarioLabel(row.scenario),
+      row.method || "n/a",
+      row.low_confidence ? "Yes" : "No",
+      row.baseline_ipc3plus ? fmtCompact(row.baseline_ipc3plus) : "n/a",
+      row.baseline_pou ? fmtCompact(row.baseline_pou) : "n/a",
+      fmtCompact(row.add_6m_sep26),
+      fmtPct(row.pct_6m_sep26),
+      fmtCompact(row.add_6m_sep26_upper),
+      fmtCompact(row.add_9m_dec26),
+      fmtPct(row.pct_9m_dec26),
+      fmtCompact(row.add_9m_dec26_upper),
+    ].forEach((value) => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      tr.appendChild(cell);
+    });
+    el.caseloadEstimatesTableBody.appendChild(tr);
+  });
+}
+
+function renderCaseloadPage() {
+  if (!el.caseloadSummaryList && !document.getElementById("caseload-range-chart")) return;
+  renderCaseloadSummary();
+  renderCaseloadRangeChart();
+  renderCaseloadTable();
+}
+
 function renderAll() {
   renderMeta();
   renderFilterSummary();
@@ -2322,6 +3102,8 @@ function renderAll() {
   renderCountrySourceEvidence();
   renderTable();
   renderCountryComparisonList();
+  renderCaseloadPage();
+  renderFigurePage();
 }
 
 function bindEvents() {
@@ -2353,6 +3135,16 @@ function bindEvents() {
     state.scenarioGroup = scenarioGroupFor(state.scenario)?.id || state.scenarioGroup;
     renderAll();
   });
+  const figurePeopleSelect = document.getElementById("figure-all-country-people-select");
+  if (figurePeopleSelect) figurePeopleSelect.addEventListener("change", renderFigureAllCountryPanels);
+  const figurePopulationSelect = document.getElementById("figure-all-country-population-select");
+  if (figurePopulationSelect) figurePopulationSelect.addEventListener("change", renderFigureAllCountryPanels);
+  const figurePeopleLimitSelect = document.getElementById("figure-all-country-people-limit-select");
+  if (figurePeopleLimitSelect) figurePeopleLimitSelect.addEventListener("change", renderFigureAllCountryPanels);
+  const figurePopulationLimitSelect = document.getElementById("figure-all-country-population-limit-select");
+  if (figurePopulationLimitSelect) figurePopulationLimitSelect.addEventListener("change", renderFigureAllCountryPanels);
+  const figureGenderSelect = document.getElementById("figure-gender-panel-select");
+  if (figureGenderSelect) figureGenderSelect.addEventListener("change", renderFigureGenderCharts);
   window.addEventListener("scroll", () => {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
